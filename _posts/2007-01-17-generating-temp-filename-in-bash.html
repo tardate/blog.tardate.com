@@ -1,0 +1,14 @@
+---
+layout: post
+title: Generating a temp filename in Bash
+date: '2007-01-17T02:03:00.000+08:00'
+author: Paul Gallagher
+tags:
+- Bash
+- Linux
+modified_time: '2007-01-17T02:19:37.165+08:00'
+blogger_id: tag:blogger.com,1999:blog-6220586.post-8720192806654156115
+blogger_orig_url: http://blog.tardate.com/2007/01/generating-temp-filename-in-bash.html
+---
+
+<p></p><p>Here's a function that simplifies the process of generating temporary filenames in shell scripts (I use bash). This function will generate a temporary filename given optional path and filename prefix parameters. If the file happens to already exist (a small chance), it recurses to try a new filename.</p><p>It doesn't cleanup temp files or anything fancy like that, but it does have the behaviour that if you never write to the temp file, it is not created. If you don't like that idea, touch the file before returning the name.</p><p>This procedure demonstrates the use of variable expansion modifiers to parse the parameters, and the $RANDOM builtin variable.</p><blockquote><span style="font-family:courier new;font-size:85%;"><pre>function gettmpfile()<br />{<br />  local tmppath=${1:-/tmp}<br />  local tmpfile=$2${2:+-}<br />  tmpfile=$tmppath/$tmpfile$RANDOM$RANDOM.tmp<br />  if [ -e $tmpfile ]<br />  then<br />    # if file already exists, recurse and try again<br />    tmpfile=$(gettmpfile $1 $2)<br />  fi<br />  echo $tmpfile<br />}</pre><br /></span></blockquote><p></p>By default (with no parameters specified), this function will return a random filename in the /tmp directory:<br /><blockquote><p><span style="font-family:courier new;font-size:85%;">[prompt]$ echo $(gettmpfile)<br />/tmp/324003570.tmp</span></p></blockquote><br /><p></p>If you specify a path and filename prefix, these are used to generate the name:<br /><blockquote><span style="font-family:courier new;font-size:85%;">[prompt]$ echo $(gettmpfile /my_tmp_path app-tmpfile)<br />/my_tmp_path/app-tmpfile-276051579.tmp </span></blockquote><p></p>

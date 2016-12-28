@@ -1,0 +1,16 @@
+---
+layout: post
+title: LittleArduinoProjects#100 Retrogaming on an Arduino/OLED "console"
+date: '2015-06-28T17:24:00.003+08:00'
+author: Paul Gallagher
+tags:
+- LittleArduinoProjects
+- Arduino
+- Gaming
+modified_time: '2016-02-11T22:43:38.921+08:00'
+thumbnail: https://img.youtube.com/vi/GBX0n_YXXcs/default.jpg
+blogger_id: tag:blogger.com,1999:blog-6220586.post-4402585071334624446
+blogger_orig_url: http://blog.tardate.com/2015/06/retrogaming-on-arduinooled-console.html
+---
+
+<span style="font-style:italic;float:right;">(blogarhythm ~ <a href="https://youtu.be/gTw2YvutJRA">invaders must die - The Prodigy</a>)</span>  <br />Tiny 128x64 monochrome OLED screens are cheap and easy to come by, and quite popular for adding visual display to a microcontroller project.<br /><br />My <a href="https://github.com/tardate/LittleArduinoProjects/tree/master/playground/OLED/SSD1306BareBack">first experiments</a> in driving them with raw SPI commands had me feeling distinctly old school, as the last time remember programming a bitmap screen display was probably about 30 years ago!<br /><br />So while in a retro mood, what better than to attempt an arcade classic? At first I wasn't sure it was going to be possible to make a playable game due to the limited Arduino memory and relative slow screen communication protocol.<br /><br />But after a few tweaks of the low-level SPI implementation, I was surprised myself at how well it can run. Even had enough clock cycles left to throw in a sound track and effects.<br /><br />Here's a quick video on YouTube of the latest version. <a href="https://github.com/tardate/LittleArduinoProjects/tree/master/playground/OLED/ArdWinVaders">ArdWinVaders</a>! .. in full lo-rez monochrome glory, packed into 14kb and speeding along at 8MHz.  <br /><br />As always, <a href="https://github.com/tardate/LittleArduinoProjects/tree/master/playground/OLED/ArdWinVaders">all notes, schematics and code are in the Little Arduino Projects repo on GitHub</a>.<br /><br /><iframe width="560" height="315" src="https://www.youtube.com/embed/GBX0n_YXXcs" frameborder="0" allowfullscreen></iframe><br /><br />Full source and schematics are in the <a href="https://github.com/tardate/LittleArduinoProjects">LittleArduinoProjects collection on Github</a>.

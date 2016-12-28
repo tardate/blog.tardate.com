@@ -1,0 +1,14 @@
+---
+layout: post
+title: Proof! Oracle Development have a funny bone
+date: '2007-09-25T10:28:00.000+08:00'
+author: Paul Gallagher
+tags:
+- Database
+- Security
+modified_time: '2007-09-25T11:13:56.298+08:00'
+blogger_id: tag:blogger.com,1999:blog-6220586.post-7573109629814762948
+blogger_orig_url: http://blog.tardate.com/2007/09/proof-oracle-development-have-funny.html
+---
+
+Recurity Labs GmbH have a very interesting <a href="http://www.phenoelit.net/lablog/oracle.sl">post</a> on their investigation of the new password algorithms in Oracle Database 11g.<br /><br />I did a double-take when I saw the set of hashing algorithm identifier values (used as a parameter to the ztv2ghashs hashing function)..<blockquote><span style="font-family:courier new;font-size:100%;"><pre><br />0xf00d means: Use MD4 <br />0xdead means: Use SHA1 <br />0xbeaf means: Use MD5 <br /></pre></span></blockquote><br />Ah! It's an oldie but a goodie. Brings back schoolboy memories of getting your LCD calculator to spell out well-known petroleum companies.<br /><br />And good to see that even in the depths of Oracle Development there's a willingness to do something a little special, for no reason other than <em>because they can</em>.

@@ -1,0 +1,15 @@
+---
+layout: post
+title: Generating CLOB/CDATA elements with XMLDB
+date: '2007-02-21T18:49:00.000+08:00'
+author: Paul Gallagher
+tags:
+- Database
+- Perl
+- XML
+modified_time: '2007-05-27T13:24:19.620+08:00'
+blogger_id: tag:blogger.com,1999:blog-6220586.post-8075173438859331701
+blogger_orig_url: http://blog.tardate.com/2007/02/generating-clobcdata-elements-with.html
+---
+
+Generating CDATA elements with Oracle XMLDB recently got a good airing in the <a href="http://forums.oracle.com/forums/thread.jspa?threadID=476322">XMLDB forums</a>.<br /><br />I won't reiterate the discussion there, but offer a summary and some sources.<br /><br />It seems the current state of affairs is that if you need to generate large text elements with XMLDB you have two options:<br /><br /><ul><br /><li>use DBMS_LOB procedural code to manually construct a CDATA element, or<br /></li><li>use XMLTYPE views to construct an XML-encoded element<br /></li></ul><br /><br />In both cases you need to be careful not to do anything that casts or converts to varchar to avoid the inherent size limitations.<br /><br />Note that the XML-encoding in XMLTYPE views is automatic, and I currently don't know how to tell it <i>not</i> to encode but rather quote as CDATA.<br /><br />Some sources and examples:<br /><br /><ul><br /><li><a href="http://paulg.homelinux.com:8000/sources/clob-cdata.pl">clob-cdata.pl</a> is a Perl script using DBI that demonstrates how to generate an XMLTYPE view over an arbitrary CLOB element, without using XMLSchema. In this case, the CLOB will be automatically XML-encoded [<a href="http://paulg.homelinux.com:8000/sources/clob-cdata.pl">clob-cdata-nonschema.sql</a> is just the plain SQL].<br /></li><li><a href="http://paulg.homelinux.com:8000/sources/clob-cdata-schema.sql">clob-cdata-schema.sql</a> shows how you can do a similar thing, but using an XMLSchema definition.<br /></li><li><a href="http://paulg.homelinux.com:8000/sources/clob-cdata-small.sql">clob-cdata-small.sql</a> shows how you can create CDATA elements where the text size is small using the XMLCdata function <br /></li></ul>

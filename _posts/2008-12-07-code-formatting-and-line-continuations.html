@@ -1,0 +1,16 @@
+---
+layout: post
+title: Code formatting and line continuations with Javascript and CSS
+date: '2008-12-07T15:57:00.005+08:00'
+author: Paul Gallagher
+tags:
+- Scripting
+- Web 2.0
+- Javascript
+modified_time: '2008-12-07T16:29:48.555+08:00'
+thumbnail: http://1.bp.blogspot.com/_AZh6c1pzK1A/STuHSex6iQI/AAAAAAAAAiA/nctT8zu-JPo/s72-c/syntaxhighlighter-on-tardate.jpg
+blogger_id: tag:blogger.com,1999:blog-6220586.post-7209743562608473160
+blogger_orig_url: http://blog.tardate.com/2008/12/code-formatting-and-line-continuations.html
+---
+
+I've had a <a href="http://stackoverflow.com/questions/330229/how-to-apply-a-line-wrapcontinuation-style-and-code-formatting-with-css">question up on stackoverflow</a> recently in an attempt to get a nice solution for adding a glyph with CSS to indicate a wrapped line (e.g. in a command line sample).<br /><br />With a few good suggestions, I had a reasonable solution but it still required a bit of manual markup to prepare the example. Then I saw <a href="http://blogs.oracle.com/pranav/2008/12/blog_your_code_using_syntaxhig.html">Pranav Prakash's post</a> about <a href="http://code.google.com/p/syntaxhighlighter">syntaxhighlighter</a> by Alex Gorbatchev.  <br /><br />With a few tweaks (see the <a href="http://stackoverflow.com/questions/330229/how-to-apply-a-line-wrapcontinuation-style-and-code-formatting-with-css">stackoverflow question</a> for the details), I'm now able to combine the best of both worlds: great formatting and syntax highlighting with syntaxhighlighter and also line continuation glyphs. Here's an example of the result: <br /><pre name="code" class="java:wraplines"><br />public class HelloWorld {<br /><br />  public static void main (String[] args)<br /><br />  {<br /><br />    System.out.println("Hello World! But that's not all I have to say. This line is going to go on for a very long time and I'd like to see it wrapped in the display. Note that the line styling clearly indicates a continuation.");<br /><br />  }<br /><br />}<br /></pre><br /><br />NB: if you have javascript disabled, or reading this through a newsfeed (or if I hit a bug) you may not see the full effect. Here's a screenshot of what should be appearing above:<br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_AZh6c1pzK1A/STuHSex6iQI/AAAAAAAAAiA/nctT8zu-JPo/s1600-h/syntaxhighlighter-on-tardate.jpg"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 400px; height: 117px;" src="http://1.bp.blogspot.com/_AZh6c1pzK1A/STuHSex6iQI/AAAAAAAAAiA/nctT8zu-JPo/s400/syntaxhighlighter-on-tardate.jpg" border="0" alt=""id="BLOGGER_PHOTO_ID_5276960139964483842" /></a><br /><br />Now I just need to go back and update the code formatting in all my old posts. Basket!

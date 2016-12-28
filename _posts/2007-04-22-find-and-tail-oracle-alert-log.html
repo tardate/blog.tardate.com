@@ -1,0 +1,15 @@
+---
+layout: post
+title: Find and tail the Oracle alert log
+date: '2007-04-22T09:04:00.001+08:00'
+author: Paul Gallagher
+tags:
+- Bash
+- Database
+- Perl
+modified_time: '2008-08-31T19:53:02.404+08:00'
+blogger_id: tag:blogger.com,1999:blog-6220586.post-8474417244142302453
+blogger_orig_url: http://blog.tardate.com/2007/04/find-and-tail-oracle-alert-log.html
+---
+
+"Where's the alert log?" .. usually the first thing you want to know when looking at a new database. <br /><br />Oracle's Grid Control solves this problem very well with it's web interface. But not always available. <br /><br />Or in my case recently, where I had 6 databases setup on a single machine for various testing scenarios, I was getting tired of cd'ing all over the place, forgetting paths, or ending up with too many windows open for my own good. Getting well sick of this, I did a quick hunt for scripts to help but surprisingly didn't find much. So diving in, I created <a href="http://github.com/tardate/sources/tree/master/oraAlertLog.sh?raw=true">oraAlertLog.sh</a> and now I'm happy;)<br /><br />This script is for running on the database server. The Oracle environment must be set, and - at least for the first call - the database must be available so that the "background_dump_dest" parameter can be obtained. The script will cache the alert log location so that it will still work if the database happens to be down.<br /><br />After getting this running I thought "duh!", should have been in perl so it would be possible to run on any platform supported by Oracle. Here's a version in Perl: <a href="http://github.com/tardate/sources/tree/master/oraAlertLog.pl?raw=true">oraAlertLog.pl</a>. It requires Perl with DBI and DBD::Oracle .. the Perl distribution included with Oracle Database is fine for this (you just need to make sure the environment is properly configured).

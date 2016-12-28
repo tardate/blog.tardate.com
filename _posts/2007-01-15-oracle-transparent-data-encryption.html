@@ -1,0 +1,13 @@
+---
+layout: post
+title: Indexing with Oracle TDE
+date: '2007-01-15T21:23:00.000+08:00'
+author: Paul Gallagher
+tags:
+- Database
+modified_time: '2007-01-16T20:52:36.621+08:00'
+blogger_id: tag:blogger.com,1999:blog-6220586.post-3657594392585285605
+blogger_orig_url: http://blog.tardate.com/2007/01/oracle-transparent-data-encryption.html
+---
+
+Oracle Transparent Data Encryption allows data encryption to be declared in a database schema, meaning that anything persisted on disk is protected from prying eyes.<br /><br />It is a simple matter to setup TDE by bascially configuring a wallet location in sqlnet.ora, setting the key, and then opening the wallet after database startup. There's a good <a href="http://www.oracle.com/technology/obe/10gr2_db_vmware/security/tde/tde.htm">tutorial</a> for this on OTN.<br /><br />Declaring data encryption is then simply a matter of using the ENCRYPT keyword in your schema defintion, for example:<br /><br /><blockquote><span style="font-family:courier new;font-size:85%;">CREATE TABLE T1<br />(SEQ NUMBER(15),<br />CCNUMBER CHAR(16) ENCRYPT USING 'AES128' NO SALT); </span></blockquote>Indexing encrypted columns is covered in the <a href="http://download-west.oracle.com/docs/cd/B19306_01/network.102/b14268/asotrans.htm#sthref235">Advanced Security Guide</a>. It mentions specifically that you cannot create an index on a column that has been encrypted with salt (hence the 'NO SALT' above). There is another restriction that you cannot use encrypted columns in functional indexes, but I've yet to find this covered explicitly in the doco. You may be surprised to find out that this also means you get caught if you try to create an index with descending values, such as:<br /><br /><blockquote><span style="font-family:courier new;font-size:85%;">CREATE INDEX T1_AK1 ON T1 (CCNUMBER, SEQ DESC);<br /></span></blockquote><br />This will fail with the error "ORA-28337: the specified index may not be defined on an encrypted column". The reason for this is that the use of "descending" will be treated as a functional index.<br /><br />Removing the "descending" qualifier allows a valid index to be built:<br /><br /><blockquote><p><span style="font-family:courier new;font-size:85%;">CREATE INDEX T1_AK2 ON T1 (CCNUMBER, SEQ); </span></p><p></p></blockquote>

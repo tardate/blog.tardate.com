@@ -1,0 +1,14 @@
+---
+layout: post
+title: AXIS Revisited on OC4j - AXIS 2
+date: '2007-01-07T08:14:00.000+08:00'
+author: Paul Gallagher
+tags:
+- Axis
+- OC4J
+modified_time: '2008-01-08T12:43:49.617+08:00'
+blogger_id: tag:blogger.com,1999:blog-6220586.post-4451319671559246292
+blogger_orig_url: http://blog.tardate.com/2007/01/axis-revisited-on-oc4j-axis-2.html
+---
+
+<a href="http://ws.apache.org/axis2/">Apache Axis2</a> is the core engine for Web services. It is a complete re-design and re-write of the widely used Apache Axis SOAP stack to build on the lessons learnt from Apache Axis. Version 1.1 was released in Nov'06. My first simple test was to update my deployment on Oracle OC4J.<br />Happily, it deployed just as easily as the original Axis, as I reported in a <a href="http://tardate.blogspot.com/2005/12/running-axis-with-oracle-oc4j.html">previous post</a>.<br /><br />Deployment of the Axis2 webapp is a little different, but just as straightforward. This is what I did:<br /><ol><li>Download the Standard Binary Distribution and explode into a local folder</li><li>In the $AXIS2_HOME/webapp directory, use ant to build the war file: <span class="code">ant create.war</span></li><li>This creates the $AXIS2_HOME/dist/axis2.war file</li><li>edit $ORACLE_HOME/j2ee/home/config/application.xml to add <span class="code">&lt;web-module id="axis2" path="file:/d:/axis2/dist/axis2.war"/&gt;</span></li><li>edit $ORACLE_HOME/j2ee/home/config/http-web-site.xml to add <span class="code">&lt;web-app application="default" name="axis2" root="/axis2"/&gt;</span> </li></ol><br />And that's it. Axis2 up and running in my OC4J home at <a href="http://localhost/axis2/">http://localhost/axis2/</a>

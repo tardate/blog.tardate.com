@@ -1,0 +1,15 @@
+---
+layout: post
+title: Simple Perl clients for Axis2 with SOAP::Lite
+date: '2007-01-07T08:37:00.002+08:00'
+author: Paul Gallagher
+tags:
+- SOAP
+- Perl
+- Axis
+modified_time: '2008-08-31T19:37:25.627+08:00'
+blogger_id: tag:blogger.com,1999:blog-6220586.post-902195013024232660
+blogger_orig_url: http://blog.tardate.com/2007/01/simple-perl-clients-for-axis2-with.html
+---
+
+<a href="http://www.soaplite.com/">SOAP::Lite</a> is an incredibly powerful little module that makes using Perl for SOAP clients a piece of cake (groan).<br /><br />True to the spirit of Perl, it makes simple things simple. This is all you need to do to interrogate the "Version" Axis (1+2) service:<br /><br /><blockquote class="code">#!/usr/bin/perl -w<br />use SOAP::Lite;<br />print SOAP::Lite <br /> -&gt; proxy('http://localhost/axis2/services/Version')<br /> -&gt; getVersion()<br /> -&gt; result;<br /></blockquote><br /><br />The output:<br /><blockquote class="code">Hello I am Axis2 version service , My version is 1.1<br /></blockquote><br /><br />The SOAP request that this generates is as basic as it gets, and as you can see most of it is dedicated to the envelope definition:<br /><blockquote class="code">&lt;?xml version="1.0" encoding="UTF-8"?&gt;<br />&lt;SOAP-ENV:Envelope<br />xmlns:xsi=<br />"http://www.w3.org/1999/XMLSchema-instance"<br />xmlns:SOAP-ENC=<br />"http://schemas.xmlsoap.org/soap/encoding/"<br />xmlns:SOAP-ENV=<br />"http://schemas.xmlsoap.org/soap/envelope/"<br />xmlns:xsd=<br />"http://www.w3.org/1999/XMLSchema"<br />SOAP-ENV:encodingStyle=<br />"http://schemas.xmlsoap.org/soap/encoding/"&gt;<br />&lt;SOAP-ENV:Body>&lt;getVersion/&gt;&lt;/SOAP-ENV:Body&gt;<br />&lt;/SOAP-ENV:Envelope&gt;<br /></blockquote><br /><br />The example does illustrate one very important capability of SOAP::Lite - the automatic marshaling of the response into a usable Perl structure. In this case, its just a string.<br /><br />One of the difficulties with SOAP::Lite at present is the dearth of good documentation and examples. This does tend to make doing more complex operations feel like you are living on the edge, but that's where the fun begins for some I guess;) I will look at some more complex request and response topics in a further post.

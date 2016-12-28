@@ -1,0 +1,14 @@
+---
+layout: post
+title: Synchronising two directory trees
+date: '2007-02-21T08:57:00.002+08:00'
+author: Paul Gallagher
+tags:
+- Software
+- Perl
+modified_time: '2008-10-27T12:35:22.971+08:00'
+blogger_id: tag:blogger.com,1999:blog-6220586.post-2655418528095419118
+blogger_orig_url: http://blog.tardate.com/2007/02/synchronising-two-directory-trees.html
+---
+
+I've released an update to Chang Liu's tree-sync.pl script on <a href="http://www.cpan.org/scripts/CPAN/Administrative/index.html">CPAN</a> (currently <a href="http://cpan.perl.org/authors/id/P/PA/PAULPG/tree-sync/">tree-sync-2.2.pl</a>).<br /><br />I had some problems with the original script, so this is a re-write that uses an algorithm based on File::Find module. <br /><br />I've only been testing on Windows and Linux, but so far so good - it solves my immiedate issue which was to have a way of maintaining a synchronised "backup" copy of various filesystems.<br /><br /><span style="font-style:italic;">PS: As of Oct-2008, the tree-sync project is now on <a href="http://github.com/tardate/tree-sync">github</a>. Use this if you want to contribute to development. Of course, releases will still be distributed for use on <a href="http://www.cpan.org/scripts/CPAN/Administrative/index.html">CPAN</a>. </span>

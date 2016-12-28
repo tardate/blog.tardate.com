@@ -1,0 +1,15 @@
+---
+layout: post
+title: Using Twitter OAuth with Rails + sample
+date: '2009-06-29T18:53:00.004+08:00'
+author: Paul Gallagher
+tags:
+- Rails
+- Security
+- Cloud
+modified_time: '2009-06-30T09:46:37.602+08:00'
+blogger_id: tag:blogger.com,1999:blog-6220586.post-6132656404321936059
+blogger_orig_url: http://blog.tardate.com/2009/06/using-twitter-oauth-with-rails-sample.html
+---
+
+I've been using rails with the <a href="http://apiwiki.twitter.com/">Twitter REST API</a> of late, using the <a href="http://github.com/pelle/oauth/tree/master">oauth gem</a> as the base. It works well, but keeping up with the <a href="http://apiwiki.twitter.com/API-Overview">API changes</a> can be a challenge!<br /><br />In the recent update to <a href="http://blog.luckycal.com/?p=121">OAuth 1.0a</a>, there were two critical changes required:<br /><br /><h3>Web-apps should specify the oauth_callback</h3><br />Through trial-and-error, I found that if you don't explicitly specify the oauth_callback when going through the authorization process, twitter will halt at the PIN page (behaving as if you are using a client application). That's easily fixed..<br /><pre name="code" class="ruby:wraplines:nocontrols">request_token = consumer.get_request_token( :oauth_callback => TWOAUTH_CALLBACK )<br />session[:request_token] = request_token.token<br />session[:request_token_secret] = request_token.secret<br /># Send to twitter.com to authorize<br />redirect_to request_token.authorize_url</pre><br /><span style="font-style:italic;">NB: the root cause is that oauth 0.3.5 sets "oob" as the oauth_callback if you don't explicitly set it. This triggers the twitter desktop PIN flow.</span><br /><br /><h3>Include the oauth_verifier when exchanging the request token for an access token</h3><br />Next, the major change in 1.0a was to add an oauth_verifier parameter. Twitter sends this back to you after the user has authorized access, and you need to include this parameter when exchanging the request token for an access token.<br /><pre name="code" class="ruby:wraplines:nocontrols">request_token = OAuth::RequestToken.new(consumer, session[:request_token], session[:request_token_secret])<br />access_token = request_token.get_access_token( :oauth_verifier => params[:oauth_verifier] )</pre><br /><br /><h3>An example application</h3><br />I've created a minimalist application that demonstrates the twitter API with OAuth 1.0a in rails. I've set this up to run at <a href="http://heroku.com">heroku</a>.<br /><br />The source is at github for all to share: <a href="http://github.com/tardate/rails-twitter-oauth-sample/tree/master">http://github.com/tardate/rails-twitter-oauth-sample/tree/master</a><br /><br />And there's a running demo site at <a href="http://rails-twitter-oauth-sample.heroku.com">http://rails-twitter-oauth-sample.heroku.com</a>.

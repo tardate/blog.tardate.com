@@ -1,0 +1,14 @@
+---
+layout: post
+title: Safe OCCI createStatelessConnectionPool usage
+date: '2007-02-11T11:45:00.000+08:00'
+author: Paul Gallagher
+tags:
+- Database
+- C/C++
+modified_time: '2008-01-08T12:33:25.210+08:00'
+blogger_id: tag:blogger.com,1999:blog-6220586.post-6670242712485697780
+blogger_orig_url: http://blog.tardate.com/2007/02/safe-occi-createstatelessconnectionpool.html
+---
+
+I've been working a bit with Oracle's <a href="http://www.oracle.com/technology/tech/oci/index.html">OCCI</a> (the C++ API for Oracle Database), and stateless connection pools in particular. <br /><br />I've noticed a particular behaviour that's important to be aware of when creating the connection pool (using the oracle::occi::Environment method "createStatelessConnectionPool"). The problem is that this call will fail if you have some kind of conenction or TNS error, leaving you with an unusable and invalid pool.<br /><br />To give a concrete example, if you create a connection pool like this:<br /><blockquote class="code">scPool = env->createStatelessConnectionPool(...<br /></blockquote ><br />what I find is that if the database is down (for example), this call with throw a TNS error like ORA-12541: TNS:no listener, and the scPool object is invalid (but not a null reference).<br /><br />if you attempt to use the pool thereafter, e.g.:<br /><blockquote class="code">if (scPool) cout << "MaxConn=" << scPool->getMaxConnections() << endl;<br /></blockquote><br />then firstly "if (scPool) .." wont protect you (because its not null), and the getMaxConnections method call will throw an uncatchable segmentation fault (this is Linux x86 I'm using)<br /><br />The workaround of course is to null your scPool if you catch the TNS error, and then if you want a robust application that must keep running even if the connection pool is not created, everytime you try and get a connection from the pool you should also first check to see if you have a pool object to use (and if not, try and create it again).<br /><br />Tortuous to say the least!<br /><br />I would have expected that the desired behaviour should be for createStatelessConnectionPool to return a valid connection pool even if connections are not possible at that point in time, and that for the TNS errors to be only thrown if and when you try and get a connection from the pool.<br /><br />Anyone have a view? ... bug, ER or expected?<br /><br /><em>12-Feb, an update: I've since discovered that this behaviour is true <strong>only</strong> if you set a "minumum connections" >0 for the pool. If you set "minumum connections"==0, then the behaviour is as I would expect - the pool is created without error, but you may hit an error when attempting to get a connection from the pool. </em>

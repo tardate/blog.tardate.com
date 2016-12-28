@@ -1,0 +1,14 @@
+---
+layout: post
+title: Exercising Regular Expressions and Arrays in Javascript
+date: '2007-01-09T15:52:00.001+08:00'
+author: Paul Gallagher
+tags:
+- RegEx
+- Javascript
+modified_time: '2008-08-13T22:30:24.253+08:00'
+blogger_id: tag:blogger.com,1999:blog-6220586.post-6607167999921574185
+blogger_orig_url: http://blog.tardate.com/2007/01/exercising-regular-expressions-and.html
+---
+
+I've been working a bit with AJAX, and that soon prompted me to brush up on my Javascript. In the past I'd never used it to do more than a little validation or form "glue". Now revisiting the language from a true programmer's perspective, I recognise that it is pretty capable!<br /><br /><a href="http://tardate.heroku.com/speakGoodSinglish.htm">Speak Good Singlish!</a> is a sample that gives regular expression and multi-dimensional array handling a good workout. It's a Singlish translator implemented in Javascript. I can't remember what sparked the idea to use this as an example, but somehow I got thinking back to ole "Jive" and "Valley girl" translators that have been floating around the net for many years.<br /><br />The RegExp object usage in the sample is fairly standard, but the array handling is not.<br /><br />I'm using a 2D array for the "lexicon" - basically a list of regex matches and replacements. For example the following fragment. You'll note that the second dimension can contain either a simple string or an array (as the replacement element):<br /><blockquote class="code">var slexicon = [<br />[ '\\benglish\\b', 'Singlish' ] ,<br />[ '\\bdo\\b', [ 'do', 'do until sian', 'do sure can one' ] ]<br />]; </blockquote>There's a core routine that iterates through the array and performs the substitutions. Where an array substitution is present, it uses a funtion inline to pick a random element from the array to perform the substitution:<br /><blockquote class="code"> // do the translation<br /> for (var i = 0; i &lt; slexicon.length ; i++) {<br />  var slexiconRow = slexicon[i];<br />  var theRegex = new RegExp( slexiconRow[0], "gim" );<br />  var theReplacement = slexiconRow[1];<br />  if (theReplacement instanceof Array ) {<br />   dataOut = dataOut.replace( theRegex, function (match) {return randomElement(theReplacement)} );<br />  } else {<br />   dataOut = dataOut.replace( theRegex, theReplacement );<br />  } <br /> }</blockquote>The randomElement function is simplicity itself:<br /><blockquote class="code">// returns random element of an array<br />var randomElement = new Function("x", "return x[Math.floor(Math.random() * (x.length))]");</blockquote>The HTML page contains the whole script inline, so it is easy to review in-place with a "view source". Enjoy!

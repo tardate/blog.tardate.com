@@ -1,0 +1,14 @@
+---
+layout: post
+title: 'gitfall#1: Falling off a branch'
+date: '2011-10-01T14:29:00.000+08:00'
+author: Paul Gallagher
+tags:
+- git
+modified_time: '2011-10-01T14:29:21.705+08:00'
+thumbnail: http://3.bp.blogspot.com/-6CecF1SzUIs/Toay9cKZndI/AAAAAAAAB7I/GngydK-K-dk/s72-c/gitfall01.png
+blogger_id: tag:blogger.com,1999:blog-6220586.post-1483541484400869029
+blogger_orig_url: http://blog.tardate.com/2011/10/gitfall1-falling-off-branch.html
+---
+
+Ever had a merge fail with a <b>fatal: git write-tree failed to write a tree</b> message out of the blue?<br /><br />It sounds terrifying, but when I got the root cause is quite mundane: file name conflicts in the merging commits that git is not smart enough to figure out without help. And when you fixup your merge, you are left with a commit that's lost one of its parents ("falling off a branch").<br /><br />If you do much file reorganisation in a project with branches, it turns out this can be quite common (had it a few times on a recent project). <br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-6CecF1SzUIs/Toay9cKZndI/AAAAAAAAB7I/GngydK-K-dk/s1600/gitfall01.png" imageanchor="1" style="clear:right; float:right; margin-left:1em; margin-bottom:1em"><img border="0" height="188" width="320" src="http://3.bp.blogspot.com/-6CecF1SzUIs/Toay9cKZndI/AAAAAAAAB7I/GngydK-K-dk/s320/gitfall01.png" /></a></div>In an attempt to understand exactly what was going on, I put together the steps needed to reproduce and recover from the error. I've tidied these up and made it a full "tutorial/demo" script. You can find it in a repo called <a href="https://github.com/tardate/gitfalls">gitfalls</a> - in the expectation that there are many more git curiosities and idiosynchrasies worth a similar treatment. Enjoy!<br /><br />The script not only shows how to create the error, but two ways of resolving it and the "lost parent branch" issue:<br /><ol><li>Merge again after fixing the first failed commit. Duh!</li><li>Going a bit deeper and using  git commit-tree to manufacture a new merge commit with the correct parentage</li></ol><br />Lessons learned form all of this? Perhaps:<br /><ol><li>Avoid reorganising folder structures using folder names that once were used by files (or vice versa)</li><li>If you must do such a reorganisation, immediately merge or cherry-pick to other active branches if you can. This avoids laying a trap for a co-worker to hit later on.</li></ol><br />Hope you enjoy the script, and if you have any others to contribute please be my guest!<br /><br /><span style="font-style:italic;">Blogarhythm: <a href="http://youtu.be/E42ZoFY8jdY">Fall Out - The Police</a></span><br /><br /><br /><br />

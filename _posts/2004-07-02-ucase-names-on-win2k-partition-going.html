@@ -1,0 +1,13 @@
+---
+layout: post
+title: Ucase names on Win2k partition going lcase under Linux
+date: '2004-07-02T18:14:00.000+08:00'
+author: Paul Gallagher
+tags:
+- Linux
+modified_time: '2007-01-07T20:51:29.520+08:00'
+blogger_id: tag:blogger.com,1999:blog-6220586.post-108876361527162078
+blogger_orig_url: http://blog.tardate.com/2004/07/ucase-names-on-win2k-partition-going.html
+---
+
+Hmm, mounted a Windows 2000 FAT32 partition under linux, but I find that any 8.3 name that is all uppercase on windows is appearing as all lowercase under Linux. Mixed case names are handled properly. Not a major issue until you try and do something like point gcvs at a cvs repository on the vfat partition .. and it can't find the "CVSROOT" directory (since it appreas as "cvsroot").<br />There are some references on the web that indicate the "check=s" vfat mount option might help, but that does not do the trick for me. A bit of testing later, and what I can report is that the "shortname=winnt" is what is needed. For example:<br /><code>[root@home #] mount -t vfat -o ro,shortname=winnt /dev/hda1 /mnt/win2k<br />[root@home #] ls -l /mnt/win2k/MyCVS<br />total 56<br />drwxr-xr-x 3 root root 8192 Jun 5 2003 CVSROOT<br />drwxr-xr-x 11 root root 8192 Sep 6 2003 MyConfig<br />drwxr-xr-x 35 root root 8192 Jun 5 2003 MyDev<br />drwxr-xr-x 26 root root 8192 Oct 9 2003 Testers<br /></code><br />Ref<br /><a href="http://www.charmed.com/txt/vfat.txt">Using VFAT</a>

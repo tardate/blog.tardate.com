@@ -1,0 +1,14 @@
+---
+layout: post
+title: 'LittleArduinoProjects#197 Wien Bridge Audio Tone Generator '
+date: '2016-03-22T00:11:00.000+08:00'
+author: Paul Gallagher
+tags:
+- LittleArduinoProjects
+- Electronics
+modified_time: '2016-03-22T00:11:05.909+08:00'
+blogger_id: tag:blogger.com,1999:blog-6220586.post-4393011010630447565
+blogger_orig_url: http://blog.tardate.com/2016/03/littlearduinoprojects197-wien-bridge.html
+---
+
+A <a href="https://en.wikipedia.org/wiki/Wien_bridge_oscillator">Wien bridge oscillator</a> is essentially an RC Band Pass Filter with a high Q factor at the resonant frequency, and generates a nice sine wave. I wanted a simple audio-frequency test signal generator, and a Wien Bridge turned out to be perfect for the job.<br /><br />As always, <a href="https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/WienBridgeAudioToneGenerator">all notes, schematics and code are in the Little Arduino Projects repo on GitHub</a>.<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/WienBridgeAudioToneGenerator" imageanchor="1"><img border="0" src="https://github.com/tardate/LittleArduinoProjects/blob/master/Electronics101/WienBridgeAudioToneGenerator/assets/WienBridgeAudioToneGenerator_build.jpg?raw=true" style="width: 90%"/></a></div><br />A good old LM324 does triple duty in the circuit:<br /><ul><li>a non-inverting amplifier with a gain of ~3 provides the feedback required to sustain the oscillator</li><li>one unit buffers a half-supply voltage to provide a "virtual ground" for the non-inverting amplifier</li><li>a third unit buffers the output signal to avoid load interference with the oscillator</li></ul>The LM324 doesn't have great upper and lower limits, and clipping is severe in the basic circuit. This is solved with diode stabilisation.<br /><br />The result is a pretty decent sine wave at ~1.574kHz, very close to the theoretical resonant frequency of <a href="http://www.wolframalpha.com/input/?i=1%2F%282%CF%80*10k%CE%A9*10nF%29">1.592kHz</a>.<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/WienBridgeAudioToneGenerator" imageanchor="1"><img border="0" src="https://github.com/tardate/LittleArduinoProjects/blob/master/Electronics101/WienBridgeAudioToneGenerator/assets/final_build_scope.gif?raw=true" style="width: 90%"/></a></div>

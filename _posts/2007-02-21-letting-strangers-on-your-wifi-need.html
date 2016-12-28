@@ -1,0 +1,15 @@
+---
+layout: post
+title: Letting strangers on your Wifi .. need a reason why not?
+date: '2007-02-21T18:45:00.001+08:00'
+author: Paul Gallagher
+tags:
+- WiFi
+- Security
+- Perl
+modified_time: '2008-08-31T20:08:41.368+08:00'
+blogger_id: tag:blogger.com,1999:blog-6220586.post-197825604908115096
+blogger_orig_url: http://blog.tardate.com/2007/02/letting-strangers-on-your-wifi-need.html
+---
+
+Sometime back I was hacking my wifi admin pages (to let me register a certain NTP server .. but that's another story), and in the process discovered how broken the security is on my device (an SMC SMC2804WBRP-G Barricade router).<br /><br />Basically the security check - to make sure you are a valid, logged-in administrator - just redirects to the "action" page which does no further checking of your credentials.<br /><br />It doesn't take a genius to figure out that if you just post directly to the "action" page you can probably bypass authentication. At least, that's what occured to me, so I tried it and (too my surprise nonetheless) it worked. Or didn't work, depending on your point of view!<br /><br />To their credit(!), the routine to reset the admin password does require you to send the existing password, but other operations have no barrier.<br /><br />Here's a simple <a href="http://github.com/tardate/sources/tree/master/ownMySmc.pl?raw=true">Perl script</a> that demonstrates how you can "own" an SMC router of this type. It basically lets you reset factory defaults, after which you know the admin password (smcadmin). The factory default has no wifi enabled, so to make any further use of the router you must be connected to a LAN port. But certainly one way to wreck your neighbour's weekend.<br /><br />I reported this vulnerability to SMC and CERT, but haven't heard whether any action has been taken to fix this. <br /><br />I also don't know how many other models or brands of routers are susceptible to the same fault. But take this as a warning (and the reason why I am posting this information) ... if you want to offer wifi services to others, make sure your device is not subject to this kind of flaw first!

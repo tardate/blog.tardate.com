@@ -1,0 +1,14 @@
+---
+layout: post
+title: Request header rewrites with Java servlet filters
+date: '2007-03-28T01:07:00.002+08:00'
+author: Paul Gallagher
+tags:
+- Java
+- OC4J
+modified_time: '2008-08-31T19:57:48.850+08:00'
+blogger_id: tag:blogger.com,1999:blog-6220586.post-708885466102777052
+blogger_orig_url: http://blog.tardate.com/2007/03/request-header-rewrites-with-java.html
+---
+
+A collegue and I have been looking at a setup with completely separate Oracle Portal (with SSO) and Oracle Collabsuite installations, and we wanted a simple way to have users automatically logged into Collabsuite after logging into Portal. If you are not familiar with Collabsuite, just think "J2EE" application.<br /><br />Normally you would deploy a consolidated infrastructure, which makes this a no-brainer, but for various reasons we wanted to keep these two environments quite separate.<br /><br />The details of how we did this are not really pertinent, but the bottom line is that we had everything sorted with one exception: the LDAP realm on Portal did not match Collabsuite. Everything was nicely working except the Collabsuite web applications keeled over, because the "osso-user-dn" request header set by the Portal SSO did not match Collabsuite.<br /><br />If only we could hack/rewrite the osso-user-dn to fixup the realm part!<br /><br />Now with Apache 2.0, this is probably quite easy by using the RequestHeaders directive in httpd.conf. That didn't exist in Apache 1.3, which unfortunately is what we are using.<br /><br />This lead me to investigate what could be done at the J2EE level, and I discovered for the first time the servlet filter features in the <a href="http://java.sun.com/products/servlet">Servlet API 2.3</a>.<br /><br />There are a few good tutorials floating around the web, such as Jason Hunter's <a href="http://www.servlets.com/soapbox/filters.html">JavaWorld</a> article, but nothing I've found yet specifically demonstrates header rewrite.<br /><br />Its pretty simple though. I've put together a demo RewriteRequestHeaderFilter with sources (download: <a href="http://github.com/tardate/sources/tree/master/RewriteRequestHeaderFilter-1.0-src.zip?raw=true">RewriteRequestHeaderFilter-1.0-src.zip</a>). It contains a complete demo site, but is also packaged and ready to insert into any arbitrary web application (just deploy the jar and fiddle the site's web.xml).<br /><br />So, if you ever find yourself wanting to fiddle request headers in the J2EE environment and don't have "external" options, the RewriteRequestHeaderFilter could be just the ticket.<br /><br /><span style="font-style:italic;">Postscript 2008-06-02: I've moved this to its own <a href="http://sourceforge.net/projects/rewriteheaders/">sourceforge project</a> now.</span>

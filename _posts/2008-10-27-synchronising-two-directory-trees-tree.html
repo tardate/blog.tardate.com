@@ -1,0 +1,14 @@
+---
+layout: post
+title: Synchronising two directory trees - tree-sync 2.4
+date: '2008-10-27T10:47:00.007+08:00'
+author: Paul Gallagher
+tags:
+- Software
+- Perl
+modified_time: '2008-10-27T12:34:02.553+08:00'
+blogger_id: tag:blogger.com,1999:blog-6220586.post-3847654975500946492
+blogger_orig_url: http://blog.tardate.com/2008/10/synchronising-two-directory-trees-tree.html
+---
+
+tree-sync.pl has had a little update thanks to a contribution from Dave Stafford.<br /><ul><li>Added option 'diff' to view only changes </li><br /><li>Added option 'ignore' to exclude certain extensions</li><br /><li>Added option 'brief' to remove src/dest directories in report view to make cleaner output</li></ul><br />In the 2.4 release I've also added the 'force' option to control read-only file handling.<br /><br />tree-sync.pl is a bit of a geeky tool, suitable for cases where you want detailed control over a file-based copy/mirror/backup process from the command-line. There are many flashier solutions available these days, but if tree-sync scratches your itch - go for it!<br /><br /><a href="http://cpan.perl.org/authors/id/P/PA/PAULPG/tree-sync/tree-sync-2.4.pl">tree-sync.pl</a> continues to be available on <a href="http://www.cpan.org/scripts/CPAN/Administrative/index.html">CPAN</a>, but from the 2.4 release I have moved the source to <a href="http://github.com/tardate/tree-sync">github</a>. If you have changes to suggest or bugs to fix, please go ahead and join this project.
