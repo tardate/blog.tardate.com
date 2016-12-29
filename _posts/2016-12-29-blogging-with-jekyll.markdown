@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
-date:   2016-12-28 14:55:26 +0800
+title:  "Blogging with Jekyll!"
+date:   2016-12-29 09:00:00 +0800
 tags:
 - jekyll
 ---

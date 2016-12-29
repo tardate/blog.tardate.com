@@ -3,6 +3,13 @@
 I've had two blogs kicking around on blogger.com for years (tardate and pratalife).
 I decided to try porting and combining them on GitHub Pages using Jekyll.
 
+## Template/Theme
+
+I started out using the built-in [minima](https://github.com/jekyll/minima) theme,
+but subsequently switched to largely borrow most of the [pixyll.com](http://pixyll.com) template
+as it offers a very good mix of pre-configured features useful for a blog
+(responsive design, social integration).
+
 ## Importing Existing Sites from Blogger
 
 ```
