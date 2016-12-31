@@ -1,8 +1,8 @@
 <footer class="center">
   <div class="measure">
-    <small>
-
-    </small>
+    {% if site.show_social_icons %}
+      {% include social_links.html %}
+    {% endif %}
   </div>
 </footer>
 {% if site.enable_anchorjs %}<!-- AnchorJS -->

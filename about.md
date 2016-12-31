@@ -5,6 +5,10 @@ permalink: /about/
 tags: about
 ---
 
+<p class="center">
+<img src="{{ site.baseurl }}/images/me.jpg" alt="Paul Gallagher" class="avatar" />
+</p>
+
 I'm a software developer, electronics tinkerer and wannabe guitarrista based in Singapore.
 My name is Paul Gallagher and you can easily find me on GitHub, twitter etc - see the links above.
 

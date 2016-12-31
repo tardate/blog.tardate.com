@@ -33,6 +33,11 @@
   border-radius: 50%;
 }
 
+.post-content .avatar {
+  width: 100px;
+  border-radius: 50%;
+}
+
 .meta,
 .post-meta {
   width: auto;
@@ -45,4 +50,9 @@
 
 .related-post-title {
   border-bottom: thin solid #f3f3f3;
+}
+
+.post-link.more {
+  font-style: italic;
+  font-size: smaller;
 }

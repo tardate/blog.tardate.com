@@ -51,3 +51,11 @@ button,
     text-shadow: none;
     background-image: none;
 }
+
+a[imageanchor],
+a[imageanchor]:hover,
+a[imageanchor]:focus,
+a[imageanchor]:active {
+  text-shadow: none;
+  background-image: none;
+}
