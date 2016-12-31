@@ -17,7 +17,14 @@
 }
 
 .recent-reads a {
-  color: #333;
+  color: #7a7a7a;
   text-shadow: none;
   background-image: none;
+}
+
+.recent-reads h2 {
+  font-weight: 300;
+  font-style: italic;
+  font-size: 1rem;
+  font-family: $font-family;
 }
