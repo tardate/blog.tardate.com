@@ -3,6 +3,7 @@
 ---
 @charset "UTF-8";
 
+
 /*!
 * Pixyll - A simple, beautiful Jekyll theme that's mobile first.
 * @author John Otander <johnotander@gmail.com> (http://johnotander.com/)
@@ -33,3 +34,10 @@
 @import 'gists';
 @import 'measure';
 @import 'pagination';
+
+
+/*!
+* additional styling
+*/
+
+@import 'goodreads';
