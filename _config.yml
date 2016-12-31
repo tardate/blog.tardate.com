@@ -1,10 +1,10 @@
 title: tardate 2017
 email: gallagher.paul@gmail.com
 author:      Paul Gallagher
-description: > # My occasional technical diary of thoughts, tips, and tools
-  from some of the more interesting things I'm playing around with at the time.
-  That means all things Web, Open Source, Polyglot-programming, Electronics and Data,
-  or just my latest rant.. who knows!
+description: > #
+  This blog is my occasional diary of Quite Interesting Things.
+  It is generally technical, meaning all things web, open source, polyglot-programming, electronics and concerning data.
+  But sometimes ravings on books or musics, and occasionally a rant or philosophical dribble.
 baseurl:     ""
 url:         "http://blog.tardate.com"
 date_format: "%b %-d, %Y"
@@ -13,7 +13,7 @@ date_format: "%b %-d, %Y"
 google_verification:
 # Use either direct GA implementation or set up GTM account
 # - using both will skew your data (leave blank to not use at all)
-google_analytics:
+google_analytics: UA-4894631-1
 google_tag_manager:
 # Bing services
 bing_verification:
@@ -46,12 +46,12 @@ facebook_comments_number: 10
 # Social icons
 github_username:  tardate
 bitbucket_username:
-stackoverflow_id:
+stackoverflow_id: 6329
 twitter_username: tardate
 skype_username:
 steam_nickname:
 google_plus_id:
-linkedin_username:
+linkedin_username: gallagherpaul
 angellist_username:
 medium_id:
 bitcoin_url:
