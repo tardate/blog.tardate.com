@@ -18,6 +18,8 @@ but subsequently switched to largely borrow most of the [pixyll.com][pixyll] tem
 as it offers a very good mix of pre-configured features useful for a blog
 (responsive design, social integration).
 
+My notes on Jekyll investigation and a series of tests are on [LittleCodingKata](https://github.com/tardate/LittleCodingKata/tree/master/staticweb/jekyll).
+
 
 [tardate]: https://tardate.blogspot.com
 [pratalife]: https://pratalife.blogspot.com
