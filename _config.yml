@@ -116,6 +116,7 @@ gems:
   - jekyll-paginate
   - jekyll-sitemap
 exclude:
+  - bin
   - vendor
   - Gemfile
   - Gemfile.lock
