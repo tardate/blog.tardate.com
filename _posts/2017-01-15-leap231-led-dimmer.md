@@ -7,6 +7,8 @@ summary:        a current-regulated LED dimmer provides flicker-free lighting ev
 tags:
 - LittleArduinoProjects
 - Electronics
+- LED
+- Power
 ---
 
 I was looking at some alternatives for dimming a 12V LED strip. This circuit is by Jim Keith at electroschematics.
