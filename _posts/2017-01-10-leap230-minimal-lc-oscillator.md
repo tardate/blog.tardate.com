@@ -12,12 +12,12 @@ tags:
 ---
 
 I borrowed this idea and circuit design from stoneslice's 1MHz Oscillator video.
-I tested a range of components across a range of frequencies from 1.5MHz to 2.9MHz
+I tested a range of components across a range of frequencies from 1.5MHz to 2.9MHz.
+As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
 
 [![scope_image][scope_image]][project]
 
-As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 
 [leap]: http://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/MinimalLCOscillator

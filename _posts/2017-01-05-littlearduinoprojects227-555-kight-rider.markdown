@@ -17,7 +17,6 @@ The 555 timer is configured as an astable multivibrator, with a frequancy of 10.
 The clock signal from the 555 drives the 4017 decade counter, providing 10 signal lines.
 The 10 outputs of the 4017 (Q0 to Q9) are wired to the appropriate LEDs with steering diodes to generate the "Knight-Rider" pattern
 [![hero_image][hero_image]][project]
-
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 
 [leap]: http://leap.tardate.com

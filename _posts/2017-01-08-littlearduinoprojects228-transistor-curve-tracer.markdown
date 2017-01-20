@@ -19,7 +19,6 @@ plotting collector currect to collector voltage for different base current value
 [![hero_image][hero_image]][project]
 It generates curves like this..
 [![curve_2N3904_50kRb][scope_image]][project]
-
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 
 [leap]: http://leap.tardate.com

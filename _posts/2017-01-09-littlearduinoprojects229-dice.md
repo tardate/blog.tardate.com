@@ -15,6 +15,7 @@ tags:
 This is my deluxe version of a 555/4017-based dice circuit. It's got slow-down and auto power-off,
 but is also craftily packed into a cube. All the inards are exposed, but I think that's a good thing.
 Perhaps the next step would be to cast it in clear resin?
+As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
 
 This project is a combination of circuit ideas. It breaks down into 5 main systems:
@@ -29,7 +30,6 @@ Here's a quick video of the dice in action:
 
 {% include youtube-embed.html id=page.youtubeid %}
 
-As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 
 [leap]: http://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/555Timer/Dice

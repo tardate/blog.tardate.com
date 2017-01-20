@@ -18,7 +18,6 @@ It is another variation of the basic Schmitt Inverter Waveform Generator pattern
 But performance ... is quite terrible actually. Oscillation is only sustained for a small sweep of the 100kΩ pot.
 The waveform is also heavily asymmetric - with a duty cycle at most 25%.
 [![hero_image][hero_image]][project]
-
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 
 [leap]: http://leap.tardate.com

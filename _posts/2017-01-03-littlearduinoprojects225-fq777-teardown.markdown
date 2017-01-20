@@ -15,7 +15,6 @@ But good technical information is hard to come by beyond the usual product featu
 I'm intrigued by the possibilities for building around it, so my first step is to tear one down and
 collect as much information about the product as I can.
 [![hero_image][hero_image]][project]
-
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 
 [leap]: http://leap.tardate.com

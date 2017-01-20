@@ -14,7 +14,6 @@ Stocking stuffers like this 555/4017 LED strobe kit almost always present intere
 For myself, I found out the PCB appeared to have the supplied transistors connected upside down,
 and some adjustments to the resistor values yielded a better effect.
 [![hero_image][hero_image]][project]
-
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 
 [leap]: http://leap.tardate.com

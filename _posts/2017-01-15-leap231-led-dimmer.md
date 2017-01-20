@@ -15,8 +15,8 @@ I was looking at some alternatives for dimming a 12V LED strip. This circuit is 
 Rather than using PWM, this circuit controls the current and provides better flicker-free lighting even when dimmed.
 Very nice!
 [![hero_image][hero_image]][project]
-
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
+
 
 [leap]: http://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/LEDDimmer/CurrentRegulator
