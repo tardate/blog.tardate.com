@@ -8,6 +8,7 @@ tags:
 - LittleArduinoProjects
 - Electronics
 - Audio
+- Guitar Effects
 ---
 
 I wanted to try some digital signal processing on the Arduino/AVR for some time.
