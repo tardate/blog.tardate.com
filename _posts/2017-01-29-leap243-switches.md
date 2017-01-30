@@ -14,7 +14,7 @@ Switches are the most basic of input devices for electrical and electronic syste
 Thorough coverage of the variety of switches can be found in works such as
 Charles Platt's excellent [Encyclopedia of Electronic Components Volume 1](https://www.goodreads.com/book/show/17017467-encyclopedia-of-electronic-components-volume-1),
 and John M. Hughes' [Practical Electronics: Components and Techniques](https://www.goodreads.com/book/show/21483234-practical-electronics).
-[These are my notes on nomenclature and specific components - available in the Little Electronics & Arduino Projects repo on GitHub][project]
+These are my notes on nomenclature and specific components - available in the [Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
 
 [leap]: http://leap.tardate.com
