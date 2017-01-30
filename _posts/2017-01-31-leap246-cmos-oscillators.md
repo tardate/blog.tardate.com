@@ -7,6 +7,7 @@ summary:        testing 4-pin CMOS oscillators
 tags:
 - LittleArduinoProjects
 - Electronics
+- Oscillators
 ---
 
 4-pin CMOS oscillators - like the SaRonix NCH060C I'm testing here - contain all the circuitry
