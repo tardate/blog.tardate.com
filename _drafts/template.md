@@ -4,6 +4,7 @@ title:          "LEAP#228 Transistor Curve Tracer"
 date:           2017-01-08 01:15:00 +0800
 hero_image_url: http://leap.tardate.com/xxx/assets/xxx_build.jpg
 summary:        summary text
+youtubeid:
 tags:
 - LittleArduinoProjects
 - Electronics
