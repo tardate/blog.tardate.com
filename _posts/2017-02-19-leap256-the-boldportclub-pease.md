@@ -3,7 +3,7 @@ layout:         post
 title:          "LEAP#256 The BoldportClub Pease"
 date:           "2017-02-19 11:11:10 +0800"
 hero_image_url: http://leap.tardate.com/BoldportClub/Pease/assets/Pease_board_front.jpg
-summary:        summary text
+summary:        "Building Boldport Club project #1 - A Bob Pease tribute"
 youtubeid:      "-JQLJ-RI_1A"
 tags:
 - LittleArduinoProjects
