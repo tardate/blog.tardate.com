@@ -15,7 +15,6 @@ tags:
 The Bazz Fuss is about the simplest distortion circuit I've ever seen that in fact yields pleasing results.
 After a few experiments comparing configurations on a scope I ended up using two S9013 in Darlington configuration.
 The result is decidedly luscious, so the final build went in a suitably sweet chocolate noisette box.
-
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
 
