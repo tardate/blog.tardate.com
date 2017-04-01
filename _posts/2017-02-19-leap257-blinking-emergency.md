@@ -8,6 +8,7 @@ youtubeid:      "PPUZth8RfCE"
 tags:
 - LittleArduinoProjects
 - Electronics
+- BoldportClub
 ---
 
 I joined the Boldport Club rather late, but manage to snaffle up the Emergency kit PCB in sale of "Just Less the Perfect" boards.
