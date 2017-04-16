@@ -1,6 +1,6 @@
 ---
 layout:         post
-title:          "LEAP270 Cordwood Aanimations"
+title:          "LEAP#270 Cordwood Aanimations"
 date:           "2017-04-16 22:49:57 +0800"
 hero_image_url: http://leap.tardate.com/BoldportClub/cordwood/aanimate/assets/aanimate_build.jpg
 summary:        "Run a demo animation using aaronjasso's library for the Boldport Club Cordwood"
