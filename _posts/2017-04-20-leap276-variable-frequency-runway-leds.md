@@ -3,7 +3,7 @@ layout:         post
 title:          "LEAP#276 Variable Frequency Runway LEDs"
 date:           "2017-04-20 19:22:58 +0800"
 hero_image_url: http://leap.tardate.com/playground/VariableFrequencyRunwayLEDs/assets/VariableFrequencyRunwayLEDs_build.jpg
-summary:        "a PWM-controlled variable frequency LED \"runway lights\" effect using the LM331 and CD4017"
+summary:        "a PWM-controlled variable frequency LED runway lights effect using the LM331 and CD4017"
 youtubeid:      "qnxnlBLyGxo"
 tags:
 - LittleArduinoProjects
