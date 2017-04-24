@@ -13,9 +13,9 @@ tags:
 
 Component testers are very handy things to have around.
 They are also interesting bits of kit to design and build, as you get to play around in the fascinating niche of test equipment and techniques.
-I've buit a range of test equipment, and will probably build much more, but I've always got time for another kit!
-I was interseted in testing out this particular kit, as it is reprasentative of a whole class of simialr products
-that all trace their history back to original open source work by the folks on [www.mikrocontroller.net](http://www.mikrocontroller.net)
+I was interested in testing out this particular Atmega328-based kit, as it is representative of a whole class of simialr products
+that all trace their history back to original open source work by the folks on [www.mikrocontroller.net](http://www.mikrocontroller.net).
+It took a few hours to construct, and fired up perfectly. I have built similar circuits myself, but nothing yet with the complete feature list this kit offers.
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
 
