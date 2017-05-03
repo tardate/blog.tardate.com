@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/Electronics101/VoltageControlledOscillat
 summary:        "Exploring varicap diodes (KV1471) and their use in frequency tuning of a Colpitts-style voltage-controlled oscillator"
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 - Oscillators
 - VCO

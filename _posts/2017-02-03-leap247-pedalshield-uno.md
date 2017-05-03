@@ -5,7 +5,6 @@ date:           "2017-02-03 18:23:30 -0500"
 hero_image_url: http://leap.tardate.com/playground/pedalShieldUno/assets/pedalShieldUno_build.jpg
 summary:        building the Electrosmash pedalSHIELD UNO guitar effects pedal
 tags:
-- LittleArduinoProjects
 - Electronics
 - Guitar Effects
 - Audio

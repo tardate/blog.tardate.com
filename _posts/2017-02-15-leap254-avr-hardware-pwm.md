@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/playground/AvrHardwarePWM/assets/AvrHard
 summary:        All about hardware PWM and demonstrating the modes with the Arduino UNO/ATmega328
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 - AVR
 - PWM

@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/xxx/assets/xxx_build.jpg
 summary:        summary text
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 ---
 

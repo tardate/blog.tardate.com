@@ -5,7 +5,6 @@ date:           "2017-01-10 23:12:46 +0800"
 hero_image_url: http://leap.tardate.com/Electronics101/MinimalLCOscillator/assets/MinimalLCOscillator_build.jpg
 summary:        build and test an LC oscillator made with just 5 components
 tags:
-- LittleArduinoProjects
 - Electronics
 - LC
 - Oscillators

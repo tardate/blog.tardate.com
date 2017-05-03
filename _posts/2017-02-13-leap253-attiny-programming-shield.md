@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/playground/ATtinyProgrammingShield/asset
 summary:        a custom ATtiny programming shield for use with Arduino ISP
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 - ATtiny
 ---

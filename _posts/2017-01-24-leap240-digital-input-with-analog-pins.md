@@ -5,7 +5,6 @@ date:           "2017-01-24 19:54:57 +0800"
 hero_image_url: http://leap.tardate.com/playground/DigitalInputWithAnalogPins/assets/DigitalInputWithAnalogPins_build.jpg
 summary:        demonstrating how to use Arduino analog pins for digital input and output
 tags:
-- LittleArduinoProjects
 - Electronics
 - Arduino
 ---

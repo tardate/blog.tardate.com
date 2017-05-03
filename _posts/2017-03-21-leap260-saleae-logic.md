@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/Equipment/SaleaeLogic/assets/SaleaeLogic
 summary:        checking out a second-hand Saleae Logic USB logic analyzer - that works on a Mac!!
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 - Tools
 ---

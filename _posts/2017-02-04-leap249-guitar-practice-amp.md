@@ -5,7 +5,6 @@ date:           "2017-02-04 17:15:33 -0500"
 hero_image_url: http://leap.tardate.com/Electronics101/AudioAmps/GuitarPracticeAmp/assets/GuitarPracticeAmp_build.jpg
 summary:        a single-channel 10W guitar practice amplifier based on the TDA2050
 tags:
-- LittleArduinoProjects
 - Electronics
 - Audio
 - Amplifiers

@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/BoldportClub/Touchy/assets/Touchy_build.
 summary:        "a capacitive touch input device with on-board Sleepy Bee microcontroller (Boldport Club Project #7)"
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 - BoldportClub
 - EFM8SB1

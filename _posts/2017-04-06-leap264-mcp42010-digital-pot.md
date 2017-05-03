@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/Electronics101/DigitalPots/MCP42010/asse
 summary:        "Control the MCP42010 dual 10kΩ digital potentiometer with an Arduino via SPI"
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 - Digital Pots
 ---

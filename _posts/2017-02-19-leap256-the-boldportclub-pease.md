@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/BoldportClub/Pease/assets/Pease_board_fr
 summary:        "Building Boldport Club project #1 - A Bob Pease tribute"
 youtubeid:      "-JQLJ-RI_1A"
 tags:
-- LittleArduinoProjects
 - Electronics
 - LM331
 - BoldportClub

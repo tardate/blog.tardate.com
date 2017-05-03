@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/playground/AudioDSP/Distortion/assets/Di
 base_url:       https://github.com/tardate/LittleArduinoProjects/tree/master/playground/AudioDSP
 summary:        test a range of effects with the AudioDSP/Arduino - Boost, Distortion, Crunch, SuperCrunch
 tags:
-- LittleArduinoProjects
 - Electronics
 - Audio
 - Guitar Effects

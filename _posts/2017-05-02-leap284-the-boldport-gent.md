@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/BoldportClub/TheGent/assets/TheGent_buil
 summary:        "Building The Gent, Boldport Club Project #10. A simple circuit on a beautiful board"
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 - BoldportClub
 ---

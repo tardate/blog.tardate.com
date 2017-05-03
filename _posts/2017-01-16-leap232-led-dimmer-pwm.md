@@ -5,7 +5,6 @@ date:           "2017-01-16 19:15:15 +0800"
 hero_image_url: http://leap.tardate.com/Electronics101/LEDDimmer/555PWM/assets/555PWM_build.jpg
 summary:        using a simple 555 timer PWM as a LED dimmer
 tags:
-- LittleArduinoProjects
 - Electronics
 - LED
 - PWM

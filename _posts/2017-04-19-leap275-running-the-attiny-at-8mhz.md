@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/playground/ATtiny8MHz/assets/ATtiny8MHz_
 summary:        "How to run an ATtiny85 microprocessor at 8MHz using the internal clock"
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 - ATtiny
 ---

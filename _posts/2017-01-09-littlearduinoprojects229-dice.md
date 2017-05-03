@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/Electronics101/555Timer/Dice/assets/Dice
 summary:        A 555/4017-based dice circuit with slow-down and auto power-off
 youtubeid:      5Vzk1R5ehA4
 tags:
-- LittleArduinoProjects
 - Electronics
 - 555
 - 4017

@@ -5,7 +5,6 @@ date:           "2017-01-26 18:40:00 +0800"
 hero_image_url: http://leap.tardate.com/Electronics101/AudioAmps/GeneralPurpose358/assets/GeneralPurpose358_build.jpg
 summary:        Is this a decent general-purpose LM358 amplifier circuit? Turns out, not so much!
 tags:
-- LittleArduinoProjects
 - Electronics
 - LM358
 - Audio Amplifiers

@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/Electronics101/FM/ThreeStageTransmitter/
 summary:        "dazaro3's 3-stage FM transmitter circuit - on a breadboard, in a can, and the real deal"
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 - FM
 ---

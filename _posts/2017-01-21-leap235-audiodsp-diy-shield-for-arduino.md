@@ -5,7 +5,6 @@ date:           "2017-01-21 10:32:13 +0800"
 hero_image_url: http://leap.tardate.com/playground/AudioDSP/assets/AudioDSP_build.jpg
 summary:        experiements in digital signal processing on the Arduino
 tags:
-- LittleArduinoProjects
 - Electronics
 - Audio
 - Guitar Effects

@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/Electronics101/DigitalPots/MCP4017/asset
 summary:        "Control the MCP4017 single 7-Bit I²C digital potentiometer with an Arduino"
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 - Digital Pots
 ---

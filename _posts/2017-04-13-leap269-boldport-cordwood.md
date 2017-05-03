@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/BoldportClub/cordwood/assets/cordwood_bu
 summary:        "Solving the Cordwood Puzzle - the Boldport Club (Project #3)"
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 - BoldportClub
 ---

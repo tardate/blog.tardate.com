@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/BoldportClub/TheCuttle/assets/TheCuttle_
 summary:        "Building the most beautiful Arduino-compatible board - the Boldport Club Cuttle (Project #6)"
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 - BoldportClub
 ---

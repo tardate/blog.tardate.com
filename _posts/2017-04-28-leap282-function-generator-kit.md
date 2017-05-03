@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/Equipment/FunctionGeneratorKit/assets/Fu
 summary:        "build and test a function generator kit based on the XR-2206 monolithic function generator"
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 - Tools
 ---

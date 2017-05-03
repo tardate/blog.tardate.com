@@ -5,7 +5,6 @@ date:           "2017-02-04 12:11:31 -0500"
 hero_image_url: http://leap.tardate.com/Electronics101/PierceGateOscillator/assets/PierceGateOscillator_build.jpg
 summary:        Build and test a 4.27 MHz Pierce Gate Oscillator circuit using a 74LS14 schmitt inverter
 tags:
-- LittleArduinoProjects
 - Electronics
 - Oscillators
 ---

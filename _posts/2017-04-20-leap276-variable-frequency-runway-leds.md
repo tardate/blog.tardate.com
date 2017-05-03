@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/playground/VariableFrequencyRunwayLEDs/a
 summary:        "a PWM-controlled variable frequency LED runway lights effect using the LM331 and CD4017"
 youtubeid:      "qnxnlBLyGxo"
 tags:
-- LittleArduinoProjects
 - Electronics
 - LM331
 - CD4017

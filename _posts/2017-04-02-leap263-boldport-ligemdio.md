@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/BoldportClub/ligemdio/assets/ligemdio_bu
 summary:        "Boldport Club project #8 - a beautiful USB-powered LED tester"
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 - BoldportClub
 ---

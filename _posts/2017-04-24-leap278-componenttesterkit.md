@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/Equipment/ComponentTesterKit/assets/Comp
 summary:        "Build and evaluate a popular ATMEGA328-based component tester kit"
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 - Tools
 ---

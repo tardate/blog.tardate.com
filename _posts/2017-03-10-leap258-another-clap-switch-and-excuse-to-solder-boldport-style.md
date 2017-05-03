@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/Electronics101/ClapSwitchKit2/assets/sol
 summary:        perfecting some Boldport-style soldering on yet-another clap switch kit.
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 - Solder
 ---

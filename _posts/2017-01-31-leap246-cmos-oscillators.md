@@ -5,7 +5,6 @@ date:           "2017-01-31 06:20:52 +0800"
 hero_image_url: http://leap.tardate.com/Electronics101/CMOSOscillators/assets/CMOSOscillators_build.jpg
 summary:        testing 4-pin CMOS oscillators
 tags:
-- LittleArduinoProjects
 - Electronics
 - Oscillators
 ---

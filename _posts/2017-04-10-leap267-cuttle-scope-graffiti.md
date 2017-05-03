@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/BoldportClub/TheCuttle/ScopeTag/assets/S
 summary:        "Get the BoldportClub Cuttle to write it's name on a Digital Oscilloscope with an MCP42010 digital potentiometer"
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 - BoldportClub
 - Digital Pots

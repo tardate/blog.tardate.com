@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/Electronics101/DigitalLogic/SRLatch/asse
 summary:        "all about Set/Reset (SR) latches"
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 - Digital Logic
 ---

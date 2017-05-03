@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/BoldportClub/cordwood/tuner/assets/tuner
 summary:        "Using the Boldport Cuttle & Cordwood as a guitar tuner, with a custom input preamp"
 youtubeid:      "mtyyQwaxYTk"
 tags:
-- LittleArduinoProjects
 - Electronics
 - BoldportClub
 ---

@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/Electronics101/555Timer/MessageWaiting/a
 summary:        Two-LED flasher with a 555 and minimal components - turned into a "message waiting" indicator with some free-wired SMD construction.
 youtubeid:      "_ujCu5yxSXQ"
 tags:
-- LittleArduinoProjects
 - Electronics
 - 555 Timer
 ---

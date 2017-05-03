@@ -5,7 +5,6 @@ date:           "2017-01-30 12:49:32 +0800"
 hero_image_url: http://leap.tardate.com/Electronics101/GeneralCurveTracer/assets/curve_capacitor.gif
 summary:        plotting characteristic curves with a DC-powered general curve tracer circuit
 tags:
-- LittleArduinoProjects
 - Electronics
 - BJT
 - Oscillators

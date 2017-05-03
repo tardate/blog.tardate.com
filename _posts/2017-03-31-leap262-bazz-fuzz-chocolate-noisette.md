@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/Electronics101/GuitarEffects/BazzFuss/as
 summary:        "The Chocolate Noisette - a super-minimalist overdrive/distortion/fuzz effect circuit"
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 - Guitar Effects
 - Audio

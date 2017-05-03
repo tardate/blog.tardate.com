@@ -5,7 +5,6 @@ date:           "2017-02-05 17:06:18 -0500"
 hero_image_url: http://leap.tardate.com/playground/pedalShieldUno/AudioDSP/assets/distortion_adsp.gif
 summary:        Test and develop the AudioDSP library for programming the pedalSHIELD Uno
 tags:
-- LittleArduinoProjects
 - Electronics
 - Guitar Effects
 - Audio

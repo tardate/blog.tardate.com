@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/playground/ChainBlocks/assets/ChainBlock
 summary:        "An X-Y Plotter ChainBlock drawing the PrexLab logo on an Oscilloscope"
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 - Digital Pots
 ---

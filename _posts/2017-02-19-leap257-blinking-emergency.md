@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/BoldportClub/Emergency/assets/Emergency_
 summary:        "Pimping the Boldport Club project #2 - Emergency"
 youtubeid:      "PPUZth8RfCE"
 tags:
-- LittleArduinoProjects
 - Electronics
 - BoldportClub
 ---

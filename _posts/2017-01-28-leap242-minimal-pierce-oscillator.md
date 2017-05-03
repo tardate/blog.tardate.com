@@ -5,7 +5,6 @@ date:           "2017-01-28 11:46:49 +0800"
 hero_image_url: http://leap.tardate.com/Electronics101/PierceOscillator/assets/PierceOscillator_build.jpg
 summary:        a Pierce Oscillator with a minimum of components
 tags:
-- LittleArduinoProjects
 - Electronics
 - Oscillators
 ---

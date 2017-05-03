@@ -5,7 +5,6 @@ date:           "2017-01-29 15:42:02 +0800"
 hero_image_url: http://leap.tardate.com/Electronics101/Switches/assets/Switches_build.jpg
 summary:        Notes on switches. The most basic - but always important - input devices for electrical and electronic systems
 tags:
-- LittleArduinoProjects
 - Electronics
 - Input
 ---

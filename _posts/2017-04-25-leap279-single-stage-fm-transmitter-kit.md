@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/Electronics101/FM/SingleStageTransmitter
 summary:        "Build, tweak and tune another simple single-stage FM Transmitter Kit"
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 - FM
 ---

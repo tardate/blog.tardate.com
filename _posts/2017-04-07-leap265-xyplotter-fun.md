@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/playground/XYplotter/assets/XYplotter_bu
 summary:        "Drawing pictures on a digital oscilloscope using an MCP42010 dual digital potentiometer and an Arduino"
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 - Digital Pots
 ---

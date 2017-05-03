@@ -5,7 +5,6 @@ date:           "2017-01-20 19:36:29 +0800"
 hero_image_url: http://leap.tardate.com/Electronics101/CMOSInverterOscillator/assets/CMOSInverterOscillator_build.jpg
 summary:        use a CD4096 inverter as an oscillator
 tags:
-- LittleArduinoProjects
 - Electronics
 - CD4096
 - Oscillators

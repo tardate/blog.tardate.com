@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/BoldportClub/cordwood/aanimate/assets/aa
 summary:        "Run a demo animation using aaronjasso's library for the Boldport Club Cordwood"
 youtubeid:      "0WyH_XYZ9tg"
 tags:
-- LittleArduinoProjects
 - Electronics
 - BoldportClub
 ---

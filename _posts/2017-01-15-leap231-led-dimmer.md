@@ -5,7 +5,6 @@ date:           "2017-01-15 22:50:41 +0800"
 hero_image_url: http://leap.tardate.com/Electronics101/LEDDimmer/CurrentRegulator/assets/CurrentRegulator_build.jpg
 summary:        a current-regulated LED dimmer provides flicker-free lighting even when dimmed, unlike PWM controls
 tags:
-- LittleArduinoProjects
 - Electronics
 - LED
 - Power

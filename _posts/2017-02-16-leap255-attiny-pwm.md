@@ -6,7 +6,6 @@ hero_image_url: http://leap.tardate.com/playground/AvrHardwarePWM/ATtiny/assets/
 summary:        All about hardware PWM with the ATtiny85
 youtubeid:
 tags:
-- LittleArduinoProjects
 - Electronics
 - ATtiny
 - PWM
