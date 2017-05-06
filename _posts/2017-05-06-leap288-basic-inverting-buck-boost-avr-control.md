@@ -1,6 +1,6 @@
 ---
 layout:         post
-title:          "LEAP288 Basic Inverting Buck Boost Avr Control"
+title:          "LEAP#288 Basic Inverting Buck Boost Avr Control"
 date:           "2017-05-06 18:13:05 +0800"
 hero_image_url: http://leap.tardate.com/Electronics101/SwitchModePowerSupplies/BasicInvertingBuckBoostAvrControl/assets/BasicInvertingBuckBoostAvrControl_build.jpg
 summary:        "Build and test an inverting buck-boost converter controlled by an ATtiny85"
