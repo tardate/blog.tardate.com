@@ -3,7 +3,7 @@ layout:         post
 title:          "LEAP#283 XOR with NAND gates"
 date:           "2017-05-01 10:33:55 +0800"
 hero_image_url: http://leap.tardate.com/Electronics101/DigitalLogic/XorWithNandGates/assets/XorWithNandGates_build.jpg
-summary:        "Construct an XOR gate with only an 74LS132 quad NAND gate, and demonstrate it's behaviour with an Arduino and Processing"
+summary:        "Construct an XOR gate with only an 74LS132 quad NAND gate, and demonstrate its behaviour with an Arduino and Processing"
 youtubeid:
 tags:
 - Electronics
