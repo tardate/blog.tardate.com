@@ -15,7 +15,7 @@ I am guessing the availability and affordability of precision laser cutting equi
 The **Metal Earth** brand is often seen in toy retailers (it even [has its own sub-reddit](https://www.reddit.com/r/metalearth/)!),
 but the model designs all see to be common from a few Chinese manufacturers. The model I have here comes from
 [Shantou Mini Qute Trading Co. Ltd.](https://mqfun.en.alibaba.com/)
-As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
+As always, [all notes in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
 
 [leap]: http://leap.tardate.com
