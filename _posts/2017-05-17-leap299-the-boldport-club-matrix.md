@@ -8,6 +8,7 @@ youtubeid:
 tags:
 - Electronics
 - BoldportClub
+- AS1130
 ---
 
 The Matrix is an I²C-controlled 24x5 LED matrix display, powered by an AMS AS1130 LED driver.
