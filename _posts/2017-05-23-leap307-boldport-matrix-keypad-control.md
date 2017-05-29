@@ -8,6 +8,7 @@ youtubeid:      "qg2Bs1Q0ACw"
 tags:
 - Electronics
 - BoldportClub
+- AS1130
 ---
 
 
