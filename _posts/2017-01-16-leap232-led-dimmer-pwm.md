@@ -8,7 +8,7 @@ tags:
 - Electronics
 - LED
 - PWM
-- 555 Timer
+- 555
 ---
 
 In [LEAP#231](http://blog.tardate.com/2017/01/leap231-led-dimmer.html) I claimed current control was better

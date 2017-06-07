@@ -7,7 +7,7 @@ summary:        Two-LED flasher with a 555 and minimal components - turned into 
 youtubeid:      "_ujCu5yxSXQ"
 tags:
 - Electronics
-- 555 Timer
+- 555
 ---
 
 This is a variation of a bi-polar LED flasher circuit that uses two single LEDs. Since that's not very interesting, I free-wired it with surface mount components to make a little "message waiting!" indicator. Putting a card in the slot turns on the LED flasher.

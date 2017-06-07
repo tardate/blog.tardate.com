@@ -7,7 +7,7 @@ summary:        build and test a general-purpose high-side PWM controller
 tags:
 - Electronics
 - PWM
-- 555 Timer
+- 555
 ---
 
 This circuit cobines a variable-duty cycle PWM generator with a high-side p-channel MOSFET driver circuit,
