@@ -8,6 +8,7 @@ youtubeid:
 tags:
 - Electronics
 - 555
+- Digital Logic
 ---
 
 This digital clock module was [designed by Ben Eater](https://www.youtube.com/watch?v=SmQ5K7UQPMM) as part of his 8-bit computer build.
