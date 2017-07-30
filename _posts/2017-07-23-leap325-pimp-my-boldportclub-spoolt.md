@@ -1,6 +1,6 @@
 ---
 layout:         post
-title:          "LEAP325 Pimp My Boldport Club Spoolt"
+title:          "LEAP#325 Pimp My Boldport Club Spoolt"
 date:           "2017-07-23 16:03:24 +0800"
 hero_image_url: http://leap.tardate.com/BoldportClub/spoolt/assets/spoolt_build.jpg
 summary:        "Pimp my spoolt - the Boldport Club solder dispenser (Project #15, July 2017)"

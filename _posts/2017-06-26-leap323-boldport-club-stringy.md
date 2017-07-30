@@ -7,6 +7,7 @@ summary:        "Building and playing (mainly playing) the Boldport Club Stringy
 youtubeid:      "pLeL9CwuKVM"
 tags:
 - Electronics
+- BoldportClub
 ---
 
 Stringy synthesizes guitar sounds on a PIC microcontroller using MadLab's implementation of the
