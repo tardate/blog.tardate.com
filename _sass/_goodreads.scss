@@ -1,30 +1,45 @@
+.recent-reads {
+  /* header above the goodreads widget */
+  a {
+    color: #7a7a7a;
+    text-shadow: none;
+    background-image: none;
+  }
+  h2 {
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1rem;
+    font-family: $font-family;
+  }
+}
+
 .gr_grid_container {
-  /* customize grid container div here. eg: width: 500px; */
+  /* outer wrapper for the goodreads snippet. */
 }
 
 .gr_grid_book_container {
-  /* customize book cover container div here */
+  /* book cover container - force them all to the same size! */
   float: left;
   width: 98px;
   height: 160px;
   padding: 0px 0px;
   overflow: hidden;
+  img {
+    /* book cover images*/
+    width: 98px;
+    height: 109px;
+  }
 }
 
-.gr_grid_book_container img {
-  width: 98px;
-  height: 109px;
-}
 
-.recent-reads a {
-  color: #7a7a7a;
-  text-shadow: none;
-  background-image: none;
-}
-
-.recent-reads h2 {
-  font-weight: 300;
-  font-style: italic;
-  font-size: 1rem;
-  font-family: $font-family;
+@media #{$breakpoint-below-md} {
+  .gr_grid_book_container {
+    width: 70px;
+    height: 100px;
+    img {
+      /* book cover images - force them all to the same size! */
+      width: 70px;
+      height: 80px;
+    }
+  }
 }
