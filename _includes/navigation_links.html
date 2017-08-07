@@ -3,6 +3,7 @@
       <a href="http://leap.tardate.com/" title="a collection of electronics projects, often involving an Arduino">LittleArduinoProjects</a>
       <a href="http://codingkata.tardate.com/" title="my notes and test code on software development topics and tools">LittleCodingKata</a>
   </div>
+  {% if site.show_social_icons %}
   <div class="social-icons-right">
     {% if site.github_username %}
       <a class="fa fa-github" href="https://github.com/{{ site.github_username }}"></a>
@@ -50,5 +51,6 @@
       {{ site.flattr_button }}
     {% endif %}
   </div>
+  {% endif %}
 </div>
 <div class="clearfix"></div>

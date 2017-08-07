@@ -1,0 +1,15 @@
+---
+layout: page
+title: Post Index
+permalink: /catalog/
+tags: catalog
+---
+
+<p>
+  This is a complete chronological index of all posts on the blog..
+</p>
+<ul>
+{% for page in site.posts %}
+  <li>{{ page.date | date: site.date_format }} <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+{% endfor %}
+</ul>
