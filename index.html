@@ -11,7 +11,7 @@ layout: default
           <p class="post-meta">{{ page.date | date: site.date_format }} {% include post_tags.html %}</p>
           <a href="{{ page.url | prepend: site.baseurl }}" class="post-link"><h3 class="h1 post-title">{{ page.title }}</h3></a>
           <p class="post-summary">
-            {{ page.excerpt }}
+            {{ page.content }}
             <br>
             <a href="{{ page.url | prepend: site.baseurl }}" class="post-link more">read more and comment..</a>
           </p>
