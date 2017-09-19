@@ -10,10 +10,13 @@ tags:
 ---
 
 I've taken apart and had enough "wall wart" power supplies blow up on me .. so perhaps it is about time to put one together instead!
+
 Cheap kits are available, although it pays to carefully map out the circuit and understand how it functions,
 as schematics don't always match PCB/silkscreen, and components may also vary!
 The kit I've built here works just fine..
+
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
+
 [![hero_image][hero_image]][project]
 
 [leap]: http://leap.tardate.com
