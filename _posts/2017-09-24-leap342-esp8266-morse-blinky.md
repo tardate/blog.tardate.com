@@ -1,6 +1,6 @@
 ---
 layout:         post
-title:          "LEAP342 ESP8266 Morse Blinky"
+title:          "LEAP#342 ESP8266 Morse Blinky"
 date:           "2017-09-24 21:32:56 +0800"
 hero_image_url: http://leap.tardate.com/ESP8266/MorseBlinky/assets/MorseBlinky_build.jpg
 summary:        "building code for an ESP-01 with the ESP8266 core for Arduino and demonstrate with a simple morse code blinker"
