@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#329 On DC Power Connectors"
 date:           "2017-08-06 18:53:37 +0800"
-hero_image_url: http://leap.tardate.com/Electronics101/Power/Connectors/assets/Connectors_build.jpg
+hero_image_url: http://leap.tardate.com/Electronics101/Connectors/Power/assets/Power_build.jpg
 summary:        "obsessing over all manner of DC power connectors"
 youtubeid:
 tags:
@@ -16,5 +16,5 @@ As always, [all notes are in the Little Electronics & Arduino Projects repo on G
 [![hero_image][hero_image]][project]
 
 [leap]: http://leap.tardate.com
-[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/Power/Connectors
+[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/Connectors/Power
 [hero_image]: {{ page.hero_image_url }}
