@@ -12,6 +12,8 @@ tags:
 
 The gated D latch is perhaps the fundamental 1-bit memory unit in active digital logic.
 
+[![Gated_D_latch_symbol](https://upload.wikimedia.org/wikipedia/commons/c/cb/Gated_D_latch_symbol.png)](https://commons.wikimedia.org/wiki/File:Gated_D_latch_symbol.png)
+
 There are a few ways of constructing a D latch, here I'm using a NAND gate SR latch as the base,
 which is convenient as all it requires is a single 74LS00 (quad two-input NAND).
 
