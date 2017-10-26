@@ -3,7 +3,7 @@ layout:         post
 title:          "LEAP#350 Drawing Circuits with CircuitScribe"
 date:           "2017-10-26 22:47:25 +0800"
 hero_image_url: http://leap.tardate.com/Kraft/CircuitScribe/LiteWings/assets/LiteWings_build.jpg
-summary:        "learning about conductive ink with the CircuitSCibe LiteWings kit"
+summary:        "learning about conductive ink with the CircuitScribe LiteWings kit"
 youtubeid:
 tags:
 - Electronics
