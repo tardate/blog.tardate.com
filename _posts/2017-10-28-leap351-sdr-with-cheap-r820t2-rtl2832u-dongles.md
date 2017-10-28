@@ -30,8 +30,9 @@ Success with both! I'm liking CubicSDR in particular.
 The other thing I learned is that the dinky 5" aerial provided with the dongle (and where I put it)
 is on the one hand surprisingly capable, while also having very little chance of picking out weaker signals!
 
-As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
+
+As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 
 [leap]: http://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/SDR/RtlSdrDongle
