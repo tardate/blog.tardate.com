@@ -10,9 +10,9 @@ tags:
 - Audio
 ---
 
-Another potted music chips! Figuring them out is half the fun;-)
+Another potted music chip! Figuring them out is half the fun;-)
 
-The PX088A is a simple, non-descript single-tune chip. Turns out to play the main theme from Beethoven's Für Elise.
+The PX088A is a simple, nondescript single-tune chip. Found out it plays the main theme from Beethoven's Für Elise.
 The recommended configuration turned out to be a battery killer, but I was able to get it working with a few adjustments.
 
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
