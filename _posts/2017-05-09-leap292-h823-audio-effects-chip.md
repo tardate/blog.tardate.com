@@ -14,7 +14,9 @@ Potted music chips! Figuring them out is half the fun;-)
 The H823 chip arrived in kit and so far I have been unable to find a source for the music chip alone, or indeed anything approximating a datasheet.
 But after a bit of tinkering, I was able to get it sussed and control it in all its 1-bit glory..
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
+
 {% include youtube-embed.html id="RdeabhoCZKI" %}
+
 [![hero_image][hero_image]][project]
 
 [leap]: http://leap.tardate.com
