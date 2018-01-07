@@ -13,7 +13,7 @@ tags:
 
 Boldport Club Project #20 is the first designed by Ben, the new Boldporter. And it's a beauty!
 
-As is often the case, and small but interesting circuit is at the core of a beautiful design.
+As is often the case, a small but interesting circuit is at the core of a beautiful design.
 The circuit is essentially four repetitions of an RC phase-shift oscillator.
 Like other projects such as the famous Cordwood series, the design employs multi-board symmetry and 3D construction.
 
