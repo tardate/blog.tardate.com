@@ -12,7 +12,7 @@ tags: about
 I'm a software developer, electronics tinkerer and wannabe guitarrista based in Singapore.
 My name is Paul Gallagher and you can easily find me on GitHub, twitter etc - see the links above.
 
-"tardate 2017" is my occasional diary of Quite Interesting Things.
+This blog is my occasional diary of Quite Interesting Things.
 It is a generally technical blog, meaning all things web, open source, data, electronics, and polyglot-programming.
 Sometimes ravings on books or music bust in, and occasionally I'll be distracted with a rant or philosophical drivel.
 
