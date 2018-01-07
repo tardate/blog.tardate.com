@@ -18,6 +18,7 @@ The circuit is essentially four repetitions of an RC phase-shift oscillator.
 Like other projects such as the famous Cordwood series, the design employs multi-board symmetry and 3D construction.
 
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
+
 [![hero_image][hero_image]][project]
 
 Here's a quick demo (with special customisation!):
