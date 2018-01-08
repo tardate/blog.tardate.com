@@ -11,7 +11,10 @@ tags:
 ---
 
 The "Granular Synth" idea harks back to an old [Auduino](http://code.google.com/p/tinkerit/wiki/Auduino) project.
-I stumbled upon it again recently and decided it deserved a quick build in an Altoids tin.
+I stumbled upon it again recently and decided it deserved a quick build in an Altoids tin ..
+
+.. because granular synthesis is a basically how they make Altoids, right?
+
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 
 [![hero_image][hero_image]][project]
