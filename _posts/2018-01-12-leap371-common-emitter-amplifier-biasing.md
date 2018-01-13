@@ -10,8 +10,8 @@ tags:
 - BJT
 ---
 
-I am inspired once again by one of [w2aew's excellent vidoes](http://www.youtube.com/watch?v=c6cmkm3UPUI)
-to revisit the basics of biasing and operating classes of the common-emitter amplifier.
+I am inspired once again by one of [w2aew's excellent vidoes](http://www.youtube.com/watch?v=c6cmkm3UPUI),
+this time to revisit the operating classes and biasing design rules of the common-emitter amplifier.
 
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
