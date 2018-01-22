@@ -69,7 +69,11 @@
     <meta name="twitter:description" content="{% if page.summary %}{{ page.summary }}{% else %}{{ site.description }}{% endif %}" />
     <meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
     {% if page.hero_image_url %}
-        <meta name="twitter:image" content="{{ page.hero_image_url }}" />
+        {% if page.hero_image_url contains '//' %}
+            <meta name="twitter:image" content="{{ page.hero_image_url }}" />
+        {% else %}
+            <meta name="twitter:image" content="{{ page.hero_image_url | prepend: site.baseurl | prepend: site.url }}" />
+        {% endif %}
     {% endif %}
 
     <!-- Icons -->
