@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#255 ATtiny PWM"
 date:           "2017-02-16 19:49:14 +0800"
-hero_image_url: http://leap.tardate.com/playground/AvrHardwarePWM/ATtiny/assets/ATtiny_build.jpg
+hero_image_url: https://leap.tardate.com/playground/AvrHardwarePWM/ATtiny/assets/ATtiny_build.jpg
 summary:        All about hardware PWM with the ATtiny85
 youtubeid:
 tags:
@@ -18,6 +18,6 @@ This is my summary of hardware PWM control with a range of examples of controlli
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/playground/AvrHardwarePWM/ATtiny
 [hero_image]: {{ page.hero_image_url }}

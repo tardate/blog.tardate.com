@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#270 Cordwood Aanimations"
 date:           "2017-04-16 22:49:57 +0800"
-hero_image_url: http://leap.tardate.com/BoldportClub/cordwood/aanimate/assets/aanimate_build.jpg
+hero_image_url: https://leap.tardate.com/BoldportClub/cordwood/aanimate/assets/aanimate_build.jpg
 summary:        "Run a demo animation using aaronjasso's library for the Boldport Club Cordwood"
 youtubeid:      "0WyH_XYZ9tg"
 tags:
@@ -16,7 +16,7 @@ Little did I know that months later, the demo would [show up in a hackaday artic
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 {% include youtube-embed.html id="0WyH_XYZ9tg" %}
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/BoldportClub/cordwood/aanimate
 [hero_image]: {{ page.hero_image_url }}
 

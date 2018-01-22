@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#287 Ultrasonic Alarm"
 date:           "2017-05-04 09:54:30 +0800"
-hero_image_url: http://leap.tardate.com/Electronics101/UltrasonicAlarm/assets/UltrasonicAlarm_build.jpg
+hero_image_url: https://leap.tardate.com/Electronics101/UltrasonicAlarm/assets/UltrasonicAlarm_build.jpg
 summary:        "Build an ultrasonic motion alarm with the HC-SR04 module and discrete logic"
 youtubeid:      "18vaX6bmDes"
 tags:
@@ -19,6 +19,6 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 
 [![hero_image][hero_image]][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/UltrasonicAlarm
 [hero_image]: {{ page.hero_image_url }}

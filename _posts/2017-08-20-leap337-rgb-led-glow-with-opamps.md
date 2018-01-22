@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#337 RGB LED Glow with Opamps"
 date:           "2017-08-20 01:28:26 +0800"
-hero_image_url: http://leap.tardate.com/Electronics101/RgbLedGlow/assets/RgbLedGlow_build.jpg
+hero_image_url: https://leap.tardate.com/Electronics101/RgbLedGlow/assets/RgbLedGlow_build.jpg
 summary:        "Rainbow glow effects with an RGB LED and OpAmp oscillators"
 youtubeid:
 tags:
@@ -17,6 +17,6 @@ I finally settled on three independent opamp-based triangle wave generators that
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/RgbLedGlow
 [hero_image]: {{ page.hero_image_url }}

@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#323 Boldport Club Stringy"
 date:           "2017-06-26 23:00:21 +0800"
-hero_image_url: http://leap.tardate.com/BoldportClub/stringy/assets/stringy_build.jpg
+hero_image_url: https://leap.tardate.com/BoldportClub/stringy/assets/stringy_build.jpg
 summary:        "Building and playing (mainly playing) the Boldport Club Stringy (Project #14, June 2017)"
 youtubeid:      "pLeL9CwuKVM"
 tags:
@@ -17,6 +17,6 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 But for now, I'm too distracted just playing tunes;-) Here's my take on the Star Wars Cantina theme..
 {% include youtube-embed.html id="pLeL9CwuKVM" %}
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/BoldportClub/stringy
 [hero_image]: {{ page.hero_image_url }}

@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#297 CD4070 Oscillator"
 date:           "2017-05-15 21:21:57 +0800"
-hero_image_url: http://leap.tardate.com/Electronics101/CD4070/Oscillator/assets/Oscillator_build.jpg
+hero_image_url: https://leap.tardate.com/Electronics101/CD4070/Oscillator/assets/Oscillator_build.jpg
 summary:        "Examine a classic CD4070 oscillator design and variations"
 youtubeid:
 tags:
@@ -18,6 +18,6 @@ Ultimately, I came up with three workable variants of this circuit. All interest
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/CD4070/Oscillator
 [hero_image]: {{ page.hero_image_url }}

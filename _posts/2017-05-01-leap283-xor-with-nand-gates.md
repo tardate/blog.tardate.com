@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#283 XOR with NAND gates"
 date:           "2017-05-01 10:33:55 +0800"
-hero_image_url: http://leap.tardate.com/Electronics101/DigitalLogic/XorWithNandGates/assets/XorWithNandGates_build.jpg
+hero_image_url: https://leap.tardate.com/Electronics101/DigitalLogic/XorWithNandGates/assets/XorWithNandGates_build.jpg
 summary:        "Construct an XOR gate with only an 74LS132 quad NAND gate, and demonstrate its behaviour with an Arduino and Processing"
 youtubeid:
 tags:
@@ -16,6 +16,6 @@ So while a little wasteful, I'm using the four NAND gates of a single 74LS132 ch
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/DigitalLogic/XorWithNandGates
 [hero_image]: {{ page.hero_image_url }}

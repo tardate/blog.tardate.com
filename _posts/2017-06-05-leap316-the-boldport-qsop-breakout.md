@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#316 The Boldport QSOP Breakout"
 date:           "2017-06-05 19:18:45 +0800"
-hero_image_url: http://leap.tardate.com/BoldportClub/QSOPBreakout/assets/QSOPBreakout_build.jpg
+hero_image_url: https://leap.tardate.com/BoldportClub/QSOPBreakout/assets/QSOPBreakout_build.jpg
 summary:        "all about soldering and the Boldport Club QSOP breakout board"
 youtubeid:
 tags:
@@ -17,6 +17,6 @@ And secondly, perhaps there is something useful I can do with the QSOPBreakout b
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/BoldportClub/QSOPBreakout
 [hero_image]: {{ page.hero_image_url }}

@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#370 TS3A5018 Digital Switch"
 date:           "2018-01-09 02:18:14 +0800"
-hero_image_url: http://leap.tardate.com/Electronics101/DigitaSwitch/TS3A5018/assets/TS3A5018_build.jpg
+hero_image_url: https://leap.tardate.com/Electronics101/DigitaSwitch/TS3A5018/assets/TS3A5018_build.jpg
 summary:        "testing the TS3A5018 Quad SPDT Analog Switch with a simple 555 timer and Arduino demo"
 youtubeid:      "9xpNcJ_0jvI"
 tags:
@@ -21,6 +21,6 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 
 [![hero_image][hero_image]][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/DigitaSwitch/TS3A5018
 [hero_image]: {{ page.hero_image_url }}

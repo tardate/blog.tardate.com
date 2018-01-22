@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#351 SDR with cheap R820T2/RTL2832U dongles"
 date:           "2017-10-28 16:16:59 +0800"
-hero_image_url: http://leap.tardate.com/SDR/RtlSdrDongle/assets/RtlSdrDongle_build.jpg
+hero_image_url: https://leap.tardate.com/SDR/RtlSdrDongle/assets/RtlSdrDongle_build.jpg
 summary:        "getting started with an R820T2+RTL2832U dongle and open-source SDR software on MacOSX (gprx, CubicSDR)"
 youtubeid:
 tags:
@@ -34,6 +34,6 @@ is on the one hand surprisingly capable, while also having very little chance of
 
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/SDR/RtlSdrDongle
 [hero_image]: {{ page.hero_image_url }}

@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#322 Fidget Cube Cordwood Controller"
 date:           "2017-06-25 17:01:46 +0800"
-hero_image_url: http://leap.tardate.com/BoldportClub/cordwood-too/FidgetCube/assets/FidgetCube_build.jpg
+hero_image_url: https://leap.tardate.com/BoldportClub/cordwood-too/FidgetCube/assets/FidgetCube_build.jpg
 summary:        "hacking together a Fidget Cube controller for the Boldport Cordwood Too"
 youtubeid:      "38SNS3a9aF8"
 tags:
@@ -20,6 +20,6 @@ Here's a quick demo:
 {% include youtube-embed.html id="38SNS3a9aF8" %}
 
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/BoldportClub/cordwood-too/FidgetCube
 [hero_image]: {{ page.hero_image_url }}

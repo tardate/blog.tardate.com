@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#302 Game of Life on the Boldport Club Matrix"
 date:           "2017-05-21 13:15:38 +0800"
-hero_image_url: http://leap.tardate.com/BoldportClub/TheMatrix/GameOfLife/assets/GameOfLife_build.jpg
+hero_image_url: https://leap.tardate.com/BoldportClub/TheMatrix/GameOfLife/assets/GameOfLife_build.jpg
 summary:        "a simple implementation of Conway's Game of Life on the Boldport Club Matrix"
 youtubeid:      "xJM7nuiDj8w"
 tags:
@@ -19,6 +19,6 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 
 [![hero_image][hero_image]][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/BoldportClub/TheMatrix/GameOfLife
 [hero_image]: {{ page.hero_image_url }}

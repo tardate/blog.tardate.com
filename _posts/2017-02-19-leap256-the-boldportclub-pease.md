@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#256 The BoldportClub Pease"
 date:           "2017-02-19 11:11:10 +0800"
-hero_image_url: http://leap.tardate.com/BoldportClub/Pease/assets/Pease_board_front.jpg
+hero_image_url: https://leap.tardate.com/BoldportClub/Pease/assets/Pease_board_front.jpg
 summary:        "Building Boldport Club project #1 - A Bob Pease tribute"
 youtubeid:      "-JQLJ-RI_1A"
 tags:
@@ -21,6 +21,6 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 Here's a quick demo video to show it works..
 {% include youtube-embed.html id=page.youtubeid %}
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/BoldportClub/Pease
 [hero_image]: {{ page.hero_image_url }}

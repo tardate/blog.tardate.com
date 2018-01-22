@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#371 common emitter amplifier biasing"
 date:           "2018-01-12 00:09:24 +0800"
-hero_image_url: http://leap.tardate.com/Electronics101/BJT/CommonEmitterAmplifier/assets/CommonEmitterAmplifier_build.jpg
+hero_image_url: https://leap.tardate.com/Electronics101/BJT/CommonEmitterAmplifier/assets/CommonEmitterAmplifier_build.jpg
 summary:        "all about BJT common-emitter amplifier biasing and class of operation"
 youtubeid:
 tags:
@@ -16,6 +16,6 @@ this time to revisit the operating classes and biasing design rules of the commo
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/BJT/CommonEmitterAmplifier
 [hero_image]: {{ page.hero_image_url }}

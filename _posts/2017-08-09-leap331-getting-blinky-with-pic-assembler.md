@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#331 Getting Blinky with PIC Assembler"
 date:           "2017-08-09 15:15:16 +0800"
-hero_image_url: http://leap.tardate.com/PIC/GettingBlinky/assets/GettingBlinky_build.jpg
+hero_image_url: https://leap.tardate.com/PIC/GettingBlinky/assets/GettingBlinky_build.jpg
 summary:        "Getting up and running building a PIC assembler project on MacOSX with a PIC12F675 development board. Let's get Blinky!"
 youtubeid:      "pw0WdkqDNsM"
 tags:
@@ -20,6 +20,6 @@ So let's get blinky..
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 {% include youtube-embed.html id=page.youtubeid %}
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/PIC/GettingBlinky
 [hero_image]: {{ page.hero_image_url }}

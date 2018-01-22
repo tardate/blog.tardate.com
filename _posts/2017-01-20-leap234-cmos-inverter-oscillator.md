@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#234 CMOS Inverter Oscillator"
 date:           "2017-01-20 19:36:29 +0800"
-hero_image_url: http://leap.tardate.com/Electronics101/CMOSInverterOscillator/assets/CMOSInverterOscillator_build.jpg
+hero_image_url: https://leap.tardate.com/Electronics101/CMOSInverterOscillator/assets/CMOSInverterOscillator_build.jpg
 summary:        use a CD4096 inverter as an oscillator
 tags:
 - Electronics
@@ -19,6 +19,6 @@ The waveform is also heavily asymmetric - with a duty cycle at most 25%.
 [![hero_image][hero_image]][project]
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/CMOSInverterOscillator
 [hero_image]: {{ page.hero_image_url }}

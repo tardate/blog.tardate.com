@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#330 Any-to-any Polarity DC Power Adapter"
 date:           "2017-08-06 18:54:06 +0800"
-hero_image_url: http://leap.tardate.com/Electronics101/Power/Any2AnyPowerPack/assets/Any2AnyPowerPack_build.jpg
+hero_image_url: https://leap.tardate.com/Electronics101/Power/Any2AnyPowerPack/assets/Any2AnyPowerPack_build.jpg
 summary:        "a 2.1mm DC adapter pack with battery bypass and any-polarity to any-polarity connectors"
 youtubeid:
 tags:
@@ -19,6 +19,6 @@ And of course an LED power indicator.
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/Power/Any2AnyPowerPack
 [hero_image]: {{ page.hero_image_url }}

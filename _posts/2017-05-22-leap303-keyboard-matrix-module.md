@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#303 Keyboard Matrix Module"
 date:           "2017-05-22 20:52:05 +0800"
-hero_image_url: http://leap.tardate.com/playground/KeyboardMatrixModule/assets/KeyboardMatrixModule_build.jpg
+hero_image_url: https://leap.tardate.com/playground/KeyboardMatrixModule/assets/KeyboardMatrixModule_build.jpg
 summary:        "testing a funky keypad module packed with pushbuttons and LEDs"
 youtubeid:
 tags:
@@ -18,6 +18,6 @@ I examine how it is constructed, and provide some examples of how to make it wor
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/playground/KeyboardMatrixModule
 [hero_image]: {{ page.hero_image_url }}

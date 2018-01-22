@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#333 Measure Thy Own Voltage"
 date:           "2017-08-16 21:15:53 +0800"
-hero_image_url: http://leap.tardate.com/playground/VoltageSelfMeasurement/assets/VoltageSelfMeasurement_build.jpg
+hero_image_url: https://leap.tardate.com/playground/VoltageSelfMeasurement/assets/VoltageSelfMeasurement_build.jpg
 summary:        "self-measurement of an Arduino/Atmega's supply voltage (Vcc)"
 youtubeid:
 tags:
@@ -19,6 +19,6 @@ It works, but not without caveats - so although QI, I'm afraid the net result ma
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/playground/VoltageSelfMeasurement
 [hero_image]: {{ page.hero_image_url }}

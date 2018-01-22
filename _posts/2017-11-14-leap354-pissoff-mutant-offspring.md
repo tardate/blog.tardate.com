@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#354 PissOff Mutant Offspring"
 date:           "2017-11-14 02:05:29 +0800"
-hero_image_url: http://leap.tardate.com/Kinetics/SpiderBot/assets/SpiderBot_build.jpg
+hero_image_url: https://leap.tardate.com/Kinetics/SpiderBot/assets/SpiderBot_build.jpg
 summary:        "Boldport Club PissOff mutant offspring .. with spider legs and scuttling drive system"
 youtubeid:      "SppVUWhvZKs"
 tags:
@@ -25,6 +25,6 @@ But perhaps imperfect crazy action is better after all..
 
 {% include youtube-embed.html id=page.youtubeid %}
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Kinetics/SpiderBot
 [hero_image]: {{ page.hero_image_url }}

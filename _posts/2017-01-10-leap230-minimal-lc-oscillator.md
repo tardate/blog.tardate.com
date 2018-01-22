@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#230 Minimal LC Oscillator"
 date:           "2017-01-10 23:12:46 +0800"
-hero_image_url: http://leap.tardate.com/Electronics101/MinimalLCOscillator/assets/MinimalLCOscillator_build.jpg
+hero_image_url: https://leap.tardate.com/Electronics101/MinimalLCOscillator/assets/MinimalLCOscillator_build.jpg
 summary:        build and test an LC oscillator made with just 5 components
 tags:
 - Electronics
@@ -18,7 +18,7 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 [![scope_image][scope_image]][project]
 
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/MinimalLCOscillator
 [hero_image]: {{ page.hero_image_url }}
-[scope_image]: http://leap.tardate.com/Electronics101/MinimalLCOscillator/assets/scope.gif
+[scope_image]: https://leap.tardate.com/Electronics101/MinimalLCOscillator/assets/scope.gif

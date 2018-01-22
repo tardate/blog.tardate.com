@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#300 The Matrix LED Test"
 date:           "2017-05-18 19:39:01 +0800"
-hero_image_url: http://leap.tardate.com/BoldportClub/TheMatrix/LedTest/assets/LedTest_build.jpg
+hero_image_url: https://leap.tardate.com/BoldportClub/TheMatrix/LedTest/assets/LedTest_build.jpg
 summary:        "testing The Matrix (Boldport Club project #11) with @luckyresistor's LRAS1130 library"
 youtubeid:
 tags:
@@ -19,6 +19,6 @@ LED test = all passing!
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/BoldportClub/TheMatrix/LedTest
 [hero_image]: {{ page.hero_image_url }}

@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#313 MCP23S17 Port Expander"
 date:           "2017-05-30 20:37:37 +0800"
-hero_image_url: http://leap.tardate.com/Electronics101/MCP23S17/assets/MCP23S17_build.jpg
+hero_image_url: https://leap.tardate.com/Electronics101/MCP23S17/assets/MCP23S17_build.jpg
 summary:        "using the MCP23S17 16-Bit I/O Expander with serial interface"
 youtubeid:      "CuNJYUojNe0"
 tags:
@@ -18,6 +18,6 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 
 [![hero_image][hero_image]][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/MCP23S17
 [hero_image]: {{ page.hero_image_url }}

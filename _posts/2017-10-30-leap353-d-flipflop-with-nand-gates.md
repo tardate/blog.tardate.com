@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#353 D Flip-Flop with NAND Gates"
 date:           "2017-10-30 21:24:01 +0800"
-hero_image_url: http://leap.tardate.com/Electronics101/DigitalLogic/DFlipFlop/assets/DFlipFlop_build.jpg
+hero_image_url: https://leap.tardate.com/Electronics101/DigitalLogic/DFlipFlop/assets/DFlipFlop_build.jpg
 summary:        "building a clocked D Flip-flop with 74LS00 NAND gates"
 youtubeid:
 tags:
@@ -22,8 +22,8 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 
 [![hero_image][hero_image]][project]
 
-[![hero_image](http://leap.tardate.com/Electronics101/DigitalLogic/DFlipFlop/assets/scope_transition_on.gif)][project]
+[![hero_image](https://leap.tardate.com/Electronics101/DigitalLogic/DFlipFlop/assets/scope_transition_on.gif)][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/DigitalLogic/DFlipFlop
 [hero_image]: {{ page.hero_image_url }}

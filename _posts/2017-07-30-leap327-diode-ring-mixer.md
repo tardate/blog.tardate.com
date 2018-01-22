@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#327 Diode Ring Mixer"
 date:           "2017-07-30 22:32:55 +0800"
-hero_image_url: http://leap.tardate.com/Electronics101/Mixers/RFDiodeRing/assets/RFDiodeRing_build.jpg
+hero_image_url: https://leap.tardate.com/Electronics101/Mixers/RFDiodeRing/assets/RFDiodeRing_build.jpg
 summary:        "A diode ring double-balanced frequency mixer"
 youtubeid:
 tags:
@@ -16,6 +16,6 @@ and the endless treasure-trove that is [Experimental Methods in RF Design](https
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/Mixers/RFDiodeRing
 [hero_image]: {{ page.hero_image_url }}

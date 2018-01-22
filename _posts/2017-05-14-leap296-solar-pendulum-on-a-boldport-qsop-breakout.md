@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#296 Solar Pendulum on a Boldport QSOP Breakout"
 date:           "2017-05-14 14:06:24 +0800"
-hero_image_url: http://leap.tardate.com/BoldportClub/QSOPBreakout/SolarPendulum/assets/construction_3.jpg
+hero_image_url: https://leap.tardate.com/BoldportClub/QSOPBreakout/SolarPendulum/assets/construction_3.jpg
 summary:        "Build a solar-powered pendulum similar to the popular solar wobble/flip-flop toys on the Boldport QSOP breakout board"
 youtubeid:      "buP3zrMjN94"
 tags:
@@ -22,6 +22,6 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 {% include youtube-embed.html id="buP3zrMjN94" %}
 [![hero_image][hero_image]][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/BoldportClub/QSOPBreakout/SolarPendulum
 [hero_image]: {{ page.hero_image_url }}

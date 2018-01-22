@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#247 pedalSHIELD UNO"
 date:           "2017-02-03 18:23:30 -0500"
-hero_image_url: http://leap.tardate.com/playground/pedalShieldUno/assets/pedalShieldUno_build.jpg
+hero_image_url: https://leap.tardate.com/playground/pedalShieldUno/assets/pedalShieldUno_build.jpg
 summary:        building the Electrosmash pedalSHIELD UNO guitar effects pedal
 tags:
 - Electronics
@@ -17,6 +17,6 @@ but also to payback Electrosmash in a small way. Good OSH deserves support!
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/playground/pedalShieldUno
 [hero_image]: {{ page.hero_image_url }}

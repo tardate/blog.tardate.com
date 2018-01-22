@@ -6,7 +6,7 @@ description: > #
   It is generally technical, meaning all things web, open source, polyglot-programming, electronics and concerning data.
   But sometimes ravings on books or musics, and occasionally a rant or philosophical dribble.
 baseurl:     ""
-url:         "http://blog.tardate.com"
+url:         "https://blog.tardate.com"
 date_format: "%b %-d, %Y"
 
 # Google services

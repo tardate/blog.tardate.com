@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#252 Message Waiting"
 date:           "2017-02-06 21:02:55 -0500"
-hero_image_url: http://leap.tardate.com/Electronics101/555Timer/MessageWaiting/assets/MessageWaiting_build.jpg
+hero_image_url: https://leap.tardate.com/Electronics101/555Timer/MessageWaiting/assets/MessageWaiting_build.jpg
 summary:        Two-LED flasher with a 555 and minimal components - turned into a "message waiting" indicator with some free-wired SMD construction.
 youtubeid:      "_ujCu5yxSXQ"
 tags:
@@ -16,6 +16,6 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 
 [![hero_image][hero_image]][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/555Timer/MessageWaiting
 [hero_image]: {{ page.hero_image_url }}

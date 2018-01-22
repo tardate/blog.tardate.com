@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#229 Dice"
 date:           "2017-01-09 19:01:52 +0800"
-hero_image_url: http://leap.tardate.com/Electronics101/555Timer/Dice/assets/Dice_build.jpg
+hero_image_url: https://leap.tardate.com/Electronics101/555Timer/Dice/assets/Dice_build.jpg
 summary:        A 555/4017-based dice circuit with slow-down and auto power-off
 youtubeid:      5Vzk1R5ehA4
 tags:
@@ -30,6 +30,6 @@ Here's a quick video of the dice in action:
 {% include youtube-embed.html id=page.youtubeid %}
 
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/555Timer/Dice
 [hero_image]: {{ page.hero_image_url }}

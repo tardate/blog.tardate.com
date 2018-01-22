@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#276 Variable Frequency Runway LEDs"
 date:           "2017-04-20 19:22:58 +0800"
-hero_image_url: http://leap.tardate.com/playground/VariableFrequencyRunwayLEDs/assets/VariableFrequencyRunwayLEDs_build.jpg
+hero_image_url: https://leap.tardate.com/playground/VariableFrequencyRunwayLEDs/assets/VariableFrequencyRunwayLEDs_build.jpg
 summary:        "a PWM-controlled variable frequency LED runway lights effect using the LM331 and CD4017"
 youtubeid:      "qnxnlBLyGxo"
 tags:
@@ -21,6 +21,6 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 Here's a quick video of the effect running on a breadboard:
 {% include youtube-embed.html id=page.youtubeid %}
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/playground/VariableFrequencyRunwayLEDs
 [hero_image]: {{ page.hero_image_url }}

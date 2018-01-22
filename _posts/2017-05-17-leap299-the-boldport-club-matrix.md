@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#299 The Boldport Club Matrix"
 date:           "2017-05-17 22:54:42 +0800"
-hero_image_url: http://leap.tardate.com/BoldportClub/TheMatrix/assets/TheMatrix_build.jpg
+hero_image_url: https://leap.tardate.com/BoldportClub/TheMatrix/assets/TheMatrix_build.jpg
 summary:        "building The Matrix (Boldport Club project #11) is an I²C-controlled 24x5 LED matrix display, powered by an AMS AS1130 LED driver"
 youtubeid:
 tags:
@@ -18,6 +18,6 @@ get a [stencil from OSHStencils](https://www.oshstencils.com/#projects/b0f4128d6
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/BoldportClub/TheMatrix
 [hero_image]: {{ page.hero_image_url }}

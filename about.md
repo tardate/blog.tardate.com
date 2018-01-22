@@ -18,8 +18,8 @@ Sometimes ravings on books or music bust in, and occasionally I'll be distracted
 
 If these topics interest you, you may like some other sites I maintain:
 
-* [LittleArduinoProjects](http://leap.tardate.com/) - a collection of electronics projects, often involving an Arduino
-* [LittleCodingKata](http://codingkata.tardate.com/) - my notes and test code on software development topics and tools
+* [LittleArduinoProjects](https://leap.tardate.com/) - a collection of electronics projects, often involving an Arduino
+* [LittleCodingKata](https://codingkata.tardate.com/) - my notes and test code on software development topics and tools
 
 
 ---

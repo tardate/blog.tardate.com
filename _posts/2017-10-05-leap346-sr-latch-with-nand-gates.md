@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#346 S/R Latch with NAND Gates"
 date:           "2017-10-05 01:21:28 +0800"
-hero_image_url: http://leap.tardate.com/Electronics101/DigitalLogic/SRLatchWithNandGates/assets/SRLatchWithNandGates_build.jpg
+hero_image_url: https://leap.tardate.com/Electronics101/DigitalLogic/SRLatchWithNandGates/assets/SRLatchWithNandGates_build.jpg
 summary:        "examining yet another Set-Reset latch, this time with NAND gates"
 youtubeid:      "CC7LnUj8XIc"
 tags:
@@ -29,6 +29,6 @@ Here's a quick demo:
 
 {% include youtube-embed.html id=page.youtubeid %}
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/DigitalLogic/SRLatchWithNandGates
 [hero_image]: {{ page.hero_image_url }}

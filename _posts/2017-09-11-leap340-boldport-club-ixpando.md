@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#340 Boldport Club IxpandO"
 date:           "2017-09-11 00:00:21 +0800"
-hero_image_url: http://leap.tardate.com/BoldportClub/IxpandO/assets/IxpandO_build.jpg
+hero_image_url: https://leap.tardate.com/BoldportClub/IxpandO/assets/IxpandO_build.jpg
 summary:        "Demo digital output and interrupt-driven input with the IxpandO MCP23017 board - BoldportClub Project #16"
 youtubeid:      "hQaYeF7REU8"
 tags:
@@ -18,6 +18,6 @@ with an Arduino sketch to demonstrate digital output and interrupt-driven input.
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 {% include youtube-embed.html id="hQaYeF7REU8" %}
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/BoldportClub/IxpandO
 [hero_image]: {{ page.hero_image_url }}

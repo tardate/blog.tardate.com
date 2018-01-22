@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#257 It's a Blinking Emergency!"
 date:           "2017-02-19 17:24:35 +0800"
-hero_image_url: http://leap.tardate.com/BoldportClub/Emergency/assets/Emergency_build.jpg
+hero_image_url: https://leap.tardate.com/BoldportClub/Emergency/assets/Emergency_build.jpg
 summary:        "Pimping the Boldport Club project #2 - Emergency"
 youtubeid:      "PPUZth8RfCE"
 tags:
@@ -18,6 +18,6 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 
 {% include youtube-embed.html id=page.youtubeid %}
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/BoldportClub/Emergency
 [hero_image]: {{ page.hero_image_url }}

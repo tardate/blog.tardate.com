@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#314 AT28C EEPROM Programmer with Port Expander"
 date:           "2017-05-31 21:59:26 +0800"
-hero_image_url: http://leap.tardate.com/playground/EEPROM/AT28C16/PEProgrammer/assets/PEProgrammer_build.jpg
+hero_image_url: https://leap.tardate.com/playground/EEPROM/AT28C16/PEProgrammer/assets/PEProgrammer_build.jpg
 summary:        "programming an AT28C16 EEPROM with an Arduino and MCP23S17 16-bit port expander"
 youtubeid:
 tags:
@@ -16,6 +16,6 @@ I was inspired to explore more by [Ben Eater's use of EEPROMs for his 8-bit comp
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/playground/EEPROM/AT28C16/PEProgrammer
 [hero_image]: {{ page.hero_image_url }}

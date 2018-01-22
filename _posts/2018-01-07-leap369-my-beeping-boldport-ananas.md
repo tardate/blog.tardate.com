@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#369 my beeping Boldport ananas"
 date:           "2018-01-07 20:01:27 +0800"
-hero_image_url: http://leap.tardate.com/BoldportClub/ananas/assets/ananas_build.jpg
+hero_image_url: https://leap.tardate.com/BoldportClub/ananas/assets/ananas_build.jpg
 summary:        "building the tropical end-of-year present from Boldport Club, Project #20 - ananas!"
 youtubeid:      "r5lmMHbLu4c"
 tags:
@@ -25,6 +25,6 @@ Here's a quick demo (with special customisation!):
 
 {% include youtube-embed.html id=page.youtubeid %}
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/BoldportClub/ananas
 [hero_image]: {{ page.hero_image_url }}

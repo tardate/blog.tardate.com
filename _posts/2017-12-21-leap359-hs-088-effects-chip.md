@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#359 HS-088 Effects Chip"
 date:           "2017-12-21 21:47:57 +0800"
-hero_image_url: http://leap.tardate.com/Electronics101/AudioEffectsChips/HS088/assets/HS088_build.jpg
+hero_image_url: https://leap.tardate.com/Electronics101/AudioEffectsChips/HS088/assets/HS088_build.jpg
 summary:        "figuring out the HS088 'Ding Dong' audio effects chip"
 youtubeid:      "3f8TGjILb_U"
 tags:
@@ -18,6 +18,6 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 
 {% include youtube-embed.html id="3f8TGjILb_U" %}
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/AudioEffectsChips/HS088
 [hero_image]: {{ page.hero_image_url }}

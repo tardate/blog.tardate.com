@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#349 BURN a new demo for the Stringy"
 date:           "2017-10-17 00:35:36 +0800"
-hero_image_url: http://leap.tardate.com/BoldportClub/stringy/DemoBurner/assets/DemoBurner_build.jpg
+hero_image_url: https://leap.tardate.com/BoldportClub/stringy/DemoBurner/assets/DemoBurner_build.jpg
 summary:        "burning a new demo mode for the Boldport Club Stringy, with a Ruby gem for MusicXML conversion to PIC assembler"
 youtubeid:      "Jn1iYxQHtXs"
 tags:
@@ -29,6 +29,6 @@ Here's the new demo in action..
 
 {% include youtube-embed.html id=page.youtubeid %}
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/BoldportClub/stringy/DemoBurner
 [hero_image]: {{ page.hero_image_url }}

@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#298 The Golden Hind"
 date:           "2017-05-16 23:13:35 +0800"
-hero_image_url: http://leap.tardate.com/Kraft/GoldenHind/assets/GoldenHind_build.jpg
+hero_image_url: https://leap.tardate.com/Kraft/GoldenHind/assets/GoldenHind_build.jpg
 summary:        "Building a mini metal model of the Golden Hind"
 youtubeid:
 tags:
@@ -18,6 +18,6 @@ but the model designs all see to be common from a few Chinese manufacturers. The
 As always, [all notes in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Kraft/GoldenHind
 [hero_image]: {{ page.hero_image_url }}

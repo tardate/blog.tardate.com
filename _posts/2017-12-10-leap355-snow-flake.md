@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#355 Snow Flake"
 date:           "2017-12-10 17:30:28 +0800"
-hero_image_url: http://leap.tardate.com/Kraft/snowflake/assets/snowflake_build.jpg
+hero_image_url: https://leap.tardate.com/Kraft/snowflake/assets/snowflake_build.jpg
 summary:        "an Atmel SAM D ARM Cortex-M0-controlled LED ornament produced by @LuckResistor and shared with the Boldport Club community as a special project"
 youtubeid:      "nJ68XZK5qAo"
 tags:
@@ -25,6 +25,6 @@ The LED animation effects look much better in video form of course :
 
 {% include youtube-embed.html id="nJ68XZK5qAo" %}
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Kraft/snowflake
 [hero_image]: {{ page.hero_image_url }}

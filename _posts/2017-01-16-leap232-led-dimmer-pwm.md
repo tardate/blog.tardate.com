@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#232 LED Dimmer PWM"
 date:           "2017-01-16 19:15:15 +0800"
-hero_image_url: http://leap.tardate.com/Electronics101/LEDDimmer/555PWM/assets/555PWM_build.jpg
+hero_image_url: https://leap.tardate.com/Electronics101/LEDDimmer/555PWM/assets/555PWM_build.jpg
 summary:        using a simple 555 timer PWM as a LED dimmer
 tags:
 - Electronics
@@ -24,6 +24,6 @@ Now perhaps some flicker might be a Very Good Thing, if the
 bears up in practice. But flicker should still be something you explicitly design to have or eliminate.
 
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/LEDDimmer/555PWM
 [hero_image]: {{ page.hero_image_url }}

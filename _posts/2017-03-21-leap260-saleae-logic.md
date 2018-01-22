@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#260 Saleae Logic"
 date:           "2017-03-21 19:04:54 +0800"
-hero_image_url: http://leap.tardate.com/Equipment/SaleaeLogic/assets/SaleaeLogic_build.jpg
+hero_image_url: https://leap.tardate.com/Equipment/SaleaeLogic/assets/SaleaeLogic_build.jpg
 summary:        checking out a second-hand Saleae Logic USB logic analyzer - that works on a Mac!!
 youtubeid:
 tags:
@@ -17,6 +17,6 @@ Saleae have done a brilliant job of creating an excellent experience, and contin
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Equipment/SaleaeLogic
 [hero_image]: {{ page.hero_image_url }}

@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#325 Pimp My Boldport Club Spoolt"
 date:           "2017-07-23 16:03:24 +0800"
-hero_image_url: http://leap.tardate.com/BoldportClub/spoolt/assets/spoolt_build.jpg
+hero_image_url: https://leap.tardate.com/BoldportClub/spoolt/assets/spoolt_build.jpg
 summary:        "Pimp my spoolt - the Boldport Club solder dispenser (Project #15, July 2017)"
 youtubeid:      "mSZUleERjIs"
 tags:
@@ -18,6 +18,6 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 Here's a quick demo:
 {% include youtube-embed.html id="mSZUleERjIs" %}
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/BoldportClub/spoolt
 [hero_image]: {{ page.hero_image_url }}

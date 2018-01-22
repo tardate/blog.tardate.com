@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#338 Going GlowBall!"
 date:           "2017-08-24 23:37:54 +0800"
-hero_image_url: http://leap.tardate.com/Kraft/GlowBall/assets/GlowBall_build.jpg
+hero_image_url: https://leap.tardate.com/Kraft/GlowBall/assets/GlowBall_build.jpg
 summary:        "Building LED effects for a Glass Eye Studio Celestial Planet Weight"
 youtubeid:      "hcFyM52ok7U"
 tags:
@@ -30,6 +30,6 @@ Here's is a video with a few soothing minutes of the glow effect;-) ...
 
 {% include youtube-embed.html id="hcFyM52ok7U" %}
 
-[leap]: http://leap.tardate.com
+[leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Kraft/GlowBall
 [hero_image]: {{ page.hero_image_url }}
