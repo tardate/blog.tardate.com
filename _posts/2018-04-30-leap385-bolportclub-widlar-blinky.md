@@ -1,6 +1,6 @@
 ---
 layout:         post
-title:          "LEAP#385 BolportClub Widlar Blinky"
+title:          "LEAP#385 BoldportClub Widlar Blinky"
 date:           "2018-04-30 01:05:33 +0800"
 hero_image_url: https://leap.tardate.com/BoldportClub/widlar/assets/widlar_build.jpg
 summary:        "hacking the BoldportClub Widlar (Project #21) to get the classic µA723 to do something other than voltage regulation (LED blinky)"
