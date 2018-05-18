@@ -11,8 +11,9 @@ tags:
 - Amplifiers
 ---
 
-Reviewing techniques for two-stage CE amplifier design. My calcs are a bit off (under-estimated gain),
-but I got a workable Class A amplifier out of it!
+Reviewing techniques for two-stage CE amplifier design.
+Gobsmacked that my calcs put me within 3% of actual performance,
+and I got a workable Class A amplifier to boot!
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 [![hero_image][hero_image]][project]
 
