@@ -21,5 +21,5 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 [![hero_image][hero_image]][project]
 
 [leap]: https://leap.tardate.com
-[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/xxx
+[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Kinetics/HomopolarJouleThiefBlinky
 [hero_image]: {{ page.hero_image_url }}
