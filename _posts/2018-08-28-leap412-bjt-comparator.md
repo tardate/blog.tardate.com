@@ -19,7 +19,9 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 
 [![hero_image][hero_image]][project]
 
-[scope_example_1](https://leap.tardate.com/Electronics101/BJT/Comparator/assets/scope_example_1.gif)
+Here's a trace of the output (red) resulting from the comparison of input (yellow) and reference (blue) voltages..
+
+![scope_example_1](https://leap.tardate.com/Electronics101/BJT/Comparator/assets/scope_example_1.gif)
 
 [leap]: https://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/BJT/Comparator
