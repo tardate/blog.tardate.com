@@ -1,5 +1,5 @@
 # ruby stuff
-.ruby*
+.ruby-gemset
 Gemfile.lock
 
 # jekyll intermediates
