@@ -2,7 +2,7 @@
 layout: post
 title:  "LEAP#227 KnightRider with a 555 Timer"
 date:   2017-01-05 20:15:00 +0800
-hero_image_url: http://leap.tardate.com/Electronics101/555Timer/KnightRider/assets/KnightRider_build.jpg
+hero_image_url: https://leap.tardate.com/Electronics101/555Timer/KnightRider/assets/KnightRider_build.jpg
 summary: Build and test well-known LED effect with a 555 timer and 4017 decade counter
 tags:
 - LittleArduinoProjects

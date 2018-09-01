@@ -2,7 +2,7 @@
 layout: post
 title:  "LEAP#224 LED Strobe Kit"
 date:   2017-01-02 22:25:00 +0800
-hero_image_url: http://leap.tardate.com/Electronics101/LEDStrobeKit/assets/LEDStrobeKit_build.jpg
+hero_image_url: https://leap.tardate.com/Electronics101/LEDStrobeKit/assets/LEDStrobeKit_build.jpg
 tags:
 - LittleArduinoProjects
 - Electronics

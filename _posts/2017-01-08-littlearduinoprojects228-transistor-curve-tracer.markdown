@@ -2,7 +2,7 @@
 layout: post
 title:  "LEAP#228 Transistor Curve Tracer"
 date:   2017-01-08 01:15:00 +0800
-hero_image_url: http://leap.tardate.com/Electronics101/TransistorCurveTracer/assets/curve_2N3904_50kRb.gif
+hero_image_url: https://leap.tardate.com/Electronics101/TransistorCurveTracer/assets/curve_2N3904_50kRb.gif
 summary: Simple NPN transistor curve tracer using a 555/opamp stairstep generator circuit
 tags:
 - LittleArduinoProjects
@@ -23,5 +23,5 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 
 [leap]: http://leap.tardate.com
 [project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/TransistorCurveTracer
-[hero_image]: http://leap.tardate.com/Electronics101/TransistorCurveTracer/assets/TransistorCurveTracer_build.jpg
-[scope_image]: http://leap.tardate.com/Electronics101/TransistorCurveTracer/assets/curve_2N3904_50kRb.gif
+[hero_image]: https://leap.tardate.com/Electronics101/TransistorCurveTracer/assets/TransistorCurveTracer_build.jpg
+[scope_image]: https://leap.tardate.com/Electronics101/TransistorCurveTracer/assets/curve_2N3904_50kRb.gif

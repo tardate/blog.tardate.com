@@ -2,7 +2,7 @@
 layout: post
 title:  "LEAP#225 FQ777-954 Teardown"
 date:   2017-01-03 22:25:00 +0800
-hero_image_url: http://leap.tardate.com/Kinetics/FQ777-954/TearDown/assets/TearDown_build.jpg
+hero_image_url: https://leap.tardate.com/Kinetics/FQ777-954/TearDown/assets/TearDown_build.jpg
 summary: Teardown an FQ777-954 nano drone and collate the technical details as a base for hacks
 tags:
 - LittleArduinoProjects

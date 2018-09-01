@@ -2,7 +2,7 @@
 layout: post
 title:  "LEAP#226 Music Box Kit"
 date:   2017-01-04 19:15:00 +0800
-hero_image_url: http://leap.tardate.com/Electronics101/MusicBoxKit/assets/MusicBoxKit_build.jpg
+hero_image_url: https://leap.tardate.com/Electronics101/MusicBoxKit/assets/MusicBoxKit_build.jpg
 summary: Build and test a Music Box kit, and run a demonstration under Arduino control
 tags:
 - LittleArduinoProjects

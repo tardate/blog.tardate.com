@@ -13,7 +13,7 @@ tags:
 but it is often the tinkerer's first experience of designing and documenting breadboard experiments.
 Even for the experienced, Fritzing can often be the quickest and easiest route to a simple schematic or design.
 If you've joined the [Boldport Club][bpc] and have a Cuttle microcontroller (project #6), I have a New Year's gift for you!
-[![cuttle_blinky_example_bb](http://leap.tardate.com/FritzingParts/TheCuttle/cuttle_blinky_example/cuttle_blinky_example_bb.jpg)](http://leap.tardate.com)
+[![cuttle_blinky_example_bb](https://leap.tardate.com/FritzingParts/TheCuttle/cuttle_blinky_example/cuttle_blinky_example_bb.jpg)](http://leap.tardate.com)
 
 
 As part of working through the many projects I now have in the [LittleArduinoProjects][leap] collection,
@@ -29,7 +29,7 @@ If you just want the part, [check it out][cuttlepart].
 
 What does a Cuttle really look like? Here's my build:
 
-[![TheCuttle](http://leap.tardate.com/BoldportClub/TheCuttle/assets/TheCuttle_build.jpg)](https://github.com/tardate/LittleArduinoProjects/tree/master/BoldportClub/TheCuttle)
+[![TheCuttle](https://leap.tardate.com/BoldportClub/TheCuttle/assets/TheCuttle_build.jpg)](https://github.com/tardate/LittleArduinoProjects/tree/master/BoldportClub/TheCuttle)
 
 Don't have a cuttle? Just join the [Boldport Club][bpc] and kits are still available for backorder.
 
