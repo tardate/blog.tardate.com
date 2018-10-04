@@ -1,6 +1,6 @@
 ---
 layout:         post
-title:          "LEAP#417 Playing Sounds Samples with Arduino"
+title:          "LEAP#417 Playing Sound Samples with Arduino"
 date:           "2018-10-04 22:35:03 +0800"
 hero_image_url: https://leap.tardate.com/playground/Audio/SimpleSamplePlayer/assets/SimpleSamplePlayer_build.jpg
 summary:        "playing short audio samples on an Arduino using some PWM tricks from the PCM library"
@@ -24,3 +24,7 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 And here's an Uno pretending to be a phone, just to prove the point...
 
 {% include youtube-embed.html id=page.youtubeid %}
+
+[leap]: https://leap.tardate.com
+[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Kinetics/LineFollowerKit
+[hero_image]: {{ page.hero_image_url }}
