@@ -26,5 +26,5 @@ And here's an Uno pretending to be a phone, just to prove the point...
 {% include youtube-embed.html id=page.youtubeid %}
 
 [leap]: https://leap.tardate.com
-[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Kinetics/LineFollowerKit
+[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/playground/Audio/SimpleSamplePlayer
 [hero_image]: {{ page.hero_image_url }}
