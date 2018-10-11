@@ -10,8 +10,13 @@ tags:
 - Arduino
 ---
 
-I was recently shown an Arduino-compatible board made by Cytron in Penang, Malaysia.
-It packs quite a few additional features in the Uno form-factor:
+I was recently shown an Arduino-compatible board made by Cytron in Penang, Malaysia
+called the [Maker UNO](https://www.cytron.io/p-maker-uno?search=maker%20uno&description=1).
+I gather it began life as a
+[very successful kickstarter](https://www.kickstarter.com/projects/1685732347/6-maker-uno-simplifying-arduino-for-education)
+that aimed to produce a better board and associated teaching materials for K-12 education.
+
+It packs some nice additional features in the Uno form-factor:
 
 * LEDs on all digital pins
 * a piezo buzzer on pin 8
