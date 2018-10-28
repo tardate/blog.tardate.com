@@ -14,13 +14,13 @@ tags:
 
 
 Over the years, I've become habituated to working in a [Pomodoro](https://en.wikipedia.org/wiki/Pomodoro_Technique) style -
-make the day a series of tasks worked on in short blocks of time, with take regular breaks.
+make the day a series of tasks worked on in short blocks of time, with regular breaks.
 But I've never actually used a timer - just relied on my internal clock to work in roughly 1 hour increments.
 
 As I was building the Boldport 3x7, it started to appeal to me as a very nice display to use for a non-distracting Pomodoro timer.
 
 After breadboarding the idea my first thought was to make a PCB ... but as there's been a bit of
-[Mohit Bhoite](https://twitter.com/MohitBhoite) fandom in then Boldport Club recently, I was drawn into a another copper-wire sculpture.
+[Mohit Bhoite](https://twitter.com/MohitBhoite) fandom in the Boldport Club recently, I was drawn into a another copper-wire sculpture.
 Not very ruggedized, but it does look interesting!
 
 Now for the true test - is it actually useful? Well, I've started using it for real and so far so good.
