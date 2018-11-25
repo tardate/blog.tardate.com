@@ -12,7 +12,7 @@ tags:
 ---
 
 I recently "discovered" solar LED driver ICs, such as the QX5252 and YX805.
-They are mainly designed to drive LED lights from a low-voltage rechargeable battery, with colar powered charging.
+They are mainly designed to drive LED lights from a low-voltage rechargeable battery, with solar powered charging.
 
 A core function is a boost converter circuit (similar to a joule thief) that allows LEDs with a forward voltage of over 2V
 to be driven from a 0.9V-1.5V battery.
