@@ -20,11 +20,11 @@ rechargeable battery to get a sense of the overnight discharge and daily recharg
 It didn't need to be particularly accurate, but I did want to get a fairly continuous log at least every 5 minutes or so.
 Sounds like a perfect case for some Arduino-powered data logging!
 
-I could just capture some data locally to an SD card, but sending the data to the "cloud" is much more appealing,
+I could just capture some data locally to an SD card, but sending the data to the cloud is much more appealing,
 as it means I can access and do some analysis at any time without needing to be local to the device.
 
 There are many established and roll-your-own solutions for this problem, but I've taken this
-as an opportunity to experiment with [Adafruit IO](https://learn.adafruit.com/welcome-to-adafruit-io):
+as an opportunity to experiment in particular with [Adafruit IO](https://learn.adafruit.com/welcome-to-adafruit-io):
 
 * collect measurements to a feed
 * create a simple dashboard
@@ -43,7 +43,7 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 
 [![hero_image][hero_image]][project]
 
-Here's a sample of the voltage measuresments I'm seeing on the dashboard:
+Here's a sample of the voltage measurements I'm seeing on the dashboard:
 
 [![aio_dashboard.png](https://leap.tardate.com/playground/DataLogging/VoltageToAdafruitIO/assets/aio_dashboard.png)][project]
 
