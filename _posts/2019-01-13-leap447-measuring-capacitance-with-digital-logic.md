@@ -3,7 +3,7 @@ layout:         post
 title:          "LEAP#447 Measuring Capacitance with Digital Logic"
 date:           "2019-01-13 17:31:54 +0800"
 hero_image_url: https://leap.tardate.com/BoldportClub/capacimeter/assets/capacimeter_build.jpg
-summary:        "measuring capacitance with old-school 555 and 4017 digital logic - a Boldport Club remix of a PEAK, Project #24 April 2018"
+summary:        "measuring capacitance with old-school 555 and 4017 digital logic - a Boldport Club remix of a PEAK, Project #31, December 2018"
 youtubeid:
 tags:
 - Electronics
