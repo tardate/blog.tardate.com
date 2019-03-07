@@ -13,7 +13,7 @@ tags:
 ---
 
 [Wilf's Bird](http://solarbotics.net/library/circuits/misc_sound_wilfbird.html) is a pretty famous "bird chirp" sound effect by Wilf Rigter.
-I last saw it used in Kelly Heaton's wonderful [bird sculture](https://hackaday.io/project/163201-electronic-sculpture),
+I last saw it used in Kelly Heaton's wonderful [bird sculpture](https://hackaday.io/project/163201-electronic-sculpture),
 a Hackaday Circuit Sculpture contest winner.
 
 The CANary is my little experiment with the sound effect.
