@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#242 Minimal Pierce Oscillator"
 date:           "2017-01-28 11:46:49 +0800"
-hero_image_url: https://leap.tardate.com/Electronics101/PierceOscillator/assets/PierceOscillator_build.jpg
+hero_image_url: https://leap.tardate.com/Electronics101/Oscillators/PierceOscillator/assets/PierceOscillator_build.jpg
 summary:        a Pierce Oscillator with a minimum of components
 tags:
 - Electronics
@@ -15,5 +15,5 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 [![hero_image][hero_image]][project]
 
 [leap]: https://leap.tardate.com
-[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/PierceOscillator
+[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/Oscillators/PierceOscillator
 [hero_image]: {{ page.hero_image_url }}
