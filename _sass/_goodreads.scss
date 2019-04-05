@@ -1,3 +1,7 @@
+.gr-wrapper {
+  min-height: 144px;
+}
+
 .recent-reads {
   /* header above the goodreads widget */
   a {
@@ -21,7 +25,7 @@
   /* book cover container - force them all to the same size! */
   float: left;
   width: 98px;
-  height: 160px;
+  height: 109px;
   padding: 0px 0px;
   overflow: hidden;
   img {
@@ -33,9 +37,12 @@
 
 
 @media #{$breakpoint-below-md} {
+  .gr-wrapper {
+    min-height: 112px;
+  }
   .gr_grid_book_container {
     width: 70px;
-    height: 100px;
+    height: 80px;
     img {
       /* book cover images - force them all to the same size! */
       width: 70px;
