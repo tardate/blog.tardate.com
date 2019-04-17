@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#246 CMOS Oscillators"
 date:           "2017-01-31 06:20:52 +0800"
-hero_image_url: https://leap.tardate.com/Electronics101/CMOSOscillators/assets/CMOSOscillators_build.jpg
+hero_image_url: https://leap.tardate.com/Electronics101/Oscillators/CMOSOscillators/assets/CMOSOscillators_build.jpg
 summary:        testing 4-pin CMOS oscillators
 tags:
 - Electronics
@@ -17,5 +17,5 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 [![hero_image][hero_image]][project]
 
 [leap]: https://leap.tardate.com
-[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/CMOSOscillators
+[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/Oscillators/CMOSOscillators
 [hero_image]: {{ page.hero_image_url }}
