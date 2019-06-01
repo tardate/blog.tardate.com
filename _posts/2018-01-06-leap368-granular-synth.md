@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#368 Granular Synth"
 date:           "2018-01-06 18:07:32 +0800"
-hero_image_url: https://leap.tardate.com/playground/GranularSynth/assets/GranularSynth_build.jpg
+hero_image_url: https://leap.tardate.com/Audio/GranularSynth/assets/GranularSynth_build.jpg
 summary:        "building an ATmega328 granular synth module in an Altoids can"
 youtubeid:      "1UOCTyM_3Ns"
 tags:
@@ -24,5 +24,5 @@ If you can put up with 5 minutes of me fiddling around, here's a taste of how it
 {% include youtube-embed.html id=page.youtubeid %}
 
 [leap]: https://leap.tardate.com
-[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/playground/GranularSynth
+[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Audio/GranularSynth
 [hero_image]: {{ page.hero_image_url }}
