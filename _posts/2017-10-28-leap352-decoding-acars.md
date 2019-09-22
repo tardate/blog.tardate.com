@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#352 Decoding ACARS"
 date:           "2017-10-28 16:57:12 +0800"
-hero_image_url: https://leap.tardate.com/SDR/DecodingACARS/assets/DecodingACARS_build.jpg
+hero_image_url: https://leap.tardate.com/Radio/SDR/DecodingACARS/assets/DecodingACARS_build.jpg
 summary:        "decoding ACARS with rtl_acars_ng and a R820T2+RTL2832U dongle on MacOSX"
 youtubeid:
 tags:
@@ -24,5 +24,5 @@ It built and ran on MacOSX without trouble, connecting to an R820T2+RTL2832U don
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 
 [leap]: https://leap.tardate.com
-[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/SDR/DecodingACARS
+[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Radio/SDR/DecodingACARS
 [hero_image]: {{ page.hero_image_url }}
