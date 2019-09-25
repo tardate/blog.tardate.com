@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#362 H-83A 12 song music chip"
 date:           "2017-12-25 01:33:51 +0800"
-hero_image_url: https://leap.tardate.com/Electronics101/AudioEffectsChips/H83A/assets/H83A_build.jpg
+hero_image_url: https://leap.tardate.com/Audio/AudioEffectsChips/H83A/assets/H83A_build.jpg
 summary:        "figuring out how to use the H-83A 12 songs music chip"
 youtubeid:
 tags:
@@ -20,5 +20,5 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 [![hero_image][hero_image]][project]
 
 [leap]: https://leap.tardate.com
-[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/AudioEffectsChips/H83A
+[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Audio/AudioEffectsChips/H83A
 [hero_image]: {{ page.hero_image_url }}

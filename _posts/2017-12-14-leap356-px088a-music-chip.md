@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#356 PX088A Für Elise Music Chip"
 date:           "2017-12-14 19:20:55 +0800"
-hero_image_url: https://leap.tardate.com/Electronics101/AudioEffectsChips/PX088A/assets/PX088A_build.jpg
+hero_image_url: https://leap.tardate.com/Audio/AudioEffectsChips/PX088A/assets/PX088A_build.jpg
 summary:        "figuring out how to use the PX088A Für Elise music chip"
 youtubeid:      "k8RLe6Krhd0"
 tags:
@@ -22,5 +22,5 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 [![hero_image][hero_image]][project]
 
 [leap]: https://leap.tardate.com
-[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/AudioEffectsChips/PX088A
+[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Audio/AudioEffectsChips/PX088A
 [hero_image]: {{ page.hero_image_url }}

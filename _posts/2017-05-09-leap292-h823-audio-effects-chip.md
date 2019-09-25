@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#292 H823 Audio Effects Chip"
 date:           "2017-05-09 19:22:19 +0800"
-hero_image_url: https://leap.tardate.com/Electronics101/AudioEffectsChips/H823/assets/H823_build.jpg
+hero_image_url: https://leap.tardate.com/Audio/AudioEffectsChips/H823/assets/H823_build.jpg
 summary:        "Figuring out how to use the H823 (Happy Birthday) music chip"
 youtubeid:      "RdeabhoCZKI"
 tags:
@@ -20,5 +20,5 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 [![hero_image][hero_image]][project]
 
 [leap]: https://leap.tardate.com
-[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/AudioEffectsChips/H823
+[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Audio/AudioEffectsChips/H823
 [hero_image]: {{ page.hero_image_url }}
