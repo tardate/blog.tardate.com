@@ -1,6 +1,6 @@
-title: tardate 2019
+title: tardate 2020
 email: gallagher.paul@gmail.com
-author:      Paul Gallagher
+author: Paul Gallagher
 description: > #
   This blog is my occasional diary of Quite Interesting Things.
   It is generally technical, meaning all things web, open source, polyglot-programming, electronics and concerning data.
@@ -112,7 +112,7 @@ permalink:    /:categories/:year/:month/:title.html
 paginate:     4
 sass:
   compressed: true
-gems:
+plugins:
   - jekyll-paginate
   - jekyll-sitemap
 exclude:
