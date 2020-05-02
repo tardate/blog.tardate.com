@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#386 The Blue Pill"
 date:           "2018-05-05 13:33:41 +0800"
-hero_image_url: https://leap.tardate.com/STM32/BluePill/assets/BluePill_build.jpg
+hero_image_url: https://leap.tardate.com/STM32/STM32F103C8T6/BluePill/assets/BluePill_build.jpg
 summary:        "programming an ARM Cortex-M3 STM32F103C8T6 Blue Pill board with the Arduino IDE"
 youtubeid:
 tags:
@@ -23,5 +23,5 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 [![hero_image][hero_image]][project]
 
 [leap]: https://leap.tardate.com
-[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/STM32/BluePill
+[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/STM32/STM32F103C8T6/BluePill
 [hero_image]: {{ page.hero_image_url }}
