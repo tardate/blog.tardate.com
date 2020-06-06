@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#241 General Purpose 358 Amplifier"
 date:           "2017-01-26 18:40:00 +0800"
-hero_image_url: https://leap.tardate.com/Electronics101/AudioAmps/GeneralPurpose358/assets/GeneralPurpose358_build.jpg
+hero_image_url: https://leap.tardate.com/Audio/AudioAmps/GeneralPurpose358/assets/GeneralPurpose358_build.jpg
 summary:        Is this a decent general-purpose LM358 amplifier circuit? Turns out, not so much!
 tags:
 - Electronics
@@ -19,5 +19,5 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 [![hero_image][hero_image]][project]
 
 [leap]: https://leap.tardate.com
-[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/AudioAmps/GeneralPurpose358
+[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Audio/AudioAmps/GeneralPurpose358
 [hero_image]: {{ page.hero_image_url }}

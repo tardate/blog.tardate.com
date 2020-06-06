@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#449 Parrot Sound Effects"
 date:           "2019-01-29 01:54:59 +0800"
-hero_image_url: https://leap.tardate.com/Electronics101/AudioEffects/Parrot/assets/Parrot_build.jpg
+hero_image_url: https://leap.tardate.com/Audio/AudioEffects/Parrot/assets/Parrot_build.jpg
 summary:        "playing with a 1-transistor, dual oscillator chirping sound effect circuit"
 youtubeid:      "9vkSytXmmKg"
 tags:
@@ -27,5 +27,5 @@ Here's a clip from the workbench, demonstrating some of the sounds that can be p
 {% include youtube-embed.html id=page.youtubeid %}
 
 [leap]: https://leap.tardate.com
-[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/AudioEffects/Parrot
+[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Audio/AudioEffects/Parrot
 [hero_image]: {{ page.hero_image_url }}

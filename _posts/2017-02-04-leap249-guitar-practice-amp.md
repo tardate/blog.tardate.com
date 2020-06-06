@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#249 Guitar Practice Amp"
 date:           "2017-02-04 17:15:33 -0500"
-hero_image_url: https://leap.tardate.com/Electronics101/AudioAmps/GuitarPracticeAmp/assets/GuitarPracticeAmp_build.jpg
+hero_image_url: https://leap.tardate.com/Audio/AudioAmps/GuitarPracticeAmp/assets/GuitarPracticeAmp_build.jpg
 summary:        a single-channel 10W guitar practice amplifier based on the TDA2050
 tags:
 - Electronics
@@ -18,5 +18,5 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 [![hero_image][hero_image]][project]
 
 [leap]: https://leap.tardate.com
-[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/AudioAmps/GuitarPracticeAmp
+[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Audio/AudioAmps/GuitarPracticeAmp
 [hero_image]: {{ page.hero_image_url }}

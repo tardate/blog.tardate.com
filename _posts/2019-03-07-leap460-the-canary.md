@@ -2,7 +2,7 @@
 layout:         post
 title:          "LEAP#460 The CANary"
 date:           "2019-03-07 19:06:40 +0800"
-hero_image_url: https://leap.tardate.com/Electronics101/AudioEffects/CANary/assets/CANary_build.jpg
+hero_image_url: https://leap.tardate.com/Audio/AudioEffects/CANary/assets/CANary_build.jpg
 summary:        "playing with a popular 74HC14 bird chirp effect by Wilf Rigter and making a CANary sculpture"
 youtubeid:      "QLl-OWAFiy0"
 tags:
@@ -25,5 +25,5 @@ As always, [all notes, schematics and code are in the Little Electronics & Ardui
 {% include youtube-embed.html id=page.youtubeid %}
 
 [leap]: https://leap.tardate.com
-[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/AudioEffects/CANary
+[project]: https://github.com/tardate/LittleArduinoProjects/tree/master/Audio/AudioEffects/CANary
 [hero_image]: {{ page.hero_image_url }}

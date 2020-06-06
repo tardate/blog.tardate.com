@@ -19,7 +19,7 @@ to attempt some LiFi audio transmission by light.
 
 I'm using the Boldport Cuttle (an AVR/Arduino clone) to transmit an audio sample with an LED,
 and the Boldport lite2sound as a receiver. The audio out from lite2sound is amplified with
-[LEAP#210 TDA7297 Kit](https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/AudioAmps/TDA7297Kit).
+[LEAP#210 TDA7297 Kit](https://github.com/tardate/LittleArduinoProjects/tree/master/Audio/AudioAmps/TDA7297Kit).
 
 As always, [all notes, schematics and code are in the Little Electronics & Arduino Projects repo on GitHub][project]
 
