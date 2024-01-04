@@ -8,7 +8,7 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "~> 4.0.0"
+gem "jekyll", "~> 4.3"
 gem "bundler", ">= 2.0.1"
 
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
@@ -20,7 +20,7 @@ gem "bundler", ">= 2.0.1"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-   gem "jekyll-feed"#, "~> 0.6"
+   gem "jekyll-feed"
    gem "jekyll-paginate"
    gem "jekyll-sitemap"
 end
