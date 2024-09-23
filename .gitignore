@@ -4,7 +4,6 @@ Gemfile.lock
 
 # jekyll intermediates
 _site
-_drafts.offline
 .sass-cache
 .jekyll-metadata
 .jekyll-cache

@@ -3,6 +3,10 @@
 I've had two blogs kicking around on blogger.com for years (tardate and pratalife).
 I decided to try porting and combining them on GitHub Pages using Jekyll.
 
+The blog is now hosted at <https://blog.tardate.com/>.
+It is currently hosted using Netlify, but I'll probably switch back to using GitHub Pages
+(iirc, at the time GitHub Pages didn't support custom domains with HTTPS).
+
 ## Template/Theme
 
 I started out using the built-in [minima](https://github.com/jekyll/minima) theme,
@@ -12,7 +16,7 @@ as it offers a very good mix of pre-configured features useful for a blog
 
 ## Importing Existing Sites from Blogger
 
-```
+```sh
 bundle exec jekyll new .
 ruby -rubygems -e 'require "jekyll-import";
     JekyllImport::Importers::Blogger.run({
@@ -28,11 +32,14 @@ ruby -rubygems -e 'require "jekyll-import";
 ```
 
 Seems like the import failed badly on slashes in the title. I had to fix a few in the XML source before import. e.g.
-```
+
+```html
 <title type='text'>Somewhere / Or Other</title>
 ```
+
 works if changed to
-```
+
+```html
 <title type='text'>Somewhere - Or Other</title>
 ```
 
@@ -42,6 +49,7 @@ To add new posts, simply add a file in the `_posts` directory that follows the c
 
 Jekyll also offers powerful support for code snippets:
 
+```md
 {% highlight ruby %}
 def print_hi(name)
   puts "Hi, #{name}"
@@ -49,3 +57,4 @@ end
 print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
+```
