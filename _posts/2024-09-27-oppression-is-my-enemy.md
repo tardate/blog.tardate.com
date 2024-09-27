@@ -1,7 +1,7 @@
 ---
 layout:         post
 title:          "Oppression"
-date:           2024-09-27
+date:           2024-09-27 12:45:00 +0800
 tags:
 - Deep thoughts
 ---
