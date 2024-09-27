@@ -8,17 +8,19 @@ tags:
 
 I can't pinpoint exactly where it comes from, but somewhere along the way I've internalised a core value of "siding with the underdog". Anti-Thatcherite Britain? Aussie tall-poppy syndrome? Catholic public school? Perhaps a mix of all these and more. I was recently introduced to the following quote from [Periyar Erode Venkatappa Ramasamy](https://en.wikipedia.org/wiki/Periyar) that is I think a perfect formulation of the idea:
 
-> If larger country oppresses a smaller country, I'll stand with smaller country.
+> If a larger country oppresses a smaller country, I'll stand with the smaller country.
 >
-> If smaller country has majoritarian religion which oppresses minority religions, I'll stand with minority religion.
+> If the smaller country has majoritarian religion that oppresses minority religions, I'll stand with minority religions.
 >
-> If minority religion has caste and one caste oppresses another caste, I'll stand with caste oppressed.
+> If the minority religion has caste and one caste oppresses another caste, I'll stand with the caste being oppressed.
 >
-> In oppressed caste if an employer oppresses employee, I'll stand with employee.
+> In the oppressed caste, if an employer oppresses his employee, I'll stand with the employee.
 >
 > If employee goes home and oppresses his wife, I'll stand with that woman.
 >
 > Overall, oppression is my enemy.
+>
+> *- Thanthai Periyar E. V. Ramasamy (17 Sep, 1879 – 24 Dec, 1973)*
 
 [![periyar_evr_stamp](/assets/periyar_evr_stamp.jpg)](https://en.wikipedia.org/wiki/Periyar#/media/File:PeriyarEVRStamp.jpg)
 
@@ -36,10 +38,10 @@ has argued in the Financial Times that
 
 And everyone seems to be calling for reform at the UN Security Council Open Debate on Leadership for Peace...
 
-* Singapore's Minister for Foreign Affairs Dr Vivian Balakrishnan has called to ["constrain the exercise of the veto"](https://www.mfa.gov.sg/Newsroom/Press-Statements-Transcripts-and-Photos/2024/09/UN-Security-Council-Open-Debate)
-* French President Emmanuel Macron has ["suggested that the UN Security Council limit veto power"](https://www.france24.com/en/france/20240925-ukraine-lebanon-gaza-and-limiting-un-veto-power-takeaways-from-macron-s-speech-at-the-un)
-* even the US Ambassador Linda Thomas-Greenfield echoed the [need for reform](https://usun.usmission.gov/remarks-by-ambassador-linda-thomas-greenfield-at-a-signature-event-on-leadership-for-peace/) .. but of course without mentioning veto powers; no surprise there.
-* But most significantly, I think
+- Singapore's Minister for Foreign Affairs Dr Vivian Balakrishnan has called to ["constrain the exercise of the veto"](https://www.mfa.gov.sg/Newsroom/Press-Statements-Transcripts-and-Photos/2024/09/UN-Security-Council-Open-Debate)
+- French President Emmanuel Macron has ["suggested that the UN Security Council limit veto power"](https://www.france24.com/en/france/20240925-ukraine-lebanon-gaza-and-limiting-un-veto-power-takeaways-from-macron-s-speech-at-the-un)
+- even the US Ambassador Linda Thomas-Greenfield echoed the [need for reform](https://usun.usmission.gov/remarks-by-ambassador-linda-thomas-greenfield-at-a-signature-event-on-leadership-for-peace/) .. but of course without mentioning veto powers; no surprise there.
+- But most significantly, I think
 [Finland's President Alexander Stubb](https://www.reuters.com/world/finlands-president-wants-end-single-state-veto-un-security-council-2024-09-18/) may have punched a winning ticket by calling for expansion of the U.N. Security Council, abolition of its single state veto power, and suspension of any member engaging in an "illegal war".
 
 Please, **no to the veto!**
