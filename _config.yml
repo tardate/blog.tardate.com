@@ -8,6 +8,7 @@ description: > #
 baseurl:     ""
 url:         "https://blog.tardate.com"
 date_format: "%b %-d, %Y"
+feed_path: "/feed.xml"
 
 # Google services
 google_verification:
