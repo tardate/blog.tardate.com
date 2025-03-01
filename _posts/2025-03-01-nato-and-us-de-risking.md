@@ -1,6 +1,6 @@
 ---
 layout:         post
-title:          "NATO and US De-risking"
+title:          "How can NATO de-risk from the US?"
 date:           2025-03-01
 tags:
 - Politics
