@@ -2,6 +2,8 @@
 layout:         post
 title:          "Close Quarters"
 date:           2025-06-18
+summary:        "Close Quarters (1943) is a docudrama that follows a Royal Navy submarine on a North Sea patrol during World War II"
+hero_image_url: "https://blog.tardate.com/assets/2025-06-18-close-quarters/HMS_Tribune_2.jpg"
 tags:
 - Movies
 - WWII

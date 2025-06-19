@@ -2,6 +2,8 @@
 layout:         post
 title:          "{{title}}"
 date:           {{date}}
+summary:        "summary text"
+hero_image_url: "https://blog.tardate.com/assets/xxx"
 tags:
 - Development
 ---
