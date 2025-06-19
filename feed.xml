@@ -2,7 +2,7 @@
 layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:g="http://base.google.com/ns/1.0">
   <channel>
     <title>{{ site.title | xml_escape }}</title>
     <description>{{ site.description | xml_escape }}</description>
@@ -11,6 +11,16 @@ layout: null
     {% for post in site.posts limit:10 %}
       <item>
         <title>{{ post.title | xml_escape }}</title>
+        {% if post.summary %}
+          <atom:summary>{{ post.summary | xml_escape }}</atom:summary>
+        {% endif %}
+        {% if post.hero_image_url %}
+          {% if page.hero_image_url contains '//' %}
+            <g:image_link>{{ post.hero_image_url }}</g:image_link>
+          {% else %}
+            <g:image_link>{{ post.hero_image_url | prepend: site.baseurl | prepend: site.url  }}</g:image_link>
+          {% endif %}
+        {% endif %}
         <description>{{ post.content | xml_escape }}</description>
         <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
         <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
