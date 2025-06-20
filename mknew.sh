@@ -10,8 +10,8 @@ fi
 POST_NAME=$1
 TEMPLATE_NAME=${2:-default}
 DATE=$(date +"%Y-%m-%d")
-FILE_NAME="${DATE}-${POST_NAME// /-}.md"
-POST_PATH="_posts/$(echo "${FILE_NAME}" | tr '[:upper:]' '[:lower:]')"
+BASE_NAME="$(echo "${DATE}-${POST_NAME// /-}" | tr '[:upper:]' '[:lower:]')"
+POST_PATH="_posts/${BASE_NAME}.md"
 TEMPLATE_PATH="_drafts/${TEMPLATE_NAME}.md"
 
 # Check if the template exists
@@ -19,6 +19,9 @@ if [ ! -f "${TEMPLATE_PATH}" ]; then
   echo "Template ${TEMPLATE_PATH} does not exist."
   exit 1
 fi
+
+# Make asset folder for post
+mkdir -p "assets/${BASE_NAME}"
 
 # Create the new post from the template
 cp "${TEMPLATE_PATH}" "$POST_PATH"
