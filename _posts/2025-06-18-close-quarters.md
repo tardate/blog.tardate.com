@@ -33,6 +33,16 @@ or watch it on YouTube:
 
 [![poster](/assets/2025-06-18-close-quarters/poster.jpg)](https://www.imdb.com/title/tt0221880/)
 
+## Submarine On Patrol (1943)
+
+Submarine On Patrol is a British World War II information film describing to the public the technicalities and roles of Royal Navy submarine operations.
+
+Again it features HMS Tribune masquerading as *HMS Tyrant*.
+
+While it appears to have been made at the same time as filming of "Close Quarters", most of the footage is unique.
+
+[![clip](https://img.youtube.com/vi/-Q8hHbFyVB8/0.jpg)](https://www.youtube.com/watch?v=-Q8hHbFyVB8)
+
 ## For Modellers
 
 SSMODEL released a new
