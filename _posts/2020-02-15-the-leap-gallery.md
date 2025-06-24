@@ -2,7 +2,7 @@
 layout:         post
 title:          "The LEAP Gallery"
 date:           "2020-02-15 12:26:58 +0800"
-hero_image_url: /assets/leap-gallery.jpg
+hero_image_url: /assets/2020-02-15-the-leap-gallery/leap-gallery.jpg
 summary:        a collage of project images just for the fun of it
 youtubeid:
 tags:

@@ -37,4 +37,4 @@ And by virtue of my Instagram account I do dabble a bit in Facebook, but I try t
 
 Anyway for now, raise your glass and let's toast to the ongoing success of one of the most viral, subversive, and underground content movements the world has seen since the days of [flagrant pamphleteering](https://en.wikipedia.org/wiki/Pamphleteer) ... THE BLOG.
 
-![quote-now-this-is-not-the-end-winston-churchill](/assets/quote-now-this-is-not-the-end-winston-churchill.jpg)
+![quote-now-this-is-not-the-end-winston-churchill](/assets/2024-06-05-long-live-the-blog/quote-now-this-is-not-the-end-winston-churchill.jpg)

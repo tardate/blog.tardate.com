@@ -17,4 +17,4 @@ get a basic summary with pictures and links to more information
 
 Sources are available on GitHub, click through for more information..
 
-[![planes-of-japan](/assets/planes-of-japan.png)](https://planes-of-imperial-japan.tardate.com/)
+[![planes-of-japan](/assets/2024-06-06-planes-of-japan/planes-of-japan.png)](https://planes-of-imperial-japan.tardate.com/)
