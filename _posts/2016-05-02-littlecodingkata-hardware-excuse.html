@@ -11,4 +11,26 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-4440444505665566369
 blogger_orig_url: http://blog.tardate.com/2016/05/littlecodingkata-hardware-excuse.html
 ---
 
-<a href="http://www.grpc.io/">gRPC</a> is a very interesting lightweight middleware framework for language-neutral, cross-platform RPC.<br /><br />When I heard about Natalie Silvanovich's <a href="http://natashenka.ca/hardware-excuse-generator/">Hardware Excuse Generator</a> on <a href="http://embedded.fm/episodes/111">Embedded.fm</a>, I immediately recognised a better "Hello World" for testing out gRPC.<br /><br /><a href="https://github.com/tardate/LittleCodingKata/tree/master/messaging/grpc/explainer">Introducing "The Explainer"</a>: my programming exercise to learn basic cross-language request/reply with gRPC.<br /><br />I haven't completed the whole matrix of client-server possibilities yet, but here's a sampling... <br /><br />Start up a server (e.g ruby version)<br /><pre name="code" class="shell:wraplines:nocontrols">$ ./explainer.rb <br />ShiFu is waiting to explain all of your problems...<br /></pre><br />And then ask it questions. Pick a language!<br /><pre name="code" ><br /># Ruby client<br />$ ./explain.rb "Your phone is crashing because of REASON" <br />Your phone is crashing because of the <br />PCB not being manufactured to specification<br /><br /># C# client<br />$ mono bin/Release/explain.exe "Your phone is crashing because of REASON"<br />Your phone is probably crashing because of stray harmonics<br /><br /># C++ client<br />$ ./explain "Your phone is crashing because of REASON"<br />Your phone is crashing because of impedance in the coil<br /><br /># node.js client<br />$ node ./explain.js "Your phone is crashing because of REASON"<br />Your phone is crashing because of a lack of shielding against <br />alpha radiation (cosmic rays) in antenna<br /><br /># Python client<br />$ python explain.py "Your phone is crashing because of REASON"<br />Your phone is crashing because of residual capacitance <br />caused by the USB connector<br /></pre><br />All my notes and code are <a href="https://github.com/tardate/LittleCodingKata/tree/master/messaging/grpc/explainer">available in the LittleCodingKata GitHub repository</a>.
+<a href="http://www.grpc.io/">gRPC</a> is a very interesting lightweight middleware framework for language-neutral,
+cross-platform RPC.<br>
+<br>
+When I heard about Natalie Silvanovich's <a href="http://natashenka.ca/hardware-excuse-generator/">Hardware Excuse
+Generator</a> on <a href="http://embedded.fm/episodes/111">Embedded.fm</a>, I immediately recognised a better "Hello
+World" for testing out gRPC.<br>
+<br>
+<a href="https://github.com/tardate/LittleCodingKata/tree/master/messaging/grpc/explainer">Introducing "The
+Explainer"</a>: my programming exercise to learn basic cross-language request/reply with gRPC.<br>
+<br>
+I haven't completed the whole matrix of client-server possibilities yet, but here's a sampling...<br>
+<br>
+Start up a server (e.g ruby version)<br>
+<pre name="code" class="shell:wraplines:nocontrols">
+$ ./explainer.rb <br>ShiFu is waiting to explain all of your problems...<br>
+</pre><br>
+And then ask it questions. Pick a language!<br>
+<pre name="code">
+<br># Ruby client<br>$ ./explain.rb "Your phone is crashing because of REASON" <br>Your phone is crashing because of the <br>PCB not being manufactured to specification<br><br># C# client<br>$ mono bin/Release/explain.exe "Your phone is crashing because of REASON"<br>Your phone is probably crashing because of stray harmonics<br><br># C++ client<br>$ ./explain "Your phone is crashing because of REASON"<br>Your phone is crashing because of impedance in the coil<br><br># node.js client<br>$ node ./explain.js "Your phone is crashing because of REASON"<br>Your phone is crashing because of a lack of shielding against <br>alpha radiation (cosmic rays) in antenna<br><br># Python client<br>$ python explain.py "Your phone is crashing because of REASON"<br>Your phone is crashing because of residual capacitance <br>caused by the USB connector<br>
+</pre><br>
+All my notes and code are <a href=
+"https://github.com/tardate/LittleCodingKata/tree/master/messaging/grpc/explainer">available in the LittleCodingKata
+GitHub repository</a>.

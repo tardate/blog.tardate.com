@@ -10,4 +10,31 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-4645764973009705484
 blogger_orig_url: http://blog.tardate.com/2007/02/running-instant-client-on-linux.html
 ---
 
-I recently had cause to install and configure the Oracle Instant Client under Linux. As I've written before, it is a breeze to get a client up and running.<br /><br />I did find however that the way the instant client deploys its files can break makefiles and so on if you are doing C/C++ development.<br /><br />I wrote a simple script (see <a href="http://github.com/tardate/sources/tree/master/installInstantClient.sh?raw=true">installInstantClient.sh</a>) to install and cleanup an Instant Client and take care of a few things like:<br /><br /><ul><br /><li>move executables into a /bin subdirectory<br /></li><li>move libraries into a /lib subdirectory<br /></li><li>create links for commonly know library names<br /></li><li>create a default network/admin/tnsnames.ora<br /></li><li>suggest appropriate environment settings for your .bash_profile<br /></li></ul><br /><br />Note that the script is written to explicitly handle the basic+sdk+sqlplus installation. If you want to use it for a different combination of kits it will need some simple modification.
+I recently had cause to install and configure the Oracle Instant Client under Linux. As I've written before, it is a
+breeze to get a client up and running.<br>
+<br>
+I did find however that the way the instant client deploys its files can break makefiles and so on if you are doing
+C/C++ development.<br>
+<br>
+I wrote a simple script (see <a href=
+"http://github.com/tardate/sources/tree/master/installInstantClient.sh?raw=true">installInstantClient.sh</a>) to
+install and cleanup an Instant Client and take care of a few things like:<br>
+<br>
+<ul>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>move executables into a /bin subdirectory<br>
+  </li>
+  <li>move libraries into a /lib subdirectory<br>
+  </li>
+  <li>create links for commonly know library names<br>
+  </li>
+  <li>create a default network/admin/tnsnames.ora<br>
+  </li>
+  <li>suggest appropriate environment settings for your .bash_profile<br>
+  </li>
+</ul><br>
+<br>
+Note that the script is written to explicitly handle the basic+sdk+sqlplus installation. If you want to use it for a
+different combination of kits it will need some simple modification.

@@ -11,7 +11,113 @@ blogger_id: tag:blogger.com,1999:blog-18987903.post-6789003938295227168
 blogger_orig_url: http://pratalife.blogspot.com/2008/02/quick-nlb-catalogue-lookups.html
 ---
 
-<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://www.nlb.gov.sg/">
-  <img style="float:right; margin:0 0 10px 10px;cursor:pointer; cursor:hand;width: 150px;" src="/assets/2008-02-24-quick-nlb-catalogue-lookups/logo_nlb.png" border="0" alt="" />
-</a>
-<span style="font-style:italic;">Postscript: I've given up all ambitions of hacking NLB now that I have discovered <a href="http://www.bookjetty.com/people/pratalife/books">Bookjetty</a> - a bookshelf site with library integration. Check it out!</span><br /><br />OK, so this post won't mean diddly unless you live in Singapore, or have a local library using the CARLweb system.<br /><br />But say you are browsing one of the book retailers on the web - like amazon - and you want to know if the book is available in your local library?<br /><br />Here's a little trick to help you find that out in one-click (not patented;-). It is inspired by some posts over at <a href="http://theboxfactory.net/weblog/?p=5">The Box Factory</a>.<br /><br />Below is a link that you save to your bookmarks (Firefox)/favorites (IE). Once saved, when you are on a book page at amazon etc, just select the bookmark/favorite and it will pop-up a window to Singapore's <a href="http://www.nlb.gov.sg">National Library Board</a> catalogue system and try and find the book in the library for you.<br /><blockquote><span style="font-weight:bold;"><a href="javascript:var%20re=/([\/-]|is[bs]n=)(\d{7,9}[\dX])/i;if(re.test(location.href)==true){var%20isbn=RegExp.$2;win=window.open('http://vistaweb.nlb.gov.sg'+'/cgi-bin/cw_cgi?10100+REDIRX+useDatabase_3002_i_'+isbn,'LibraryLookup','scrollbars=1,resizable=1,location=1,width=575,height=500');win.focus();void(0);}">NLB Book Lookup</a> &lt;-- Bookmark/Favorite this!</span></blockquote><br /><h3>Simple steps: How to Use It</h3><ol><li>Right-click on the link above, and select <span style="font-weight:bold;">Bookmark This Link..</span> (Firefox) or <span style="font-weight:bold;">Add to Favorites..</span> (IE)</li><br /><li>Go thru the steps to save the link. you may get a warning about "javascript:" links not being recognised. Ignore/proceed .. trust me!</li><br /><li>Check you Bookmarks/Favourites menu - should now find <span style="font-weight:bold;">NLB Book Lookup</span> in the list.</li><br /><li>Navigate over to a book retailer and find a book (try the <a href="http://www.amazon.com/gp/product/0596523696?ie=UTF8&tag=itsaprli-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0596523696">Ruby Cookbook (O'Reilly)</a><img src="https://www.assoc-amazon.com/e/ir?t=itsaprli-20&l=as2&o=1&a=0596523696" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> at Amazon for example)</li><br /><li>While viewing the book page, select <span style="font-weight:bold;">NLB Book Lookup</span> from your Bookmarks/Favorites menu</li><br /><li>A new window will open to display the NLB Library Catalogue record (if there is one)</li></ol><br /><h3>Grumpy Stuff - But Looking Forward</h3>The NLB is still using CARLweb, which is an ancient product from <a href="http://www.tlcdelivers.com">TLC</a>. <br /><br />Once of the really nasty features of this system is that it using session tracking in the URL query string of your request. Not only does this prevent deep-linking (so you can't easily email a catalogue link to a friend for example), it makes the catalogue un-indexable by web search engines like google.<br /><br />It also means that the Bookmark/Favorite link I gave you above has to go in the front-door, and creates a new session each request. So unfortunately that means that if you use this a few times in quick succession, you may get a <span style="font-style:italic;">maximum sessions exceeded</span> error. Sorry, for now you'll just have to close the windows and wait a while for sessions to expire.<br /><br />Yes, CARLweb sux. It truely belongs to an earlier era of computing!<br /><br />The good news: I've heard whispers that the NLB have a project running to upgrade their catalogue search facilities. Hopefully we'll soon have a much better service to use. My top wishes:<br /><ul><li>Support for deep-linking. No user/session-related information in URLs.</li><br /><li>A nice robots.txt that allows the search engines to fully index the catalogue</li><br /><li>Flexible RSS feeds - as well as the usual "latest acquisitions" etc, a flexible and published approach to parameterising the feed e.g. by library location, by subject and any other search criteria. Or another way to express this would be "get any search result as RSS"</li><br /><li>Getting ambitious now ... a published Web Service/REST API</li><br /><li>A mashup developer's guide - encourage people in Singapore to exploit the NLB catalogue! A competition even?</li></ul><br /><br /><span style="font-style:italic;">Originally posted on <a href="/2008/02/quick-nlb-catalogue-lookups.html">tardate</a></span>
+<a href="http://www.nlb.gov.sg/"><img style=
+"float:right; margin:0 0 10px 10px;cursor:pointer; cursor:hand;width: 150px;" src=
+"/assets/2008-02-24-quick-nlb-catalogue-lookups/logo_nlb.png" border="0" alt=""></a> <span style=
+"font-style:italic;">Postscript: I've given up all ambitions of hacking NLB now that I have discovered <a href=
+"http://www.bookjetty.com/people/pratalife/books">Bookjetty</a> - a bookshelf site with library integration. Check it
+out!</span><br>
+<br>
+OK, so this post won't mean diddly unless you live in Singapore, or have a local library using the CARLweb system.<br>
+<br>
+But say you are browsing one of the book retailers on the web - like amazon - and you want to know if the book is
+available in your local library?<br>
+<br>
+Here's a little trick to help you find that out in one-click (not patented;-). It is inspired by some posts over at
+<a href="http://theboxfactory.net/weblog/?p=5">The Box Factory</a>.<br>
+<br>
+Below is a link that you save to your bookmarks (Firefox)/favorites (IE). Once saved, when you are on a book page at
+amazon etc, just select the bookmark/favorite and it will pop-up a window to Singapore's <a href=
+"http://www.nlb.gov.sg">National Library Board</a> catalogue system and try and find the book in the library for
+you.<br>
+<blockquote>
+  <span style="font-weight:bold;"><a href=
+  "javascript:var%20re=/([//-]|is[bs]n=)(/d{7,9}[/dX])/i;if(re.test(location.href)==true){var%20isbn=RegExp.$2;win=window.open('http://vistaweb.nlb.gov.sg'+'/cgi-bin/cw_cgi?10100+REDIRX+useDatabase_3002_i_'+isbn,'LibraryLookup','scrollbars=1,resizable=1,location=1,width=575,height=500');win.focus();void(0);}">
+  NLB Book Lookup</a> &lt;-- Bookmark/Favorite this!</span>
+</blockquote><br>
+<h3>
+  Simple steps: How to Use It
+</h3>
+<ol>
+  <li>Right-click on the link above, and select <span style="font-weight:bold;">Bookmark This Link..</span> (Firefox)
+  or <span style="font-weight:bold;">Add to Favorites..</span> (IE)
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Go thru the steps to save the link. you may get a warning about "javascript:" links not being recognised.
+  Ignore/proceed .. trust me!
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Check you Bookmarks/Favourites menu - should now find <span style="font-weight:bold;">NLB Book Lookup</span> in
+  the list.
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Navigate over to a book retailer and find a book (try the <a href=
+  "http://www.amazon.com/gp/product/0596523696?ie=UTF8&amp;tag=itsaprli-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0596523696">
+    Ruby Cookbook (O'Reilly)</a><img src=
+    "https://www.assoc-amazon.com/e/ir?t=itsaprli-20&amp;l=as2&amp;o=1&amp;a=0596523696" width="1" height="1" border=
+    "0" alt="" style="border:none !important; margin:0px !important;"> at Amazon for example)
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>While viewing the book page, select <span style="font-weight:bold;">NLB Book Lookup</span> from your
+  Bookmarks/Favorites menu
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>A new window will open to display the NLB Library Catalogue record (if there is one)
+  </li>
+</ol><br>
+<h3>
+  Grumpy Stuff - But Looking Forward
+</h3>The NLB is still using CARLweb, which is an ancient product from <a href="http://www.tlcdelivers.com">TLC</a>.<br>
+<br>
+Once of the really nasty features of this system is that it using session tracking in the URL query string of your
+request. Not only does this prevent deep-linking (so you can't easily email a catalogue link to a friend for example),
+it makes the catalogue un-indexable by web search engines like google.<br>
+<br>
+It also means that the Bookmark/Favorite link I gave you above has to go in the front-door, and creates a new session
+each request. So unfortunately that means that if you use this a few times in quick succession, you may get a
+<span style="font-style:italic;">maximum sessions exceeded</span> error. Sorry, for now you'll just have to close the
+windows and wait a while for sessions to expire.<br>
+<br>
+Yes, CARLweb sux. It truely belongs to an earlier era of computing!<br>
+<br>
+The good news: I've heard whispers that the NLB have a project running to upgrade their catalogue search facilities.
+Hopefully we'll soon have a much better service to use. My top wishes:<br>
+<ul>
+  <li>Support for deep-linking. No user/session-related information in URLs.
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>A nice robots.txt that allows the search engines to fully index the catalogue
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Flexible RSS feeds - as well as the usual "latest acquisitions" etc, a flexible and published approach to
+  parameterising the feed e.g. by library location, by subject and any other search criteria. Or another way to express
+  this would be "get any search result as RSS"
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Getting ambitious now ... a published Web Service/REST API
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>A mashup developer's guide - encourage people in Singapore to exploit the NLB catalogue! A competition even?
+  </li>
+</ul><br>
+<br>
+<span style="font-style:italic;">Originally posted on <a href=
+"/2008/02/quick-nlb-catalogue-lookups.html">tardate</a></span>

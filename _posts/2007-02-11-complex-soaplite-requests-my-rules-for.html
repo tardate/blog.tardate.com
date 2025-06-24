@@ -11,4 +11,80 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-651011462393621794
 blogger_orig_url: http://blog.tardate.com/2007/02/complex-soaplite-requests-my-rules-for.html
 ---
 
-<a href="/2007/01/simple-perl-clients-for-axis2-with.html">Previously</a>, I mentioned I'd come back to more complex request and response structures with SOAP::Lite.<br /><br />Frankly, I haven't posted because I can't avoid the feeling that there's still a little more to unravel. Did I mention that good documentation is sparse? ;) Byrne and others have posted some good stuff (see for example the <a href="http://www.majordojo.com/archives/cat_soaplite_solutions.html">majordojo soaplite archive</a> and this <a href="http://builder.com.com/5100-6389-1045078.html">hands-on tour</a> at builder.com), but mostly you'll find the experiences shared go along lines like "...after hacking around for a bit, I found that this worked...".<br /><br />But is it possible to try and pin down at least a couple of guidelines for using SOAP::Data? Well, so far I can't claim to solving it all, but I am able to share a few anchors I've tried to plant for my own sanity!<br /><br /><h2>My Rules for SOAP::Sanity</h2><br />In the following "rules", $soap is a pre-initialised SOAP::Lite object, as in:<br /><i>my $soap = SOAP::Lite-&gt;uri ( $serviceNs ) -&gt; proxy ( $serviceUrl );</i><br /><br /><h3>1. The value of a SOAP::Data element becomes the content of the XML entity.</h3><br />It may seem bleeding obvious. Nevertheless, get this idea fixed in you head and it will help for more complex structures.<br /><br />So if we are calling a "getHoroscope" service with the following request structure:  <br /><pre name="code" class="xml:wraplines:nocontrols">&lt;getHoroscope&gt;<br />&lt;sign&gt;Aries&lt;/sign&gt;<br />&lt;/getHoroscope&gt;<br /></pre><br />"Aries" is the value, i.e. the content, of the XML entity called "sign". Thus our request will look like this:<br /><pre name="code" class="xml:wraplines:nocontrols">$data = SOAP::Data-&gt;name(&quot;sign&quot; =&gt; 'Aries');<br />$som = $soap-&gt;getHoroscope( $data );</pre><br /><h3>2. To create a hiearchy of entities, use references to a SOAP::Data structure.</h3><br />In (1), the content of the entity was a simple string ("Aries"). Here we consider the case where we need the content to encapsulate more XML elements rather than just a string. For example a request with this structure:<br /><pre name="code" class="xml:wraplines:nocontrols">&lt;getHoroscope&gt;<br />&lt;astrology&gt;<br />&lt;sign&gt;Aries&lt;/sign&gt;<br />&lt;/astrology&gt;<br />&lt;/getHoroscope&gt;</pre><br />Here "astrology" has an XML child element rather than a string value.<br />To achieve this, we set the value of the "astrology" element as a <i>reference</i> to the "sign" SOAP::Data object:<br /><pre name="code" class="xml:wraplines:nocontrols">$data = SOAP::Data-&gt;name(&quot;astrology&quot; =&gt;<br />  \SOAP::Data-&gt;name(&quot;sign&quot; =&gt; 'Aries') <br />);<br />$som = $soap-&gt;getHoroscope( $data );</pre><br /><br /><h3>3. To handle multiple child entities, encapsuate as reference to a SOAP::Data collection.</h3><br />In this case, we need our "astrology" element to have multiple children, for example:<br /><pre name="code" class="xml:wraplines:nocontrols">&lt;getHoroscope&gt;<br />&lt;astrology&gt;<br />&lt;sign&gt;Aries&lt;/sign&gt;<br />&lt;sign&gt;Pisces&lt;/sign&gt;<br />&lt;/astrology&gt;<br />&lt;/getHoroscope&gt;</pre><br />So a simple variation on (2). To achieve this, we collect the "Aries" and "Pisces" elements as a collection within an anonymous SOAP::Data object. We pass a reference to this object as the value of the "astrology" item.<br /><pre name="code" class="xml:wraplines:nocontrols">$data = SOAP::Data-&gt;name(&quot;astrology&quot; =&gt; <br />  \SOAP::Data-&gt;value(<br />   SOAP::Data-&gt;name(&quot;sign&quot; =&gt; 'Aries'), <br />   SOAP::Data-&gt;name(&quot;sign&quot; =&gt; 'Pisces') <br />   )<br />);<br />$som = $soap-&gt;getHoroscope( $data ); </pre><br /><h3>4. Clearly distinguish method name structures from data.</h3><br />This is perhaps just a style and clarity consideration. In the examples above, the method has been implicitly dispatched ("getHoroscope").<br />If you prefer (or need) to pass the method information to a SOAP::Lite call, I like to keep the method information distinct from the method data.<br /><br />So for example, item (3) can be re-written (including some additional namespace handling) as:<br /><pre name="code" class="xml:wraplines:nocontrols">$data = SOAP::Data-&gt;name(&quot;astrology&quot; =&gt; <br />  \SOAP::Data-&gt;value(<br />   SOAP::Data-&gt;name(&quot;sign&quot; =&gt; 'Aries'), <br />   SOAP::Data-&gt;name(&quot;sign&quot; =&gt; 'Pisces') <br />   )<br />);<br />$som = $soap-&gt;call( <br />   SOAP::Data-&gt;name('x:getHoroscope')-&gt;attr({'xmlns:x' =&gt; $serviceNs})<br />   =&gt; $data <br />);</pre><br />I prefer to read this than have it all mangled together.<br /><br />That brings me to the end of my list of rules! I am by no means confident that there aren't more useful guidelines to be added, or that in fact the ones I have proposed above will even stand the test of time. <br /><br />Nevertheless, with these four ideas clearly in mind, I find I have a fair chance of sitting down to write a complex SOAP::Lite call correctly the first time, rather than the trial and error approach I used to be very familiar with!
+<a href="/2007/01/simple-perl-clients-for-axis2-with.html">Previously</a>, I mentioned I'd come back to more complex
+request and response structures with SOAP::Lite.<br>
+<br>
+Frankly, I haven't posted because I can't avoid the feeling that there's still a little more to unravel. Did I mention
+that good documentation is sparse? ;) Byrne and others have posted some good stuff (see for example the <a href=
+"http://www.majordojo.com/archives/cat_soaplite_solutions.html">majordojo soaplite archive</a> and this <a href=
+"http://builder.com.com/5100-6389-1045078.html">hands-on tour</a> at builder.com), but mostly you'll find the
+experiences shared go along lines like "...after hacking around for a bit, I found that this worked...".<br>
+<br>
+But is it possible to try and pin down at least a couple of guidelines for using SOAP::Data? Well, so far I can't claim
+to solving it all, but I am able to share a few anchors I've tried to plant for my own sanity!<br>
+<br>
+<h2>
+  My Rules for SOAP::Sanity
+</h2><br>
+In the following "rules", $soap is a pre-initialised SOAP::Lite object, as in:<br>
+<i>my $soap = SOAP::Lite-&gt;uri ( $serviceNs ) -&gt; proxy ( $serviceUrl );</i><br>
+<br>
+<h3>
+  1. The value of a SOAP::Data element becomes the content of the XML entity.
+</h3><br>
+It may seem bleeding obvious. Nevertheless, get this idea fixed in you head and it will help for more complex
+structures.<br>
+<br>
+So if we are calling a "getHoroscope" service with the following request structure:<br>
+<pre name="code" class="xml:wraplines:nocontrols">
+&lt;getHoroscope&gt;<br>&lt;sign&gt;Aries&lt;/sign&gt;<br>&lt;/getHoroscope&gt;<br>
+</pre><br>
+"Aries" is the value, i.e. the content, of the XML entity called "sign". Thus our request will look like this:<br>
+<pre name="code" class="xml:wraplines:nocontrols">
+$data = SOAP::Data-&gt;name("sign" =&gt; 'Aries');<br>$som = $soap-&gt;getHoroscope( $data );
+</pre><br>
+<h3>
+  2. To create a hiearchy of entities, use references to a SOAP::Data structure.
+</h3><br>
+In (1), the content of the entity was a simple string ("Aries"). Here we consider the case where we need the content to
+encapsulate more XML elements rather than just a string. For example a request with this structure:<br>
+<pre name="code" class="xml:wraplines:nocontrols">
+&lt;getHoroscope&gt;<br>&lt;astrology&gt;<br>&lt;sign&gt;Aries&lt;/sign&gt;<br>&lt;/astrology&gt;<br>&lt;/getHoroscope&gt;
+</pre><br>
+Here "astrology" has an XML child element rather than a string value.<br>
+To achieve this, we set the value of the "astrology" element as a <i>reference</i> to the "sign" SOAP::Data object:<br>
+<pre name="code" class="xml:wraplines:nocontrols">
+$data = SOAP::Data-&gt;name("astrology" =&gt;<br>  \SOAP::Data-&gt;name("sign" =&gt; 'Aries') <br>);<br>$som = $soap-&gt;getHoroscope( $data );
+</pre><br>
+<br>
+<h3>
+  3. To handle multiple child entities, encapsuate as reference to a SOAP::Data collection.
+</h3><br>
+In this case, we need our "astrology" element to have multiple children, for example:<br>
+<pre name="code" class="xml:wraplines:nocontrols">
+&lt;getHoroscope&gt;<br>&lt;astrology&gt;<br>&lt;sign&gt;Aries&lt;/sign&gt;<br>&lt;sign&gt;Pisces&lt;/sign&gt;<br>&lt;/astrology&gt;<br>&lt;/getHoroscope&gt;
+</pre><br>
+So a simple variation on (2). To achieve this, we collect the "Aries" and "Pisces" elements as a collection within an
+anonymous SOAP::Data object. We pass a reference to this object as the value of the "astrology" item.<br>
+<pre name="code" class="xml:wraplines:nocontrols">
+$data = SOAP::Data-&gt;name("astrology" =&gt; <br>  \SOAP::Data-&gt;value(<br>   SOAP::Data-&gt;name("sign" =&gt; 'Aries'), <br>   SOAP::Data-&gt;name("sign" =&gt; 'Pisces') <br>   )<br>);<br>$som = $soap-&gt;getHoroscope( $data ); 
+</pre><br>
+<h3>
+  4. Clearly distinguish method name structures from data.
+</h3><br>
+This is perhaps just a style and clarity consideration. In the examples above, the method has been implicitly
+dispatched ("getHoroscope").<br>
+If you prefer (or need) to pass the method information to a SOAP::Lite call, I like to keep the method information
+distinct from the method data.<br>
+<br>
+So for example, item (3) can be re-written (including some additional namespace handling) as:<br>
+<pre name="code" class="xml:wraplines:nocontrols">
+$data = SOAP::Data-&gt;name("astrology" =&gt; <br>  \SOAP::Data-&gt;value(<br>   SOAP::Data-&gt;name("sign" =&gt; 'Aries'), <br>   SOAP::Data-&gt;name("sign" =&gt; 'Pisces') <br>   )<br>);<br>$som = $soap-&gt;call( <br>   SOAP::Data-&gt;name('x:getHoroscope')-&gt;attr({'xmlns:x' =&gt; $serviceNs})<br>   =&gt; $data <br>);
+</pre><br>
+I prefer to read this than have it all mangled together.<br>
+<br>
+That brings me to the end of my list of rules! I am by no means confident that there aren't more useful guidelines to
+be added, or that in fact the ones I have proposed above will even stand the test of time.<br>
+<br>
+Nevertheless, with these four ideas clearly in mind, I find I have a fair chance of sitting down to write a complex
+SOAP::Lite call correctly the first time, rather than the trial and error approach I used to be very familiar with!

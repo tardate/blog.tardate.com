@@ -13,4 +13,50 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-8312154246798456626
 blogger_orig_url: http://blog.tardate.com/2008/07/heroku-ruby-in-sky-with-diamonds.html
 ---
 
-<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://heroku.com/"><img style="float:right; margin:0 0 10px 10px;cursor:pointer; cursor:hand;width: 144px;" src="/assets/2008-07-29-heroku-ruby-in-sky-with-diamonds/heroku-logo.png" border="0" alt="" /></a>I've been using <a href="http://heroku.com">Heroku</a> since I heard about it on the <a href="http://podcast.rubyonrails.org/programs/1/episodes/heroku">Ruby on Rails podcast</a>. It offers a hosted Rails development environment (all web-based), with instant deployment ... essentially you are running your dev, test and production environments 'in the cloud'. Heroku themselves use <a href="http://aws.amazon.com/s3">Amazon S3</a> I think. <br /><br />It's worth checking out, even if you are not specifically interested in rails. A great example of how to operate 'up in the clouds'.<br /><br />A couple of key things I've learned/noted in working with heroku..<br /><br /><h2>Disabling the heroku toolbar</h2><br />You probably don't want the heroku toolbar appearing for public users of your application (and I found it had some issues with IE). Disabling the toolbar is done by creating a file config/heroku.yml:<br /><pre name="code" class="ruby:wraplines:nocontrols">toolbar_collaborators: true<br />toolbar_public: false<br />request_timeout: 10</pre><br /><span style="font-style:italic;">(picked this tip up from the <a href="http://groups.google.com/group/heroku/browse_thread/thread/49b05ad87082922b/a05a9ed36e901302">mailing list</a>)</span><br /><br /><h2>Running with Rails 2.1</h2><br />Rails 2.0.2 is the default, and 2.1 support took a while to arrive. It's here now. Simply update your config/environment.rb file to specify..<br /><pre name="code" class="ruby:wraplines:nocontrols">RAILS_GEM_VERSION = '2.1'</pre><br /><h2>Distributed Version Control</h2><br />Version control using <a href="http://heroku.com/docs/api/">git</a> is rolled into heroku. And if you want to develop locally, there's a <a href="http://heroku.com/docs/api/">heroku gem</a> that simplifies setting up your local clone. Once git and the heroku gem are installed, a typical session goes like this:<br /><pre name="code" class="ruby:wraplines:nocontrols">heroku create myapp<br />heroku clone myapp<br />cd myapp<br />ruby script/server<br />[..work locally for a while..]<br />git add .<br />git commit -m "some changes made locally"<br />git push<br />[..work on the server for a while and commit..]<br />git pull</pre><br /><br /><span style="font-style:italic;">Postscript Aug-09: heroku have since split their services in two: <a href="https://herokugarden.com">herokugarden.com</a>, which includes the online, web-based editor, and <a href="https://heroku.com">heroku.com</a> which is intended for high-performance production deployment (with no online editing)</span>
+<a href="http://heroku.com/"><img style="float:right; margin:0 0 10px 10px;cursor:pointer; cursor:hand;width: 144px;"
+src="/assets/2008-07-29-heroku-ruby-in-sky-with-diamonds/heroku-logo.png" border="0" alt=""></a>I've been using
+<a href="http://heroku.com">Heroku</a> since I heard about it on the <a href=
+"http://podcast.rubyonrails.org/programs/1/episodes/heroku">Ruby on Rails podcast</a>. It offers a hosted Rails
+development environment (all web-based), with instant deployment ... essentially you are running your dev, test and
+production environments 'in the cloud'. Heroku themselves use <a href="http://aws.amazon.com/s3">Amazon S3</a> I
+think.<br>
+<br>
+It's worth checking out, even if you are not specifically interested in rails. A great example of how to operate 'up in
+the clouds'.<br>
+<br>
+A couple of key things I've learned/noted in working with heroku..<br>
+<br>
+<h2>
+  Disabling the heroku toolbar
+</h2><br>
+You probably don't want the heroku toolbar appearing for public users of your application (and I found it had some
+issues with IE). Disabling the toolbar is done by creating a file config/heroku.yml:<br>
+<pre name="code" class="ruby:wraplines:nocontrols">
+toolbar_collaborators: true<br>toolbar_public: false<br>request_timeout: 10
+</pre><br>
+<span style="font-style:italic;">(picked this tip up from the <a href=
+"http://groups.google.com/group/heroku/browse_thread/thread/49b05ad87082922b/a05a9ed36e901302">mailing
+list</a>)</span><br>
+<br>
+<h2>
+  Running with Rails 2.1
+</h2><br>
+Rails 2.0.2 is the default, and 2.1 support took a while to arrive. It's here now. Simply update your
+config/environment.rb file to specify..<br>
+<pre name="code" class="ruby:wraplines:nocontrols">
+RAILS_GEM_VERSION = '2.1'
+</pre><br>
+<h2>
+  Distributed Version Control
+</h2><br>
+Version control using <a href="http://heroku.com/docs/api/">git</a> is rolled into heroku. And if you want to develop
+locally, there's a <a href="http://heroku.com/docs/api/">heroku gem</a> that simplifies setting up your local clone.
+Once git and the heroku gem are installed, a typical session goes like this:<br>
+<pre name="code" class="ruby:wraplines:nocontrols">
+heroku create myapp<br>heroku clone myapp<br>cd myapp<br>ruby script/server<br>[..work locally for a while..]<br>git add .<br>git commit -m "some changes made locally"<br>git push<br>[..work on the server for a while and commit..]<br>git pull
+</pre><br>
+<br>
+<span style="font-style:italic;">Postscript Aug-09: heroku have since split their services in two: <a href=
+"https://herokugarden.com">herokugarden.com</a>, which includes the online, web-based editor, and <a href=
+"https://heroku.com">heroku.com</a> which is intended for high-performance production deployment (with no online
+editing)</span>

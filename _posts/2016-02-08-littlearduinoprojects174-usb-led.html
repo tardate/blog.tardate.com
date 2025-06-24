@@ -13,4 +13,27 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-445032530851312392
 blogger_orig_url: http://blog.tardate.com/2016/02/littlearduinoprojects174-usb-led.html
 ---
 
-So four of these <a href="http://www.usbgeek.com/products/usb-webmail-notifier">USB Webmail Notifier</a> devices turned up in a dusty cupboard<br />in the office.<br /><br />A quick tear-down shows they contain a super-simple circuit - just a<br />SONiX Technology SN8P2203SB 8-Bit microcontroller that handles the USB protocol and drives an RGB LED. The SN8P2203SB is an old chip phased out 2010/04/30, superseded by the SN8P2240. They have a supremely primitive USB implementation - basically mimicking a very basic USB 1.0 HID device.<br /><br />A quick google reveals quite a bit of old code lying around for various projects using devices like this. Most seem to use <a href="http://www.libusb.org/">libusb</a> for convenience - and often 0.1 legacy libusb that. As I'm mainly on MacOSX, the code is not much use since Apple no longer allows claiming of HID devices<br />and the libusb team decided not to try to get around that.<br /><br />So to bring things up-to-date, I wrote a simple demo using <a href="http://www.signal11.us/oss/hidapi/">hidapi</a><br />and things all work fine - see the video below.<br /><br />Now I just need to ponder on good ideas for what to do with these things!<br /><br />As always, all <a href="https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/UsbNotifier">all notes, schematics and code are in the Little Arduino Projects repo on GitHub</a>.<br /><br /><iframe width="560" height="315" src="https://www.youtube.com/embed/KEg5rtU9RK4" frameborder="0" allowfullscreen></iframe>
+So four of these <a href="http://www.usbgeek.com/products/usb-webmail-notifier">USB Webmail Notifier</a> devices turned
+up in a dusty cupboard<br>
+in the office.<br>
+<br>
+A quick tear-down shows they contain a super-simple circuit - just a<br>
+SONiX Technology SN8P2203SB 8-Bit microcontroller that handles the USB protocol and drives an RGB LED. The SN8P2203SB
+is an old chip phased out 2010/04/30, superseded by the SN8P2240. They have a supremely primitive USB implementation -
+basically mimicking a very basic USB 1.0 HID device.<br>
+<br>
+A quick google reveals quite a bit of old code lying around for various projects using devices like this. Most seem to
+use <a href="http://www.libusb.org/">libusb</a> for convenience - and often 0.1 legacy libusb that. As I'm mainly on
+MacOSX, the code is not much use since Apple no longer allows claiming of HID devices<br>
+and the libusb team decided not to try to get around that.<br>
+<br>
+So to bring things up-to-date, I wrote a simple demo using <a href="http://www.signal11.us/oss/hidapi/">hidapi</a><br>
+and things all work fine - see the video below.<br>
+<br>
+Now I just need to ponder on good ideas for what to do with these things!<br>
+<br>
+As always, all <a href="https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/UsbNotifier">all
+notes, schematics and code are in the Little Arduino Projects repo on GitHub</a>.<br>
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KEg5rtU9RK4" frameborder="0" allowfullscreen=
+""></iframe>

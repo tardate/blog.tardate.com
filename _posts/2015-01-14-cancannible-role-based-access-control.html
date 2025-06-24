@@ -12,4 +12,33 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-3235549866226438647
 blogger_orig_url: http://blog.tardate.com/2015/01/cancannible-role-based-access-control.html
 ---
 
-<span style="float: right; font-style: italic;"><a href="http://youtu.be/AwQuXbae3N4" title="blogarhythm - listen while you read!">Can You Keep a Secret? / 宇多田ヒカル</a></span>  <br /><br /><a href="https://github.com/evendis/cancannible">cancannible</a> is a gem that has been kicking around in a few large-scale production deployments for years. It still gets loving attention - most recently an official update for Rails 4 (thanks to the push from <a href="https://github.com/zwippie">@zwippie</a>).<br /><br />And now also some demo sites - <a href="http://cancannibledemo.evendis.com/">one for Rails 3.2.x</a> and <a href="http://cancannibledemo4.evendis.com/">another for Rails 4.3.x</a> so that anyone can see it in action.<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://cancannibledemo4.evendis.com/" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="/assets/2015-01-14-cancannible-role-based-access-control/cancannibledemo4.png" /></a></div><br />So what exactly does cancannible do? In a nutshell, it is a gem that extends <a href="https://rubygems.org/gems/cancan">CanCan</a> with a range of capabilities:<br /><br /><ul><li>permissions inheritance (so that, for example, a User can inherit permissions from Roles and/or Groups)</li><li>general-purpose access refinements (to automatically enforce multi-tenant or other security restrictions)</li><li>automatically stores and loads permissions from a database</li><li>optional caching of abilities (so that they don't need to be recalculated on each web request)</li><li>export CanCan methods to the model layer (so that permissions can be applied in model methods, and easily set in a test case)</li></ul><br />
+<span style="float: right; font-style: italic;"><a href="http://youtu.be/AwQuXbae3N4" title=
+"blogarhythm - listen while you read!">Can You Keep a Secret? / 宇多田ヒカル</a></span><br>
+<br>
+<a href="https://github.com/evendis/cancannible">cancannible</a> is a gem that has been kicking around in a few
+large-scale production deployments for years. It still gets loving attention - most recently an official update for
+Rails 4 (thanks to the push from <a href="https://github.com/zwippie">@zwippie</a>).<br>
+<br>
+And now also some demo sites - <a href="http://cancannibledemo.evendis.com/">one for Rails 3.2.x</a> and <a href=
+"http://cancannibledemo4.evendis.com/">another for Rails 4.3.x</a> so that anyone can see it in action.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+  <a href="http://cancannibledemo4.evendis.com/" style="margin-left: 1em; margin-right: 1em;"><img border="0" src=
+  "/assets/2015-01-14-cancannible-role-based-access-control/cancannibledemo4.png"></a>
+</div><br>
+So what exactly does cancannible do? In a nutshell, it is a gem that extends <a href=
+"https://rubygems.org/gems/cancan">CanCan</a> with a range of capabilities:<br>
+<br>
+<ul>
+  <li>permissions inheritance (so that, for example, a User can inherit permissions from Roles and/or Groups)
+  </li>
+  <li>general-purpose access refinements (to automatically enforce multi-tenant or other security restrictions)
+  </li>
+  <li>automatically stores and loads permissions from a database
+  </li>
+  <li>optional caching of abilities (so that they don't need to be recalculated on each web request)
+  </li>
+  <li>export CanCan methods to the model layer (so that permissions can be applied in model methods, and easily set in
+  a test case)
+  </li>
+</ul><br>

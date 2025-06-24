@@ -11,4 +11,44 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-7086160973812976297
 blogger_orig_url: http://blog.tardate.com/2013/03/rolling-mega-api-with-ruby.html
 ---
 
-<span style="font-style:italic;float:right;">(blogarhythm ~ <a href="http://www.youtube.com/watch?v=AwQuXbae3N4">Can you keep a secret? - 宇多田ヒカル</a>)</span><br /><br /><a href="https://github.com/tardate/megar">Megar</a> (“megaargh!” in pirate-speak) is a Ruby wrapper and command-line client for the <a href="https://mega.co.nz/#developers">Mega API</a>. <br /><br />In the current release (gem version 0.0.3), it has coverage of the basic file/folder operations: connect, get file/folder listings and details, upload and download files. You can use it directly in Ruby with what I hope you'll find is a very sane API, but it also sports a basic command-line mode for simple listing, upload and download tasks.<br /><br />If you are interested in hacking around with Mega, and prefer to do it in Ruby, give it a go! Like this:<br /><pre name="code" class="ruby:wraplines:nocontrols"># do a complete folder/file listing<br />session = Megar::Session.new(email: 'my@email.com', password: 'my_password')<br />session.folders.each do |folder|<br />  folder.files.each do |file|<br />    puts file.name<br />  end<br />end<br /># upload a file<br />file_handle = '../my_files/was_called_this.mp3'<br />session.files.create( name: 'First.mp3', body: file_handle )</pre>Or from the command line:<br /><pre name="code" class="ruby:wraplines:nocontrols">$ megar -e my@email.com -p my_password ls<br />$ megar -e my@email.com -p my_password put *.pdf</pre>I would still call it "experimental" at this stage because it needs more widespread hammering, and of course the Mega API is not fully documented yet. There are many more features of the API that it would be good to support, and I'd love for others to pitch in and help - <a href="https://github.com/tardate/megar">go fork it on github</a>!<br /><br />I was keen to get a <a href="https://mega.co.nz">Mega</a> account and check it out when the launch publicity hit, and was immediately impressed by the web interface. Very slick. Notwithstanding some of the intense analysis and some criticism (for example by <a href="https://spideroak.com/blog/20130123130638-spideroaks-analysis-and-recommendations-for-the-crypto-in-kim-dotcoms-mega-part-one">SpiderOak</a> and <a href="http://www.grc.com/sn/sn-390.htm">Security Now</a>), the "trust no-one" design approach is very interesting to contemplate and hack around with. <br /><br />The Mega API is still evolving. The documentation is thin and the main resource we have to work with is the Javascript reference implementation that actually runs the Mega site. But there has been quite a bit of work in the community to hack on the API - particularly in Python (with <a href="http://julien-marchand.fr/blog/using-mega-api-with-python-examples/">API analysis</a> and projects like <a href="https://github.com/richardasaurus/mega.py">mega.py</a>).<br /><br />It didn't take me long to realise there was nothing much going on with Ruby. After a bit of messing around, I think the main reason for that is the pretty wretched state of cryptographic support in Ruby. Unlike Python (which has <a href="https://www.dlitz.net/software/pycrypto/">PyCrypto</a> amongst others I'm sure), in Ruby we still on the whole get by with thin wrappers on OpenSSL that look and smell distinctly C-dy. But that's a challenge for another day...<br /><br />For now I'm pretty happy that Megar has all the main crypto challenges solved (after a bit of low-level reverse engineering supported by a healthy dose of TDD). Now I wonder what I'm going to use it for?<br />
+<span style="font-style:italic;float:right;">(blogarhythm ~ <a href="http://www.youtube.com/watch?v=AwQuXbae3N4">Can
+you keep a secret? - 宇多田ヒカル</a>)</span><br>
+<br>
+<a href="https://github.com/tardate/megar">Megar</a> (“megaargh!” in pirate-speak) is a Ruby wrapper and command-line
+client for the <a href="https://mega.co.nz/#developers">Mega API</a>.<br>
+<br>
+In the current release (gem version 0.0.3), it has coverage of the basic file/folder operations: connect, get
+file/folder listings and details, upload and download files. You can use it directly in Ruby with what I hope you'll
+find is a very sane API, but it also sports a basic command-line mode for simple listing, upload and download
+tasks.<br>
+<br>
+If you are interested in hacking around with Mega, and prefer to do it in Ruby, give it a go! Like this:<br>
+<pre name="code" class="ruby:wraplines:nocontrols">
+# do a complete folder/file listing<br>session = Megar::Session.new(email: 'my@email.com', password: 'my_password')<br>session.folders.each do |folder|<br>  folder.files.each do |file|<br>    puts file.name<br>  end<br>end<br># upload a file<br>file_handle = '../my_files/was_called_this.mp3'<br>session.files.create( name: 'First.mp3', body: file_handle )
+</pre>Or from the command line:<br>
+<pre name="code" class="ruby:wraplines:nocontrols">
+$ megar -e my@email.com -p my_password ls<br>$ megar -e my@email.com -p my_password put *.pdf
+</pre>I would still call it "experimental" at this stage because it needs more widespread hammering, and of course the
+Mega API is not fully documented yet. There are many more features of the API that it would be good to support, and I'd
+love for others to pitch in and help - <a href="https://github.com/tardate/megar">go fork it on github</a>!<br>
+<br>
+I was keen to get a <a href="https://mega.co.nz">Mega</a> account and check it out when the launch publicity hit, and
+was immediately impressed by the web interface. Very slick. Notwithstanding some of the intense analysis and some
+criticism (for example by <a href=
+"https://spideroak.com/blog/20130123130638-spideroaks-analysis-and-recommendations-for-the-crypto-in-kim-dotcoms-mega-part-one">
+SpiderOak</a> and <a href="http://www.grc.com/sn/sn-390.htm">Security Now</a>), the "trust no-one" design approach is
+very interesting to contemplate and hack around with.<br>
+<br>
+The Mega API is still evolving. The documentation is thin and the main resource we have to work with is the Javascript
+reference implementation that actually runs the Mega site. But there has been quite a bit of work in the community to
+hack on the API - particularly in Python (with <a href=
+"http://julien-marchand.fr/blog/using-mega-api-with-python-examples/">API analysis</a> and projects like <a href=
+"https://github.com/richardasaurus/mega.py">mega.py</a>).<br>
+<br>
+It didn't take me long to realise there was nothing much going on with Ruby. After a bit of messing around, I think the
+main reason for that is the pretty wretched state of cryptographic support in Ruby. Unlike Python (which has <a href=
+"https://www.dlitz.net/software/pycrypto/">PyCrypto</a> amongst others I'm sure), in Ruby we still on the whole get by
+with thin wrappers on OpenSSL that look and smell distinctly C-dy. But that's a challenge for another day...<br>
+<br>
+For now I'm pretty happy that Megar has all the main crypto challenges solved (after a bit of low-level reverse
+engineering supported by a healthy dose of TDD). Now I wonder what I'm going to use it for?<br>

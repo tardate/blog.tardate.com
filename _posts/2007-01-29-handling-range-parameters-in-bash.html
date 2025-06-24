@@ -10,4 +10,30 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-5057159737909190483
 blogger_orig_url: http://blog.tardate.com/2007/01/handling-range-parameters-in-bash.html
 ---
 
-I've come across a few occasions where I wanted to specify a "range parameter" for Bash scripts. Like "1..4" meaning do for 1,2,3 and 4. <br /><br />Here's a simple trick that uses the (relatively obscure) variable expansion and substring replacement capabilities of the shell.<br /><pre name="code" class="sql:wraplines:nocontrols">#!/bin/bash<br />v_range="1..3"         # or you could have taken it as a script parameter<br />v_start=${v_range%%.*} # chomp everything from the left-most matching "."<br />v_end=${v_range##*.}   # chomp everything up to the right-most matching "."</pre><br />The repeated %% and ## basically mean you will get a "greedy" match, so you can say "1..4" or "1....5"; it doesn't matter how many repeats you have of the range delimiter. Of course, you can choose other delimiters such as a hyphen, as in "5-10", if you wish. <br /><br />Now that you have extracted the start and end indices, you can then loop or whatever to your hearts content: <br /><pre name="code" class="sql:wraplines:nocontrols">for ((a=v_start; a <= v_end ; a++))<br />do<br />   echo "Looping with a=$a"<br />done</pre><br />For more information on variable expansion, see 9.3 in the <a href="http://www.linux.com/guides/abs-guide/parameter-substitution.shtml">Advanced Bash Scripting Guide</a>.<br /><br /><em>Postscript 5-Feb-2008:</em><br />We live and learn! Hat tip to buford for alerting me to the <span class="code">seq</span> utility, which simplifies the iteration over a range, as in:<br /><pre name="code" class="sql:wraplines:nocontrols">for a in `seq 1 10`<br />do<br />  echo "Looping with a=$a"<br />done <br /></pre><br />You still need to determine the start and end values of the range, which is the whole point of the variable expansions approach posted here.
+I've come across a few occasions where I wanted to specify a "range parameter" for Bash scripts. Like "1..4" meaning do
+for 1,2,3 and 4.<br>
+<br>
+Here's a simple trick that uses the (relatively obscure) variable expansion and substring replacement capabilities of
+the shell.<br>
+<pre name="code" class="sql:wraplines:nocontrols">
+#!/bin/bash<br>v_range="1..3"         # or you could have taken it as a script parameter<br>v_start=${v_range%%.*} # chomp everything from the left-most matching "."<br>v_end=${v_range##*.}   # chomp everything up to the right-most matching "."
+</pre><br>
+The repeated %% and ## basically mean you will get a "greedy" match, so you can say "1..4" or "1....5"; it doesn't
+matter how many repeats you have of the range delimiter. Of course, you can choose other delimiters such as a hyphen,
+as in "5-10", if you wish.<br>
+<br>
+Now that you have extracted the start and end indices, you can then loop or whatever to your hearts content:<br>
+<pre name="code" class="sql:wraplines:nocontrols">
+for ((a=v_start; a &lt;= v_end ; a++))<br>do<br>   echo "Looping with a=$a"<br>done
+</pre><br>
+For more information on variable expansion, see 9.3 in the <a href=
+"http://www.linux.com/guides/abs-guide/parameter-substitution.shtml">Advanced Bash Scripting Guide</a>.<br>
+<br>
+<em>Postscript 5-Feb-2008:</em><br>
+We live and learn! Hat tip to buford for alerting me to the <span class="code">seq</span> utility, which simplifies the
+iteration over a range, as in:<br>
+<pre name="code" class="sql:wraplines:nocontrols">
+for a in `seq 1 10`<br>do<br>  echo "Looping with a=$a"<br>done <br>
+</pre><br>
+You still need to determine the start and end values of the range, which is the whole point of the variable expansions
+approach posted here.

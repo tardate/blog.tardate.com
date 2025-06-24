@@ -10,4 +10,31 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-113898218435872966
 blogger_orig_url: http://blog.tardate.com/2006/02/time-to-upgrade-linux-on-dell-9150.html
 ---
 
-Just recently I bit the bullet - the PCs I had at home no longer had the horsepower (memory mainly) to run the stuff I wanted (Oracle mainly). So I gave myself an early birthday present - a Dell 9150 with the Pentium D processor and 4Gb RAM. Very nice box - running the pre-installed XP was a scream. <br /><br />The 250Gb HDD came fully allocated for Windows, but my intention was to get it dual booting Linux. There were a few issues, but nothing a few days of messing around and downloading/cutting CDs couldn't fix.<br /><br />First, to repartition the HDD I used qtparted from a Knoppix boot CD. This worked with no problems at all - Knoppix even booted into a high resolution display and I was able to knock the XP partition down to 50Gb without reinstalling.<br /><br />Things weren't so straightforward when I started the Linux install, where I was planning Red Hat. I first tried RHEL WS 4 and got nowhere because the installer booted into a graphics mode that the machine couldn't display. I couldn't be bothered persisting because I was really more motivated to go RHEL AS 3 (for compatibility with other systems I'm involved with). I had some update 1 CDs on hand (old I know), but nothing to lose so I proceeded to install. Bad idea - I had driver problems with everything from the Dell USB keyboard (only recognised after plugging/unplugging after boot, and always kicked kudzu into action); USB support in general; the Intel Pro100/1000 NIC (not supported by the e1000 driver); and the display driver (ATI Rage x600).<br /><br />So nothing to do but spend (quite) a few hours downloading update 6. Luckily this proved to be worthwhile effort - after installing most of the issues are resolved. I still needed to update the e1000 driver, and my display is still running VESA compatible mode but that's OK for me since when booted into Linux I'm mainly just using it as a server. If I want the graphics, sound etc then that usually means I've booted back into XP to dive into Age of Empires III or somesuch;-)<br /><br />So overall - I'm really happy with the 9150, although I must say where there were a few moments while dealing with Dell's terrible support for Linux on the desktop machines that I was wondering if I made the right buying decision. Dell really should get their act together in terms of supporting Linux on the "consumer" range.
+Just recently I bit the bullet - the PCs I had at home no longer had the horsepower (memory mainly) to run the stuff I
+wanted (Oracle mainly). So I gave myself an early birthday present - a Dell 9150 with the Pentium D processor and 4Gb
+RAM. Very nice box - running the pre-installed XP was a scream.<br>
+<br>
+The 250Gb HDD came fully allocated for Windows, but my intention was to get it dual booting Linux. There were a few
+issues, but nothing a few days of messing around and downloading/cutting CDs couldn't fix.<br>
+<br>
+First, to repartition the HDD I used qtparted from a Knoppix boot CD. This worked with no problems at all - Knoppix
+even booted into a high resolution display and I was able to knock the XP partition down to 50Gb without
+reinstalling.<br>
+<br>
+Things weren't so straightforward when I started the Linux install, where I was planning Red Hat. I first tried RHEL WS
+4 and got nowhere because the installer booted into a graphics mode that the machine couldn't display. I couldn't be
+bothered persisting because I was really more motivated to go RHEL AS 3 (for compatibility with other systems I'm
+involved with). I had some update 1 CDs on hand (old I know), but nothing to lose so I proceeded to install. Bad idea -
+I had driver problems with everything from the Dell USB keyboard (only recognised after plugging/unplugging after boot,
+and always kicked kudzu into action); USB support in general; the Intel Pro100/1000 NIC (not supported by the e1000
+driver); and the display driver (ATI Rage x600).<br>
+<br>
+So nothing to do but spend (quite) a few hours downloading update 6. Luckily this proved to be worthwhile effort -
+after installing most of the issues are resolved. I still needed to update the e1000 driver, and my display is still
+running VESA compatible mode but that's OK for me since when booted into Linux I'm mainly just using it as a server. If
+I want the graphics, sound etc then that usually means I've booted back into XP to dive into Age of Empires III or
+somesuch;-)<br>
+<br>
+So overall - I'm really happy with the 9150, although I must say where there were a few moments while dealing with
+Dell's terrible support for Linux on the desktop machines that I was wondering if I made the right buying decision.
+Dell really should get their act together in terms of supporting Linux on the "consumer" range.

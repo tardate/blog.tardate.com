@@ -13,7 +13,91 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-4905010933771904106
 blogger_orig_url: http://blog.tardate.com/2009/09/twitpocalypse-ii-developers-beware-of.html
 ---
 
-<blockquote class="quote"><span style="font-weight:bold;">Alert: "Twitpocalypse II" coming Friday, September 11th - make sure you can handle large status IDs!</span><br />Twitter operations team will artificially increase the maximum status ID to 4294967296 this coming Friday, September 11th.</blockquote><br />
-<a href="http://www.twitpocalypse.com/"><img style="float:right; margin:0 0 10px 10px;cursor:pointer; cursor:hand;width: 110px;" src="/assets/2009-09-10-twitpocalypse-ii-developers-beware-of/deadbird_red.png" border="0" alt="" /></a>
-
-"<span style="font-weight:bold;">Twitpocalypse (I)</span>" occured <a href="https://techcrunch.com/2009/06/12/all-hell-may-break-loose-on-twitter-in-2-hours/?guccounter=1">back in June</a>, when twitter and application developers had to deal with the fact that message status IDs broke the signed 32-bit integer limit (2,147,483,647).<br /><br />At that point, the limit was raised to the unsigned 32-bit limit of 4,294,967,296. Now we're heading to crack that this week. You can track our collective rush to the brink social celebrity meltdown at <a href="http://www.twitpocalypse.com/">www.twitpocalypse.com</a>;-)<br /><br /><span style="font-weight:bold;">First reaction: <span style="font-style:italic;">OMG, it's taken only 3 months to double the volume of tweets sent over all time? That's a serious adoption curve.</span> </span><br /><br /><span style="font-weight:bold;">Next reaction: <span style="font-style:italic;">once again, application developers are reminded that we unfortunately can't ignore the specifics of the database platform they are running on and just take it for granted.</span></span><br /><br />It's actually quite common for development and production infrastructure to be subtly different. This is especially true in the Rails world where <a href="http://www.sqlite.org">SQLite</a> is the default development database, but production systems will often be using <a href="http://www.mysql.com">MySQL</a> or <a href="http://www.postgresql.org">PostgreSQL</a>. <br /><br />If you are using a hosted ("cloud") service it may even take some digging to actually find out what kind of database you are running on. For example, if you use <a href="http://heroku.com">Heroku</a> to host Rails applications, most of the time you don't care that they run PostgreSQL (originally I think they were using MySQL but migrated a while back).<br /><br />It's in situations like Twitpocalypse that you care. With a Rails-based twitter application, use an "integer" in your database migrations and you will have no problem running locally on SQLite, but you're app will blow up on a production PostgreSQL database when you encounter a message with status_id above 2,147,483,647. <br /><br />Fortunately, the solution is simple: migrate to <span style="font-weight:bold;">bigint</span> data types.<br /><br />And the even better news is that ActiveRecord database migrations make this a cinch if you have been using integer types in the past. For example, if you've been using an integer type to store "in_reply_to_status_id" references in twitter mentions table, the change_column method will happily manage the messy details for you:<br /><br /><pre name="code" class="ruby:wraplines:nocontrols">class ForcebigintMentions < ActiveRecord::Migration<br />  def self.up<br />    change_column :mentions, :in_reply_to_status_id, :bigint <br />  end<br /><br />  def self.down <br />    change_column :mentions, :in_reply_to_status_id, :integer <br />  end<br />end</pre><br />It's always a good idea to check fundamental limits for the database platforms you are using. They are not always what you expect, and you can't safely apply lessons from one product to another without doing your homework.<br /><br />Here's a quick comparison of integer on some of the common platforms:<br /><ul><li><a href="http://www.sqlite.org/datatype3.html">SQLite</a>: INTEGER. The value is a signed integer, stored in 1, 2, 3, 4, 6, or 8 bytes depending on the magnitude of the value. i.e. will automatically scale to an 8 byte signed BIGINT (-9223372036854775808 to 9223372036854775807)</li><br /><li><a href="http://www.postgresql.org/docs/8.1/interactive/datatype.html">PostgreSQL</a>: INTEGER 4 bytes (-2147483648 to +2147483647). Use BIGINT for 8 byte signed integer.</li><br /><li><a href="http://dev.mysql.com/doc/refman/5.1/en/numeric-type-overview.html">MySQL</a>: INT (alias INTEGER) has a signed range of -2147483648 to 2147483647, or an unsigned range of 0 to 4294967295. Use BIGINT is the 8 byte integers.</li><br /><li><a href="http://download.oracle.com/docs/cd/E11882_01/server.112/e10592/sql_elements001.htm#sthref119">Oracle</a> : NUMBER type ranges from 1.0 x 10^-130 to but not including 1.0 x 10^126. The <a href="http://blog.rayapps.com/2008/05/13/activerecord-oracle-enhanced-adapter/">activerecord-oracle-enhanced-adapter</a> provides facilities for intepreting NUMBER as FixNum or BigDecimal in ActiveRecord as appropriate.</li></ul><br /><br /><span style="font-style:italic;">PS: there's been some discussion of why twitter would schedule this update on <span style="font-weight:bold;">Sep 11th</span> and publicise it as the <span style="font-weight:bold;">Twitpocalypse II</span>. I hope it was just an EQ+IQ deficiency, not someone's twisted idea of a funny or attention-grabbing stunt.</span>
+<blockquote class="quote">
+  <span style="font-weight:bold;">Alert: "Twitpocalypse II" coming Friday, September 11th - make sure you can handle
+  large status IDs!</span><br>
+  Twitter operations team will artificially increase the maximum status ID to 4294967296 this coming Friday, September
+  11th.
+</blockquote><br>
+<a href="http://www.twitpocalypse.com/"><img style=
+"float:right; margin:0 0 10px 10px;cursor:pointer; cursor:hand;width: 110px;" src=
+"/assets/2009-09-10-twitpocalypse-ii-developers-beware-of/deadbird_red.png" border="0" alt=""></a> "<span style=
+"font-weight:bold;">Twitpocalypse (I)</span>" occured <a href=
+"https://techcrunch.com/2009/06/12/all-hell-may-break-loose-on-twitter-in-2-hours/?guccounter=1">back in June</a>, when
+twitter and application developers had to deal with the fact that message status IDs broke the signed 32-bit integer
+limit (2,147,483,647).<br>
+<br>
+At that point, the limit was raised to the unsigned 32-bit limit of 4,294,967,296. Now we're heading to crack that this
+week. You can track our collective rush to the brink social celebrity meltdown at <a href=
+"http://www.twitpocalypse.com/">www.twitpocalypse.com</a>;-)<br>
+<br>
+<span style="font-weight:bold;">First reaction: <span style="font-style:italic;">OMG, it's taken only 3 months to
+double the volume of tweets sent over all time? That's a serious adoption curve.</span></span><br>
+<br>
+<span style="font-weight:bold;">Next reaction: <span style="font-style:italic;">once again, application developers are
+reminded that we unfortunately can't ignore the specifics of the database platform they are running on and just take it
+for granted.</span></span><br>
+<br>
+It's actually quite common for development and production infrastructure to be subtly different. This is especially
+true in the Rails world where <a href="http://www.sqlite.org">SQLite</a> is the default development database, but
+production systems will often be using <a href="http://www.mysql.com">MySQL</a> or <a href=
+"http://www.postgresql.org">PostgreSQL</a>.<br>
+<br>
+If you are using a hosted ("cloud") service it may even take some digging to actually find out what kind of database
+you are running on. For example, if you use <a href="http://heroku.com">Heroku</a> to host Rails applications, most of
+the time you don't care that they run PostgreSQL (originally I think they were using MySQL but migrated a while
+back).<br>
+<br>
+It's in situations like Twitpocalypse that you care. With a Rails-based twitter application, use an "integer" in your
+database migrations and you will have no problem running locally on SQLite, but you're app will blow up on a production
+PostgreSQL database when you encounter a message with status_id above 2,147,483,647.<br>
+<br>
+Fortunately, the solution is simple: migrate to <span style="font-weight:bold;">bigint</span> data types.<br>
+<br>
+And the even better news is that ActiveRecord database migrations make this a cinch if you have been using integer
+types in the past. For example, if you've been using an integer type to store "in_reply_to_status_id" references in
+twitter mentions table, the change_column method will happily manage the messy details for you:<br>
+<br>
+<pre name="code" class="ruby:wraplines:nocontrols">
+class ForcebigintMentions &lt; ActiveRecord::Migration<br>  def self.up<br>    change_column :mentions, :in_reply_to_status_id, :bigint <br>  end<br><br>  def self.down <br>    change_column :mentions, :in_reply_to_status_id, :integer <br>  end<br>end
+</pre><br>
+It's always a good idea to check fundamental limits for the database platforms you are using. They are not always what
+you expect, and you can't safely apply lessons from one product to another without doing your homework.<br>
+<br>
+Here's a quick comparison of integer on some of the common platforms:<br>
+<ul>
+  <li>
+    <a href="http://www.sqlite.org/datatype3.html">SQLite</a>: INTEGER. The value is a signed integer, stored in 1, 2,
+    3, 4, 6, or 8 bytes depending on the magnitude of the value. i.e. will automatically scale to an 8 byte signed
+    BIGINT (-9223372036854775808 to 9223372036854775807)
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>
+    <a href="http://www.postgresql.org/docs/8.1/interactive/datatype.html">PostgreSQL</a>: INTEGER 4 bytes (-2147483648
+    to +2147483647). Use BIGINT for 8 byte signed integer.
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>
+    <a href="http://dev.mysql.com/doc/refman/5.1/en/numeric-type-overview.html">MySQL</a>: INT (alias INTEGER) has a
+    signed range of -2147483648 to 2147483647, or an unsigned range of 0 to 4294967295. Use BIGINT is the 8 byte
+    integers.
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>
+    <a href="http://download.oracle.com/docs/cd/E11882_01/server.112/e10592/sql_elements001.htm#sthref119">Oracle</a> :
+    NUMBER type ranges from 1.0 x 10^-130 to but not including 1.0 x 10^126. The <a href=
+    "http://blog.rayapps.com/2008/05/13/activerecord-oracle-enhanced-adapter/">activerecord-oracle-enhanced-adapter</a>
+    provides facilities for intepreting NUMBER as FixNum or BigDecimal in ActiveRecord as appropriate.
+  </li>
+</ul><br>
+<br>
+<span style="font-style:italic;">PS: there's been some discussion of why twitter would schedule this update on
+<span style="font-weight:bold;">Sep 11th</span> and publicise it as the <span style="font-weight:bold;">Twitpocalypse
+II</span>. I hope it was just an EQ+IQ deficiency, not someone's twisted idea of a funny or attention-grabbing
+stunt.</span>

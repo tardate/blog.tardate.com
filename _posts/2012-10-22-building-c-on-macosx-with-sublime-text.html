@@ -11,4 +11,40 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-3395451458003350399
 blogger_orig_url: http://blog.tardate.com/2012/10/building-c-on-macosx-with-sublime-text.html
 ---
 
-<div class="separator" style="clear: both; text-align: center;"><a href="http://mono-project.com/Main_Page" imageanchor="1" style="clear:right; float:right; margin-left:1em; margin-bottom:1em"><img border="0" height="41" width="167" src="/assets/2012-10-22-building-c-on-macosx-with-sublime-text/mp-mono-logo.png" /></a></div>It's been a while since I last cranked up <a href="http://mono-project.com/Main_Page">mono</a> to compile some <a href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language)">C#</a>, and this time I'm on a Mac.<br /><br />Fortunately, no dramas. The mono team have made it a very smooth process. I simply <a href="http://www.go-mono.com/mono-downloads/download.html">downloaded</a> and installed the Mono SDK (it is packaged as a standard disk image [.dmg]). That's enough to compile and run simple projects. <br /><pre name="code" class="ruby:wraplines:nocontrols">$ mcs hello_world.cs<br />$ mono hello_world.exe</pre><br />There's a whole cross-platform IDE available now called <a href="http://monodevelop.com/">MonoDevelop</a> and it looks great if you are doing serious C#. Right now though, I was happy enough to build from the command line .. or from my favourite editor of the moment, <a href="http://www.sublimetext.com/">Sublime Text</a>.<br /><br />Setting up a C# <a href="http://docs.sublimetext.info/en/latest/file_processing/build_systems.html">build system</a> is trivial. From the "Tools | Build System" choose "New Build System..." option. My version simply associates with all .cs files and passes them to the mcs compiler:<br /><pre name="code" class="ruby:wraplines:nocontrols">{<br />  "cmd": ["mcs","$file"],<br />  "selector": "source.cs"<br />}</pre>Then when you are in a C# file you can simply <strong>&#8984;B</strong> to compile. Like this:<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="/assets/2012-10-22-building-c-on-macosx-with-sublime-text/cs_build.png" imageanchor="1" style="margin-left:1em; margin-right:1em"><img border="0" height="271" width="400" src="/assets/2012-10-22-building-c-on-macosx-with-sublime-text/cs_build.png" /></a></div>And you get a .exe that runs under mono from the bash prompt. Wild!<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="/assets/2012-10-22-building-c-on-macosx-with-sublime-text/cs_run.png" imageanchor="1" style="margin-left:1em; margin-right:1em"><img border="0" height="161" width="400" src="/assets/2012-10-22-building-c-on-macosx-with-sublime-text/cs_run.png" /></a></div><br /><span style="font-style:italic;">Blogarhythm: <a href="https://youtu.be/TgKB8zG5qP0">Because It's There</a> - Michael Hedges #NP</span>
+<div class="separator" style="clear: both; text-align: center;">
+  <a href="http://mono-project.com/Main_Page" style=
+  "clear:right; float:right; margin-left:1em; margin-bottom:1em"><img border="0" height="41" width="167" src=
+  "/assets/2012-10-22-building-c-on-macosx-with-sublime-text/mp-mono-logo.png"></a>
+</div>It's been a while since I last cranked up <a href="http://mono-project.com/Main_Page">mono</a> to compile some
+<a href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language)">C#</a>, and this time I'm on a Mac.<br>
+<br>
+Fortunately, no dramas. The mono team have made it a very smooth process. I simply <a href=
+"http://www.go-mono.com/mono-downloads/download.html">downloaded</a> and installed the Mono SDK (it is packaged as a
+standard disk image [.dmg]). That's enough to compile and run simple projects.<br>
+<pre name="code" class="ruby:wraplines:nocontrols">
+$ mcs hello_world.cs<br>$ mono hello_world.exe
+</pre><br>
+There's a whole cross-platform IDE available now called <a href="http://monodevelop.com/">MonoDevelop</a> and it looks
+great if you are doing serious C#. Right now though, I was happy enough to build from the command line .. or from my
+favourite editor of the moment, <a href="http://www.sublimetext.com/">Sublime Text</a>.<br>
+<br>
+Setting up a C# <a href="http://docs.sublimetext.info/en/latest/file_processing/build_systems.html">build system</a> is
+trivial. From the "Tools | Build System" choose "New Build System..." option. My version simply associates with all .cs
+files and passes them to the mcs compiler:<br>
+<pre name="code" class="ruby:wraplines:nocontrols">
+{<br>  "cmd": ["mcs","$file"],<br>  "selector": "source.cs"<br>}
+</pre>Then when you are in a C# file you can simply <strong>⌘B</strong> to compile. Like this:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+  <a href="/assets/2012-10-22-building-c-on-macosx-with-sublime-text/cs_build.png" style=
+  "margin-left:1em; margin-right:1em"><img border="0" height="271" width="400" src=
+  "/assets/2012-10-22-building-c-on-macosx-with-sublime-text/cs_build.png"></a>
+</div>And you get a .exe that runs under mono from the bash prompt. Wild!<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+  <a href="/assets/2012-10-22-building-c-on-macosx-with-sublime-text/cs_run.png" style=
+  "margin-left:1em; margin-right:1em"><img border="0" height="161" width="400" src=
+  "/assets/2012-10-22-building-c-on-macosx-with-sublime-text/cs_run.png"></a>
+</div><br>
+<span style="font-style:italic;">Blogarhythm: <a href="https://youtu.be/TgKB8zG5qP0">Because It's There</a> - Michael
+Hedges #NP</span>

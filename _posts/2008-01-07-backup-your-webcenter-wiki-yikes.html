@@ -13,4 +13,64 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-912322399707049758
 blogger_orig_url: http://blog.tardate.com/2008/01/backup-your-webcenter-wiki-yikes.html
 ---
 
-Previously I wrote about <a href="/2007/12/webcenter-wiki-up-and-running-with-oc4j.html">installing Oracle WebCenter Wiki</a>, and also <a href="/2007/12/webcenter-first-thoughts-watchhold.html">had my 2c</a> worth.<br /><br />One of the surprises is that it uses file storage by default. Database storage seems to be a work-in-progress (<a href="http://www.oracle.com/technology/products/ias/toplink/index.html">Toplink</a>, <a href="http://www.hibernate.org/">hibernate</a> and <a href="http://hsqldb.org/">HSQLDB</a> are all involved somehow), but not a documented option at this point.<br /><br />Now if you are going to run WebCenter Wiki for real, that means as a dilligent system admin you want to be pretty sure you really understand how the file storage is working so you can have good backup and recovery procedures in place. <br /><br />The documentation on <a href="http://download.oracle.com/docs/cd/B32110_01/webcenter.1013/b31074/jpsdg_app_wiki.htm#BABJDHJA">Backing Up and Restoring Wiki Content</a> sounds straight-forward. Just make a backup of the <em>OC4J_HOME</em>/applications/<em>application_name</em>/owc_wiki/pages folder.<br /><br />But <span style="color: red; font-style: bold">BEWARE!</span><br /><br /><strong>Gotcha #1: Don't Forget Your Toothbrush!</strong><br />A little poking around, and it is clear that this is <strong>NOT</strong> all you need to backup. I've noted content modifications in at least the following locations also: <br /><blockquote class="code">OC4J_HOME/applications/application_name/owc_wiki/attachments [any uploaded attachments]<br />OC4J_HOME/applications/application_name/owc_wiki/templates [added/changed page templates]</blockquote><em>The jzwiki <a href="http://yawiki.jzonic.org/page/show.jz?page=BackupData">backup/restore instructions</a> also tell you to backup <span class="code">WEB-INF/classes/yawikiDB.script</span> (WebCenter wiki is based on jzwiki)</em><br /><br />So to be sure you haven't left anything behind, I'd suggest you probably want to be backing up the entire <em>OC4J_HOME</em>/applications/<em>application_name</em>/owc_wiki directory structure no matter what the doc says, and practice some restores!<br /><br /><strong>Gotcha #2: Beware of EAR Re-deployments!</strong><br />If you've worked with OracleAS/OC4J deployment before, and also noticed that the wiki content is stored in the application directory structure, I hope it rang an alarm!<br /><br />Yes, if you <span class="code">touch</span> or replace the owc_wiki.ear, then say goodbye to your wiki content and pray your backup is good and not too old! OC4J will redeploy the application and give you a nice fresh install, <strong>deleting</strong> all your wiki content and customisations;-)<br /><br />I have always had a sneaking suspicion that there can be other circumstances in which OracleAS/OC4J may choose to redeploy an EAR. I can't really substantiate this, but I have had situations in production where EARs are redeployed for no immediately apparent reason.<br /><br />This is of course very hairy for any non-trivial production deployment. The obvious first step would be to configure wiki content storage to some other location. This isn't documented however, and I'm not sure if its even possible with the product as it is. <br /><br />So for now, it seems just backup or rsync deep and often, and enjoy the view as you walk the edge of the abyss;-)<br /><br /><strong>WebCenter Wiki Future?</strong><br />So far, there's no real news on what is planned for WebCenter Wiki in 11g. If you've read my posts, it will come as no surprise that my view is the 10g wiki is far from production-ready.<br /><br />Which makes the question of what is in store for 11g so interesting. Maybe a significant revamp of the 10g (jzwiki) wiki? Maybe an internally developed replacement based on Content DB or UCM?<br /><br /><strong>Or maybe something completely different?</strong> A collegue pointed me to <a href="http://o20db.com/db/clearspace">Jive Clearspace</a> today .. <em>"discussions, blogs, files, instant messaging, and wiki documents under one unified umbrella"</em> .. and since Oracle already have Jive Forums integrated in WebCenter it raises interesting possibilities!
+Previously I wrote about <a href="/2007/12/webcenter-wiki-up-and-running-with-oc4j.html">installing Oracle WebCenter
+Wiki</a>, and also <a href="/2007/12/webcenter-first-thoughts-watchhold.html">had my 2c</a> worth.<br>
+<br>
+One of the surprises is that it uses file storage by default. Database storage seems to be a work-in-progress (<a href=
+"http://www.oracle.com/technology/products/ias/toplink/index.html">Toplink</a>, <a href=
+"http://www.hibernate.org/">hibernate</a> and <a href="http://hsqldb.org/">HSQLDB</a> are all involved somehow), but
+not a documented option at this point.<br>
+<br>
+Now if you are going to run WebCenter Wiki for real, that means as a dilligent system admin you want to be pretty sure
+you really understand how the file storage is working so you can have good backup and recovery procedures in place.<br>
+<br>
+The documentation on <a href=
+"http://download.oracle.com/docs/cd/B32110_01/webcenter.1013/b31074/jpsdg_app_wiki.htm#BABJDHJA">Backing Up and
+Restoring Wiki Content</a> sounds straight-forward. Just make a backup of the
+<em>OC4J_HOME</em>/applications/<em>application_name</em>/owc_wiki/pages folder.<br>
+<br>
+But <span style="color: red; font-style: bold">BEWARE!</span><br>
+<br>
+<strong>Gotcha #1: Don't Forget Your Toothbrush!</strong><br>
+A little poking around, and it is clear that this is <strong>NOT</strong> all you need to backup. I've noted content
+modifications in at least the following locations also:<br>
+<blockquote class="code">
+  OC4J_HOME/applications/application_name/owc_wiki/attachments [any uploaded attachments]<br>
+  OC4J_HOME/applications/application_name/owc_wiki/templates [added/changed page templates]
+</blockquote><em>The jzwiki <a href="http://yawiki.jzonic.org/page/show.jz?page=BackupData">backup/restore
+instructions</a> also tell you to backup <span class="code">WEB-INF/classes/yawikiDB.script</span> (WebCenter wiki is
+based on jzwiki)</em><br>
+<br>
+So to be sure you haven't left anything behind, I'd suggest you probably want to be backing up the entire
+<em>OC4J_HOME</em>/applications/<em>application_name</em>/owc_wiki directory structure no matter what the doc says, and
+practice some restores!<br>
+<br>
+<strong>Gotcha #2: Beware of EAR Re-deployments!</strong><br>
+If you've worked with OracleAS/OC4J deployment before, and also noticed that the wiki content is stored in the
+application directory structure, I hope it rang an alarm!<br>
+<br>
+Yes, if you <span class="code">touch</span> or replace the owc_wiki.ear, then say goodbye to your wiki content and pray
+your backup is good and not too old! OC4J will redeploy the application and give you a nice fresh install,
+<strong>deleting</strong> all your wiki content and customisations;-)<br>
+<br>
+I have always had a sneaking suspicion that there can be other circumstances in which OracleAS/OC4J may choose to
+redeploy an EAR. I can't really substantiate this, but I have had situations in production where EARs are redeployed
+for no immediately apparent reason.<br>
+<br>
+This is of course very hairy for any non-trivial production deployment. The obvious first step would be to configure
+wiki content storage to some other location. This isn't documented however, and I'm not sure if its even possible with
+the product as it is.<br>
+<br>
+So for now, it seems just backup or rsync deep and often, and enjoy the view as you walk the edge of the abyss;-)<br>
+<br>
+<strong>WebCenter Wiki Future?</strong><br>
+So far, there's no real news on what is planned for WebCenter Wiki in 11g. If you've read my posts, it will come as no
+surprise that my view is the 10g wiki is far from production-ready.<br>
+<br>
+Which makes the question of what is in store for 11g so interesting. Maybe a significant revamp of the 10g (jzwiki)
+wiki? Maybe an internally developed replacement based on Content DB or UCM?<br>
+<br>
+<strong>Or maybe something completely different?</strong> A collegue pointed me to <a href=
+"http://o20db.com/db/clearspace">Jive Clearspace</a> today .. <em>"discussions, blogs, files, instant messaging, and
+wiki documents under one unified umbrella"</em> .. and since Oracle already have Jive Forums integrated in WebCenter it
+raises interesting possibilities!

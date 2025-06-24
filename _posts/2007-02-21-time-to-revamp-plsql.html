@@ -10,4 +10,59 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-6525112963216552574
 blogger_orig_url: http://blog.tardate.com/2007/02/time-to-revamp-plsql.html
 ---
 
-Welcome the year of the pig! That maybe appropriate, because I can't help thinking that its 2007 already, and high time that Oracle gave a serious revamp to doddering PL/SQL. Doddering, you say? Well, yes. The past few years have seen incredible language innovation (read Ruby, Python, even JavaScript getting a new AJAXian lease of life) but PL/SQL seems to have been left by the wayside.<br /><br />I do not know exactly what Oracle have in store for us with 11g, but I sincerely hope it addresses some of my major beefs, which I'd summarise as follows.<br /><br /><b>1. Give me CLOB-sized VARCHARs</b><br />I have a thumping server with a gazillion gigabytes of memory, so why do I spend so much time working around 4000 byte or 32k limits in PL/SQL? Or worse, have my app fail randomly in production when a certain bit of data slips the limit.<br /><br />These are internal RDBMS implementation details that application programmers should not be concerned with. That's not to say that application programmers shouldn't be concerned about performance, just that they shouldn't be constrained by such arbitrary fundamental restrictions. <br /><br />OK, so the 4000 byte limit is a SQL thing. But once I am manipulating string data in PL/SQL, if I need a Mb, then please Oracle let me use a Mb.<br /><br />This is the 21st Century guys. We're not all dealing with simple accounting data. Handling large volumes of text is <i>de rigeur</i>. Text, not nameless objects, be it XML, HTML or just plain ASCII/Unicode.<br /><br /><b>2. Function-style DBMS_LOB interface</b><br />Partly as a result of (1), we often need to resort to DBMS_LOB for dealing with large text. Since it has a largely procedural interface, this usually means we need to drop into PL/SQL when in fact plain SQL would have been preferred.  <br /><br />Rather than deal with temporary LOBs etc, I'd prefer just a function-style interface so most of the LOB handling could be done inline with SQL.<br /><br /><b>3. Get over the VARCHAR limits with XMLType and XML-related Packages</b><br />OK, maybe just a variation on the same theme, but one of the most common situations where application programmers will run into varchar limits is when working with XML. To many of the various XML-related functions and packages are hamstrung by their lack of native support for CLOBs. In many cases, this means what can be elegantly programmed "in the lab" has no practical use because of these limits.<br /><br /><b>4. Better documentation - proper definitions, real examples</b><br />IMHO, most Oracle docs are written according the the "<a href="http://orangecow.org/pythonet/sketches/anneelk.htm">Anne Elk</a>" school of documentation. <br /><br />It can't get much worse than DBMS_XMLDOM, but let me take an example at random... open the PL/SQL Packages and Types ref and page down a few times. Let's look at <a href="http://download-west.oracle.com/docs/cd/B19306_01/appdev.102/b14258/d_appinf.htm#CHEJCFGG">DBMS_APPLICATION_INFO.SET_CLIENT_INFO</a>. Parameter is client_info IN VARCHAR2, uhuh. Definition is "Supplies any additional information about the client application". <b>HELLO?</b> Did that actually help anyone who didn't already know what the parameter was for or how it was used?<br /><br />Normally with most reference guides this is when you turn to the examples to "reverse engineer" the definition. But there are no examples as a rule in the reference docs. <br /><br />You may find an example in User's Guides, but then again, you may not;) That needs to change.<br /><br /><br />OK, that's a few for starters. Got any other beefs? Please post a comment, I'd be interested to hear what you have to say.
+Welcome the year of the pig! That maybe appropriate, because I can't help thinking that its 2007 already, and high time
+that Oracle gave a serious revamp to doddering PL/SQL. Doddering, you say? Well, yes. The past few years have seen
+incredible language innovation (read Ruby, Python, even JavaScript getting a new AJAXian lease of life) but PL/SQL
+seems to have been left by the wayside.<br>
+<br>
+I do not know exactly what Oracle have in store for us with 11g, but I sincerely hope it addresses some of my major
+beefs, which I'd summarise as follows.<br>
+<br>
+<b>1. Give me CLOB-sized VARCHARs</b><br>
+I have a thumping server with a gazillion gigabytes of memory, so why do I spend so much time working around 4000 byte
+or 32k limits in PL/SQL? Or worse, have my app fail randomly in production when a certain bit of data slips the
+limit.<br>
+<br>
+These are internal RDBMS implementation details that application programmers should not be concerned with. That's not
+to say that application programmers shouldn't be concerned about performance, just that they shouldn't be constrained
+by such arbitrary fundamental restrictions.<br>
+<br>
+OK, so the 4000 byte limit is a SQL thing. But once I am manipulating string data in PL/SQL, if I need a Mb, then
+please Oracle let me use a Mb.<br>
+<br>
+This is the 21st Century guys. We're not all dealing with simple accounting data. Handling large volumes of text is
+<i>de rigeur</i>. Text, not nameless objects, be it XML, HTML or just plain ASCII/Unicode.<br>
+<br>
+<b>2. Function-style DBMS_LOB interface</b><br>
+Partly as a result of (1), we often need to resort to DBMS_LOB for dealing with large text. Since it has a largely
+procedural interface, this usually means we need to drop into PL/SQL when in fact plain SQL would have been
+preferred.<br>
+<br>
+Rather than deal with temporary LOBs etc, I'd prefer just a function-style interface so most of the LOB handling could
+be done inline with SQL.<br>
+<br>
+<b>3. Get over the VARCHAR limits with XMLType and XML-related Packages</b><br>
+OK, maybe just a variation on the same theme, but one of the most common situations where application programmers will
+run into varchar limits is when working with XML. To many of the various XML-related functions and packages are
+hamstrung by their lack of native support for CLOBs. In many cases, this means what can be elegantly programmed "in the
+lab" has no practical use because of these limits.<br>
+<br>
+<b>4. Better documentation - proper definitions, real examples</b><br>
+IMHO, most Oracle docs are written according the the "<a href="http://orangecow.org/pythonet/sketches/anneelk.htm">Anne
+Elk</a>" school of documentation.<br>
+<br>
+It can't get much worse than DBMS_XMLDOM, but let me take an example at random... open the PL/SQL Packages and Types
+ref and page down a few times. Let's look at <a href=
+"http://download-west.oracle.com/docs/cd/B19306_01/appdev.102/b14258/d_appinf.htm#CHEJCFGG">DBMS_APPLICATION_INFO.SET_CLIENT_INFO</a>.
+Parameter is client_info IN VARCHAR2, uhuh. Definition is "Supplies any additional information about the client
+application". <b>HELLO?</b> Did that actually help anyone who didn't already know what the parameter was for or how it
+was used?<br>
+<br>
+Normally with most reference guides this is when you turn to the examples to "reverse engineer" the definition. But
+there are no examples as a rule in the reference docs.<br>
+<br>
+You may find an example in User's Guides, but then again, you may not;) That needs to change.<br>
+<br>
+<br>
+OK, that's a few for starters. Got any other beefs? Please post a comment, I'd be interested to hear what you have to
+say.

@@ -12,4 +12,41 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-1622084170107084312
 blogger_orig_url: http://blog.tardate.com/2007/06/mq-and-occi-demo.html
 ---
 
-A little while ago I got to dust off my C++ skills for a project that was to use Oracle Database (via OCCI) and also Websphere MQ. Oracle and IBM already make a range of demos available, but they are mostly all very closely scoped on one feature only. Since I didn't find anything that included all they key concepts in a full working demo, I put together a combined OCCI/MQ demo to do the job (available for download as a tar/gzip file here: <a href="http://github.com/tardate/sources/tree/master/occimqdemo.tgz?raw=true">occidemo.tgz</a>, see the <a href="http://github.com/tardate/sources/tree/master/occimqdemo-readme.txt?raw=true">readme.txt</a> for details).<br /><br />A couple of key things demonstrated:<ol><li>C++ (OCCI) Oracle database access<br /></li><li>Transparent Application Failover (TAF) notifications in C++ (OCCI)<br /></li><li>Building a C++ application with MQ and OCCI support<br /></li><li>Using makefile flags to build either with full or a "stub" database library class<br /></li></ol>The demo is written for Linux (32 or 64 bit) and has been tested with Oracle Database 10g Server, Oracle 10g Instant Client, and IBM WebSphere MQ 6.0. <br /><br />The diagrams below give a simple exposition of how the demo is structured. The executables "mqproducer" and "mqconsumer" are MQ clients shuttle messages back-and-forth via queues. For each message sent by "mqproducer", a reply is expected from "mqconsumer". The <a href="http://github.com/tardate/sources/tree/master/occimqdemo-readme.txt?raw=true">readme.txt</a> in the archive contains fairly detailed coverage of how to run the demo.<br /><br />If the sample is built with full database support, then a "dblibrary" is linked in that will persist each message to database (and the dblibrary_test program can be use to test the operation).<br /><a href="http://bp1.blogger.com/_AZh6c1pzK1A/Rmow9h8_7sI/AAAAAAAAAEY/RBJsLceXw5w/s1600-h/occimqdemo-db.jpg"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;" src="http://bp1.blogger.com/_AZh6c1pzK1A/Rmow9h8_7sI/AAAAAAAAAEY/RBJsLceXw5w/s400/occimqdemo-db.jpg" border="0" alt=""id="BLOGGER_PHOTO_ID_5073921763830656706" /></a>If the sample is built with a database "stub", then a dummy database library is substitued, and the programs a built without any Oracle Database support linked in at all. This can be useful when just wanting to focus on the MQ aspects in isolation.<br /><a href="http://bp0.blogger.com/_AZh6c1pzK1A/RmoxIR8_7tI/AAAAAAAAAEg/nSDxOVgVUU8/s1600-h/occimqdemo-stub.jpg"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;" src="http://bp0.blogger.com/_AZh6c1pzK1A/RmoxIR8_7tI/AAAAAAAAAEg/nSDxOVgVUU8/s400/occimqdemo-stub.jpg" border="0" alt=""id="BLOGGER_PHOTO_ID_5073921948514250450" /></a>
+A little while ago I got to dust off my C++ skills for a project that was to use Oracle Database (via OCCI) and also
+Websphere MQ. Oracle and IBM already make a range of demos available, but they are mostly all very closely scoped on
+one feature only. Since I didn't find anything that included all they key concepts in a full working demo, I put
+together a combined OCCI/MQ demo to do the job (available for download as a tar/gzip file here: <a href=
+"http://github.com/tardate/sources/tree/master/occimqdemo.tgz?raw=true">occidemo.tgz</a>, see the <a href=
+"http://github.com/tardate/sources/tree/master/occimqdemo-readme.txt?raw=true">readme.txt</a> for details).<br>
+<br>
+A couple of key things demonstrated:
+<ol>
+  <li>C++ (OCCI) Oracle database access<br>
+  </li>
+  <li>Transparent Application Failover (TAF) notifications in C++ (OCCI)<br>
+  </li>
+  <li>Building a C++ application with MQ and OCCI support<br>
+  </li>
+  <li>Using makefile flags to build either with full or a "stub" database library class<br>
+  </li>
+</ol>The demo is written for Linux (32 or 64 bit) and has been tested with Oracle Database 10g Server, Oracle 10g
+Instant Client, and IBM WebSphere MQ 6.0.<br>
+<br>
+The diagrams below give a simple exposition of how the demo is structured. The executables "mqproducer" and
+"mqconsumer" are MQ clients shuttle messages back-and-forth via queues. For each message sent by "mqproducer", a reply
+is expected from "mqconsumer". The <a href=
+"http://github.com/tardate/sources/tree/master/occimqdemo-readme.txt?raw=true">readme.txt</a> in the archive contains
+fairly detailed coverage of how to run the demo.<br>
+<br>
+If the sample is built with full database support, then a "dblibrary" is linked in that will persist each message to
+database (and the dblibrary_test program can be use to test the operation).<br>
+<a href="http://bp1.blogger.com/_AZh6c1pzK1A/Rmow9h8_7sI/AAAAAAAAAEY/RBJsLceXw5w/s1600-h/occimqdemo-db.jpg"><img class=
+"centered-image" src="http://bp1.blogger.com/_AZh6c1pzK1A/Rmow9h8_7sI/AAAAAAAAAEY/RBJsLceXw5w/s400/occimqdemo-db.jpg"
+border="0" alt="" id="BLOGGER_PHOTO_ID_5073921763830656706" name="BLOGGER_PHOTO_ID_5073921763830656706"></a>If the
+sample is built with a database "stub", then a dummy database library is substitued, and the programs a built without
+any Oracle Database support linked in at all. This can be useful when just wanting to focus on the MQ aspects in
+isolation.<br>
+<a href=
+"http://bp0.blogger.com/_AZh6c1pzK1A/RmoxIR8_7tI/AAAAAAAAAEg/nSDxOVgVUU8/s1600-h/occimqdemo-stub.jpg"><img class=
+"centered-image" src="http://bp0.blogger.com/_AZh6c1pzK1A/RmoxIR8_7tI/AAAAAAAAAEg/nSDxOVgVUU8/s400/occimqdemo-stub.jpg"
+border="0" alt="" id="BLOGGER_PHOTO_ID_5073921948514250450" name="BLOGGER_PHOTO_ID_5073921948514250450"></a>

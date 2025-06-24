@@ -11,4 +11,41 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-5000091214207842589
 blogger_orig_url: http://blog.tardate.com/2011/01/paranoid-yak-shaving.html
 ---
 
-So a few weeks ago I found myself wanting "soft-delete" in a Rails app. <a href="http://ruby-toolbox.com/categories/activerecord_soft_delete.html">Ruby Toolbox</a> is a little long in the tooth on the subject, but after a little more research I discovered xpond's <a href="https://github.com/xspond/paranoid">paranoid</a> project that was just what I wanted:<br /><ul><li>packaged as a gem, not a plugin</li><br /><li>built for Rails 3 (arel-aware in particular)</li><br /><li>can be selectively applied to your models</li></ul><br />All was cool, except at about the same time we updated to Rails 3.0.3 and it broke (as it turned out, due to changes in AREL 2.0.6 internals).<br /><br />One of the beautiful things about <a href="https://github.com">github</a> and the way it's been adopted by the ruby/rails community in particular is that it makes it so damn easy to just dive in and help update code originally contributed by other people. So paranoid needs updating for Rails 3.0.3? No problem - fork it, diagnose the issue and push your fixes back up to github.<br /><br />But that's also a great recipe for <a href="http://sethgodin.typepad.com/seths_blog/2005/03/dont_shave_that.html">yak shaving</a> ;-)<br /> <br />The fixes are yet to make it into the released gem, but if you desparately need 3.0.3 support you can install from <a href="https://github.com/tardate/paranoid">my repo</a>. i.e. in your Gemfile:<br /><br /><pre name="code" class="ruby:wraplines:nocontrols">gem 'paranoid', '~> 0.0.10', :require => 'paranoid', :git => 'git://github.com/tardate/paranoid'</pre ><br /><br /><span style="font-style:italic;">Blogarhythm: <a href="http://www.youtube.com/watch?v=oaEjzIyB5NA">Paranoid</a> (of course - but this is the bluegrass version!)</span>
+So a few weeks ago I found myself wanting "soft-delete" in a Rails app. <a href=
+"http://ruby-toolbox.com/categories/activerecord_soft_delete.html">Ruby Toolbox</a> is a little long in the tooth on
+the subject, but after a little more research I discovered xpond's <a href=
+"https://github.com/xspond/paranoid">paranoid</a> project that was just what I wanted:<br>
+<ul>
+  <li>packaged as a gem, not a plugin
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>built for Rails 3 (arel-aware in particular)
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>can be selectively applied to your models
+  </li>
+</ul><br>
+All was cool, except at about the same time we updated to Rails 3.0.3 and it broke (as it turned out, due to changes in
+AREL 2.0.6 internals).<br>
+<br>
+One of the beautiful things about <a href="https://github.com">github</a> and the way it's been adopted by the
+ruby/rails community in particular is that it makes it so damn easy to just dive in and help update code originally
+contributed by other people. So paranoid needs updating for Rails 3.0.3? No problem - fork it, diagnose the issue and
+push your fixes back up to github.<br>
+<br>
+But that's also a great recipe for <a href="http://sethgodin.typepad.com/seths_blog/2005/03/dont_shave_that.html">yak
+shaving</a> ;-)<br>
+<br>
+The fixes are yet to make it into the released gem, but if you desparately need 3.0.3 support you can install from
+<a href="https://github.com/tardate/paranoid">my repo</a>. i.e. in your Gemfile:<br>
+<br>
+<pre name="code" class="ruby:wraplines:nocontrols">
+gem 'paranoid', '~&gt; 0.0.10', :require =&gt; 'paranoid', :git =&gt; 'git://github.com/tardate/paranoid'
+</pre><br>
+<br>
+<span style="font-style:italic;">Blogarhythm: <a href="http://www.youtube.com/watch?v=oaEjzIyB5NA">Paranoid</a> (of
+course - but this is the bluegrass version!)</span>

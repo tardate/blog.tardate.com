@@ -12,4 +12,41 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-8978411623448511199
 blogger_orig_url: http://blog.tardate.com/2008/05/complex-acl-filters-with-ovd.html
 ---
 
-Access Control Rules are a very important aspect to get right when setting up Oracle Virtual Directory. But at the same time, I guess they are probably the most complex configuration option, especially if you haven't had some hard core LDAP experience before.<br /><br />In <a href="/2008/03/using-ovd-filtered-directories-for-ldap.html">Using OVD Filtered Directories for LDAP Authentication</a>, I talked about using ACLs to restrict access to certain parts of a directory: each Access Control Rule has a filter setting, which is an LDAP filter that specifies which directory entries the rule applies to. <br /><br />However I also discovered that using complex (multiple term) Access Control Rule filters is a great way to kill the OVD server process.<blockquote>NB:it bombs with a <span class="code">java.lang.NullPointerException</span>, and it is necessary to go and manually remove the offending filter from the $OVD_HOME/conf/acls.os_xml file on the server before it will startup again.</blockquote><br /><br />Say, for example, you wanted to grant access to entries for the ITGroup and HR departments. In <a href="http://tools.ietf.org/html/rfc4515">RFC 4515</a> LDAP search filter terms, we can write this simply as:<br /><blockquote class="code">(|(departmentNumber=ITGroup)(departmentNumber=HR))</blockquote><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://bp3.blogger.com/_AZh6c1pzK1A/SB3L5KMQHuI/AAAAAAAAATg/7z-AbIskvJU/s1600-h/ovd-acl-bad.jpg"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;" src="http://bp3.blogger.com/_AZh6c1pzK1A/SB3L5KMQHuI/AAAAAAAAATg/7z-AbIskvJU/s400/ovd-acl-bad.jpg" border="0" alt=""id="BLOGGER_PHOTO_ID_5196533727904145122" /></a><br /><br />But as mentioned, this will kill your OVD server (OVD 10.1.4.0.1 build 06.07.19).<br /><br />There is a simple work-around though, by reverting to simple set theory and write multiple rules. In other words, granting <span class="code">(|(departmentNumber=ITGroup)(departmentNumber=HR))</span> is equivalent to two rules applied in sequence:<br /><ul><li>Grant: <span class="code">(departmentNumber=ITGroup)</span></li><li>Grant: <span class="code">(departmentNumber=HR)</span></li></ul><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://bp1.blogger.com/_AZh6c1pzK1A/SB3L-qMQHvI/AAAAAAAAATo/T2RIj1CXg50/s1600-h/ovd-acl-good.jpg"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;" src="http://bp1.blogger.com/_AZh6c1pzK1A/SB3L-qMQHvI/AAAAAAAAATo/T2RIj1CXg50/s400/ovd-acl-good.jpg" border="0" alt=""id="BLOGGER_PHOTO_ID_5196533822393425650" /></a>
+Access Control Rules are a very important aspect to get right when setting up Oracle Virtual Directory. But at the same
+time, I guess they are probably the most complex configuration option, especially if you haven't had some hard core
+LDAP experience before.<br>
+<br>
+In <a href="/2008/03/using-ovd-filtered-directories-for-ldap.html">Using OVD Filtered Directories for LDAP
+Authentication</a>, I talked about using ACLs to restrict access to certain parts of a directory: each Access Control
+Rule has a filter setting, which is an LDAP filter that specifies which directory entries the rule applies to.<br>
+<br>
+However I also discovered that using complex (multiple term) Access Control Rule filters is a great way to kill the OVD
+server process.
+<blockquote>
+  NB:it bombs with a <span class="code">java.lang.NullPointerException</span>, and it is necessary to go and manually
+  remove the offending filter from the $OVD_HOME/conf/acls.os_xml file on the server before it will startup again.
+</blockquote><br>
+<br>
+Say, for example, you wanted to grant access to entries for the ITGroup and HR departments. In <a href=
+"http://tools.ietf.org/html/rfc4515">RFC 4515</a> LDAP search filter terms, we can write this simply as:<br>
+<blockquote class="code">
+  (|(departmentNumber=ITGroup)(departmentNumber=HR))
+</blockquote><br>
+<a href="http://bp3.blogger.com/_AZh6c1pzK1A/SB3L5KMQHuI/AAAAAAAAATg/7z-AbIskvJU/s1600-h/ovd-acl-bad.jpg"><img class=
+"centered-image" src="http://bp3.blogger.com/_AZh6c1pzK1A/SB3L5KMQHuI/AAAAAAAAATg/7z-AbIskvJU/s400/ovd-acl-bad.jpg"
+border="0" alt="" id="BLOGGER_PHOTO_ID_5196533727904145122" name="BLOGGER_PHOTO_ID_5196533727904145122"></a><br>
+<br>
+But as mentioned, this will kill your OVD server (OVD 10.1.4.0.1 build 06.07.19).<br>
+<br>
+There is a simple work-around though, by reverting to simple set theory and write multiple rules. In other words,
+granting <span class="code">(|(departmentNumber=ITGroup)(departmentNumber=HR))</span> is equivalent to two rules
+applied in sequence:<br>
+<ul>
+  <li>Grant: <span class="code">(departmentNumber=ITGroup)</span>
+  </li>
+  <li>Grant: <span class="code">(departmentNumber=HR)</span>
+  </li>
+</ul><br>
+<a href="http://bp1.blogger.com/_AZh6c1pzK1A/SB3L-qMQHvI/AAAAAAAAATo/T2RIj1CXg50/s1600-h/ovd-acl-good.jpg"><img class=
+"centered-image" src="http://bp1.blogger.com/_AZh6c1pzK1A/SB3L-qMQHvI/AAAAAAAAATo/T2RIj1CXg50/s400/ovd-acl-good.jpg"
+border="0" alt="" id="BLOGGER_PHOTO_ID_5196533822393425650" name="BLOGGER_PHOTO_ID_5196533822393425650"></a>

@@ -13,4 +13,203 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-4195436079348121401
 blogger_orig_url: http://blog.tardate.com/2007/06/diving-for-soap-perls.html
 ---
 
-Antony Reynolds' recent <a href="http://blogs.oracle.com/reynolds/2007/06/06#a157">Diving for Perls with WSIF</a> post gave a great example of how you can use HTTP bindings to call perl CGI scripts from Oracle BPEL Process Manager.<br /><br />If your perl code is not already available to be called in this way, then what to do? Certainly the "ideal" would be make it available as a native Web Service and do away with any special binding. Thanks to the <a href="http://www.soaplite.com/">SOAP::Lite</a> module, this is actually quite easy to do.  <br /><br />I'm going to walk through an example of how to take some aribitrary perl code, wrap it as a Web Service, and then call it from a BPEL process. See the diagram: <br /><a href="http://bp1.blogger.com/_AZh6c1pzK1A/RnAI4B8_7wI/AAAAAAAAAE4/fe39miSlwek/s1600-h/PerlHelloWorld.jpg"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;" src="http://bp1.blogger.com/_AZh6c1pzK1A/RnAI4B8_7wI/AAAAAAAAAE4/fe39miSlwek/s400/PerlHelloWorld.jpg" border="0" alt=""id="BLOGGER_PHOTO_ID_5075566538736529154" /></a><br /><br /><h5>The Perl Code</h5><br />In this example, there's really only one bit of code that "matters" ... a helloWorld function. I'm going to start with this wrapped in a perl class module called HelloWorld.pm. As you'll see shortly, wrapping the business functionality in a class is a good idea because it allows automatic dispatching from the Web Services interface. <br /><br /><blockquote class="code">$ cat HelloWorld.pm<br />#!/usr/bin/perl -w<br />use strict;<br />package HelloWorld;<br />our (@ISA, @EXPORT,  $VERSION);<br />use Exporter;<br />$VERSION = 1.00;<br />@ISA = qw(Exporter);<br />@EXPORT = qw( helloWorld );<br /><br />sub helloWorld {<br /> my ($self,$foo) = @_;<br /> return 'Hello ' . $foo;<br />}<br />1;<br /></blockquote><br /><br />Important to note that while the code here contains some of the module niceties, it doesn't make any reference to SOAP, CGI or BPEL. It's plain perl. We can prove that with a little perl test program:<br /> <br /><blockquote class="code">$ cat helloWorld.pl<br />#!/usr/bin/perl -w<br />use strict;<br />use HelloWorld;<br />print HelloWorld-&gt;helloWorld( 'Sunshine' );<br /><br />$ perl helloWorld.pl<br />Hello Sunshine<br />$<br /></blockquote><br /><br /><h5>The SOAP Interface</h5><br />The dynamic typing of perl and flexibility of the SOAP::Lite module really live up to the <em>make simple things easy</em> motto. In three lines of code we have a SOAP CGI server for our HelloWorld class (that's why I made it a class;) <br /><br /><blockquote class="code">$ cat HelloWorld.cgi<br />#!/usr/bin/perl -w<br />use HelloWorld;<br />use SOAP::Transport::HTTP;<br />SOAP::Transport::HTTP::CGI<br /> -&gt;dispatch_to('HelloWorld')<br /> -&gt;handle;<br /></blockquote><br /><br />That was so easy, there must be a catch right? Well yes, one comes to mind: the reply message elements will necessarily have some generated names (like "s-gensym3") since there is nothing in our code to provide any guidance for things like the "name" of function return value elements.<br /><br /><h5>Testing SOAP Client-Server</h5><br />After dropping HelloWorld.cgi and HelloWorld.pm into my apache cgi-bin, I'm ready to test the SOAP service over HTTP. We can whip up a client in no time:<br /><br /><blockquote class="code">$ cat HelloWorldWSClient.pl<br />#!/usr/bin/perl –w<br />use SOAP::Lite;<br /><br />my $soap = SOAP::Lite<br />   -&gt;readable(1)<br />   -&gt;uri('urn:HelloWorld')<br />   -&gt;proxy('http://localhost:8000/cgi-bin/HelloWorld.cgi');<br /><br />my $som = $soap-&gt;helloWorld(<br />   SOAP::Data-&gt;name('name' =&gt; 'Sunshine')<br />);<br />print &quot;The response from the server was:\n&quot;.$som-&gt;result.&quot;\n&quot;;<br /><br />$ perl HelloWorldWSClient.pl<br />The response from the server was:<br />Hello Sunshine<br />$<br /></blockquote><br />If we sniff the network or route this request via a tool like org.apache.axis.utils.tcpmon, we can see the outbound request and incoming reply:<br />  <br /><a href="http://bp2.blogger.com/_AZh6c1pzK1A/RnAX5R8_7xI/AAAAAAAAAFA/UA8niOW-bTU/s1600-h/PerlHelloWorld-requestreply.jpg"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;" src="http://bp2.blogger.com/_AZh6c1pzK1A/RnAX5R8_7xI/AAAAAAAAAFA/UA8niOW-bTU/s400/PerlHelloWorld-requestreply.jpg" border="0" alt=""id="BLOGGER_PHOTO_ID_5075583052885782290" /></a><br /><br /><h5>Creating a WSDL file</h5><br />Alas, perl's flexibility means that automatically generating a WSDL for our SOAP service is easier said than done. Unlike in strongly-typed languages, perl methods can take an arbitrary number of parameters of arbitrary type ... whereas of course a Web Service should have a very clearly defined interface.<br /><br />I think one of the best approaches at present for generating WSDL in perl is the <a href="http://search.cpan.org/~tareka/Pod-WSDL-0.05/lib/Pod/WSDL.pm">Pod::WSDL</a> module. I'll perhaps leave that for another blog entry. For now lets just assume we'll manually create a WSDL for our service:<br /> <br /><blockquote class="code">$ cat HelloWorld.wsdl<br />&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />&lt;wsdl:definitions targetNamespace=&quot;http://localhost:8000/HelloWorld&quot; xmlns:impl=&quot;http://localhost:8000/HelloWorld&quot; xmlns:wsdlsoap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:wsdl=&quot;http://schemas.xmlsoap.org/wsdl/&quot; xmlns:soapenc=&quot;http://schemas.xmlsoap.org/soap/encoding/&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:tns1=&quot;http://localhost:8000/HelloWorld&quot;&gt;<br /><br /> &lt;wsdl:message name=&quot;helloWorldRequest&quot;&gt;<br />  &lt;wsdl:part name=&quot;name&quot; type=&quot;xsd:string&quot; /&gt;<br /> &lt;/wsdl:message&gt;<br /><br /> &lt;wsdl:message name=&quot;helloWorldResponse&quot;&gt;<br />  &lt;wsdl:part name=&quot;s-gensym3&quot; type=&quot;xsd:string&quot; /&gt;<br /> &lt;/wsdl:message&gt;<br /><br /> &lt;wsdl:portType name=&quot;HelloWorldHandler&quot;&gt;<br />  &lt;wsdl:operation name=&quot;helloWorld&quot; parameterOrder=&quot;name&quot;&gt;<br />   &lt;wsdl:input message=&quot;impl:helloWorldRequest&quot; name=&quot;helloWorldRequest&quot; /&gt;<br />   &lt;wsdl:output message=&quot;impl:helloWorldResponse&quot; name=&quot;helloWorldResponse&quot; /&gt;<br />  &lt;/wsdl:operation&gt;<br /><br /> &lt;/wsdl:portType&gt;<br /><br /> &lt;wsdl:binding name=&quot;HelloWorldSoapBinding&quot; type=&quot;impl:HelloWorldHandler&quot;&gt;<br />  &lt;wsdlsoap:binding style=&quot;rpc&quot; transport=&quot;http://schemas.xmlsoap.org/soap/http&quot; /&gt;<br /><br />  &lt;wsdl:operation name=&quot;helloWorld&quot;&gt;<br />   &lt;wsdlsoap:operation soapAction=&quot;&quot; /&gt;<br />   &lt;wsdl:input name=&quot;helloWorldRequest&quot;&gt;<br />    &lt;wsdlsoap:body encodingStyle=&quot;http://schemas.xmlsoap.org/soap/encoding/&quot; namespace=&quot;http://localhost:8000/HelloWorld&quot; use=&quot;encoded&quot; /&gt;<br />   &lt;/wsdl:input&gt;<br />   &lt;wsdl:output name=&quot;helloWorldResponse&quot;&gt;<br />    &lt;wsdlsoap:body encodingStyle=&quot;http://schemas.xmlsoap.org/soap/encoding/&quot; namespace=&quot;http://localhost:8000/HelloWorld&quot; use=&quot;encoded&quot; /&gt;<br />   &lt;/wsdl:output&gt;<br />  &lt;/wsdl:operation&gt;<br /><br /> &lt;/wsdl:binding&gt;<br /><br /> &lt;wsdl:service name=&quot;HelloWorldHandlerService&quot;&gt;<br />  &lt;wsdl:port binding=&quot;impl:HelloWorldSoapBinding&quot; name=&quot;HelloWorld&quot;&gt;<br />   &lt;wsdlsoap:address location=&quot;http://localhost:8000/cgi-bin/HelloWorld.cgi&quot; /&gt;<br />  &lt;/wsdl:port&gt;<br /> &lt;/wsdl:service&gt;<br /><br />&lt;/wsdl:definitions&gt;<br /></blockquote><br /><br /><h5>Invocation from a BPEL Process</h5><br />Now you have all the bits in place to invoke your Perl code as a fully-fledged Web Service from within BPEL. I won't go into this in detail here because it is the standard Web Service invocation process. Just add an "invoke" activity in your process and point it to a partner link defined based on the WSDL generated above.<br /><br />Once you have deployed your process, you can test it from the BPEL Console. Here's an example of the invoke activity in one of my tests:<br /><a href="http://bp2.blogger.com/_AZh6c1pzK1A/RnAeNR8_7yI/AAAAAAAAAFI/T-RY-H2kQ2c/s1600-h/PerlHelloWorld-invoke.jpg"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;" src="http://bp2.blogger.com/_AZh6c1pzK1A/RnAeNR8_7yI/AAAAAAAAAFI/T-RY-H2kQ2c/s400/PerlHelloWorld-invoke.jpg" border="0" alt=""id="BLOGGER_PHOTO_ID_5075589993552932642" /></a><br /><br /><h5>Conclusion?</h5><br />Hopefully I've shown that exposing perl code as a Web Service is actually pretty simple. Once done, the code is then available for use by standards-based tools like Oracle BPEL Process Manager.<br /><br />There are a couple of consideration to bear in mind though:<br /><ol><li>SOAP::Lite provides some great hooks for automatically generating a SOAP interface, however these come with the caveat that reply message elements will necessarily have some "generated" names<br /></li><li>Automatic WSDL generation is confounded by perl's dynamic typing. Modules like Pod::WSDL provide some good solutions though.<br /></li></ol>
+Antony Reynolds' recent <a href="http://blogs.oracle.com/reynolds/2007/06/06#a157">Diving for Perls with WSIF</a> post
+gave a great example of how you can use HTTP bindings to call perl CGI scripts from Oracle BPEL Process Manager.<br>
+<br>
+If your perl code is not already available to be called in this way, then what to do? Certainly the "ideal" would be
+make it available as a native Web Service and do away with any special binding. Thanks to the <a href=
+"http://www.soaplite.com/">SOAP::Lite</a> module, this is actually quite easy to do.<br>
+<br>
+I'm going to walk through an example of how to take some aribitrary perl code, wrap it as a Web Service, and then call
+it from a BPEL process. See the diagram:<br>
+<a href=
+"http://bp1.blogger.com/_AZh6c1pzK1A/RnAI4B8_7wI/AAAAAAAAAE4/fe39miSlwek/s1600-h/PerlHelloWorld.jpg"><img class="centered-image"
+src="http://bp1.blogger.com/_AZh6c1pzK1A/RnAI4B8_7wI/AAAAAAAAAE4/fe39miSlwek/s400/PerlHelloWorld.jpg" border="0" alt=""
+id="BLOGGER_PHOTO_ID_5075566538736529154" name="BLOGGER_PHOTO_ID_5075566538736529154"></a><br>
+<br>
+<h5>
+  The Perl Code
+</h5><br>
+In this example, there's really only one bit of code that "matters" ... a helloWorld function. I'm going to start with
+this wrapped in a perl class module called HelloWorld.pm. As you'll see shortly, wrapping the business functionality in
+a class is a good idea because it allows automatic dispatching from the Web Services interface.<br>
+<br>
+<blockquote class="code">
+  $ cat HelloWorld.pm<br>
+  #!/usr/bin/perl -w<br>
+  use strict;<br>
+  package HelloWorld;<br>
+  our (@ISA, @EXPORT, $VERSION);<br>
+  use Exporter;<br>
+  $VERSION = 1.00;<br>
+  @ISA = qw(Exporter);<br>
+  @EXPORT = qw( helloWorld );<br>
+  <br>
+  sub helloWorld {<br>
+  my ($self,$foo) = @_;<br>
+  return 'Hello ' . $foo;<br>
+  }<br>
+  1;<br>
+</blockquote><br>
+<br>
+Important to note that while the code here contains some of the module niceties, it doesn't make any reference to SOAP,
+CGI or BPEL. It's plain perl. We can prove that with a little perl test program:<br>
+<br>
+<blockquote class="code">
+  $ cat helloWorld.pl<br>
+  #!/usr/bin/perl -w<br>
+  use strict;<br>
+  use HelloWorld;<br>
+  print HelloWorld-&gt;helloWorld( 'Sunshine' );<br>
+  <br>
+  $ perl helloWorld.pl<br>
+  Hello Sunshine<br>
+  $<br>
+</blockquote><br>
+<br>
+<h5>
+  The SOAP Interface
+</h5><br>
+The dynamic typing of perl and flexibility of the SOAP::Lite module really live up to the <em>make simple things
+easy</em> motto. In three lines of code we have a SOAP CGI server for our HelloWorld class (that's why I made it a
+class;)<br>
+<br>
+<blockquote class="code">
+  $ cat HelloWorld.cgi<br>
+  #!/usr/bin/perl -w<br>
+  use HelloWorld;<br>
+  use SOAP::Transport::HTTP;<br>
+  SOAP::Transport::HTTP::CGI<br>
+  -&gt;dispatch_to('HelloWorld')<br>
+  -&gt;handle;<br>
+</blockquote><br>
+<br>
+That was so easy, there must be a catch right? Well yes, one comes to mind: the reply message elements will necessarily
+have some generated names (like "s-gensym3") since there is nothing in our code to provide any guidance for things like
+the "name" of function return value elements.<br>
+<br>
+<h5>
+  Testing SOAP Client-Server
+</h5><br>
+After dropping HelloWorld.cgi and HelloWorld.pm into my apache cgi-bin, I'm ready to test the SOAP service over HTTP.
+We can whip up a client in no time:<br>
+<br>
+<blockquote class="code">
+  $ cat HelloWorldWSClient.pl<br>
+  #!/usr/bin/perl –w<br>
+  use SOAP::Lite;<br>
+  <br>
+  my $soap = SOAP::Lite<br>
+  -&gt;readable(1)<br>
+  -&gt;uri('urn:HelloWorld')<br>
+  -&gt;proxy('http://localhost:8000/cgi-bin/HelloWorld.cgi');<br>
+  <br>
+  my $som = $soap-&gt;helloWorld(<br>
+  SOAP::Data-&gt;name('name' =&gt; 'Sunshine')<br>
+  );<br>
+  print "The response from the server was:\n".$som-&gt;result."\n";<br>
+  <br>
+  $ perl HelloWorldWSClient.pl<br>
+  The response from the server was:<br>
+  Hello Sunshine<br>
+  $<br>
+</blockquote><br>
+If we sniff the network or route this request via a tool like org.apache.axis.utils.tcpmon, we can see the outbound
+request and incoming reply:<br>
+<br>
+<a href=
+"http://bp2.blogger.com/_AZh6c1pzK1A/RnAX5R8_7xI/AAAAAAAAAFA/UA8niOW-bTU/s1600-h/PerlHelloWorld-requestreply.jpg"><img class="centered-image"
+src="http://bp2.blogger.com/_AZh6c1pzK1A/RnAX5R8_7xI/AAAAAAAAAFA/UA8niOW-bTU/s400/PerlHelloWorld-requestreply.jpg"
+border="0" alt="" id="BLOGGER_PHOTO_ID_5075583052885782290" name="BLOGGER_PHOTO_ID_5075583052885782290"></a><br>
+<br>
+<h5>
+  Creating a WSDL file
+</h5><br>
+Alas, perl's flexibility means that automatically generating a WSDL for our SOAP service is easier said than done.
+Unlike in strongly-typed languages, perl methods can take an arbitrary number of parameters of arbitrary type ...
+whereas of course a Web Service should have a very clearly defined interface.<br>
+<br>
+I think one of the best approaches at present for generating WSDL in perl is the <a href=
+"http://search.cpan.org/~tareka/Pod-WSDL-0.05/lib/Pod/WSDL.pm">Pod::WSDL</a> module. I'll perhaps leave that for
+another blog entry. For now lets just assume we'll manually create a WSDL for our service:<br>
+<br>
+<blockquote class="code">
+  $ cat HelloWorld.wsdl<br>
+  &lt;?xml version="1.0" encoding="UTF-8"?&gt;<br>
+  &lt;wsdl:definitions targetNamespace="http://localhost:8000/HelloWorld" xmlns:impl="http://localhost:8000/HelloWorld"
+  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:tns1="http://localhost:8000/HelloWorld"&gt;<br>
+  <br>
+  &lt;wsdl:message name="helloWorldRequest"&gt;<br>
+  &lt;wsdl:part name="name" type="xsd:string" /&gt;<br>
+  &lt;/wsdl:message&gt;<br>
+  <br>
+  &lt;wsdl:message name="helloWorldResponse"&gt;<br>
+  &lt;wsdl:part name="s-gensym3" type="xsd:string" /&gt;<br>
+  &lt;/wsdl:message&gt;<br>
+  <br>
+  &lt;wsdl:portType name="HelloWorldHandler"&gt;<br>
+  &lt;wsdl:operation name="helloWorld" parameterOrder="name"&gt;<br>
+  &lt;wsdl:input message="impl:helloWorldRequest" name="helloWorldRequest" /&gt;<br>
+  &lt;wsdl:output message="impl:helloWorldResponse" name="helloWorldResponse" /&gt;<br>
+  &lt;/wsdl:operation&gt;<br>
+  <br>
+  &lt;/wsdl:portType&gt;<br>
+  <br>
+  &lt;wsdl:binding name="HelloWorldSoapBinding" type="impl:HelloWorldHandler"&gt;<br>
+  &lt;wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" /&gt;<br>
+  <br>
+  &lt;wsdl:operation name="helloWorld"&gt;<br>
+  &lt;wsdlsoap:operation soapAction="" /&gt;<br>
+  &lt;wsdl:input name="helloWorldRequest"&gt;<br>
+  &lt;wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+  namespace="http://localhost:8000/HelloWorld" use="encoded" /&gt;<br>
+  &lt;/wsdl:input&gt;<br>
+  &lt;wsdl:output name="helloWorldResponse"&gt;<br>
+  &lt;wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"
+  namespace="http://localhost:8000/HelloWorld" use="encoded" /&gt;<br>
+  &lt;/wsdl:output&gt;<br>
+  &lt;/wsdl:operation&gt;<br>
+  <br>
+  &lt;/wsdl:binding&gt;<br>
+  <br>
+  &lt;wsdl:service name="HelloWorldHandlerService"&gt;<br>
+  &lt;wsdl:port binding="impl:HelloWorldSoapBinding" name="HelloWorld"&gt;<br>
+  &lt;wsdlsoap:address location="http://localhost:8000/cgi-bin/HelloWorld.cgi" /&gt;<br>
+  &lt;/wsdl:port&gt;<br>
+  &lt;/wsdl:service&gt;<br>
+  <br>
+  &lt;/wsdl:definitions&gt;<br>
+</blockquote><br>
+<br>
+<h5>
+  Invocation from a BPEL Process
+</h5><br>
+Now you have all the bits in place to invoke your Perl code as a fully-fledged Web Service from within BPEL. I won't go
+into this in detail here because it is the standard Web Service invocation process. Just add an "invoke" activity in
+your process and point it to a partner link defined based on the WSDL generated above.<br>
+<br>
+Once you have deployed your process, you can test it from the BPEL Console. Here's an example of the invoke activity in
+one of my tests:<br>
+<a href=
+"http://bp2.blogger.com/_AZh6c1pzK1A/RnAeNR8_7yI/AAAAAAAAAFI/T-RY-H2kQ2c/s1600-h/PerlHelloWorld-invoke.jpg"><img class=
+"centered-image" src=
+"http://bp2.blogger.com/_AZh6c1pzK1A/RnAeNR8_7yI/AAAAAAAAAFI/T-RY-H2kQ2c/s400/PerlHelloWorld-invoke.jpg" border="0"
+alt="" id="BLOGGER_PHOTO_ID_5075589993552932642" name="BLOGGER_PHOTO_ID_5075589993552932642"></a><br>
+<br>
+<h5>
+  Conclusion?
+</h5><br>
+Hopefully I've shown that exposing perl code as a Web Service is actually pretty simple. Once done, the code is then
+available for use by standards-based tools like Oracle BPEL Process Manager.<br>
+<br>
+There are a couple of consideration to bear in mind though:<br>
+<ol>
+  <li>SOAP::Lite provides some great hooks for automatically generating a SOAP interface, however these come with the
+  caveat that reply message elements will necessarily have some "generated" names<br>
+  </li>
+  <li>Automatic WSDL generation is confounded by perl's dynamic typing. Modules like Pod::WSDL provide some good
+  solutions though.<br>
+  </li>
+</ol>

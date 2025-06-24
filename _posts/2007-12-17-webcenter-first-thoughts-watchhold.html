@@ -14,4 +14,198 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-1653927147679906411
 blogger_orig_url: http://blog.tardate.com/2007/12/webcenter-first-thoughts-watchhold.html
 ---
 
-I just posted about installing <a href="/2007/12/webcenter-wiki-up-and-running-with-oc4j.html">Oracle WebCenter Wiki</a>. So what do I think?<br /><br />The current release of <a href="http://www.oracle.com/technology/products/webcenter/index.html">Oracle WebCenter</a> is 10.1.3, and presents the first attempt at providing a Web 2.0 platform incorporating a (development) framework, integrated Services, and mobility ("WebCenter Anywhere"). The <a href="http://www.oracle.com/technology/products/webcenter/pdf/owcs_r11_sod.pdf">roadmap for 11g</a> emphasises features focused on improving a developer’s productivity.<br /><br />Having spent a bit of time going beyond the powerpoints and whitepapers, I guess I would emphasise the "..first attempt.." in the statement above. There are concerns I have about the <strong>product mission</strong>, the <strong>egregious approach to Open Source</strong> project integration, and a <strong>work-in-progress information architecture</strong>. While I'll be closely following Oracle's progress with WebCenter, my personal view is that a cautious "watch/hold" position is prudent.<br /><br /><h3>WebCenter as an out-of-the-box Web 2.0 Experience?</h3> <br />The first reactions to WebCenter typically concerned it's <a href="http://www.cmswatch.com/Trends/903-Is-Oracle-switching-portals?">positioning with respect to Oracle Portal</a>. After many repetitions, I think Oracle have managed to get the message through that there's a distinct value prop for Portal (classic, monolithic Enterprise Portal) and WebCenter (platform and services for a loosly-coupled "Web 2.0" user experience).<br /><br />However when it comes to WebCenter itself, there's still tension in the 10.1.3 version between two very different audiences/usages it targets.<br /><br />Firstly, there's the developer audience. There's great emphasis by Oracle on WebCenter as a development framework in the <a href="http://www.oracle.com/technology/products/webcenter/documentation.html">whitepapers</a> and podcasts (e.g. a great interview between <a href="http://feeds.feedburner.com/~r/OracleOfmRadio/~3/125147848/5722366.mp3">Justin and Vince Casarez</a> on <a href="http://www.oracle.com/products/middleware/ofmradio-archive.html#ofm4apps">Oracle Fusion Middleware Radio</a>).<br /><blockquote class="quote"><br />Oracle WebCenter injects new capabilities into the standard JavaServer Faces development environment to allow developers to create context-rich applications that satisfy these needs.<br /></blockquote><br />The catch is that at present developers are well served with JDeveloper and associated developer downloads. WebCenter's attraction seems mainly as a <em>licence bundle</em> of pre-existing Oracle products like Secure Enterprise Search, Content Database and the Mobility Server. There's nothing very Web 2.0 about all that, except that taken altogether, developers certainly could build Web 2.0-style.<br /><br />In a wild daydream, you may have <strong>hoped WebCenter would be to Java what Rails is to Ruby</strong>. An opinionated, highly productive, pre-integrated framework. For now I'm afraid you will be disappointed.<br /><br />The second audience I refer to is the IT Operations/Business audience. These are the people who don't expect to be coding, but want a quick Web 2.0 jumpstart for their enterprise. They don't have the time or inclination to take on the job of investigating, integrating and maintaining a hodge-podge of all the possible open source options. Basically they just want to install it, and are happy to pay for the convenience. <br /><br />In other words, <strong>hoping that WebCenter is to Web 2.0 out-of-the-box experience what <a href="http://astaro.net">Astaro</a> is to security appliances</strong>. Again, I'm afraid you would be disappointed for now. The 11g roadmap does include <em>an out-of-the-box application to enable self-service community creation and management</em>. <br /><br />I guess my problem at this point is that I'm not convinced that Oracle have really decided where to take this. The development focus is clear, but it is not clear at all how much will end up being "only available WebCenter" - one could easily imagine WebCenter ending up as just a licensing artifact, with all the framework technology also available separately. And on the other hand, I have real concerns over the commitment to WebCenter becoming a killer "Web 2.0 appliance". <br /><br />Personally I think Oracle may have misjudged the market on this. Of the 20 or so people I have had casual WebCenter discussion with, all bar two were just after a blog/wiki/discussions platform to install. That's hardly representative, but I have a feeling Oracle would be more succesful in the market if they just focused on delivering the "appliance", with all the supporting framework rolled into the JDeveloper/OracleAS/ADF base. <br /><br />As it seems to be going, I wouldn't mind betting the primary audience for WebCenter will turn out to be Oracle's own Fusion Applications development team, with most customers just adopting it as a result of their Applications investment.<br /><br /><h3>Open Source Closure?</h3><br />I am actually much more concerned about the approach Oracle have taken to integrate 3rd party open source components into the WebCenter Services layer.<br /><br />Take the "standards-based, open-source wiki server that is included with Oracle WebCenter" for example (words from the <a href="http://www.oracle.com/technology/products/webcenter/pdf/owcs_10132_tech_wp.pdf">10.1.3.2 Technical whitepaper</a>).<br /><br />Oracle chose <a href="http://yawiki.jzonic.org./">yawiki/jzwiki</a> for their wiki component, and it certainly was (at least partially) an open source project. But in WebCenter, we seem to be dealing with a forked and closed source version. My concerns:<br /><ul><li>Oracle is not shipping source code for the Java classes in owc_wiki.ear</li><br /><li>While some classes are available from the yawiki project, Oracle have made enhancements (I suspect the main cases being the controller to incorporate AdfAuthentiation; JSR-168 and WSRP portlet support). These are not provided as open source.</li><br /><li>yawiki includes some packages (like jZonic-web.jar which contains the main controller framework) which are purportedly open source, but for which there seems to be no source code available on the Internet [Postscript: I take this back having since discovered that the source of jzonic-web.jar is from the femto module in the jZonic framework]</li><br /><li>The version of the wiki in WebCenter has been forked from yawiki. There is no procedure provided to merge the yawiki main line. WebCenter wiki users seem to be completely dependent on Oracle to merge enhancements in yawiki into WebCenter updates. Or not. </li><br /><li>There are already enhancements in yawiki that are not available in WebCenter (e.g. TagClouds, RSS feeds of page changes). And no procedure for adopting these enhancements.</li><br /><li>The WebCenter wiki seems to only be supporting the file-based HSQLDB (see <a href="http://download.oracle.com/docs/cd/B32110_01/webcenter.1013/b31074/jpsdg_app_wiki.htm#BABJDHJA">backup/restore procedures</a> for example), despite the fact that yawiki has or promised relational database support - <em>even Oracle!</em></li><br /><li>Despite the customisation that Oracle have done to yawiki, there's currently no integration the content database component in WebCenter for content storage or tagging.</li></ul><br />So I guess you could say I was underwhelmed. From a practical perspective of a wiki implementer, there seems to be little upside in chosing to go with WebCenter wiki over its true open source father, yawiki, or others such as <a href="http://www.xwiki.org/xwiki/bin/view/Main/WebHome">xwiki</a>. But some big downsides to consider.<br /><br />I'd much prefer see Oracle take a very different tack with the integration of "open source" components into WebCenter.<br /><ul><br /><li>Ship mainline version of the open source project (don't close the source)</li><br /><li>Provide Oracle enhancements (for security integration etc) as patches to the open source project. Do not combine a version of the open source project with Oracle-written customisations, and ship as "closed source".</li><br /><li>Where possible, contribute the "WebCenter" patch to the open source project so that it can be maintained in sync with that project.</li><br /><li>Ideally, reach as many projects in the same category as possible (i.e. support a few different wikis in WebCenter). A great way to do this would be to encourage the community to do it themselves. Yawiki is OK, but there are certainly some great alternatives out there.</li></ul><br /><h3>Wherefore art thou, my blog?</h3><br />The WebCenter whitepapers repeatedly mention phrases like "key technologies such as wiki, RSS, and blogs". The <a href="http://www.oracle.com/technology/products/webcenter/pdf/owcs_10132_datasheet.pdf">Datasheet</a> still specifically claims WebCenter has a "wiki/blog server for collaborative authoring of documents and sharing of ideas".<br /><br /><strong>Wiki</strong> - got, despite concerns already discussed. <strong>RSS</strong> - some, but not in all places that it counts (like the wiki!). But <strong>blog</strong>? <strong>It's MIA!</strong><br /><br />I have a sneaking suspicion that this is because yawiki <em>used</em> to have a blog capability, but the project team wanted to rethink the approach and dropped it. It is now in the planned feature list;-)<br /><br />OK, these things happen. But in the WebCenter 11g roadmap, Oracle seem to have defined blogs out of existence - at least in terms of their relevance for the "Enterprise"! Was this to gloss over the missing blog feature in yawiki? Or is there a real belief that blogging is not part of the Enterprise 2.0 model? <strong>I'm not sure which view concerns me most!</strong><br /><br /><a href="http://www.oracle.com/technology/products/webcenter/pdf/owcs_r11_sod.pdf"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;" src="/assets/2007-12-17-webcenter-first-thoughts-watchhold/webcenter-11g-roadmap.jpg" border="0" alt="Blog? blog? Where's the blog support?" id="BLOGGER_PHOTO_ID_5144629968603118578" /></a> <br /><br />It is even more curious when you consider (<a href="http://bexhuff.com/2007/11/yes-stellent-has-blogs-wikis-and-rss-feeds">as Bex Huff recently reminded us</a>) Oracle Universal Content Management has Blogs, Wikis, and RSS Feeds. And the roadmap for WebCenter 11g has UCM replacing Content DB.<br /><br /><h3>Conclusions?</h3><br />I've presented some pretty frank views on WebCenter after my "first look". Take my comments with a grain of salt though. I have not investigated the framework developer experience in detail yet. But I would say that Oracle has a lot riding on the 11g release. I hope they make it a more "opinionated" and cohesive release and get to knock down some of my concerns.
+I just posted about installing <a href="/2007/12/webcenter-wiki-up-and-running-with-oc4j.html">Oracle WebCenter
+Wiki</a>. So what do I think?<br>
+<br>
+The current release of <a href="http://www.oracle.com/technology/products/webcenter/index.html">Oracle WebCenter</a> is
+10.1.3, and presents the first attempt at providing a Web 2.0 platform incorporating a (development) framework,
+integrated Services, and mobility ("WebCenter Anywhere"). The <a href=
+"http://www.oracle.com/technology/products/webcenter/pdf/owcs_r11_sod.pdf">roadmap for 11g</a> emphasises features
+focused on improving a developer’s productivity.<br>
+<br>
+Having spent a bit of time going beyond the powerpoints and whitepapers, I guess I would emphasise the "..first
+attempt.." in the statement above. There are concerns I have about the <strong>product mission</strong>, the
+<strong>egregious approach to Open Source</strong> project integration, and a <strong>work-in-progress information
+architecture</strong>. While I'll be closely following Oracle's progress with WebCenter, my personal view is that a
+cautious "watch/hold" position is prudent.<br>
+<br>
+<h3>
+  WebCenter as an out-of-the-box Web 2.0 Experience?
+</h3><br>
+The first reactions to WebCenter typically concerned it's <a href=
+"http://www.cmswatch.com/Trends/903-Is-Oracle-switching-portals?">positioning with respect to Oracle Portal</a>. After
+many repetitions, I think Oracle have managed to get the message through that there's a distinct value prop for Portal
+(classic, monolithic Enterprise Portal) and WebCenter (platform and services for a loosly-coupled "Web 2.0" user
+experience).<br>
+<br>
+However when it comes to WebCenter itself, there's still tension in the 10.1.3 version between two very different
+audiences/usages it targets.<br>
+<br>
+Firstly, there's the developer audience. There's great emphasis by Oracle on WebCenter as a development framework in
+the <a href="http://www.oracle.com/technology/products/webcenter/documentation.html">whitepapers</a> and podcasts (e.g.
+a great interview between <a href="http://feeds.feedburner.com/~r/OracleOfmRadio/~3/125147848/5722366.mp3">Justin and
+Vince Casarez</a> on <a href="http://www.oracle.com/products/middleware/ofmradio-archive.html#ofm4apps">Oracle Fusion
+Middleware Radio</a>).<br>
+<blockquote class="quote">
+  <br>
+  Oracle WebCenter injects new capabilities into the standard JavaServer Faces development environment to allow
+  developers to create context-rich applications that satisfy these needs.<br>
+</blockquote><br>
+The catch is that at present developers are well served with JDeveloper and associated developer downloads. WebCenter's
+attraction seems mainly as a <em>licence bundle</em> of pre-existing Oracle products like Secure Enterprise Search,
+Content Database and the Mobility Server. There's nothing very Web 2.0 about all that, except that taken altogether,
+developers certainly could build Web 2.0-style.<br>
+<br>
+In a wild daydream, you may have <strong>hoped WebCenter would be to Java what Rails is to Ruby</strong>. An
+opinionated, highly productive, pre-integrated framework. For now I'm afraid you will be disappointed.<br>
+<br>
+The second audience I refer to is the IT Operations/Business audience. These are the people who don't expect to be
+coding, but want a quick Web 2.0 jumpstart for their enterprise. They don't have the time or inclination to take on the
+job of investigating, integrating and maintaining a hodge-podge of all the possible open source options. Basically they
+just want to install it, and are happy to pay for the convenience.<br>
+<br>
+In other words, <strong>hoping that WebCenter is to Web 2.0 out-of-the-box experience what <a href=
+"http://astaro.net">Astaro</a> is to security appliances</strong>. Again, I'm afraid you would be disappointed for now.
+The 11g roadmap does include <em>an out-of-the-box application to enable self-service community creation and
+management</em>.<br>
+<br>
+I guess my problem at this point is that I'm not convinced that Oracle have really decided where to take this. The
+development focus is clear, but it is not clear at all how much will end up being "only available WebCenter" - one
+could easily imagine WebCenter ending up as just a licensing artifact, with all the framework technology also available
+separately. And on the other hand, I have real concerns over the commitment to WebCenter becoming a killer "Web 2.0
+appliance".<br>
+<br>
+Personally I think Oracle may have misjudged the market on this. Of the 20 or so people I have had casual WebCenter
+discussion with, all bar two were just after a blog/wiki/discussions platform to install. That's hardly representative,
+but I have a feeling Oracle would be more succesful in the market if they just focused on delivering the "appliance",
+with all the supporting framework rolled into the JDeveloper/OracleAS/ADF base.<br>
+<br>
+As it seems to be going, I wouldn't mind betting the primary audience for WebCenter will turn out to be Oracle's own
+Fusion Applications development team, with most customers just adopting it as a result of their Applications
+investment.<br>
+<br>
+<h3>
+  Open Source Closure?
+</h3><br>
+I am actually much more concerned about the approach Oracle have taken to integrate 3rd party open source components
+into the WebCenter Services layer.<br>
+<br>
+Take the "standards-based, open-source wiki server that is included with Oracle WebCenter" for example (words from the
+<a href="http://www.oracle.com/technology/products/webcenter/pdf/owcs_10132_tech_wp.pdf">10.1.3.2 Technical
+whitepaper</a>).<br>
+<br>
+Oracle chose <a href="http://yawiki.jzonic.org./">yawiki/jzwiki</a> for their wiki component, and it certainly was (at
+least partially) an open source project. But in WebCenter, we seem to be dealing with a forked and closed source
+version. My concerns:<br>
+<ul>
+  <li>Oracle is not shipping source code for the Java classes in owc_wiki.ear
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>While some classes are available from the yawiki project, Oracle have made enhancements (I suspect the main cases
+  being the controller to incorporate AdfAuthentiation; JSR-168 and WSRP portlet support). These are not provided as
+  open source.
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>yawiki includes some packages (like jZonic-web.jar which contains the main controller framework) which are
+  purportedly open source, but for which there seems to be no source code available on the Internet [Postscript: I take
+  this back having since discovered that the source of jzonic-web.jar is from the femto module in the jZonic framework]
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>The version of the wiki in WebCenter has been forked from yawiki. There is no procedure provided to merge the
+  yawiki main line. WebCenter wiki users seem to be completely dependent on Oracle to merge enhancements in yawiki into
+  WebCenter updates. Or not.
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>There are already enhancements in yawiki that are not available in WebCenter (e.g. TagClouds, RSS feeds of page
+  changes). And no procedure for adopting these enhancements.
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>The WebCenter wiki seems to only be supporting the file-based HSQLDB (see <a href=
+  "http://download.oracle.com/docs/cd/B32110_01/webcenter.1013/b31074/jpsdg_app_wiki.htm#BABJDHJA">backup/restore
+  procedures</a> for example), despite the fact that yawiki has or promised relational database support - <em>even
+  Oracle!</em>
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Despite the customisation that Oracle have done to yawiki, there's currently no integration the content database
+  component in WebCenter for content storage or tagging.
+  </li>
+</ul><br>
+So I guess you could say I was underwhelmed. From a practical perspective of a wiki implementer, there seems to be
+little upside in chosing to go with WebCenter wiki over its true open source father, yawiki, or others such as <a href=
+"http://www.xwiki.org/xwiki/bin/view/Main/WebHome">xwiki</a>. But some big downsides to consider.<br>
+<br>
+I'd much prefer see Oracle take a very different tack with the integration of "open source" components into
+WebCenter.<br>
+<ul>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Ship mainline version of the open source project (don't close the source)
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Provide Oracle enhancements (for security integration etc) as patches to the open source project. Do not combine
+  a version of the open source project with Oracle-written customisations, and ship as "closed source".
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Where possible, contribute the "WebCenter" patch to the open source project so that it can be maintained in sync
+  with that project.
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Ideally, reach as many projects in the same category as possible (i.e. support a few different wikis in
+  WebCenter). A great way to do this would be to encourage the community to do it themselves. Yawiki is OK, but there
+  are certainly some great alternatives out there.
+  </li>
+</ul><br>
+<h3>
+  Wherefore art thou, my blog?
+</h3><br>
+The WebCenter whitepapers repeatedly mention phrases like "key technologies such as wiki, RSS, and blogs". The <a href=
+"http://www.oracle.com/technology/products/webcenter/pdf/owcs_10132_datasheet.pdf">Datasheet</a> still specifically
+claims WebCenter has a "wiki/blog server for collaborative authoring of documents and sharing of ideas".<br>
+<br>
+<strong>Wiki</strong> - got, despite concerns already discussed. <strong>RSS</strong> - some, but not in all places
+that it counts (like the wiki!). But <strong>blog</strong>? <strong>It's MIA!</strong><br>
+<br>
+I have a sneaking suspicion that this is because yawiki <em>used</em> to have a blog capability, but the project team
+wanted to rethink the approach and dropped it. It is now in the planned feature list;-)<br>
+<br>
+OK, these things happen. But in the WebCenter 11g roadmap, Oracle seem to have defined blogs out of existence - at
+least in terms of their relevance for the "Enterprise"! Was this to gloss over the missing blog feature in yawiki? Or
+is there a real belief that blogging is not part of the Enterprise 2.0 model? <strong>I'm not sure which view concerns
+me most!</strong><br>
+<br>
+<a href="http://www.oracle.com/technology/products/webcenter/pdf/owcs_r11_sod.pdf"><img class="centered-image" src=
+"/assets/2007-12-17-webcenter-first-thoughts-watchhold/webcenter-11g-roadmap.jpg" border="0" alt=
+"Blog? blog? Where's the blog support?" id="BLOGGER_PHOTO_ID_5144629968603118578" name=
+"BLOGGER_PHOTO_ID_5144629968603118578"></a><br>
+<br>
+It is even more curious when you consider (<a href=
+"http://bexhuff.com/2007/11/yes-stellent-has-blogs-wikis-and-rss-feeds">as Bex Huff recently reminded us</a>) Oracle
+Universal Content Management has Blogs, Wikis, and RSS Feeds. And the roadmap for WebCenter 11g has UCM replacing
+Content DB.<br>
+<br>
+<h3>
+  Conclusions?
+</h3><br>
+I've presented some pretty frank views on WebCenter after my "first look". Take my comments with a grain of salt
+though. I have not investigated the framework developer experience in detail yet. But I would say that Oracle has a lot
+riding on the 11g release. I hope they make it a more "opinionated" and cohesive release and get to knock down some of
+my concerns.

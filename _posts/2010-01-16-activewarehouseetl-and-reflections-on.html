@@ -12,4 +12,62 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-5356844189288404303
 blogger_orig_url: http://blog.tardate.com/2010/01/activewarehouseetl-and-reflections-on.html
 ---
 
-I've recently been considering the opportunity to apply Ruby and Rails goodness to mainstream Business Intelligence applications.<br /><br />During my research into <span style="font-style:italic;">prior art</span> I discovered Anthony Eden's ActiveWarehouse and ActiveWarehouse-ETL projects, and gave them a test drive using a fictitious "Cupcakes Inc" site. <br /><br />I presented this at the Jan 2010 <a href="http://groups.google.com/group/singapore-rb ">Singapore Ruby Brigade</a> meetup held at <a href="http://hackerspace.sg">hackerspace.sg</a>. My "point-of-view" slides are embedded below, and you can find the <a href="http://github.com/tardate/cupcakesinc">sample project and doco on github</a>.<br /><br />Conclusions? <br /><ul><li>ActiveWarehouse is a textbook implementation of classic data warehousing techniques. That was clearly Anthony's intention, but it also means it does not really attempt to explore how data warehousing might be approached quite differently with Ruby and Rails</li><br /><li>ActiveWarehouse/ETL are not for the faint-hearted. When you get them working, they works well, but the lack of documentation basically means it's inevitable you'll end up reading the sources to figure it all out</li><br /><li>I have concerns about scalability. Having worked on terabyte warehouses using "classic" technology, I know just how far you push databases in order to scale. This bears more investigation and testing before it would be sensible to commit to ActiveWarehouse for a large-scale DWH implementation</li></ul><br />Nevertheless, ActiveWarehouse and ActiveWarehouse-ETL are interesting projects, and the underlying implementations make for some educational code reading. Hopefully my slides and the Cupcakes sample project will add a bit to the available documentation, and give a bit of a leg up to anyone intersted in checking out these projects;-)<br /><div style="width:425px;text-align:left" id="__ss_2928555"><a style="font:14px Helvetica,Arial,Sans-serif;display:block;margin:12px 0 3px 0;text-decoration:underline;" href="http://www.slideshare.net/tardate/activewarehouseetl-bi-dw-for-rubyrails" title="ActiveWarehouse/ETL - BI &amp; DW for Ruby/Rails">ActiveWarehouse/ETL - BI &amp; DW for Ruby/Rails</a><object style="margin:0px" width="425" height="355"><param name="movie" value="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=srbactivewarehouse-100116080609-phpapp02&stripped_title=activewarehouseetl-bi-dw-for-rubyrails" /><param name="allowFullScreen" value="true"/><param name="allowScriptAccess" value="always"/><embed src="http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=srbactivewarehouse-100116080609-phpapp02&stripped_title=activewarehouseetl-bi-dw-for-rubyrails" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="355"></embed></object><div style="font-size:11px;font-family:tahoma,arial;height:26px;padding-top:2px;">View more <a style="text-decoration:underline;" href="http://www.slideshare.net/">presentations</a> from <a style="text-decoration:underline;" href="http://www.slideshare.net/tardate">Paul Gallagher</a>.</div></div><br /><br /><iframe src="https://rcm.amazon.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=itsaprli-20&o=1&p=8&l=as1&m=amazon&f=ifr&md=10FE9736YVPPT7A0FBG2&asins=B00138F436" style="float:right;width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe><span style="font-style:italic;">Soundtrack for this post: <a href="http://www.amazon.com/gp/product/B001384KQ8?ie=UTF8&tag=itsaprli-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=B001384KQ8">Information Overload</a><img src="https://www.assoc-amazon.com/e/ir?t=itsaprli-20&l=as2&o=1&a=B001384KQ8" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />- Living Color</span>
+I've recently been considering the opportunity to apply Ruby and Rails goodness to mainstream Business Intelligence
+applications.<br>
+<br>
+During my research into <span style="font-style:italic;">prior art</span> I discovered Anthony Eden's ActiveWarehouse
+and ActiveWarehouse-ETL projects, and gave them a test drive using a fictitious "Cupcakes Inc" site.<br>
+<br>
+I presented this at the Jan 2010 <a href="http://groups.google.com/group/singapore-rb">Singapore Ruby Brigade</a>
+meetup held at <a href="http://hackerspace.sg">hackerspace.sg</a>. My "point-of-view" slides are embedded below, and
+you can find the <a href="http://github.com/tardate/cupcakesinc">sample project and doco on github</a>.<br>
+<br>
+Conclusions?<br>
+<ul>
+  <li>ActiveWarehouse is a textbook implementation of classic data warehousing techniques. That was clearly Anthony's
+  intention, but it also means it does not really attempt to explore how data warehousing might be approached quite
+  differently with Ruby and Rails
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>ActiveWarehouse/ETL are not for the faint-hearted. When you get them working, they works well, but the lack of
+  documentation basically means it's inevitable you'll end up reading the sources to figure it all out
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>I have concerns about scalability. Having worked on terabyte warehouses using "classic" technology, I know just
+  how far you push databases in order to scale. This bears more investigation and testing before it would be sensible
+  to commit to ActiveWarehouse for a large-scale DWH implementation
+  </li>
+</ul><br>
+Nevertheless, ActiveWarehouse and ActiveWarehouse-ETL are interesting projects, and the underlying implementations make
+for some educational code reading. Hopefully my slides and the Cupcakes sample project will add a bit to the available
+documentation, and give a bit of a leg up to anyone intersted in checking out these projects;-)<br>
+<div style="width:425px;text-align:left" id="__ss_2928555">
+  <a style="font:14px Helvetica,Arial,Sans-serif;display:block;margin:12px 0 3px 0;text-decoration:underline;" href=
+  "http://www.slideshare.net/tardate/activewarehouseetl-bi-dw-for-rubyrails" title=
+  "ActiveWarehouse/ETL - BI &amp; DW for Ruby/Rails">ActiveWarehouse/ETL - BI &amp; DW for Ruby/Rails</a><object style=
+  "margin:0px" width="425" height="355">
+    <param name="movie" value=
+    "http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=srbactivewarehouse-100116080609-phpapp02&amp;stripped_title=activewarehouseetl-bi-dw-for-rubyrails">
+    <param name="allowFullScreen" value="true">
+    <param name="allowScriptAccess" value="always">
+    <embed src=
+    "http://static.slidesharecdn.com/swf/ssplayer2.swf?doc=srbactivewarehouse-100116080609-phpapp02&amp;stripped_title=activewarehouseetl-bi-dw-for-rubyrails"
+    type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="355">
+  </object>
+  <div style="font-size:11px;font-family:tahoma,arial;height:26px;padding-top:2px;">
+    View more <a style="text-decoration:underline;" href="http://www.slideshare.net/">presentations</a> from <a style=
+    "text-decoration:underline;" href="http://www.slideshare.net/tardate">Paul Gallagher</a>.
+  </div>
+</div><br>
+<br>
+<iframe src=
+"https://rcm.amazon.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=itsaprli-20&amp;o=1&amp;p=8&amp;l=as1&amp;m=amazon&amp;f=ifr&amp;md=10FE9736YVPPT7A0FBG2&amp;asins=B00138F436"
+style="float:right;width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder=
+"0"></iframe><span style="font-style:italic;">Soundtrack for this post: <a href=
+"http://www.amazon.com/gp/product/B001384KQ8?ie=UTF8&amp;tag=itsaprli-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B001384KQ8">
+Information Overload</a><img src="https://www.assoc-amazon.com/e/ir?t=itsaprli-20&amp;l=as2&amp;o=1&amp;a=B001384KQ8"
+width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;">- Living Color</span>
