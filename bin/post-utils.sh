@@ -35,7 +35,7 @@ function make_asset_paths() {
 }
 
 function organise_assets() {
-  for image_file in "${ASSETS_DIR}"*.{jpg,jpeg,png,gif}; do
+  for image_file in "${ASSETS_DIR}"*.{jpg,jpeg,png,gif,svg}; do
     if [ -f "${image_file}" ]; then
       image_base_name=$(basename "${image_file}")
       echo "Found image: ${image_base_name}"
