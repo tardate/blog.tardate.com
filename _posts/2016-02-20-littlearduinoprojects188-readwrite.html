@@ -11,4 +11,26 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-4721183742594796753
 blogger_orig_url: http://blog.tardate.com/2016/02/littlearduinoprojects188-readwrite.html
 ---
 
-The AT24C02 is from <a href="http://www.atmel.com/products/memories/serial/default.aspx">Atmel's line of serial EEPROM chips</a> with a whopping capacity of 2K! (256 x 8) That's not a whole lot more than the onboard EEPROM in an Arduino, but it does have the advantage of being external:<br /><ul><li>it can stay in-situ even if the microcontroller disappears/gets exchanged</li><li>multiple devices can share access</li></ul>There are a few libraries available that encapsulate the interaction with external EEPROMs, but first step is a simple test of the basic read and write capability using the basic Wire library. Surprise, it just works (as long as you get your bits and bytes ordered correctly). <br /><br />As always, <a href="https://github.com/tardate/LittleArduinoProjects/tree/master/playground/EEPROM/AT24C02/BasicReadWrite">all notes, schematics and code are in the Little Arduino Projects repo on GitHub</a>.<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://github.com/tardate/LittleArduinoProjects/tree/master/playground/EEPROM/AT24C02/BasicReadWrite" imageanchor="1"><img border="0" src="https://github.com/tardate/LittleArduinoProjects/blob/master/playground/EEPROM/AT24C02/BasicReadWrite/assets/BasicReadWrite_build.jpg?raw=true" style="width: 90%"/></a></div>
+The AT24C02 is from <a href="http://www.atmel.com/products/memories/serial/default.aspx">Atmel's line of serial EEPROM
+chips</a> with a whopping capacity of 2K! (256 x 8) That's not a whole lot more than the onboard EEPROM in an Arduino,
+but it does have the advantage of being external:<br>
+<ul>
+  <li>it can stay in-situ even if the microcontroller disappears/gets exchanged
+  </li>
+  <li>multiple devices can share access
+  </li>
+</ul>There are a few libraries available that encapsulate the interaction with external EEPROMs, but first step is a
+simple test of the basic read and write capability using the basic Wire library. Surprise, it just works (as long as
+you get your bits and bytes ordered correctly).<br>
+<br>
+As always, <a href=
+"https://github.com/tardate/LittleArduinoProjects/tree/master/playground/EEPROM/AT24C02/BasicReadWrite">all notes,
+schematics and code are in the Little Arduino Projects repo on GitHub</a>.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+  <a href=
+  "https://github.com/tardate/LittleArduinoProjects/tree/master/playground/EEPROM/AT24C02/BasicReadWrite"><img border=
+  "0" src=
+  "https://github.com/tardate/LittleArduinoProjects/blob/master/playground/EEPROM/AT24C02/BasicReadWrite/assets/BasicReadWrite_build.jpg?raw=true"
+  style="width: 90%"></a>
+</div>

@@ -11,4 +11,41 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-7077475557208301867
 blogger_orig_url: http://blog.tardate.com/2010/12/cruisecontrolling-ruby-192-and-rails.html
 ---
 
-<a href="http://cruisecontrolrb.thoughtworks.com/">CruiseControl for Ruby</a> from <a href="http://www.thoughtworks.com/">ThoughWorks</a> has long been one of the easiest ways to your rails project under continuous integration.<br /><br />But there's still an issue that it <a href="http://groups.google.com/group/cruisecontrolrb-rubyforge-mailing-list/browse_thread/thread/81892db289a9a360?pli=1">can't run under Ruby 1.9.x</a>. That's not very good if you are targeting 1.9.2 for your project.<br /><br />Here's a quick recipe for how you <span style="font-style:italic;">can</span> build a 1.9.2 project with CC, using the wonders of <a href="http://rvm.beginrescueend.com/">rvm</a>..<br /><pre name="code" class="ruby:wraplines:nocontrols"># download and unpack CC to /usr/local/cruisecontrol-1.4.0 (or where you like)<br /># for convenience, add .rvmrc in /usr/local/cruisecontrol-1.4.0 to have it run 1.8.7<br />echo "rvm 1.8.7-p302" > /usr/local/cruisecontrol-1.4.0/.rvmrc<br /># configure CC:<br />cd /usr/local/cruisecontrol-1.4.0<br />./cruise add my_project_name --source-control git --repository git@github.com:myname/myproject.git<br /># ^^ This will initialize the ~/.cruise/projects/my_project_name folder for a git-based project<br /><br /># if you have an .rvmrc file in your git repo, pre-emptively trust it to avoid clogging CC:<br />mkdir ~/.cruise/projects/my_project_name<br />rvm rvmrc trust ~/.cruise/projects/my_project_name<br /></pre><br />In ~/.cruise/projects/my_project_name, edit cruise_config.rb to run a shell script instead of the standard build task (I'm calling it ccbuild.sh and it will be in the root of my git repo):<br /><pre name="code" class="ruby:wraplines:nocontrols">Project.configure do |project|<br />  # [.. other stuff ..]<br />  project.build_command = './ccbuild.sh'<br />  # [.. other stuff ..]<br />end</pre><br />Add ccbuild.sh to your repository (don't forget to chmod u+x it). It needs to ensure rvm script is loaded and activate the correct ruby & gemset. <br /><br />The script initialization is necessary because it seems the way CC spawns the shell script it doesn't pick up the rvm initialization you might already have in .bash_profile. Without rvm script initialization, "rvm" will invoke the binary which can't make the direct environment mods it needs to do.<br /><br />Here's what I have in ccbuild.sh:<br /><pre name="code" class="ruby:wraplines:nocontrols">#!/bin/bash<br /><br />if [ "$(type rvm | head -1)" != "rvm is a function" ]<br />then<br />  source ~/.rvm/scripts/rvm || exit 1<br />fi<br /><br />if [ "$(type rvm | head -1)" != "rvm is a function" ]<br />then<br />  echo "rvm not properly installed and available"<br />  exit 1<br />fi<br /><br />rvm use 1.9.2-p0@mygemsetname --create<br />bundle check || bundle install || exit 1<br />rake # setup to run all required tests by default</pre><br />Once that's checked in and pushed to the repo, you can kick-off CC:<br /><pre name="code" class="ruby:wraplines:nocontrols"><br />cd /usr/local/cruisecontrol-1.4.0<br />./cruise start<br /></pre><br />Now my <a href="http://ccmenu.sourceforge.net/">ccmenu</a> is green, and CruiseControl is running my project under 1.9.2 and rails 3.0.2;-)<br /><br /><span style="font-style:italic;">Blogarhythm: <a href="http://www.last.fm/music/ART-SCHOOL/_/Waiting+for+the+light">Waiting for the light</a> ART-SCHOOL</span>
+<a href="http://cruisecontrolrb.thoughtworks.com/">CruiseControl for Ruby</a> from <a href=
+"http://www.thoughtworks.com/">ThoughWorks</a> has long been one of the easiest ways to your rails project under
+continuous integration.<br>
+<br>
+But there's still an issue that it <a href=
+"http://groups.google.com/group/cruisecontrolrb-rubyforge-mailing-list/browse_thread/thread/81892db289a9a360?pli=1">can't
+run under Ruby 1.9.x</a>. That's not very good if you are targeting 1.9.2 for your project.<br>
+<br>
+Here's a quick recipe for how you <span style="font-style:italic;">can</span> build a 1.9.2 project with CC, using the
+wonders of <a href="http://rvm.beginrescueend.com/">rvm</a>..<br>
+<pre name="code" class="ruby:wraplines:nocontrols">
+# download and unpack CC to /usr/local/cruisecontrol-1.4.0 (or where you like)<br># for convenience, add .rvmrc in /usr/local/cruisecontrol-1.4.0 to have it run 1.8.7<br>echo "rvm 1.8.7-p302" &gt; /usr/local/cruisecontrol-1.4.0/.rvmrc<br># configure CC:<br>cd /usr/local/cruisecontrol-1.4.0<br>./cruise add my_project_name --source-control git --repository git@github.com:myname/myproject.git<br># ^^ This will initialize the ~/.cruise/projects/my_project_name folder for a git-based project<br><br># if you have an .rvmrc file in your git repo, pre-emptively trust it to avoid clogging CC:<br>mkdir ~/.cruise/projects/my_project_name<br>rvm rvmrc trust ~/.cruise/projects/my_project_name<br>
+</pre><br>
+In ~/.cruise/projects/my_project_name, edit cruise_config.rb to run a shell script instead of the standard build task
+(I'm calling it ccbuild.sh and it will be in the root of my git repo):<br>
+<pre name="code" class="ruby:wraplines:nocontrols">
+Project.configure do |project|<br>  # [.. other stuff ..]<br>  project.build_command = './ccbuild.sh'<br>  # [.. other stuff ..]<br>end
+</pre><br>
+Add ccbuild.sh to your repository (don't forget to chmod u+x it). It needs to ensure rvm script is loaded and activate
+the correct ruby &amp; gemset.<br>
+<br>
+The script initialization is necessary because it seems the way CC spawns the shell script it doesn't pick up the rvm
+initialization you might already have in .bash_profile. Without rvm script initialization, "rvm" will invoke the binary
+which can't make the direct environment mods it needs to do.<br>
+<br>
+Here's what I have in ccbuild.sh:<br>
+<pre name="code" class="ruby:wraplines:nocontrols">
+#!/bin/bash<br><br>if [ "$(type rvm | head -1)" != "rvm is a function" ]<br>then<br>  source ~/.rvm/scripts/rvm || exit 1<br>fi<br><br>if [ "$(type rvm | head -1)" != "rvm is a function" ]<br>then<br>  echo "rvm not properly installed and available"<br>  exit 1<br>fi<br><br>rvm use 1.9.2-p0@mygemsetname --create<br>bundle check || bundle install || exit 1<br>rake # setup to run all required tests by default
+</pre><br>
+Once that's checked in and pushed to the repo, you can kick-off CC:<br>
+<pre name="code" class="ruby:wraplines:nocontrols">
+<br>cd /usr/local/cruisecontrol-1.4.0<br>./cruise start<br>
+</pre><br>
+Now my <a href="http://ccmenu.sourceforge.net/">ccmenu</a> is green, and CruiseControl is running my project under
+1.9.2 and rails 3.0.2;-)<br>
+<br>
+<span style="font-style:italic;">Blogarhythm: <a href=
+"http://www.last.fm/music/ART-SCHOOL/_/Waiting+for+the+light">Waiting for the light</a> ART-SCHOOL</span>

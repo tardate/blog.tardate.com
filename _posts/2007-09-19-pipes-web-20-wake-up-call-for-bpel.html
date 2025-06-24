@@ -16,4 +16,142 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-9126741298392522535
 blogger_orig_url: http://blog.tardate.com/2007/09/pipes-web-20-wake-up-call-for-bpel.html
 ---
 
-Recently I've spent some time playing with <a href="http://pipes.yahoo.com/pipes">Yahoo Pipes</a>. I was tipped off by comments to Chris Muir's blog on <a href="http://one-size-doesnt-fit-all.blogspot.com/2007/09/drowning-in-oracle-blog-aggregators.html">Drowning in Oracle Blogs Aggregators</a>.<br /><br />So I've had some fun with Pipes, using it to aggregate all my Oracle news for example. Pipes is still beta and has a fairly modest objective of giving end-users a way to craft their own data feeds on the net, but I think there are some exciting implications. <br /><br /><strong>My Little Experiment</strong><br /><br />I did a simple experiment with a Perl CGI that issues a "quote of the day" in JSON format, consumed it in Pipes, and then subscribed to an RSS version of the result in FeedReader. <br /><br />I could have used an existing data source supported by Pipes (RSS, JSON, CSV or XML) but I wanted to experiement with formats. Hence the little bit of coding .. <br /><blockquote><span style="font-family:courier new;font-size:85%;"><pre>use strict;<br />use CGI;<br />use JSON;<br /><br />print header();<br /><br />my $obj = {<br />  title   =&gt; 'Quote of the Day',<br />  quote   =&gt; 'the only dependency we have on the proof of concept is whether it works or not'<br />};<br /><br />print objToJson($obj);<br />1;<br /></pre></span></blockquote><em>(btw, that's one of my favourite quotes from a collegue during a particularly long and weary evening;-)</em><br /><br />The Pipes editor makes it a piece of cake to get tricky ... like add a <a href="http://flickr.com">flickr</a> lookup that will roll in a suitable photo to go along with the quote: <br /><a href="http://bp2.blogger.com/_AZh6c1pzK1A/Ruz_DifKU1I/AAAAAAAAAIg/TER7xVY5OOo/s1600-h/pipes-qotd.jpg"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;" src="http://bp2.blogger.com/_AZh6c1pzK1A/Ruz_DifKU1I/AAAAAAAAAIg/TER7xVY5OOo/s400/pipes-qotd.jpg" border="0" alt=""id="BLOGGER_PHOTO_ID_5110740113420866386" /></a><br />All fairly straight-forward, but what grabbed my attention is how Pipes provides an <strong>extremely intuitive graphical editor</strong> that makes it simple for an <strong>end-user</strong> to transform and <strong>consume data in a hosted model </strong>that would conventionally require server-side programming to arrange. It even has an integrated "debugger" that lets you see the output at any stage of the pipe you select.<br /><br /><strong>Pipes - a Web 2.0 Wake-up Call for BPEL?</strong><br /><br />There are a few things that Pipes can't do (yet), like handle SOAP Web Services, incorporate human workflow or asynchronous events, secure published pipes, and of course reach data sources or systems that are not accessible from the Internet.<br /><br />But I'm thinking it wouldn't take too much enhancement along these lines and we'd see Pipes rapidly encroaching the BPEL domain (albeit without the standards support). This would be a perfect example of the Web 2.0 challenge to Enterprise IT.  <br /><ul><li><strong>Pipes </strong>- the funky UI that lets anyone create and <strong>publish</strong> their "flow"</li><br /><li><strong>BPEL </strong>- a robust standards-based engine that runs "processes" that have been designed, tested and <strong>deployed</strong> by experts</li></ul>If these two extremes don't come crashing together soon, I think we are not trying hard enough!<br /><br />I'm not sure if Yahoo could do this without a rip'n'replace of the Pipes back-end, and rethink the whole hosting model. More likely that we see someone re-think our approach to BPEL, and the set of use cases it assumes.<br /><br />I don't hear or see much movement in this direction from the existing BPEL players however. That includes the commercial offerings like <a href="http://www.oracle.com/technology/bpel">Oracle BPEL Process Manager</a> and also the free/open source kind like <a href="http://www.active-endpoints.com/active-bpel-engine-overview.htm">ActiveBPEL</a> and <a href="http://www.openbpel.org/">OpenBPEL</a>. <br /><br />I suspect we need to challenge a few key assumptions implicit in current BPEL offerings. That processes are (a) largely a conversation between systems, and (b) built by a developer (or at least a skilled business analyst). <br /><br />While that can and will remain true for core business processes, I think Pipes is beginning to demonstrate that there is a bigger picture we have yet to address.<br /><br />Put it this way. I'd like to take a robust BPEL engine with...<ul><br /><li>BPEL standards support of course</li><br /><li>Web Services (WSDL + SOAP) and WSIF adapter model</li><br /><li>Sophisticated human workflow and asynchronous task support</li><br /><li>Something I can deploy behind the firewall if needed (to access enterprise goodies)</li><br /><li>A decent security model</li><br /></ul>Then add some of the Pipes goodness:<ul><br /><li>Oh-so-Web-2.0 hosted design tools - made for end-users.</li><br /><li>"Publish" instead of "Deploy". Implies automatically maintained (and accessible) registry of published pipes/processes.</li><br /><li>Support for RSS, JSON, CSV and plain XML "web sources"</li><br /><li>Inheritance by chaining or cloning existing pipes</li><br /><li>Smart output rendering. Need RSS, JSON or SOAP? If it makes sense, ask for it and the correct format should be delivered. Transformation taken care of by the infrastructure, not the process definition.</li><br /></ul>As an enterprise user, this means I'd expect to be able to launch my company's BPELPipes site and see the pipes published by IT. If I need something a bit different, I just go ahead and create it (or clone an existing service). And once I've done creating my pipe, I can use it immediately as maybe an RSS feed or somthing I can embed in my portal. And share it with others if I like..<br /><br />Perhaps here lies the future of <strong>Enterprise 2.0 Workflow</strong> (<em>WikiWorkflow</em>?!), finally bringing SOA to the people rather than having it left stuck somewhere in the middle tier.
+Recently I've spent some time playing with <a href="http://pipes.yahoo.com/pipes">Yahoo Pipes</a>. I was tipped off by
+comments to Chris Muir's blog on <a href=
+"http://one-size-doesnt-fit-all.blogspot.com/2007/09/drowning-in-oracle-blog-aggregators.html">Drowning in Oracle Blogs
+Aggregators</a>.<br>
+<br>
+So I've had some fun with Pipes, using it to aggregate all my Oracle news for example. Pipes is still beta and has a
+fairly modest objective of giving end-users a way to craft their own data feeds on the net, but I think there are some
+exciting implications.<br>
+<br>
+<strong>My Little Experiment</strong><br>
+<br>
+I did a simple experiment with a Perl CGI that issues a "quote of the day" in JSON format, consumed it in Pipes, and
+then subscribed to an RSS version of the result in FeedReader.<br>
+<br>
+I could have used an existing data source supported by Pipes (RSS, JSON, CSV or XML) but I wanted to experiement with
+formats. Hence the little bit of coding ..<br>
+<blockquote>
+  <pre>
+<span style=
+"font-family:courier new;font-size:85%;">use strict;<br>use CGI;<br>use JSON;<br><br>print header();<br><br>my $obj = {<br>  title   =&gt; 'Quote of the Day',<br>  quote   =&gt; 'the only dependency we have on the proof of concept is whether it works or not'<br>};<br><br>print objToJson($obj);<br>1;<br></span>
+</pre>
+</blockquote><em>(btw, that's one of my favourite quotes from a collegue during a particularly long and weary
+evening;-)</em><br>
+<br>
+The Pipes editor makes it a piece of cake to get tricky ... like add a <a href="http://flickr.com">flickr</a> lookup
+that will roll in a suitable photo to go along with the quote:<br>
+<a href="http://bp2.blogger.com/_AZh6c1pzK1A/Ruz_DifKU1I/AAAAAAAAAIg/TER7xVY5OOo/s1600-h/pipes-qotd.jpg"><img class=
+"centered-image" src="http://bp2.blogger.com/_AZh6c1pzK1A/Ruz_DifKU1I/AAAAAAAAAIg/TER7xVY5OOo/s400/pipes-qotd.jpg"
+border="0" alt="" id="BLOGGER_PHOTO_ID_5110740113420866386" name="BLOGGER_PHOTO_ID_5110740113420866386"></a><br>
+All fairly straight-forward, but what grabbed my attention is how Pipes provides an <strong>extremely intuitive
+graphical editor</strong> that makes it simple for an <strong>end-user</strong> to transform and <strong>consume data
+in a hosted model</strong> that would conventionally require server-side programming to arrange. It even has an
+integrated "debugger" that lets you see the output at any stage of the pipe you select.<br>
+<br>
+<strong>Pipes - a Web 2.0 Wake-up Call for BPEL?</strong><br>
+<br>
+There are a few things that Pipes can't do (yet), like handle SOAP Web Services, incorporate human workflow or
+asynchronous events, secure published pipes, and of course reach data sources or systems that are not accessible from
+the Internet.<br>
+<br>
+But I'm thinking it wouldn't take too much enhancement along these lines and we'd see Pipes rapidly encroaching the
+BPEL domain (albeit without the standards support). This would be a perfect example of the Web 2.0 challenge to
+Enterprise IT.<br>
+<ul>
+  <li>
+    <strong>Pipes</strong> - the funky UI that lets anyone create and <strong>publish</strong> their "flow"
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>
+    <strong>BPEL</strong> - a robust standards-based engine that runs "processes" that have been designed, tested and
+    <strong>deployed</strong> by experts
+  </li>
+</ul>If these two extremes don't come crashing together soon, I think we are not trying hard enough!<br>
+<br>
+I'm not sure if Yahoo could do this without a rip'n'replace of the Pipes back-end, and rethink the whole hosting model.
+More likely that we see someone re-think our approach to BPEL, and the set of use cases it assumes.<br>
+<br>
+I don't hear or see much movement in this direction from the existing BPEL players however. That includes the
+commercial offerings like <a href="http://www.oracle.com/technology/bpel">Oracle BPEL Process Manager</a> and also the
+free/open source kind like <a href="http://www.active-endpoints.com/active-bpel-engine-overview.htm">ActiveBPEL</a> and
+<a href="http://www.openbpel.org/">OpenBPEL</a>.<br>
+<br>
+I suspect we need to challenge a few key assumptions implicit in current BPEL offerings. That processes are (a) largely
+a conversation between systems, and (b) built by a developer (or at least a skilled business analyst).<br>
+<br>
+While that can and will remain true for core business processes, I think Pipes is beginning to demonstrate that there
+is a bigger picture we have yet to address.<br>
+<br>
+Put it this way. I'd like to take a robust BPEL engine with...
+<ul>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>BPEL standards support of course
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Web Services (WSDL + SOAP) and WSIF adapter model
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Sophisticated human workflow and asynchronous task support
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Something I can deploy behind the firewall if needed (to access enterprise goodies)
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>A decent security model
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+</ul>Then add some of the Pipes goodness:
+<ul>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Oh-so-Web-2.0 hosted design tools - made for end-users.
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>"Publish" instead of "Deploy". Implies automatically maintained (and accessible) registry of published
+  pipes/processes.
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Support for RSS, JSON, CSV and plain XML "web sources"
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Inheritance by chaining or cloning existing pipes
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Smart output rendering. Need RSS, JSON or SOAP? If it makes sense, ask for it and the correct format should be
+  delivered. Transformation taken care of by the infrastructure, not the process definition.
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+</ul>As an enterprise user, this means I'd expect to be able to launch my company's BPELPipes site and see the pipes
+published by IT. If I need something a bit different, I just go ahead and create it (or clone an existing service). And
+once I've done creating my pipe, I can use it immediately as maybe an RSS feed or somthing I can embed in my portal.
+And share it with others if I like..<br>
+<br>
+Perhaps here lies the future of <strong>Enterprise 2.0 Workflow</strong> (<em>WikiWorkflow</em>?!), finally bringing
+SOA to the people rather than having it left stuck somewhere in the middle tier.

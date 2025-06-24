@@ -12,7 +12,7 @@ GitHub repository back in 2014 when I started playing around with an Arduino and
 It currently goes by the name "LEAP: Little Electronic Art Projects", with over 600 projects
 included in the project catalog hosted at <https://leap.tardate.com/>.
 
-[![leap-2025](/assets/leap-2025.png)](https://leap.tardate.com/)
+[![leap-2025](/assets/2025-01-26-leap-10th-anniversary/leap-2025.png)](https://leap.tardate.com/)
 
 Over the years the repository accumulated over 2Gb of obsolete commits, and so much git history that it wasn't even possible
 to do a `git push` of the entire repo without resorting to [batch tricks](https://stackoverflow.com/questions/15125862/github-remote-push-pack-size-exceeded).

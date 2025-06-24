@@ -11,4 +11,187 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-9103891119408284301
 blogger_orig_url: http://blog.tardate.com/2008/05/configuration-files-pattern-for-windows.html
 ---
 
-It's a very common practice in perl and linux/unix shell scripting to use an external configuration file (.conf or .properties), keeping all the script's necessary settings organised tidily in one place. This makes it easier to configure in the first place (because you don't have to hunt through the whole script to find what needs tweaking, or which environment variables need to be set), and also makes maintenance of the script so much easier (because you don't need to reconfigure after installing an updated script).<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://bp3.blogger.com/_AZh6c1pzK1A/SCAuhaMQHyI/AAAAAAAAAUA/rZVMXMrUpLk/s1600-h/windowsbatch-icon.jpg"><img style="float:left; margin:0 10px 10px 0;cursor:pointer; cursor:hand;" src="http://bp3.blogger.com/_AZh6c1pzK1A/SCAuhaMQHyI/AAAAAAAAAUA/rZVMXMrUpLk/s400/windowsbatch-icon.jpg" border="0" alt=""id="BLOGGER_PHOTO_ID_5197205121486823202" /></a>For some reason though, this practice never seemed to get widely adopted in the Windows batch file world. Either Windows script-kiddies just never learned to think like a sysadmin, or we never expected the DOS shell to be capable enough! Or maybe we never bothered, because surely windows batch files should be extinct by now?<br /><br />I guess the dominant approaches to configuring batch files on Windows are:<br /><ul><br /><li>Command line arguments [painful if you have too many, annoying if they are invariant for your setup, and may entice you to write a wrapper script just to save all the typing]</li> <br /><li>Environment variables [can lead to pollution of your environment, but also not usually backed up along with your scripts]</li> <br /><li>Good ol' "just edit the batch file and fill in the settings" approach</li> <br /></ul> <br />Well, it is possible to take advantage of the elegance of external configuration files. For some time I've been using a technique that I adapted from what I'd normally do with perl and bash scripts. I'm sure this was invented decades ago, but it surprises me that I haven't yet found a good example or tutorial on the net.<br /><br />So I thought maybe time to polish up the "pattern" and share it here.<br /><br /><h3>The Pattern</h3><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://bp2.blogger.com/_AZh6c1pzK1A/SCApkKMQHxI/AAAAAAAAAT4/3KiBBLNCzxs/s1600-h/configPatterns-flow.jpg"><img style="float:right; margin:0 0 10px 10px;cursor:pointer; cursor:hand;" src="http://bp2.blogger.com/_AZh6c1pzK1A/SCApkKMQHxI/AAAAAAAAAT4/3KiBBLNCzxs/s320/configPatterns-flow.jpg" border="0" alt=""id="BLOGGER_PHOTO_ID_5197199671173324562" /></a>It's pretty simple! The flowchart on the right provides an overview.<br /><br />To make this work with simple windows batch files, we use a configuration file that it itself a batch file (.bat or .cmd) and it is called from the main script. The configuration file would usually set a range of environment variables <br /><br />A nice usability touch is that when the script is first executed (i.e. no configuration file present), it will generate a default configuration file, give the user some helpful instructions on how to edit the configuration file, and exit.<br /><br />This makes your script "safe" for users who are liable to run it just to find out what it does(!).<br /><br />But it also means that you can maintain the default configuration file structure - with as much built-in documentation as you like - inside the script itself (therefore only one file to maintain).  <br /><br /><h3>The Script Template</h3>Here's a script template that includes the configuration file handling (also available for download <a href="http://github.com/tardate/sources/tree/master%2FscriptWithConfigTemplate.cmd?raw=true">here</a>). As you can see, not rocket science!<br /><br />If you have multiple scripts that all need to share a common configuration, you can extract the config file handling as a separate script and include (call) that from all the others. See the scriptTemplate.cmd and config.cmd in this <a href="http://github.com/tardate/sources/tree/master%2FwindowsBatchConfigPatterns.tgz?raw=true">kit of examples</a>.<br /><blockquote class="code">@echo off<br />REM $Id$<br /><br />setlocal<br /><br />echo Welcome to %0<br /><br />REM Initialise the config flag [CONFIGSET] and config file [LOCALCONF]<br />REM You must name the config file .bat or .cmd to ensure Windows can execute it cleanly<br />set CONFIGSET=NO<br />set LOCALCONF=%~dp0conf\%~n0-%COMPUTERNAME%.cmd<br /><br />REM ===============================================================<br />REM Configuration section<br />REM ---------------------------------------------------------------<br />if "%LOCALCONF%"=="" goto config_help  <br />goto config_do<br /><br /><br />:config_help<br />echo This is a configuration help script<br />echo Call from another script with first parameter being the config file name<br />echo This script will set the variable CONFIGSET<br />echo   CONFIGSET=NO  in the case of error or undefined configuration<br />echo   CONFIGSET=YES in the case where configuration has been successfully read <br />goto config_exit<br /><br /><br />:config_do<br />REM handle configuration file<br />IF EXIST %LOCALCONF% goto config_cont<br /><br />REM generate default setting file<br />REM adapt this to you needs. Here are some samples<br />echo REM configuration file&gt; %LOCALCONF%<br />echo set JAVA_HOME=C:\bin\jdk1.6.0_03&gt;&gt; %LOCALCONF%<br />echo set TMPFILE=c:\temp\mytemp.txt&gt;&gt; %LOCALCONF%<br />echo set SUBJECT=A subject line&gt;&gt; %LOCALCONF%<br />echo set DBUID=dbusername&gt;&gt; %LOCALCONF%<br />echo set DBPWD=dbpassword&gt;&gt; %LOCALCONF%<br /><br />echo #<br />echo # Local configuration not yet set.<br />echo # A default configuration file (%LOCALCONF%) has been created.<br />echo # Review and edit this file, then run this process again.<br />echo #<br />goto config_exit<br /><br /><br />:config_cont<br />call %LOCALCONF%<br />set CONFIGSET=YES<br /><br /><br />:config_exit<br />if "%CONFIGSET%"=="YES" goto config_ok<br />echo Configuration is not set<br />goto exit<br />:config_ok<br />REM ---------------------------------------------------------------<br />REM Configuration section ends<br />REM ===============================================================<br /><br /><br />echo The main script starts from here.<br /><br />echo The following configuration is set:<br />echo   JAVA_HOME=%JAVA_HOME%<br />echo   TMPFILE=%TMPFILE%<br />echo   SUBJECT=%SUBJECT%<br />echo   DBUID=%DBUID%<br />echo   DBPWD=%DBPWD%<br /><br /><br />:exit<br />endlocal</blockquote><br /><br /><h3>Sample Output</h3>Here's an example of running the script above. The first time through, no configuration file is detected, so it creates one and exits.<br /><br />At that point, the user could edit the configuration file if necessary.<br /><br />Subsequent runs pick up the settings in the configuration file.<br /><br /><blockquote class="code">D:\MyDocs&gt;scriptWithConfigTemplate.cmd<br />#<br /># Local configuration not yet set.<br /># A default configuration file (scriptWithConfigTemplate-conf.bat) has been created.<br /># Review and edit this file, then run this process again.<br />#<br />Configuration is not set<br /><br />D:\MyDocs&gt;scriptWithConfigTemplate.cmd<br />The main script starts from here.<br />The following configuration is set:<br />  JAVA_HOME=C:\bin\jdk1.6.0_03<br />  TMPFILE=c:\temp\mytemp.txt<br />  SUBJECT=A subject line<br />  DBUID=dbusername<br />  DBPWD=dbpassword<br /><br />D:\MyDocs&gt;</blockquote>
+It's a very common practice in perl and linux/unix shell scripting to use an external configuration file (.conf or
+.properties), keeping all the script's necessary settings organised tidily in one place. This makes it easier to
+configure in the first place (because you don't have to hunt through the whole script to find what needs tweaking, or
+which environment variables need to be set), and also makes maintenance of the script so much easier (because you don't
+need to reconfigure after installing an updated script).<br>
+<br>
+<a href=
+"http://bp3.blogger.com/_AZh6c1pzK1A/SCAuhaMQHyI/AAAAAAAAAUA/rZVMXMrUpLk/s1600-h/windowsbatch-icon.jpg"><img style=
+"float:left; margin:0 10px 10px 0;cursor:pointer; cursor:hand;" src=
+"http://bp3.blogger.com/_AZh6c1pzK1A/SCAuhaMQHyI/AAAAAAAAAUA/rZVMXMrUpLk/s400/windowsbatch-icon.jpg" border="0" alt=""
+id="BLOGGER_PHOTO_ID_5197205121486823202" name="BLOGGER_PHOTO_ID_5197205121486823202"></a>For some reason though, this
+practice never seemed to get widely adopted in the Windows batch file world. Either Windows script-kiddies just never
+learned to think like a sysadmin, or we never expected the DOS shell to be capable enough! Or maybe we never bothered,
+because surely windows batch files should be extinct by now?<br>
+<br>
+I guess the dominant approaches to configuring batch files on Windows are:<br>
+<ul>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Command line arguments [painful if you have too many, annoying if they are invariant for your setup, and may
+  entice you to write a wrapper script just to save all the typing]
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Environment variables [can lead to pollution of your environment, but also not usually backed up along with your
+  scripts]
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Good ol' "just edit the batch file and fill in the settings" approach
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+</ul><br>
+Well, it is possible to take advantage of the elegance of external configuration files. For some time I've been using a
+technique that I adapted from what I'd normally do with perl and bash scripts. I'm sure this was invented decades ago,
+but it surprises me that I haven't yet found a good example or tutorial on the net.<br>
+<br>
+So I thought maybe time to polish up the "pattern" and share it here.<br>
+<br>
+<h3>
+  The Pattern
+</h3><a href=
+"http://bp2.blogger.com/_AZh6c1pzK1A/SCApkKMQHxI/AAAAAAAAAT4/3KiBBLNCzxs/s1600-h/configPatterns-flow.jpg"><img style=
+"float:right; margin:0 0 10px 10px;cursor:pointer; cursor:hand;" src=
+"http://bp2.blogger.com/_AZh6c1pzK1A/SCApkKMQHxI/AAAAAAAAAT4/3KiBBLNCzxs/s320/configPatterns-flow.jpg" border="0" alt=
+"" id="BLOGGER_PHOTO_ID_5197199671173324562" name="BLOGGER_PHOTO_ID_5197199671173324562"></a>It's pretty simple! The
+flowchart on the right provides an overview.<br>
+<br>
+To make this work with simple windows batch files, we use a configuration file that it itself a batch file (.bat or
+.cmd) and it is called from the main script. The configuration file would usually set a range of environment
+variables<br>
+<br>
+A nice usability touch is that when the script is first executed (i.e. no configuration file present), it will generate
+a default configuration file, give the user some helpful instructions on how to edit the configuration file, and
+exit.<br>
+<br>
+This makes your script "safe" for users who are liable to run it just to find out what it does(!).<br>
+<br>
+But it also means that you can maintain the default configuration file structure - with as much built-in documentation
+as you like - inside the script itself (therefore only one file to maintain).<br>
+<br>
+<h3>
+  The Script Template
+</h3>Here's a script template that includes the configuration file handling (also available for download <a href=
+"http://github.com/tardate/sources/tree/master%2FscriptWithConfigTemplate.cmd?raw=true">here</a>). As you can see, not
+rocket science!<br>
+<br>
+If you have multiple scripts that all need to share a common configuration, you can extract the config file handling as
+a separate script and include (call) that from all the others. See the scriptTemplate.cmd and config.cmd in this
+<a href="http://github.com/tardate/sources/tree/master%2FwindowsBatchConfigPatterns.tgz?raw=true">kit of
+examples</a>.<br>
+<blockquote class="code">
+  @echo off<br>
+  REM $Id$<br>
+  <br>
+  setlocal<br>
+  <br>
+  echo Welcome to %0<br>
+  <br>
+  REM Initialise the config flag [CONFIGSET] and config file [LOCALCONF]<br>
+  REM You must name the config file .bat or .cmd to ensure Windows can execute it cleanly<br>
+  set CONFIGSET=NO<br>
+  set LOCALCONF=%~dp0conf\%~n0-%COMPUTERNAME%.cmd<br>
+  <br>
+  REM ===============================================================<br>
+  REM Configuration section<br>
+  REM ---------------------------------------------------------------<br>
+  if "%LOCALCONF%"=="" goto config_help<br>
+  goto config_do<br>
+  <br>
+  <br>
+  :config_help<br>
+  echo This is a configuration help script<br>
+  echo Call from another script with first parameter being the config file name<br>
+  echo This script will set the variable CONFIGSET<br>
+  echo CONFIGSET=NO in the case of error or undefined configuration<br>
+  echo CONFIGSET=YES in the case where configuration has been successfully read<br>
+  goto config_exit<br>
+  <br>
+  <br>
+  :config_do<br>
+  REM handle configuration file<br>
+  IF EXIST %LOCALCONF% goto config_cont<br>
+  <br>
+  REM generate default setting file<br>
+  REM adapt this to you needs. Here are some samples<br>
+  echo REM configuration file&gt; %LOCALCONF%<br>
+  echo set JAVA_HOME=C:\bin\jdk1.6.0_03&gt;&gt; %LOCALCONF%<br>
+  echo set TMPFILE=c:\temp\mytemp.txt&gt;&gt; %LOCALCONF%<br>
+  echo set SUBJECT=A subject line&gt;&gt; %LOCALCONF%<br>
+  echo set DBUID=dbusername&gt;&gt; %LOCALCONF%<br>
+  echo set DBPWD=dbpassword&gt;&gt; %LOCALCONF%<br>
+  <br>
+  echo #<br>
+  echo # Local configuration not yet set.<br>
+  echo # A default configuration file (%LOCALCONF%) has been created.<br>
+  echo # Review and edit this file, then run this process again.<br>
+  echo #<br>
+  goto config_exit<br>
+  <br>
+  <br>
+  :config_cont<br>
+  call %LOCALCONF%<br>
+  set CONFIGSET=YES<br>
+  <br>
+  <br>
+  :config_exit<br>
+  if "%CONFIGSET%"=="YES" goto config_ok<br>
+  echo Configuration is not set<br>
+  goto exit<br>
+  :config_ok<br>
+  REM ---------------------------------------------------------------<br>
+  REM Configuration section ends<br>
+  REM ===============================================================<br>
+  <br>
+  <br>
+  echo The main script starts from here.<br>
+  <br>
+  echo The following configuration is set:<br>
+  echo JAVA_HOME=%JAVA_HOME%<br>
+  echo TMPFILE=%TMPFILE%<br>
+  echo SUBJECT=%SUBJECT%<br>
+  echo DBUID=%DBUID%<br>
+  echo DBPWD=%DBPWD%<br>
+  <br>
+  <br>
+  :exit<br>
+  endlocal
+</blockquote><br>
+<br>
+<h3>
+  Sample Output
+</h3>Here's an example of running the script above. The first time through, no configuration file is detected, so it
+creates one and exits.<br>
+<br>
+At that point, the user could edit the configuration file if necessary.<br>
+<br>
+Subsequent runs pick up the settings in the configuration file.<br>
+<br>
+<blockquote class="code">
+  D:\MyDocs&gt;scriptWithConfigTemplate.cmd<br>
+  #<br>
+  # Local configuration not yet set.<br>
+  # A default configuration file (scriptWithConfigTemplate-conf.bat) has been created.<br>
+  # Review and edit this file, then run this process again.<br>
+  #<br>
+  Configuration is not set<br>
+  <br>
+  D:\MyDocs&gt;scriptWithConfigTemplate.cmd<br>
+  The main script starts from here.<br>
+  The following configuration is set:<br>
+  JAVA_HOME=C:\bin\jdk1.6.0_03<br>
+  TMPFILE=c:\temp\mytemp.txt<br>
+  SUBJECT=A subject line<br>
+  DBUID=dbusername<br>
+  DBPWD=dbpassword<br>
+  <br>
+  D:\MyDocs&gt;
+</blockquote>

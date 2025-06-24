@@ -10,4 +10,31 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-328789479972249249
 blogger_orig_url: http://blog.tardate.com/2013/02/easy-mandrill-inbound-email-and-webhook.html
 ---
 
-<span style="font-style:italic;float:right;">(blogarhythm ~ <a href="http://youtu.be/mWwtJJ3bqhM" alt="Blogarhythm!" title="Blogarhythm!">Psycho Monkey - Joe Satriani</a>)</span><br /><br /><a href="http://mandrill.com/">Mandrill</a> is the transactional email service by the same folks who do MailChimp, and I've been pretty impressed with it. For SMTP mail delivery it just works great, but where it really shines is inbound mail handling and the range of event triggers you can feed into to your application as <a href="https://en.wikipedia.org/wiki/Webhook">webhooks</a> (for example, to notify on email link clicks or bounces).<br /><br />The API is very nice to use, but in a Rails application it's best to keep all the crufty details encapsulated and hidden away, right? That's what the <a href="https://github.com/evendis/mandrill-rails">mandrill-rails</a> gem aims to do - make supporting Mandrill web hooks and inbound email as easy and Rails-native as possible.<br /><br />I recently added some new methods to mandrill-rails to provide explicit support for inbound mail attachments (in the 0.0.3 version of the gem). <br /><br />With the mandrill-rails gem installed, we simply define the routes to our webhook receiver (in this example an 'inbox' controller):<br /><pre name="code" class="ruby:wraplines:nocontrols">resource :inbox, :controller => 'inbox', :only => [:show,:create]<br /></pre>And then in the controller we provide handler implementations for any of the 9 event types we wish to consume. Here's how we might get started handling inbound email, including pulling out the attachments: <br /><pre name="code" class="ruby:wraplines:nocontrols">class InboxController < ApplicationController<br />  include Mandrill::Rails::WebHookProcessor<br /><br />  # Defines our handler for the "inbound" event type. <br />  # This gets called for every inbound event sent from Mandrill.  <br />  def handle_inbound(event_payload)<br />    [... do something with the event_payload here, <br />         or stuff it on a background queue for later ... ]<br />    if attachments = event_payload.attachments.presence<br />      # yes, we have at least 1 attachment. Let's examine the first:<br />      a1 = attachments.first<br />      a1.name # => e.g. 'sample.pdf'<br />      a1.type # => e.g. 'application/pdf'<br />      a1.content<br />      # => this is the raw content provided by Mandrill, <br />      #    and will be base64-encoded if not plain text<br />      # e.g. 'JVBERi0xLjMKJcTl8uXrp/Og0MTGCjQgMCBvY ... (etc)'<br />      a1.decoded_content<br />      # => this is the content decoded by Mandrill::Rails, <br />      #    ready to be written as a File or whatever<br />      # e.g. '%PDF-1.3\n%\xC4\xE5 ... (etc)'<br />    end<br />  end<br /><br />end</pre>That's nice and easy, yes? See the <a href="https://github.com/evendis/mandrill-rails/blob/master/README.rdoc#the-mandrillrails-cookbook">Mandrill::Rails Cookbook</a> for more tips.<br /><br />If you love playing with transactional mail and haven't tried Mandrill yet, it's well worth a look!<br />
+<span style="font-style:italic;float:right;">(blogarhythm ~ <a href="http://youtu.be/mWwtJJ3bqhM" alt="Blogarhythm!"
+title="Blogarhythm!">Psycho Monkey - Joe Satriani</a>)</span><br>
+<br>
+<a href="http://mandrill.com/">Mandrill</a> is the transactional email service by the same folks who do MailChimp, and
+I've been pretty impressed with it. For SMTP mail delivery it just works great, but where it really shines is inbound
+mail handling and the range of event triggers you can feed into to your application as <a href=
+"https://en.wikipedia.org/wiki/Webhook">webhooks</a> (for example, to notify on email link clicks or bounces).<br>
+<br>
+The API is very nice to use, but in a Rails application it's best to keep all the crufty details encapsulated and
+hidden away, right? That's what the <a href="https://github.com/evendis/mandrill-rails">mandrill-rails</a> gem aims to
+do - make supporting Mandrill web hooks and inbound email as easy and Rails-native as possible.<br>
+<br>
+I recently added some new methods to mandrill-rails to provide explicit support for inbound mail attachments (in the
+0.0.3 version of the gem).<br>
+<br>
+With the mandrill-rails gem installed, we simply define the routes to our webhook receiver (in this example an 'inbox'
+controller):<br>
+<pre name="code" class="ruby:wraplines:nocontrols">
+resource :inbox, :controller =&gt; 'inbox', :only =&gt; [:show,:create]<br>
+</pre>And then in the controller we provide handler implementations for any of the 9 event types we wish to consume.
+Here's how we might get started handling inbound email, including pulling out the attachments:<br>
+<pre name="code" class="ruby:wraplines:nocontrols">
+class InboxController &lt; ApplicationController<br>  include Mandrill::Rails::WebHookProcessor<br><br>  # Defines our handler for the "inbound" event type. <br>  # This gets called for every inbound event sent from Mandrill.  <br>  def handle_inbound(event_payload)<br>    [... do something with the event_payload here, <br>         or stuff it on a background queue for later ... ]<br>    if attachments = event_payload.attachments.presence<br>      # yes, we have at least 1 attachment. Let's examine the first:<br>      a1 = attachments.first<br>      a1.name # =&gt; e.g. 'sample.pdf'<br>      a1.type # =&gt; e.g. 'application/pdf'<br>      a1.content<br>      # =&gt; this is the raw content provided by Mandrill, <br>      #    and will be base64-encoded if not plain text<br>      # e.g. 'JVBERi0xLjMKJcTl8uXrp/Og0MTGCjQgMCBvY ... (etc)'<br>      a1.decoded_content<br>      # =&gt; this is the content decoded by Mandrill::Rails, <br>      #    ready to be written as a File or whatever<br>      # e.g. '%PDF-1.3\n%\xC4\xE5 ... (etc)'<br>    end<br>  end<br><br>end
+</pre>That's nice and easy, yes? See the <a href=
+"https://github.com/evendis/mandrill-rails/blob/master/README.rdoc#the-mandrillrails-cookbook">Mandrill::Rails
+Cookbook</a> for more tips.<br>
+<br>
+If you love playing with transactional mail and haven't tried Mandrill yet, it's well worth a look!<br>

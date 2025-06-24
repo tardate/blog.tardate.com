@@ -2,7 +2,7 @@
 layout:         post
 title:          "cracking the static site SSL challenge with netlify"
 date:           "2018-01-23 00:39:37 +0800"
-hero_image_url: /assets/951104360364126209.png
+hero_image_url: /assets/2018-01-23-cracking-the-static-site-ssl-challenge-with-netlify/951104360364126209.png
 summary:        "my 2018 wish has already come true"
 youtubeid:
 tags:

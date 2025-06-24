@@ -10,4 +10,38 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-108901310136986543
 blogger_orig_url: http://blog.tardate.com/2004/07/oracle-instant-client-10102.html
 ---
 
-I have a PC that is primarily a Linux box, but it also has a small Windows 2000 partition to allow dual boot for some specific apps. The limited disk space available was all the encouragement I needed to test out the Oracle Instant Client in order to provide Oracle Database connectivity when running under Windows.<br />The installation is straight-forward: just download and unzip the freely available kit. The FAQ provides some basic guidance, and I must admit that's all the documentation I referred to. However that's also one of my minor gripes .. its not easy to find any documentation beyond the few blurbs you get when downloading (I didn't search very hard though!).<br />Nevertheless, I'm up and running 15 minutes later. Once downloaded, all I needed to do was this:<br /><ul><br /><li>Add the Instant client directory to the PATH</li><br /><li>I put a tnsnames.ora file on the machine to help with naming, and set TNS_ADMIN environment variable to point to this file</li><br /><li>Set the NLS_LANG environment variable (e.g. "set NLS_LANG=AMERICAN_AMERICA.UTF8"). A must, else you will get an ORA-12705 error.</li><br /></ul><br /><blockquote>Refs:<br /><a href="http://otn.oracle.com/tech/oci/instantclient/instantclient.html">Download Instant Client</a><br /><a href="http://otn.oracle.com/tech/oci/instantclient/ic-faq.html#A4384">Instant Client FAQ</a></blockquote>
+I have a PC that is primarily a Linux box, but it also has a small Windows 2000 partition to allow dual boot for some
+specific apps. The limited disk space available was all the encouragement I needed to test out the Oracle Instant
+Client in order to provide Oracle Database connectivity when running under Windows.<br>
+The installation is straight-forward: just download and unzip the freely available kit. The FAQ provides some basic
+guidance, and I must admit that's all the documentation I referred to. However that's also one of my minor gripes ..
+its not easy to find any documentation beyond the few blurbs you get when downloading (I didn't search very hard
+though!).<br>
+Nevertheless, I'm up and running 15 minutes later. Once downloaded, all I needed to do was this:<br>
+<ul>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Add the Instant client directory to the PATH
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>I put a tnsnames.ora file on the machine to help with naming, and set TNS_ADMIN environment variable to point to
+  this file
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Set the NLS_LANG environment variable (e.g. "set NLS_LANG=AMERICAN_AMERICA.UTF8"). A must, else you will get an
+  ORA-12705 error.
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+</ul><br>
+<blockquote>
+  Refs:<br>
+  <a href="http://otn.oracle.com/tech/oci/instantclient/instantclient.html">Download Instant Client</a><br>
+  <a href="http://otn.oracle.com/tech/oci/instantclient/ic-faq.html#A4384">Instant Client FAQ</a>
+</blockquote>

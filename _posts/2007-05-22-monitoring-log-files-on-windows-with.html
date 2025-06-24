@@ -11,4 +11,175 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-7126512522295696175
 blogger_orig_url: http://blog.tardate.com/2007/05/monitoring-log-files-on-windows-with.html
 ---
 
-The Oracle Grid Control agent for Windows (10.2.0.2) is missing the ability to monitor arbitrary log files. This was brought up recently in the <a href="http://forums.oracle.com/forums/thread.jspa?messageID=1850071&tstart=0#1850071">OTN Forums</a>. The problem seems to have been identified by Oracle earlier this year (Bug <a href="http://metalink.oracle.com/metalink/plsql/ml2_documents.showDocument?p_database_id=BSS&p_id=6011228">6011228</a>) with a fix coming in a future release.<br /><br />So what to do in the meantime? Creating a <a href="http://download-west.oracle.com/docs/cd/B16240_01/doc/em.102/b40002/udm2.htm#sthref1106">user defined metric</a> is one approach, but has its limitations.<br /><br />I couldn't help thinking that the support already provided for log file monitoring in Linux must already be 80% of what's required to run under Windows. A little digging around confirmed that. What I'm going to share today is a little hack to enable log file monitoring for a Windows agent. First the disclaimers: the info here is purely from my own investigation; changes you make are probably unsupported; try it at your own risk; backup any files before you modify them etc etc!! <br /><br />Now the correct way to get your log file monitoring working would be to request a backport of the fix from Oracle. But if you are brave enough to hack this yourself, read on...<br /><br />First, let me describe the setup I'm testing with. I have a Windows 10.2.0.2 agent talking to a Linux 10.2.0.2 Management Server. Before you begin any customisation, make sure the standard agent is installed and operating correctly. Go to the host home page and click on the "Metric and Policy Settings" link - you should <em>not</em> see a "Log File Pattern Matched Line Count" metric listed (if you do, then you are using an installation that has already been fixed). <br /><br />To get the log file monitoring working, there are basically 5 steps:<br /><ol><br /><li>In the Windows agent deployment, add a &lt;Metric NAME=&quot;LogFileMonitoring&quot; TYPE=&quot;TABLE&quot;&gt; element to $AGENT_HOME\sysman\admin\metadata\host.xml<br /></li><br /><li>In the Windows agent deployment, add a &lt;CollectionItem NAME=&quot;LogFileMonitoring&quot;&gt; element to $AGENT_HOME\sysman\admin\default_collection\host.xml<br /></li><br /><li>Fix a bug in $AGENT_HOME\sysman\admin\scripts\parse-log1.pl<br /></li><br /><li>Reload/restart the agent<br /></li><br /><li>In the OEM console, configure a rule and test it<br /></li><br /></ol><br />Once you have done that, you'll be able monitor log files like you can with agents running on other host operating systems, and see errors reported in Grid Control like this:<br /><a href="http://bp2.blogger.com/_AZh6c1pzK1A/RlL_H7H_4II/AAAAAAAAACY/U22T9No3Z70/s1600-h/oem-winlog-main.jpg"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;" src="http://bp2.blogger.com/_AZh6c1pzK1A/RlL_H7H_4II/AAAAAAAAACY/U22T9No3Z70/s400/oem-winlog-main.jpg" border="0" alt=""id="BLOGGER_PHOTO_ID_5067393042340634754" /></a><br /><br />So let's quickly cover the configuration steps.<br /><br /><strong>Configuring metadata\host.xml</strong><br />Insert the following in $AGENT_HOME\sysman\admin\metadata\host.xml on the Windows host. NB: this is actually copied this from the corresponding host.xml file used in a Linux agent deployment.<br /><blockquote class="code">  &lt;Metric NAME=&quot;LogFileMonitoring&quot; TYPE=&quot;TABLE&quot;&gt;<br />    &lt;ValidMidTierVersions START_VER=&quot;10.2.0.0.0&quot; /&gt;<br />    &lt;ValidIf&gt;<br />      &lt;CategoryProp NAME=&quot;OS&quot; CHOICES=&quot;Windows&quot;/&gt;<br />    &lt;/ValidIf&gt;<br />    &lt;Display&gt;<br />      &lt;Label NLSID=&quot;log_file_monitoring&quot;&gt;Log File Monitoring&lt;/Label&gt;<br />    &lt;/Display&gt;<br />    &lt;TableDescriptor&gt;<br />      &lt;ColumnDescriptor NAME=&quot;log_file_name&quot; TYPE=&quot;STRING&quot; IS_KEY=&quot;TRUE&quot;&gt;<br />        &lt;Display&gt;<br />          &lt;Label NLSID=&quot;host_log_file_name&quot;&gt;Log File Name&lt;/Label&gt;<br />        &lt;/Display&gt;<br />      &lt;/ColumnDescriptor&gt;<br />      &lt;ColumnDescriptor NAME=&quot;log_file_match_pattern&quot; TYPE=&quot;STRING&quot; IS_KEY=&quot;TRUE&quot;&gt;<br />        &lt;Display&gt;<br />          &lt;Label NLSID=&quot;host_log_file_match_pattern&quot;&gt;Match Pattern in Perl&lt;/Label&gt;<br />        &lt;/Display&gt;<br />      &lt;/ColumnDescriptor&gt;<br />      &lt;ColumnDescriptor NAME=&quot;log_file_ignore_pattern&quot; TYPE=&quot;STRING&quot; IS_KEY=&quot;TRUE&quot;&gt;<br />        &lt;Display&gt;<br />          &lt;Label NLSID=&quot;host_log_file_ignore_pattern&quot;&gt;Ignore Pattern in Perl&lt;/Label&gt;<br />        &lt;/Display&gt;<br />      &lt;/ColumnDescriptor&gt;<br />      &lt;ColumnDescriptor NAME=&quot;timestamp&quot; TYPE=&quot;STRING&quot; RENDERABLE=&quot;FALSE&quot; IS_KEY=&quot;TRUE&quot;&gt;<br />        &lt;Display&gt;<br />          &lt;Label NLSID=&quot;host_time_stamp&quot;&gt;Time Stamp&lt;/Label&gt;<br />        &lt;/Display&gt;<br />      &lt;/ColumnDescriptor&gt;<br />      &lt;ColumnDescriptor NAME=&quot;log_file_match_count&quot; TYPE=&quot;NUMBER&quot; IS_KEY=&quot;FALSE&quot; STATELESS_ALERTS=&quot;TRUE&quot;&gt;<br />        &lt;Display&gt;<br />          &lt;Label NLSID=&quot;host_log_file_match_count&quot;&gt;Log File Pattern Matched Line Count&lt;/Label&gt;<br />        &lt;/Display&gt;<br />      &lt;/ColumnDescriptor&gt;<br />      &lt;ColumnDescriptor NAME=&quot;log_file_message&quot; TYPE=&quot;STRING&quot; IS_KEY=&quot;FALSE&quot; IS_LONG_TEXT=&quot;TRUE&quot;&gt;<br />        &lt;Display&gt;<br />          &lt;Label NLSID=&quot;host_log_file_message&quot;&gt;Log File Pattern Matched Content&lt;/Label&gt;<br />        &lt;/Display&gt;<br />      &lt;/ColumnDescriptor&gt;<br />    &lt;/TableDescriptor&gt;<br />    &lt;QueryDescriptor FETCHLET_ID=&quot;OSLineToken&quot;&gt;<br />      &lt;Property NAME=&quot;scriptsDir&quot; SCOPE=&quot;SYSTEMGLOBAL&quot;&gt;scriptsDir&lt;/Property&gt;<br />      &lt;Property NAME=&quot;perlBin&quot; SCOPE=&quot;SYSTEMGLOBAL&quot;&gt;perlBin&lt;/Property&gt;<br />      &lt;Property NAME=&quot;command&quot; SCOPE=&quot;GLOBAL&quot;&gt;%perlBin%/perl&lt;/Property&gt;<br />      &lt;Property NAME=&quot;script&quot; SCOPE=&quot;GLOBAL&quot;&gt;%scriptsDir%/parse-log1.pl&lt;/Property&gt;<br />      &lt;Property NAME=&quot;startsWith&quot; SCOPE=&quot;GLOBAL&quot;&gt;em_result=&lt;/Property&gt;<br />      &lt;Property NAME=&quot;delimiter&quot; SCOPE=&quot;GLOBAL&quot;&gt;|&lt;/Property&gt;<br />      &lt;Property NAME=&quot;ENVEM_TARGET_GUID&quot; SCOPE=&quot;INSTANCE&quot;&gt;GUID&lt;/Property&gt;<br />      &lt;Property NAME=&quot;NEED_CONDITION_CONTEXT&quot; SCOPE=&quot;GLOBAL&quot;&gt;TRUE&lt;/Property&gt;<br />      &lt;Property NAME=&quot;warningStartsWith&quot; SCOPE=&quot;GLOBAL&quot;&gt;em_warning=&lt;/Property&gt;<br />    &lt;/QueryDescriptor&gt;<br />  &lt;/Metric&gt;</blockquote><br />In the top TargetMetadata, also increment the META_VER attribute (in my case, changed from "3.0" to "3.1").<br /><br /><strong>Configuring default_collection\host.xml</strong><br />Insert the following in $AGENT_HOME\sysman\admin\default_collection\host.xml on the Windows host. NB: this is actually copied this from the corresponding host.xml file used in a Linux agent deployment.<br /><blockquote class="code">  &lt;CollectionItem NAME=&quot;LogFileMonitoring&quot;&gt;<br />    &lt;Schedule&gt;<br />      &lt;IntervalSchedule INTERVAL=&quot;15&quot; TIME_UNIT = &quot;Min&quot;/&gt;<br />    &lt;/Schedule&gt; <br />    &lt;MetricColl NAME=&quot;LogFileMonitoring&quot;&gt;<br />      &lt;Condition COLUMN_NAME=&quot;log_file_match_count&quot; <br />                 WARNING=&quot;0&quot; CRITICAL=&quot;NotDefined&quot; OPERATOR=&quot;GT&quot; <br />                 NO_CLEAR_ON_NULL=&quot;TRUE&quot;<br />                 MESSAGE=&quot;%log_file_message%. %log_file_match_count% crossed warning (%warning_threshold%) or critical (%critical_threshold%) threshold.&quot;<br />                 MESSAGE_NLSID=&quot;host_log_file_match_count_cond&quot; /&gt;<br />    &lt;/MetricColl&gt;<br />  &lt;/CollectionItem&gt;</blockquote><br /><strong>A bug in parse-log1.pl?</strong><br />This may not be an issue in your deployment, but in mine I discovered that the script had a minor issue due to an unguarded use of the Perl symlink function (a feature not supported on Windows of course).<br /><br />The original code around line 796 in $AGENT_HOME\sysman\admin\scripts\parse-log1.pl was:<blockquote class="code">  ...<br />  my $file2 = &quot;$file1&quot;.&quot;.ln&quot;;<br />  symlink $file1, $file2 if (! -e $file2);<br />  return 0 if (! -e $file2);<br />  my $signature2 = getSignature($file2);<br />  ...</blockquote><br />This I changed to:<blockquote class="code">  ...<br />  my $file2 = &quot;$file1&quot;.&quot;.ln&quot;;<br />  return 0 if (! eval { symlink(&quot;&quot;,&quot;&quot;); 1 } );<br />  symlink $file1, $file2 if (! -e $file2);<br />  return 0 if (! -e $file2);<br />  my $signature2 = getSignature($file2);<br />  ...</blockquote><br /><strong>Reload/restart the agent</strong><br />After you've made the changes, restart your agent using the windows "services" control panel or "emctl reload agent" from the command line. Check the management console to make sure agent uploads have resumed properly, and then you should be ready to configure and test log file monitoring.
+The Oracle Grid Control agent for Windows (10.2.0.2) is missing the ability to monitor arbitrary log files. This was
+brought up recently in the <a href=
+"http://forums.oracle.com/forums/thread.jspa?messageID=1850071&amp;tstart=0#1850071">OTN Forums</a>. The problem seems
+to have been identified by Oracle earlier this year (Bug <a href=
+"http://metalink.oracle.com/metalink/plsql/ml2_documents.showDocument?p_database_id=BSS&amp;p_id=6011228">6011228</a>)
+with a fix coming in a future release.<br>
+<br>
+So what to do in the meantime? Creating a <a href=
+"http://download-west.oracle.com/docs/cd/B16240_01/doc/em.102/b40002/udm2.htm#sthref1106">user defined metric</a> is
+one approach, but has its limitations.<br>
+<br>
+I couldn't help thinking that the support already provided for log file monitoring in Linux must already be 80% of
+what's required to run under Windows. A little digging around confirmed that. What I'm going to share today is a little
+hack to enable log file monitoring for a Windows agent. First the disclaimers: the info here is purely from my own
+investigation; changes you make are probably unsupported; try it at your own risk; backup any files before you modify
+them etc etc!!<br>
+<br>
+Now the correct way to get your log file monitoring working would be to request a backport of the fix from Oracle. But
+if you are brave enough to hack this yourself, read on...<br>
+<br>
+First, let me describe the setup I'm testing with. I have a Windows 10.2.0.2 agent talking to a Linux 10.2.0.2
+Management Server. Before you begin any customisation, make sure the standard agent is installed and operating
+correctly. Go to the host home page and click on the "Metric and Policy Settings" link - you should <em>not</em> see a
+"Log File Pattern Matched Line Count" metric listed (if you do, then you are using an installation that has already
+been fixed).<br>
+<br>
+To get the log file monitoring working, there are basically 5 steps:<br>
+<ol>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>In the Windows agent deployment, add a &lt;Metric NAME="LogFileMonitoring" TYPE="TABLE"&gt; element to
+  $AGENT_HOME\sysman\admin\metadata\host.xml<br>
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>In the Windows agent deployment, add a &lt;CollectionItem NAME="LogFileMonitoring"&gt; element to
+  $AGENT_HOME\sysman\admin\default_collection\host.xml<br>
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Fix a bug in $AGENT_HOME\sysman\admin\scripts\parse-log1.pl<br>
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Reload/restart the agent<br>
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>In the OEM console, configure a rule and test it<br>
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+</ol><br>
+Once you have done that, you'll be able monitor log files like you can with agents running on other host operating
+systems, and see errors reported in Grid Control like this:<br>
+<a href=
+"http://bp2.blogger.com/_AZh6c1pzK1A/RlL_H7H_4II/AAAAAAAAACY/U22T9No3Z70/s1600-h/oem-winlog-main.jpg"><img class=
+"centered-image" src="http://bp2.blogger.com/_AZh6c1pzK1A/RlL_H7H_4II/AAAAAAAAACY/U22T9No3Z70/s400/oem-winlog-main.jpg"
+border="0" alt="" id="BLOGGER_PHOTO_ID_5067393042340634754" name="BLOGGER_PHOTO_ID_5067393042340634754"></a><br>
+<br>
+So let's quickly cover the configuration steps.<br>
+<br>
+<strong>Configuring metadata\host.xml</strong><br>
+Insert the following in $AGENT_HOME\sysman\admin\metadata\host.xml on the Windows host. NB: this is actually copied
+this from the corresponding host.xml file used in a Linux agent deployment.<br>
+<blockquote class="code">
+  &lt;Metric NAME="LogFileMonitoring" TYPE="TABLE"&gt;<br>
+  &lt;ValidMidTierVersions START_VER="10.2.0.0.0" /&gt;<br>
+  &lt;ValidIf&gt;<br>
+  &lt;CategoryProp NAME="OS" CHOICES="Windows"/&gt;<br>
+  &lt;/ValidIf&gt;<br>
+  &lt;Display&gt;<br>
+  &lt;Label NLSID="log_file_monitoring"&gt;Log File Monitoring&lt;/Label&gt;<br>
+  &lt;/Display&gt;<br>
+  &lt;TableDescriptor&gt;<br>
+  &lt;ColumnDescriptor NAME="log_file_name" TYPE="STRING" IS_KEY="TRUE"&gt;<br>
+  &lt;Display&gt;<br>
+  &lt;Label NLSID="host_log_file_name"&gt;Log File Name&lt;/Label&gt;<br>
+  &lt;/Display&gt;<br>
+  &lt;/ColumnDescriptor&gt;<br>
+  &lt;ColumnDescriptor NAME="log_file_match_pattern" TYPE="STRING" IS_KEY="TRUE"&gt;<br>
+  &lt;Display&gt;<br>
+  &lt;Label NLSID="host_log_file_match_pattern"&gt;Match Pattern in Perl&lt;/Label&gt;<br>
+  &lt;/Display&gt;<br>
+  &lt;/ColumnDescriptor&gt;<br>
+  &lt;ColumnDescriptor NAME="log_file_ignore_pattern" TYPE="STRING" IS_KEY="TRUE"&gt;<br>
+  &lt;Display&gt;<br>
+  &lt;Label NLSID="host_log_file_ignore_pattern"&gt;Ignore Pattern in Perl&lt;/Label&gt;<br>
+  &lt;/Display&gt;<br>
+  &lt;/ColumnDescriptor&gt;<br>
+  &lt;ColumnDescriptor NAME="timestamp" TYPE="STRING" RENDERABLE="FALSE" IS_KEY="TRUE"&gt;<br>
+  &lt;Display&gt;<br>
+  &lt;Label NLSID="host_time_stamp"&gt;Time Stamp&lt;/Label&gt;<br>
+  &lt;/Display&gt;<br>
+  &lt;/ColumnDescriptor&gt;<br>
+  &lt;ColumnDescriptor NAME="log_file_match_count" TYPE="NUMBER" IS_KEY="FALSE" STATELESS_ALERTS="TRUE"&gt;<br>
+  &lt;Display&gt;<br>
+  &lt;Label NLSID="host_log_file_match_count"&gt;Log File Pattern Matched Line Count&lt;/Label&gt;<br>
+  &lt;/Display&gt;<br>
+  &lt;/ColumnDescriptor&gt;<br>
+  &lt;ColumnDescriptor NAME="log_file_message" TYPE="STRING" IS_KEY="FALSE" IS_LONG_TEXT="TRUE"&gt;<br>
+  &lt;Display&gt;<br>
+  &lt;Label NLSID="host_log_file_message"&gt;Log File Pattern Matched Content&lt;/Label&gt;<br>
+  &lt;/Display&gt;<br>
+  &lt;/ColumnDescriptor&gt;<br>
+  &lt;/TableDescriptor&gt;<br>
+  &lt;QueryDescriptor FETCHLET_ID="OSLineToken"&gt;<br>
+  &lt;Property NAME="scriptsDir" SCOPE="SYSTEMGLOBAL"&gt;scriptsDir&lt;/Property&gt;<br>
+  &lt;Property NAME="perlBin" SCOPE="SYSTEMGLOBAL"&gt;perlBin&lt;/Property&gt;<br>
+  &lt;Property NAME="command" SCOPE="GLOBAL"&gt;%perlBin%/perl&lt;/Property&gt;<br>
+  &lt;Property NAME="script" SCOPE="GLOBAL"&gt;%scriptsDir%/parse-log1.pl&lt;/Property&gt;<br>
+  &lt;Property NAME="startsWith" SCOPE="GLOBAL"&gt;em_result=&lt;/Property&gt;<br>
+  &lt;Property NAME="delimiter" SCOPE="GLOBAL"&gt;|&lt;/Property&gt;<br>
+  &lt;Property NAME="ENVEM_TARGET_GUID" SCOPE="INSTANCE"&gt;GUID&lt;/Property&gt;<br>
+  &lt;Property NAME="NEED_CONDITION_CONTEXT" SCOPE="GLOBAL"&gt;TRUE&lt;/Property&gt;<br>
+  &lt;Property NAME="warningStartsWith" SCOPE="GLOBAL"&gt;em_warning=&lt;/Property&gt;<br>
+  &lt;/QueryDescriptor&gt;<br>
+  &lt;/Metric&gt;
+</blockquote><br>
+In the top TargetMetadata, also increment the META_VER attribute (in my case, changed from "3.0" to "3.1").<br>
+<br>
+<strong>Configuring default_collection\host.xml</strong><br>
+Insert the following in $AGENT_HOME\sysman\admin\default_collection\host.xml on the Windows host. NB: this is actually
+copied this from the corresponding host.xml file used in a Linux agent deployment.<br>
+<blockquote class="code">
+  &lt;CollectionItem NAME="LogFileMonitoring"&gt;<br>
+  &lt;Schedule&gt;<br>
+  &lt;IntervalSchedule INTERVAL="15" TIME_UNIT = "Min"/&gt;<br>
+  &lt;/Schedule&gt;<br>
+  &lt;MetricColl NAME="LogFileMonitoring"&gt;<br>
+  &lt;Condition COLUMN_NAME="log_file_match_count"<br>
+  WARNING="0" CRITICAL="NotDefined" OPERATOR="GT"<br>
+  NO_CLEAR_ON_NULL="TRUE"<br>
+  MESSAGE="%log_file_message%. %log_file_match_count% crossed warning (%warning_threshold%) or critical
+  (%critical_threshold%) threshold."<br>
+  MESSAGE_NLSID="host_log_file_match_count_cond" /&gt;<br>
+  &lt;/MetricColl&gt;<br>
+  &lt;/CollectionItem&gt;
+</blockquote><br>
+<strong>A bug in parse-log1.pl?</strong><br>
+This may not be an issue in your deployment, but in mine I discovered that the script had a minor issue due to an
+unguarded use of the Perl symlink function (a feature not supported on Windows of course).<br>
+<br>
+The original code around line 796 in $AGENT_HOME\sysman\admin\scripts\parse-log1.pl was:
+<blockquote class="code">
+  ...<br>
+  my $file2 = "$file1".".ln";<br>
+  symlink $file1, $file2 if (! -e $file2);<br>
+  return 0 if (! -e $file2);<br>
+  my $signature2 = getSignature($file2);<br>
+  ...
+</blockquote><br>
+This I changed to:
+<blockquote class="code">
+  ...<br>
+  my $file2 = "$file1".".ln";<br>
+  return 0 if (! eval { symlink("",""); 1 } );<br>
+  symlink $file1, $file2 if (! -e $file2);<br>
+  return 0 if (! -e $file2);<br>
+  my $signature2 = getSignature($file2);<br>
+  ...
+</blockquote><br>
+<strong>Reload/restart the agent</strong><br>
+After you've made the changes, restart your agent using the windows "services" control panel or "emctl reload agent"
+from the command line. Check the management console to make sure agent uploads have resumed properly, and then you
+should be ready to configure and test log file monitoring.

@@ -10,4 +10,78 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-3017566096420113187
 blogger_orig_url: http://blog.tardate.com/2007/05/getting-environment-variables-on-oracle.html
 ---
 
-Say you have a connection to a remote Oracle Database server and want to get the ORACLE_HOME setting. Or any other environment variable for that matter. As far as I can see, Oracle doesn't provide any direct, supported way to do this. <br />In 10g however, there's an interesting procedure DBMS_SYSTEM.GET_ENV available which does the job:<br /><blockquote class="code">set autoprint on<br />var ORACLE_HOME varchar2(255)<br />exec dbms_system.get_env('ORACLE_HOME',:ORACLE_HOME)<br /><br />PL/SQL procedure successfully completed.<br /><br />ORACLE_HOME<br />-----------------------------------------<br />D:\oracle\product\10.2.0\db_1<br /></blockquote><br />DBMS_SYSTEM is an undocumented/unsupported package. It mainly seems to be an internal utility function for debugging and event monitoring. The package itself is obfusticated, but we can discover a little about it from the data dictionary. The USER_PROCEDURES view lists the individual procedures available in the package:<br /><blockquote class="code">select PROCEDURE_NAME from USER_PROCEDURES where OBJECT_NAME = 'DBMS_SYSTEM';<br />PROCEDURE_NAME<br />------------------------------<br />DIST_TXN_SYNC<br />GET_ENV<br />KCFRMS<br />KSDDDT<br />KSDFLS<br />KSDIND<br />KSDWRT<br />READ_EV<br />SET_BOOL_PARAM_IN_SESSION<br />SET_EV<br />SET_INT_PARAM_IN_SESSION<br />SET_SQL_TRACE_IN_SESSION<br />WAIT_FOR_EVENT<br /></blockquote><br />And USER_ARGUMENTS can tell us about the parameters. For example:<br /><blockquote class="code">select OBJECT_NAME,ARGUMENT_NAME,POSITION,DATA_TYPE,IN_OUT<br />from USER_ARGUMENTS <br />where PACKAGE_NAME='DBMS_SYSTEM' and OBJECT_NAME='GET_ENV'<br />order by POSITION;<br /><br />OBJECT_NAME   ARGUMENT_NAME    POSITION DATA_TYPE IN_OUT<br />------------- -------------- ---------- --------- ------<br />GET_ENV       VAR                     1 VARCHAR2  IN<br />GET_ENV       VAL                     2 VARCHAR2  OUT<br /></blockquote><br />Given an environment variable name (VAR), GET_ENV returns its value (VAL). These values are coming from the system environment that belongs to the Oracle server process. If you have a dedicated server config, the environment is inherited from the tnslsnr process that spawned the server process. If shared server, then the environment is inherited from whatever process (PMON? PSP0?) that started the shared server process. <br />So an interesting poke around in some Oracle internals, but there are lots of reasons why you shouldn't use this trick in any production situation!<br /><ul><br /><li>It is undocumented and unsuppported. The "get_env" method seems to have appeared in 10g, but there's also no guarantee it will be present in any future versions.</li><br /><li>There are better solutions. SQL client code shouldn't directly depend on server environment variables.</li><br /><li>Remember it is instance specific, and may be misleading in a RAC environment.</li><br /></ul>
+Say you have a connection to a remote Oracle Database server and want to get the ORACLE_HOME setting. Or any other
+environment variable for that matter. As far as I can see, Oracle doesn't provide any direct, supported way to do
+this.<br>
+In 10g however, there's an interesting procedure DBMS_SYSTEM.GET_ENV available which does the job:<br>
+<blockquote class="code">
+  set autoprint on<br>
+  var ORACLE_HOME varchar2(255)<br>
+  exec dbms_system.get_env('ORACLE_HOME',:ORACLE_HOME)<br>
+  <br>
+  PL/SQL procedure successfully completed.<br>
+  <br>
+  ORACLE_HOME<br>
+  -----------------------------------------<br>
+  D:\oracle\product\10.2.0\db_1<br>
+</blockquote><br>
+DBMS_SYSTEM is an undocumented/unsupported package. It mainly seems to be an internal utility function for debugging
+and event monitoring. The package itself is obfusticated, but we can discover a little about it from the data
+dictionary. The USER_PROCEDURES view lists the individual procedures available in the package:<br>
+<blockquote class="code">
+  select PROCEDURE_NAME from USER_PROCEDURES where OBJECT_NAME = 'DBMS_SYSTEM';<br>
+  PROCEDURE_NAME<br>
+  ------------------------------<br>
+  DIST_TXN_SYNC<br>
+  GET_ENV<br>
+  KCFRMS<br>
+  KSDDDT<br>
+  KSDFLS<br>
+  KSDIND<br>
+  KSDWRT<br>
+  READ_EV<br>
+  SET_BOOL_PARAM_IN_SESSION<br>
+  SET_EV<br>
+  SET_INT_PARAM_IN_SESSION<br>
+  SET_SQL_TRACE_IN_SESSION<br>
+  WAIT_FOR_EVENT<br>
+</blockquote><br>
+And USER_ARGUMENTS can tell us about the parameters. For example:<br>
+<blockquote class="code">
+  select OBJECT_NAME,ARGUMENT_NAME,POSITION,DATA_TYPE,IN_OUT<br>
+  from USER_ARGUMENTS<br>
+  where PACKAGE_NAME='DBMS_SYSTEM' and OBJECT_NAME='GET_ENV'<br>
+  order by POSITION;<br>
+  <br>
+  OBJECT_NAME ARGUMENT_NAME POSITION DATA_TYPE IN_OUT<br>
+  ------------- -------------- ---------- --------- ------<br>
+  GET_ENV VAR 1 VARCHAR2 IN<br>
+  GET_ENV VAL 2 VARCHAR2 OUT<br>
+</blockquote><br>
+Given an environment variable name (VAR), GET_ENV returns its value (VAL). These values are coming from the system
+environment that belongs to the Oracle server process. If you have a dedicated server config, the environment is
+inherited from the tnslsnr process that spawned the server process. If shared server, then the environment is inherited
+from whatever process (PMON? PSP0?) that started the shared server process.<br>
+So an interesting poke around in some Oracle internals, but there are lots of reasons why you shouldn't use this trick
+in any production situation!<br>
+<ul>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>It is undocumented and unsuppported. The "get_env" method seems to have appeared in 10g, but there's also no
+  guarantee it will be present in any future versions.
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>There are better solutions. SQL client code shouldn't directly depend on server environment variables.
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Remember it is instance specific, and may be misleading in a RAC environment.
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+</ul>

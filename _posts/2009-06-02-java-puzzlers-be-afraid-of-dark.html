@@ -10,4 +10,86 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-8537307620965697250
 blogger_orig_url: http://blog.tardate.com/2009/06/java-puzzlers-be-afraid-of-dark.html
 ---
 
-<table border="0"><tbody><tr><td style="VERTICAL-ALIGN: top">Apparently, Joshua Block and Neal Gafter started the "Java Puzzlers" idea at Oracle Open World 2001. I wish I was there.<br /><br />Subsequently, they've turned it into a <a href="http://www.amazon.com/gp/product/032133678X?ie=UTF8&tag=itsaprli-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=032133678X">book</a><img src="https://www.assoc-amazon.com/e/ir?t=itsaprli-20&l=as2&o=1&a=032133678X" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /><br />, and a <a href="http://javapuzzlers.com/">website</a>.<br /><br />If you program in Java, you <span style="font-weight:bold;">must</span> read this book. It covers the kind of traps in your code you wouldn't even imagine could be there.<br /><br />I can guarantee you have written at least one of these issues into your code. And QA never caught it. And it is out in the wild RIGHT NOW. <span style="font-style:italic;">Arrgh!!</span><br /><br />These days, I think (and hope) that most professional developers are relatively atuned to coding security issues and the rise of opinionated testing methodologies (<a href="https://en.wikipedia.org/wiki/Unit_testing">Unit testing</a>, <a href="https://en.wikipedia.org/wiki/Test-driven_development">TDD</a>, <a href="https://en.wikipedia.org/wiki/Behavior_driven_development">BDD</a> etc).</td><br /><td style="VERTICAL-ALIGN: top"><iframe src="https://rcm.amazon.com/e/cm?t=itsaprli-20&o=1&p=8&l=as1&asins=032133678X&md=10FE9736YVPPT7A0FBG2&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=000000&bg1=FFFFFF&f=ifr" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe><br /></td></tr></tbody></table>But this book is a real eye-opener to the range of issues that you wouldn't even think worthy of a unit test case.<br /><pre name="code" class="sql:wraplines:nocontrols">public static boolean isOdd(int i) {<br />  return i % 2 == 1;<br />}</pre>Seems like a reasonable test for odd numbers? Except it is wrong a quarter of the time.<br /><br />And that is just puzzle #1.<br /><br />The book takes you through issues with strings, loops, classes, libraries, all the way to puzzle #95, where you learn why you shouldn't program like your brother.<br /><br /><a title="View Java Puzzlers on Scribd" href="http://www.scribd.com/doc/123288/Java-Puzzlers" style="margin: 12px auto 6px auto; font-family: Helvetica,Arial,Sans-serif; font-style: normal; font-variant: normal; font-weight: normal; font-size: 14px; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none; display: block; text-decoration: underline;">Get a flavour from this presentation on Scribd from JavaOne 2007...</a> <object codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" id="doc_740120283405176" name="doc_740120283405176" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" align="middle" height="500" width="100%" rel="media:document" resource="http://d.scribd.com/ScribdViewer.swf?document_id=123288&access_key=5pe8dhocfpzh9&page=1&version=1&viewMode=" xmlns:media="http://search.yahoo.com/searchmonkey/media/" xmlns:dc="http://purl.org/dc/terms/" >  <param name="movie" value="http://d.scribd.com/ScribdViewer.swf?document_id=123288&access_key=5pe8dhocfpzh9&page=1&version=1&viewMode=">   <param name="quality" value="high">   <param name="play" value="true">  <param name="loop" value="true">   <param name="scale" value="showall">  <param name="wmode" value="opaque">   <param name="devicefont" value="false">  <param name="bgcolor" value="#ffffff">   <param name="menu" value="true">  <param name="allowFullScreen" value="true">   <param name="allowScriptAccess" value="always">   <param name="salign" value="">        <embed src="http://d.scribd.com/ScribdViewer.swf?document_id=123288&access_key=5pe8dhocfpzh9&page=1&version=1&viewMode=" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" play="true" loop="true" scale="showall" wmode="opaque" devicefont="false" bgcolor="#ffffff" name="doc_740120283405176_object" menu="true" allowfullscreen="true" allowscriptaccess="always" salign="" type="application/x-shockwave-flash" align="middle"  height="500" width="100%"></embed>             <span rel="media:thumbnail" href="http://i.scribd.com/public/images/uploaded/2760/fvsna1nht5e7n_thumbnail.jpg">       <span property="media:title">Java Puzzlers</span>   <span property="dc:creator">me</span>        <span property="dc:description">java puzzlers from javaone 2007</span>       <span property="dc:type" content="Text">    </object> <div style="margin: 6px auto 3px auto; font-family: Helvetica,Arial,Sans-serif; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none; display: block;">    <a href="http://www.scribd.com/upload" style="text-decoration: underline;">Publish at Scribd</a> or <a href="http://www.scribd.com/browse" style="text-decoration: underline;">explore</a> others:            <a href="http://www.scribd.com/explore/School-Work/" style="text-decoration: underline;">School Work</a>                  <a href="http://www.scribd.com/tag/java" style="text-decoration: underline;">java</a>              <a href="http://www.scribd.com/tag/puzzlers" style="text-decoration: underline;">puzzlers</a>       </div>
+<br>
+<table border="0">
+  <tbody>
+    <tr>
+      <td style="VERTICAL-ALIGN: top">
+        Apparently, Joshua Block and Neal Gafter started the "Java Puzzlers" idea at Oracle Open World 2001. I wish I
+        was there.<br>
+        <br>
+        Subsequently, they've turned it into a <a href=
+        "http://www.amazon.com/gp/product/032133678X?ie=UTF8&amp;tag=itsaprli-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=032133678X">
+        book</a><img src="https://www.assoc-amazon.com/e/ir?t=itsaprli-20&amp;l=as2&amp;o=1&amp;a=032133678X" width="1"
+        height="1" border="0" alt="" style="border:none !important; margin:0px !important;"><br>
+        , and a <a href="http://javapuzzlers.com/">website</a>.<br>
+        <br>
+        If you program in Java, you <span style="font-weight:bold;">must</span> read this book. It covers the kind of
+        traps in your code you wouldn't even imagine could be there.<br>
+        <br>
+        I can guarantee you have written at least one of these issues into your code. And QA never caught it. And it is
+        out in the wild RIGHT NOW. <span style="font-style:italic;">Arrgh!!</span><br>
+        <br>
+        These days, I think (and hope) that most professional developers are relatively atuned to coding security
+        issues and the rise of opinionated testing methodologies (<a href=
+        "https://en.wikipedia.org/wiki/Unit_testing">Unit testing</a>, <a href=
+        "https://en.wikipedia.org/wiki/Test-driven_development">TDD</a>, <a href=
+        "https://en.wikipedia.org/wiki/Behavior_driven_development">BDD</a> etc).
+      </td>
+      <td style="VERTICAL-ALIGN: top">
+        <iframe src=
+        "https://rcm.amazon.com/e/cm?t=itsaprli-20&amp;o=1&amp;p=8&amp;l=as1&amp;asins=032133678X&amp;md=10FE9736YVPPT7A0FBG2&amp;fc1=000000&amp;IS2=1&amp;lt1=_blank&amp;m=amazon&amp;lc1=0000FF&amp;bc1=000000&amp;bg1=FFFFFF&amp;f=ifr"
+        style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe><br>
+      </td>
+    </tr>
+  </tbody>
+</table>But this book is a real eye-opener to the range of issues that you wouldn't even think worthy of a unit test
+case.<br>
+<pre name="code" class="sql:wraplines:nocontrols">
+public static boolean isOdd(int i) {<br>  return i % 2 == 1;<br>}
+</pre>Seems like a reasonable test for odd numbers? Except it is wrong a quarter of the time.<br>
+<br>
+And that is just puzzle #1.<br>
+<br>
+The book takes you through issues with strings, loops, classes, libraries, all the way to puzzle #95, where you learn
+why you shouldn't program like your brother.<br>
+<br>
+<a title="View Java Puzzlers on Scribd" href="http://www.scribd.com/doc/123288/Java-Puzzlers" style=
+"margin: 12px auto 6px auto; font-family: Helvetica,Arial,Sans-serif; font-style: normal; font-variant: normal; font-weight: normal; font-size: 14px; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none; display: block; text-decoration: underline;">
+Get a flavour from this presentation on Scribd from JavaOne 2007...</a> <object codebase=
+"http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" id="doc_740120283405176" name=
+"doc_740120283405176" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" align="middle" height="500" width="100%"
+rel="media:document" resource=
+"http://d.scribd.com/ScribdViewer.swf?document_id=123288&amp;access_key=5pe8dhocfpzh9&amp;page=1&amp;version=1&amp;viewMode="
+xmlns:media="http://search.yahoo.com/searchmonkey/media/" xmlns:dc="http://purl.org/dc/terms/">
+  <param name="movie" value=
+  "http://d.scribd.com/ScribdViewer.swf?document_id=123288&amp;access_key=5pe8dhocfpzh9&amp;page=1&amp;version=1&amp;viewMode=">
+  <param name="quality" value="high">
+  <param name="play" value="true">
+  <param name="loop" value="true">
+  <param name="scale" value="showall">
+  <param name="wmode" value="opaque">
+  <param name="devicefont" value="false">
+  <param name="bgcolor" value="#ffffff">
+  <param name="menu" value="true">
+  <param name="allowFullScreen" value="true">
+  <param name="allowScriptAccess" value="always">
+  <param name="salign" value="">
+  <embed src=
+  "http://d.scribd.com/ScribdViewer.swf?document_id=123288&amp;access_key=5pe8dhocfpzh9&amp;page=1&amp;version=1&amp;viewMode="
+  quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" play="true" loop="true" scale="showall"
+  wmode="opaque" devicefont="false" bgcolor="#FFFFFF" name="doc_740120283405176_object" menu="true" allowfullscreen=
+  "true" allowscriptaccess="always" salign="" type="application/x-shockwave-flash" align="middle" height="500" width=
+  "100%"> <span rel="media:thumbnail" href=
+  "http://i.scribd.com/public/images/uploaded/2760/fvsna1nht5e7n_thumbnail.jpg"><span property="media:title">Java
+  Puzzlers</span> <span property="dc:creator">me</span> <span property="dc:description">java puzzlers from javaone
+  2007</span> </span>
+</object>
+<div style=
+"margin: 6px auto 3px auto; font-family: Helvetica,Arial,Sans-serif; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none; display: block;">
+<a href="http://www.scribd.com/upload" style="text-decoration: underline;">Publish at Scribd</a> or <a href=
+"http://www.scribd.com/browse" style="text-decoration: underline;">explore</a> others: <a href=
+"http://www.scribd.com/explore/School-Work/" style="text-decoration: underline;">School Work</a> <a href=
+"http://www.scribd.com/tag/java" style="text-decoration: underline;">java</a> <a href=
+"http://www.scribd.com/tag/puzzlers" style="text-decoration: underline;">puzzlers</a>
+</div>

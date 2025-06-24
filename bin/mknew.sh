@@ -7,12 +7,14 @@ if [ -z "$1" ]; then
 fi
 
 # Variables
+SCRIPT_PATH=${0%/*}/
+REPO_ROOT=${SCRIPT_PATH}../
 POST_NAME=$1
 TEMPLATE_NAME=${2:-default}
 DATE=$(date +"%Y-%m-%d")
 BASE_NAME="$(echo "${DATE}-${POST_NAME// /-}" | tr '[:upper:]' '[:lower:]')"
-POST_PATH="_posts/${BASE_NAME}.md"
-TEMPLATE_PATH="_drafts/${TEMPLATE_NAME}.md"
+POST_PATH="${REPO_ROOT}_posts/${BASE_NAME}.md"
+TEMPLATE_PATH="${REPO_ROOT}_drafts/${TEMPLATE_NAME}.md"
 
 # Check if the template exists
 if [ ! -f "${TEMPLATE_PATH}" ]; then
@@ -21,7 +23,7 @@ if [ ! -f "${TEMPLATE_PATH}" ]; then
 fi
 
 # Make asset folder for post
-mkdir -p "assets/${BASE_NAME}"
+mkdir -p "${REPO_ROOT}assets/${BASE_NAME}"
 
 # Create the new post from the template
 cp "${TEMPLATE_PATH}" "$POST_PATH"

@@ -22,7 +22,7 @@ I can't pinpoint exactly where it comes from, but somewhere along the way I've i
 >
 > *- Thanthai Periyar E. V. Ramasamy (17 Sep, 1879 – 24 Dec, 1973)*
 
-[![periyar_evr_stamp](/assets/periyar_evr_stamp.jpg)](https://en.wikipedia.org/wiki/Periyar#/media/File:PeriyarEVRStamp.jpg)
+[![periyar_evr_stamp](/assets/2024-09-27-oppression-is-my-enemy/periyar_evr_stamp.jpg)](https://en.wikipedia.org/wiki/Periyar#/media/File:PeriyarEVRStamp.jpg)
 
 Looking back now, I can see how this quote made the rounds on social media over the past few years, but I haven't yet found a primary source to cite. This may be me running into a language barrier, as I presume his original words were probably in Tamil.
 

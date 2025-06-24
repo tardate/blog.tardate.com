@@ -2,7 +2,7 @@
 layout:         post
 title:          "Ring of Fire"
 date:           "2019-12-26 12:07:06 +0800"
-hero_image_url: /assets/2019-12-26_solar_eclipse3.jpg
+hero_image_url: /assets/2019-12-26-ring-of-fire/2019-12-26_solar_eclipse3.jpg
 summary:        An image of the 26 December 2019 Annular Solar Eclipse
 youtubeid:
 tags:

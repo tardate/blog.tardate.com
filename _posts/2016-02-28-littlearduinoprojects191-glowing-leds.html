@@ -13,4 +13,37 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-8389505410700122531
 blogger_orig_url: http://blog.tardate.com/2016/02/littlearduinoprojects191-glowing-leds.html
 ---
 
-So for another project I wanted some "glowing" LEDs, ideally powered from a single 1.5V AA or AAA battery. That seemed like an interesting challenge, especially when the forward voltage of the LEDs I'm using is about 2.1V.<br /><br />I had a feeling I could cobble together a couple of ideas (Relaxation Joule Thief and RC Oscillator) .. and lo, it works!<br /><br /><iframe width="560" height="315" src="https://www.youtube.com/embed/Epwdpe0EQ0Y" frameborder="0" allowfullscreen></iframe><br /><br />As always, <a href="https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/LowVoltageGlowingLEDs">all notes, schematics and code are in the Little Arduino Projects repo on GitHub</a>.<br /><br /><br /><br />Here's a glimpse of the "modified oscillation". CH2 (red) is the LED cathode/transistor collector - as it rises and falls the LED slowly switches off then back on.<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/LowVoltageGlowingLEDs" imageanchor="1"><img border="0" src="https://github.com/tardate/LittleArduinoProjects/blob/master/Electronics101/LowVoltageGlowingLEDs/assets/LowVoltageGlowingLEDs_scope_with_smoothing.gif?raw=true" style="width: 90%"/></a></div><br />For protoboard-based builds I tend to layout the schematic with PAD tools (Pencil-Aided Design) ...<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/LowVoltageGlowingLEDs" imageanchor="1"><img border="0" src="https://github.com/tardate/LittleArduinoProjects/blob/master/Electronics101/LowVoltageGlowingLEDs/assets/LowVoltageGlowingLEDs_pb_layout.jpg?raw=true" style="width: 90%"/></a></div>
+So for another project I wanted some "glowing" LEDs, ideally powered from a single 1.5V AA or AAA battery. That seemed
+like an interesting challenge, especially when the forward voltage of the LEDs I'm using is about 2.1V.<br>
+<br>
+I had a feeling I could cobble together a couple of ideas (Relaxation Joule Thief and RC Oscillator) .. and lo, it
+works!<br>
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Epwdpe0EQ0Y" frameborder="0" allowfullscreen=
+""></iframe><br>
+<br>
+As always, <a href=
+"https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/LowVoltageGlowingLEDs">all notes,
+schematics and code are in the Little Arduino Projects repo on GitHub</a>.<br>
+<br>
+<br>
+<br>
+Here's a glimpse of the "modified oscillation". CH2 (red) is the LED cathode/transistor collector - as it rises and
+falls the LED slowly switches off then back on.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+  <a href=
+  "https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/LowVoltageGlowingLEDs"><img border="0"
+  src=
+  "https://github.com/tardate/LittleArduinoProjects/blob/master/Electronics101/LowVoltageGlowingLEDs/assets/LowVoltageGlowingLEDs_scope_with_smoothing.gif?raw=true"
+  style="width: 90%"></a>
+</div><br>
+For protoboard-based builds I tend to layout the schematic with PAD tools (Pencil-Aided Design) ...<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+  <a href=
+  "https://github.com/tardate/LittleArduinoProjects/tree/master/Electronics101/LowVoltageGlowingLEDs"><img border="0"
+  src=
+  "https://github.com/tardate/LittleArduinoProjects/blob/master/Electronics101/LowVoltageGlowingLEDs/assets/LowVoltageGlowingLEDs_pb_layout.jpg?raw=true"
+  style="width: 90%"></a>
+</div>

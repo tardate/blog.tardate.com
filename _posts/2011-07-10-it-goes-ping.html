@@ -11,4 +11,25 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-3958389955127098076
 blogger_orig_url: http://blog.tardate.com/2011/07/it-goes-ping.html
 ---
 
-If you're like me, you have a bunch of trusty (and rusty) shell scripts that you reach for when doing things like testing a new load balancer.<br /><br />Enough of that! <span style="font-weight:bold;"><a href="http://rubygems.org/gems/igp">igp</a></span> (It goes PING!) is a simple command line utility for testing services with a range of common protocols: ICMP, UDP, TCP, HTTP/S, LDAP/S and so on. <br /><br />This is nothing earth shattering I know, but it's nice to have simple cross-platform (since it's ruby) tool that does all the common protocols in one. Thankfully, most of the work has already been done by the <a href="https://github.com/djberg96/net-ping">net-ping library</a> - igp really just provides a sleek command-line wrapper.<br /><br />The only dependency is ruby+rubygems. Just:<pre name="code" class="ruby:wraplines:nocontrols">gem install igp</pre >And then you are ready to capture traces, for example:<pre name="code" class="ruby:wraplines:nocontrols">igp my.server.com<br />#   ^ ICMP assumed by default. This is the same as:<br />igp icmp://my.server.com<br /><br />igp http://my.insecure.server.com<br />igp http://my.insecure.server-hiding-on-a-funny-port.com:8080/javascripts/all.js<br /><br />igp https://my.secure.server.com<br />igp https://my.secure.server-hiding-on-a-funny-port.com:4443<br /><br />igp tcp://my.tcp-service.com:9091<br />igp udp://my.udp-service.com:123<br /><br />igp ldap://my.insecure.ldap.server.com<br />igp ldaps://my.secure.ldap.server.com</pre ><br /><br /><span style="font-style:italic;">Blogarhythm: <a href="http://www.youtube.com/watch?v=7Ev_1ctp_h8">Keep it Up</a> - Snap!</span>
+If you're like me, you have a bunch of trusty (and rusty) shell scripts that you reach for when doing things like
+testing a new load balancer.<br>
+<br>
+Enough of that! <span style="font-weight:bold;"><a href="http://rubygems.org/gems/igp">igp</a></span> (It goes PING!)
+is a simple command line utility for testing services with a range of common protocols: ICMP, UDP, TCP, HTTP/S, LDAP/S
+and so on.<br>
+<br>
+This is nothing earth shattering I know, but it's nice to have simple cross-platform (since it's ruby) tool that does
+all the common protocols in one. Thankfully, most of the work has already been done by the <a href=
+"https://github.com/djberg96/net-ping">net-ping library</a> - igp really just provides a sleek command-line
+wrapper.<br>
+<br>
+The only dependency is ruby+rubygems. Just:
+<pre name="code" class="ruby:wraplines:nocontrols">
+gem install igp
+</pre>And then you are ready to capture traces, for example:
+<pre name="code" class="ruby:wraplines:nocontrols">
+igp my.server.com<br>#   ^ ICMP assumed by default. This is the same as:<br>igp icmp://my.server.com<br><br>igp http://my.insecure.server.com<br>igp http://my.insecure.server-hiding-on-a-funny-port.com:8080/javascripts/all.js<br><br>igp https://my.secure.server.com<br>igp https://my.secure.server-hiding-on-a-funny-port.com:4443<br><br>igp tcp://my.tcp-service.com:9091<br>igp udp://my.udp-service.com:123<br><br>igp ldap://my.insecure.ldap.server.com<br>igp ldaps://my.secure.ldap.server.com
+</pre><br>
+<br>
+<span style="font-style:italic;">Blogarhythm: <a href="http://www.youtube.com/watch?v=7Ev_1ctp_h8">Keep it Up</a> -
+Snap!</span>

@@ -10,10 +10,115 @@ blogger_id: tag:blogger.com,1999:blog-6220586.post-6622836875229884316
 blogger_orig_url: http://blog.tardate.com/2009/03/crazy-stupid-security-policies-1.html
 ---
 
-So we've all been there .. a super-secure data centre where they ban wireless access while in the server room. <br /><br />
-<a href="http://www.hostedsolutions.com/images/data-center-tour.jpg">
-  <img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 450px; height: 376px;" src="/assets/data-center-tour.jpg" border="0" alt="" />
-</a>
-<br />I recently had an <span style="font-style:italic;">acquaintance</span> pulled up for using wireless while in one such place. Twice. I won't name where, because this issue knows no bounds. <br /><br />It is a nice and reasonable rule from the security policy astronauts' perspective, because usually those responsible for the policy are not also accountable for operations. I presume the main concern is bridging networks and (intentionally or not) providing backdoor access.<br /><br />They conduct audits and spot-checks, and on the surface everything looks great. If all you are concerned about is the paperwork, your job is done.<br /><br />But in practice, and from what I have observed over the years, reality is a very different thing.<br /><br />Unless all you are doing is bolting a server into a rack or plugging the fibre cables in, it is hard to get the job done these days without external network access. <br /><ul><br /><li>Maybe that is for research: consulting vendor guides or searching the knowledge bases (because no-one provides all the doc on disk anymore - it's on the web!)</li><br /><li>Or often you need to test the system you are configuring or diagnosing, and that can only be done from "outside" (SSL termination at an external-facing load-balancer for instance).</li><br /><li>Or, in this Web 2.0 world, you need to collaborate with colleagues to get the job done. Skype or IM to get hold of the expertise needed for the task at hand.</li><br /><li>Worse still, you have an "escort" policy, but a simple request to get in or out of the data centre is meet with abuse, recalcitrance or outright hostility from the people who are meant to escort you (like it's not their job!)</li><br /></ul><br />All these factors increase the frustration of SEs the world over, in the face of data centre policies that treat IT as if it were like installing an air-conditioner.<br /><br />Now what happens when the threshold of pain is pushed up and up like this? At some point, the immediate pain (<span style="font-style:italic;">can't get to <a href="http://metalink.oracle.com">metalink</a></span>) exceeds the potential future pain (<span style="font-style:italic;">maybe I'll get caught using wifi</span>).<br /><br /><span style="font-weight:bold;">And, dear data center security experts, happens next?</span> <br /><br />Human nature takes over. Before you know it, you have a feral group of wifi/bluetooth/3G connected people running around your DC.<br /><br />The worst part is that you have pushed the behaviour underground, where it is truly uncontrolled. In being secretive, people are breaking the most significant security prohibitions of all: bridging networks. Sorry, you don't know how much it goes on. <span style="font-style:italic;">(personal aside: yes, I admit I have, in the past, used wifi in a non-wifi DC. But being the conscientious and security aware guy that I am, I was always quite anal about disconnecting from the DC network before getting on wifi. Not that anyone knew. And if they did, my reward would have been ... a punishment!!)</span><br /><br />So what approach would an enlightened, modern data center manage take? I would sleep much better at night if I:<br /><ul><br /><li>
-<img style="float:right; margin:0 0 10px 10px;cursor:pointer; cursor:hand;width: 137px; height: 96px;" src="/assets/security-camera.jpg" border="0" alt="" />
-Had an open wifi usage policy to bring the practive into the light of day. Maybe tables running between your racks for wifi-connected laptops (bolt them to the desk if you like, with a CCTV overhead), while direct network/server access had to be done rack-side.</li><br /><li>Educate on responsible wifi use. Make sure people understand the risks of bridging nets and make it clear its OK to be on wifi, but not ok to bridge.</li><br /><li>And have a clear understanding with my internal staff that "escorting" is not an interruption to the work they are doing, it is a vital task that will be rewarded.</li><br /></ul><br /><br />Fundamentally, this means I would need to reconsider how I defined my job as a data centre manager: I'm not a slave to a policy handed down from upon high, my job is to implement and enforce the best procedures possible that both enforce the policy goals, while providing excellent customer service. Achieving this may mean I need to think a little out of the box, even be a little creative and pragmatic.<br /><br />Now I should be clear that in writing this I am not condoning anyone who breaks a clearly published policy not to use wifi in a data center. On the contrary, if you have to work in such a place, I'd say stick to the policy, and drive the escorts nuts as you go in, out, in, out and in again to get the job done. Demand a full time escort if you need it.<br /><br />My real message is to anyone with authority over security policies and their application: recognise that a policy on paper is worth exactly the cost of the paper unless you have taken into consideration the human factors involved and done your best to ensure that your procedures and environment are optimally designed to encourage the very <span style="font-style:italic;">best</span> behaviours, and not the ones you most want to avoid.<br /><br />Anyone have data centre security horror stories to share? I would love to hear about them! Better yet, how you manage to get around the stupidity, yet stay "legal".
+So we've all been there .. a super-secure data centre where they ban wireless access while in the server room.<br>
+<br>
+<a href="http://www.hostedsolutions.com/images/data-center-tour.jpg"><img style=
+"display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 450px; height: 376px;" src=
+"/assets/2009-04-02-crazy-stupid-security-policies-1/data-center-tour.jpg" border="0" alt=""></a><br>
+I recently had an <span style="font-style:italic;">acquaintance</span> pulled up for using wireless while in one such
+place. Twice. I won't name where, because this issue knows no bounds.<br>
+<br>
+It is a nice and reasonable rule from the security policy astronauts' perspective, because usually those responsible
+for the policy are not also accountable for operations. I presume the main concern is bridging networks and
+(intentionally or not) providing backdoor access.<br>
+<br>
+They conduct audits and spot-checks, and on the surface everything looks great. If all you are concerned about is the
+paperwork, your job is done.<br>
+<br>
+But in practice, and from what I have observed over the years, reality is a very different thing.<br>
+<br>
+Unless all you are doing is bolting a server into a rack or plugging the fibre cables in, it is hard to get the job
+done these days without external network access.<br>
+<ul>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Maybe that is for research: consulting vendor guides or searching the knowledge bases (because no-one provides
+  all the doc on disk anymore - it's on the web!)
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Or often you need to test the system you are configuring or diagnosing, and that can only be done from "outside"
+  (SSL termination at an external-facing load-balancer for instance).
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Or, in this Web 2.0 world, you need to collaborate with colleagues to get the job done. Skype or IM to get hold
+  of the expertise needed for the task at hand.
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Worse still, you have an "escort" policy, but a simple request to get in or out of the data centre is meet with
+  abuse, recalcitrance or outright hostility from the people who are meant to escort you (like it's not their job!)
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+</ul><br>
+All these factors increase the frustration of SEs the world over, in the face of data centre policies that treat IT as
+if it were like installing an air-conditioner.<br>
+<br>
+Now what happens when the threshold of pain is pushed up and up like this? At some point, the immediate pain
+(<span style="font-style:italic;">can't get to <a href="http://metalink.oracle.com">metalink</a></span>) exceeds the
+potential future pain (<span style="font-style:italic;">maybe I'll get caught using wifi</span>).<br>
+<br>
+<span style="font-weight:bold;">And, dear data center security experts, happens next?</span><br>
+<br>
+Human nature takes over. Before you know it, you have a feral group of wifi/bluetooth/3G connected people running
+around your DC.<br>
+<br>
+The worst part is that you have pushed the behaviour underground, where it is truly uncontrolled. In being secretive,
+people are breaking the most significant security prohibitions of all: bridging networks. Sorry, you don't know how
+much it goes on. <span style="font-style:italic;">(personal aside: yes, I admit I have, in the past, used wifi in a
+non-wifi DC. But being the conscientious and security aware guy that I am, I was always quite anal about disconnecting
+from the DC network before getting on wifi. Not that anyone knew. And if they did, my reward would have been ... a
+punishment!!)</span><br>
+<br>
+So what approach would an enlightened, modern data center manage take? I would sleep much better at night if I:<br>
+<ul>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>
+    <img style="float:right; margin:0 0 10px 10px;cursor:pointer; cursor:hand;width: 137px; height: 96px;" src=
+    "/assets/2009-04-02-crazy-stupid-security-policies-1/security-camera.jpg" border="0" alt=""> Had an open wifi usage
+    policy to bring the practive into the light of day. Maybe tables running between your racks for wifi-connected
+    laptops (bolt them to the desk if you like, with a CCTV overhead), while direct network/server access had to be
+    done rack-side.
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>Educate on responsible wifi use. Make sure people understand the risks of bridging nets and make it clear its OK
+  to be on wifi, but not ok to bridge.
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+  <li>And have a clear understanding with my internal staff that "escorting" is not an interruption to the work they
+  are doing, it is a vital task that will be rewarded.
+  </li>
+  <li style="list-style: none">
+    <br>
+  </li>
+</ul><br>
+<br>
+Fundamentally, this means I would need to reconsider how I defined my job as a data centre manager: I'm not a slave to
+a policy handed down from upon high, my job is to implement and enforce the best procedures possible that both enforce
+the policy goals, while providing excellent customer service. Achieving this may mean I need to think a little out of
+the box, even be a little creative and pragmatic.<br>
+<br>
+Now I should be clear that in writing this I am not condoning anyone who breaks a clearly published policy not to use
+wifi in a data center. On the contrary, if you have to work in such a place, I'd say stick to the policy, and drive the
+escorts nuts as you go in, out, in, out and in again to get the job done. Demand a full time escort if you need it.<br>
+<br>
+My real message is to anyone with authority over security policies and their application: recognise that a policy on
+paper is worth exactly the cost of the paper unless you have taken into consideration the human factors involved and
+done your best to ensure that your procedures and environment are optimally designed to encourage the very <span style=
+"font-style:italic;">best</span> behaviours, and not the ones you most want to avoid.<br>
+<br>
+Anyone have data centre security horror stories to share? I would love to hear about them! Better yet, how you manage
+to get around the stupidity, yet stay "legal".
