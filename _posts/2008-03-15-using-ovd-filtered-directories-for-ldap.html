@@ -30,9 +30,8 @@ Simply put, it allows you to combine directory-related information from disparat
 present an LDAP-compliant view in real-time. And the <span style="font-style:italic;">virtual</span> bit is
 <span style="font-style:italic;">real</span> (if that makes any sense) - OVD doesn't store anything, unlike a
 meta-directory; it just passes through the directory requests according to the rules you setup.<br>
-<a href="http://bp1.blogger.com/_AZh6c1pzK1A/R9p8gRnsn6I/AAAAAAAAAPo/O_mxENc5_S8/s1600-h/ovd-overview.png"><img class=
-"centered-image" src="http://bp1.blogger.com/_AZh6c1pzK1A/R9p8gRnsn6I/AAAAAAAAAPo/O_mxENc5_S8/s400/ovd-overview.png"
-border="0" alt="" id="BLOGGER_PHOTO_ID_5177587615543369634" name="BLOGGER_PHOTO_ID_5177587615543369634"></a><br>
+<a href="/assets/2008-03-15-using-ovd-filtered-directories-for-ldap/ovd-overview-s1600.jpg"><img class=
+"centered-image" src="/assets/2008-03-15-using-ovd-filtered-directories-for-ldap/ovd-overview-s400.jpg"></a><br>
 The virtual nature makes OVD ideal in large enterprise situations, where control of directories may be distributed.
 Another group may have a directory that contains some information you want to use as part of your "directory view", but
 are not going to cede any ownership or agree to any changes anytime soon, like adding some new attributes. Wheel in
@@ -42,10 +41,9 @@ Likewise, affiliated companies may want to share directory information, but not 
 relationship comes to and end, the directory owners want to know that they can turn off access in a moment, without
 needing worry about cached or replicated data left on the other side of the corporate divide. OVD to the rescue!<br>
 <a href=
-"http://bp3.blogger.com/_AZh6c1pzK1A/R9tWQhnsoDI/AAAAAAAAARI/kTq-2bHA3cQ/s1600-h/ovd1-deployment.jpg"><img style=
+"/assets/2008-03-15-using-ovd-filtered-directories-for-ldap/ovd1-deployment-1-s1600.jpg"><img style=
 "float:right; margin:0 0 10px 10px;cursor:pointer; cursor:hand;" src=
-"http://bp3.blogger.com/_AZh6c1pzK1A/R9tWQhnsoDI/AAAAAAAAARI/kTq-2bHA3cQ/s320/ovd1-deployment.jpg" border="0" alt=""
-id="BLOGGER_PHOTO_ID_5177827038495285298" name="BLOGGER_PHOTO_ID_5177827038495285298"></a>
+"/assets/2008-03-15-using-ovd-filtered-directories-for-ldap/ovd1-deployment-1-s400.jpg"></a>
 <h4>
   Case in Point: you need a subset of an existing directory
 </h4>The inspiration for this post is a small challenge I was involved with recently. The company was deploying a new
@@ -66,10 +64,9 @@ server.<br>
 <h4>
   Approach #1: DN Matching
 </h4><a href=
-"http://bp2.blogger.com/_AZh6c1pzK1A/R9tEnRnsoAI/AAAAAAAAAQw/Rum6tD-2-JA/s1600-h/ovd1-user-dn.jpg"><img style=
+"/assets/2008-03-15-using-ovd-filtered-directories-for-ldap/ovd1-user-dn-s1600.jpg"><img style=
 "float:right; margin:0 0 10px 10px;cursor:pointer; cursor:hand;" src=
-"http://bp2.blogger.com/_AZh6c1pzK1A/R9tEnRnsoAI/AAAAAAAAAQw/Rum6tD-2-JA/s320/ovd1-user-dn.jpg" border="0" alt="" id=
-"BLOGGER_PHOTO_ID_5177807638128009218" name="BLOGGER_PHOTO_ID_5177807638128009218"></a>If you can define the
+"/assets/2008-03-15-using-ovd-filtered-directories-for-ldap/ovd1-user-dn-s400.jpg"></a>If you can define the
 distinction between included/excluded entries in terms of an entry's DN, then a very simple solution is to use the "DN
 Matching" property of the source adapter. This is fund in the <span style="font-weight:bold;">Routing</span>
 configuration.<br>
@@ -81,16 +78,14 @@ string:<br>
   m/(.*)ou=(ITGroup|Management)(.*)/
 </blockquote><br>
 <a href=
-"http://bp1.blogger.com/_AZh6c1pzK1A/R9s_eBnsn_I/AAAAAAAAAQo/zg9pPtCWLIc/s1600-h/ovd1_adapter_routing_dnmatch.jpg"><img class="centered-image"
-src="http://bp1.blogger.com/_AZh6c1pzK1A/R9s_eBnsn_I/AAAAAAAAAQo/zg9pPtCWLIc/s400/ovd1_adapter_routing_dnmatch.jpg"
-border="0" alt="" id="BLOGGER_PHOTO_ID_5177801981656080370" name="BLOGGER_PHOTO_ID_5177801981656080370"></a><br>
+"/assets/2008-03-15-using-ovd-filtered-directories-for-ldap/ovd1_adapter_routing_dnmatch-s1600.jpg"><img class="centered-image"
+src="/assets/2008-03-15-using-ovd-filtered-directories-for-ldap/ovd1_adapter_routing_dnmatch-s400.jpg"></a><br>
 <h4>
   Approach #2: ACL Restrictions
 </h4><a href=
-"http://bp1.blogger.com/_AZh6c1pzK1A/R9tEsBnsoBI/AAAAAAAAAQ4/xYbGXQdfji4/s1600-h/ovd1-user-dept.jpg"><img style=
+"/assets/2008-03-15-using-ovd-filtered-directories-for-ldap/ovd1-user-dept-1-s1600.jpg"><img style=
 "float:right; margin:0 0 10px 10px;cursor:pointer; cursor:hand" src=
-"http://bp1.blogger.com/_AZh6c1pzK1A/R9tEsBnsoBI/AAAAAAAAAQ4/xYbGXQdfji4/s320/ovd1-user-dept.jpg" border="0" alt="" id=
-"BLOGGER_PHOTO_ID_5177807719732387858" name="BLOGGER_PHOTO_ID_5177807719732387858"></a>In practice, the DN may not
+"/assets/2008-03-15-using-ovd-filtered-directories-for-ldap/ovd1-user-dept-1-s400.jpg"></a>In practice, the DN may not
 provide enough information to distinguish items to include and exclude, and it is necessary to discriminate on the
 basis of an attribute, such as "departmentName". In this case, access control in the OVD engine may be configured to
 restrict the directory view based on a suitable filter.<br>
@@ -98,9 +93,8 @@ restrict the directory view based on a suitable filter.<br>
   Filter: departmentName=ITGroup
 </blockquote><br>
 <a href=
-"http://bp1.blogger.com/_AZh6c1pzK1A/R9tmfBnsoEI/AAAAAAAAARQ/TDBYmdSTEk0/s1600-h/ovd1-engine-acl.jpg"><img class=
-"centered-image" src="http://bp1.blogger.com/_AZh6c1pzK1A/R9tmfBnsoEI/AAAAAAAAARQ/TDBYmdSTEk0/s400/ovd1-engine-acl.jpg"
-border="0" alt="" id="BLOGGER_PHOTO_ID_5177844879789432898" name="BLOGGER_PHOTO_ID_5177844879789432898"></a><br>
+"/assets/2008-03-15-using-ovd-filtered-directories-for-ldap/ovd1-engine-acl-2-s1600.jpg"><img class=
+"centered-image" src="/assets/2008-03-15-using-ovd-filtered-directories-for-ldap/ovd1-engine-acl-2-s400.jpg"></a><br>
 It is important to note with this approach that ACLs can be applied to all LDAP operations, except bind.<br>
 <br>
 As a result, the directory view we have created with OVD appears to only contain the filtered subset of information: we
@@ -117,10 +111,9 @@ The user enters an id or username, which is used by the application to lookup th
 along with the user-supplied password. If the application can't find the DN in the first place, then no bind is
 possible.<br>
 <a href=
-"http://bp2.blogger.com/_AZh6c1pzK1A/R9uhCRnsoFI/AAAAAAAAARY/lQ95eoIHZi8/s1600-h/ovd1-bind-process.jpg"><img class=
+"/assets/2008-03-15-using-ovd-filtered-directories-for-ldap/ovd1-bind-process-s1600.jpg"><img class=
 "centered-image" src=
-"http://bp2.blogger.com/_AZh6c1pzK1A/R9uhCRnsoFI/AAAAAAAAARY/lQ95eoIHZi8/s400/ovd1-bind-process.jpg" border="0" alt=""
-id="BLOGGER_PHOTO_ID_5177909257054232658" name="BLOGGER_PHOTO_ID_5177909257054232658"></a><br>
+"/assets/2008-03-15-using-ovd-filtered-directories-for-ldap/ovd1-bind-process-s400.jpg"></a><br>
 Of course, the acknowledged security "exposure" in this case is that a user can bypass the application and directly
 bind via OVD if they know their DN. However this is probably a false risk, because the user would have always had a
 similar capability with the source directory itself <span style="font-style:italic;">(assuming that the source
@@ -138,17 +131,15 @@ When deployed in OC4J, the security provider used for the Wiki application can b
 Manager web interface.<br>
 <br>
 <a href=
-"http://bp2.blogger.com/_AZh6c1pzK1A/R9ulzRnsoGI/AAAAAAAAARg/OIPcMvqSBo0/s1600-h/ovd1-em-securityproviders.jpg"><img class="centered-image"
-src="http://bp2.blogger.com/_AZh6c1pzK1A/R9ulzRnsoGI/AAAAAAAAARg/OIPcMvqSBo0/s400/ovd1-em-securityproviders.jpg"
-border="0" alt="" id="BLOGGER_PHOTO_ID_5177914496914333794" name="BLOGGER_PHOTO_ID_5177914496914333794"></a><br>
+"/assets/2008-03-15-using-ovd-filtered-directories-for-ldap/ovd1-em-securityproviders-s1600.jpg"><img class="centered-image"
+src="/assets/2008-03-15-using-ovd-filtered-directories-for-ldap/ovd1-em-securityproviders-s400.jpg"></a><br>
 Switching to OVD as the authentication source is a simple matter of selecting the <span style=
 "font-weight:bold;">Oracle Security Provider for 3rd Party LDAP Server</span> and configuring it with some simple
 directory details:<br>
 <br>
 <a href=
-"http://bp0.blogger.com/_AZh6c1pzK1A/R9ummxnsoHI/AAAAAAAAARo/XdJuKopcUVw/s1600-h/ovd1-owc-securityprovider.jpg"><img class="centered-image"
-src="http://bp0.blogger.com/_AZh6c1pzK1A/R9ummxnsoHI/AAAAAAAAARo/XdJuKopcUVw/s400/ovd1-owc-securityprovider.jpg"
-border="0" alt="" id="BLOGGER_PHOTO_ID_5177915381677596786" name="BLOGGER_PHOTO_ID_5177915381677596786"></a><br>
+"/assets/2008-03-15-using-ovd-filtered-directories-for-ldap/ovd1-owc-securityprovider-s1600.jpg"><img class="centered-image"
+src="/assets/2008-03-15-using-ovd-filtered-directories-for-ldap/ovd1-owc-securityprovider-s400.jpg"></a><br>
 Almost done. There are two assumptions that I think the wiki makes about the directory. Just need to make sure these
 are setup:<br>
 <ul>

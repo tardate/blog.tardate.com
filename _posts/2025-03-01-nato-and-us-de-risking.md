@@ -92,7 +92,7 @@ Let's look at some of the key weapons systems purchased from the US, and the ext
 
 ### [F-35 Lightning II](https://en.wikipedia.org/wiki/Lockheed_Martin_F-35_Lightning_II): Limited Autonomy
 
-[![f-35a](/assets/nato-and-us-de-risking/f-35a.jpg)](https://en.wikipedia.org/wiki/Lockheed_Martin_F-35_Lightning_II)
+[![f-35a](/assets/2025-03-01-nato-and-us-de-risking/f-35a.jpg)](https://en.wikipedia.org/wiki/Lockheed_Martin_F-35_Lightning_II)
 
 Technical Dependencies:
 
@@ -114,7 +114,7 @@ Strategic Implications:
 
 ### [Patriot Missile Systems](https://en.wikipedia.org/wiki/MIM-104_Patriot): Conditional Readiness
 
-[![patriot](/assets/nato-and-us-de-risking/patriot.jpg)](https://en.wikipedia.org/wiki/MIM-104_Patriot)
+[![patriot](/assets/2025-03-01-nato-and-us-de-risking/patriot.jpg)](https://en.wikipedia.org/wiki/MIM-104_Patriot)
 
 Technical Dependencies:
 
@@ -134,7 +134,7 @@ Operational Independence:
 
 ### [HIMARS](https://en.wikipedia.org/wiki/M142_HIMARS): Flexibility with Strings Attached
 
-[![himars](/assets/nato-and-us-de-risking/himars.jpg)](https://en.wikipedia.org/wiki/M142_HIMARS)
+[![himars](/assets/2025-03-01-nato-and-us-de-risking/himars.jpg)](https://en.wikipedia.org/wiki/M142_HIMARS)
 
 Technical Dependencies:
 
