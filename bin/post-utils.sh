@@ -15,6 +15,7 @@ function usage() {
   echo "       make_asset_paths     : Generate asset paths for all posts in the _posts directory"
   echo "       organise_assets      : organise any images in the root of the assets folder"
   echo "       legacy_amazon_refs   : find all posts using legacy amazon references"
+  echo "       legacy_blogger_refs  : find all posts using legacy blogger references"
   echo "       update_image_styling : update image styling in posts"
   echo "       remove_blogger_js    : remove blogger js from posts"
   echo "       pretty_html          : pretty print HTML in posts"
@@ -60,6 +61,16 @@ function legacy_amazon_refs() {
   echo "Legacy Amazon references found in the following posts:"
   for post_file in "$POSTS_DIR"*; do
     if grep -qE "assoc-amazon.com|amazon.com/gp/product|rcm.amazon.com" "${post_file}"; then
+      post_base_name=$(basename "${post_file}")
+      echo "${post_base_name}"
+    fi
+  done
+}
+
+function legacy_blogger_refs() {
+  echo "Legacy Blogger references found in the following posts:"
+  for post_file in "$POSTS_DIR"*; do
+    if grep -qE 'href="http://bp' "${post_file}"; then
       post_base_name=$(basename "${post_file}")
       echo "${post_base_name}"
     fi
@@ -135,6 +146,9 @@ case "$OP" in
     ;;
   legacy_amazon_refs)
     legacy_amazon_refs
+    ;;
+  legacy_blogger_refs)
+    legacy_blogger_refs
     ;;
   update_image_styling)
     update_image_styling

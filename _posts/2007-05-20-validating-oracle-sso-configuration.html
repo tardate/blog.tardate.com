@@ -6,7 +6,6 @@ author: Paul Gallagher
 tags:
 - Security
 modified_time: '2008-08-31T20:00:54.533+08:00'
-thumbnail: http://bp0.blogger.com/_AZh6c1pzK1A/Rk-wrLH_4AI/AAAAAAAAABc/Q-BdjHJHqa4/s72-c/validateSso.jpg
 blogger_id: tag:blogger.com,1999:blog-6220586.post-5307230170110645054
 blogger_orig_url: http://blog.tardate.com/2007/05/validating-oracle-sso-configuration.html
 ---
@@ -17,12 +16,11 @@ Server Single-Sign-On (OSSO) configuration.<br>
 How and where the OSSO server keeps its configuration is a wierd and wonderful thing. The first few times I faced OSSO
 server issues I remember digging through a collection of metalink notes to piece together the story. It was after
 forgetting the details a second time that I committed the understanding to a script (<a href=
-"http://github.com/tardate/sources/tree/master/validateSso.sh?raw=true">validateSso.sh</a>).<br>
+"https://github.com/tardate/sources/tree/master/validateSso.sh?raw=true">validateSso.sh</a>).<br>
 <br>
-<a href="http://bp0.blogger.com/_AZh6c1pzK1A/Rk-wrLH_4AI/AAAAAAAAABc/Q-BdjHJHqa4/s1600-h/validateSso.jpg"><img style=
+<a href="/assets/2007-05-20-validating-oracle-sso-configuration/validateSso-s1600.jpg"><img style=
 "float:right; margin:0 0 10px 10px;cursor:pointer; cursor:hand;" src=
-"http://bp0.blogger.com/_AZh6c1pzK1A/Rk-wrLH_4AI/AAAAAAAAABc/Q-BdjHJHqa4/s400/validateSso.jpg" border="0" alt="" id=
-"BLOGGER_PHOTO_ID_5066462361582297090" name="BLOGGER_PHOTO_ID_5066462361582297090"></a>Appreciating the indirection
+"/assets/2007-05-20-validating-oracle-sso-configuration/validateSso-s400.jpg"></a>Appreciating the indirection
 used in the configuration is the key to understanding how it all really hangs together, which can really help if you
 are trying to fix a server config issue. Things basically hang together in a chain with 3 links:<br>
 <br>
@@ -35,7 +33,7 @@ schema.<br>
 3. Thus the SSO Server finally has the information needed to connect to the OID server that contains the user
 credentials.<br>
 <br>
-The <a href="http://github.com/tardate/sources/tree/master/validateSso.sh?raw=true">validateSso.sh</a> script I've
+The <a href="https://github.com/tardate/sources/tree/master/validateSso.sh?raw=true">validateSso.sh</a> script I've
 provided here gives you a simple and non-destructive test of all these steps. The most common problem I've seen in
 practice is that the OSSO schema password stored in OID gets out of sync from the actual OSSO schema password. I think
 various causes of these problems, but the script will identity the exact point of failure in a jiffy.

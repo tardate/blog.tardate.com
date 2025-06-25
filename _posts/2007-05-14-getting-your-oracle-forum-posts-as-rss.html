@@ -18,10 +18,9 @@ Forums</a>.<br>
 <br>
 At first it may sound a bit narcissistic to have a feed that allows you to follow what you have written yourself!<br>
 <br>
-<a href="http://bp2.blogger.com/_AZh6c1pzK1A/RkdFx0dCJcI/AAAAAAAAAA0/xEuG3Jh_ofE/s1600-h/jaiku.jpg"><img style=
+<a href="/assets/2007-05-14-getting-your-oracle-forum-posts-as-rss/jaiku-s1600.jpg"><img style=
 "float:left; margin:0 10px 10px 0;cursor:pointer; cursor:hand;" src=
-"http://bp2.blogger.com/_AZh6c1pzK1A/RkdFx0dCJcI/AAAAAAAAAA0/xEuG3Jh_ofE/s320/jaiku.jpg" border="0" alt="" id=
-"BLOGGER_PHOTO_ID_5064093028197737922" name="BLOGGER_PHOTO_ID_5064093028197737922"></a>It was my exploration of
+"/assets/2007-05-14-getting-your-oracle-forum-posts-as-rss/jaiku-s400.jpg"></a>It was my exploration of
 <a href="http://tardate.jaiku.com">Jaiku</a> that prompted the thought. Since "presence" is their big thing, I've been
 experimenting to see what's its like to have Jaiku aggregate all your web activity. So far it looks really cool - I
 love the interface. Must say that I'm not sure how useful Jaiku may turn out to be in the long run ... I suspect it
@@ -37,15 +36,14 @@ Problem is, while you can get a web page that lists your recent posts, and you c
 authors post, I wasn't able to find a way of getting an RSS feed for a specific author's posts.<br>
 <br>
 <a href=
-"http://bp0.blogger.com/_AZh6c1pzK1A/RkdEmUdCJbI/AAAAAAAAAAs/1XXtrLzwPOg/s1600-h/oracleForumRSS.jpg"><img style="float:right; margin:0 0 10px 10px;cursor:pointer; cursor:hand;"
-src="http://bp0.blogger.com/_AZh6c1pzK1A/RkdEmUdCJbI/AAAAAAAAAAs/1XXtrLzwPOg/s320/oracleForumRSS.jpg" border="0" alt=""
-id="BLOGGER_PHOTO_ID_5064091731117614514" name="BLOGGER_PHOTO_ID_5064091731117614514"></a>So I created a little perl
+"/assets/2007-05-14-getting-your-oracle-forum-posts-as-rss/oracleForumRSS-s1600.jpg"><img style="float:right; margin:0 0 10px 10px;cursor:pointer; cursor:hand;"
+src="/assets/2007-05-14-getting-your-oracle-forum-posts-as-rss/oracleForumRSS-s400.jpg"></a>So I created a little perl
 script that scrapes the HTML and generates an RSS feed (using XML::RSS::SimpleGen). I've packaged it as a CGI program
 on a server I have access to. That's what I registered on my experimental <a href="http://tardate.jaiku.com">Jaiku</a>
 site, and it works like a charm.<br>
 <br>
 Until Oracle build this feature into the forums, feel free to take my <a href=
-"http://github.com/tardate/sources/tree/master%2ForacleForumRSS.pl?raw=true">oracleForumRSS.pl</a> script and
+"https://github.com/tardate/sources/tree/master%2ForacleForumRSS.pl?raw=true">oracleForumRSS.pl</a> script and
 experiment away. Its pretty basic, but is generic for any forum user and ready to go. Sorry, but I'm not hosting it for
 direct use by others, so you'd have to find you own server with cgi or convert it to script that spits out a static rss
 xml page instead.<br>

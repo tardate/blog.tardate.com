@@ -6,7 +6,6 @@ author: Paul Gallagher
 tags:
 - Database
 modified_time: '2009-09-30T02:18:23.436+08:00'
-thumbnail: http://bp0.blogger.com/_AZh6c1pzK1A/Rn45pR8_73I/AAAAAAAAAFw/ViXLMlkX6tY/s72-c/ora-12545-bad.JPG
 blogger_id: tag:blogger.com,1999:blog-6220586.post-1879751381292068785
 blogger_orig_url: http://blog.tardate.com/2007/06/check-locallistener-if-you-run-rac.html
 ---
@@ -66,10 +65,9 @@ virtual addresses host1_vip and host2_vip). The client tnsnames would look somet
 <pre name="code" class="sql:wraplines:nocontrols">
 SVC = <br>  (DESCRIPTION = <br>    (ADDRESS = (PROTOCOL = TCP)(HOST = host1_vip)(PORT = 1521)) <br>    (ADDRESS = (PROTOCOL = TCP)(HOST = host2_vip)(PORT = 1521)) <br>    (LOAD_BALANCE = yes) <br>    (CONNECT_DATA = <br>      (SERVER = DEDICATED) <br>      (SERVICE_NAME = SVC)<br>      (FAILOVER_MODE=(TYPE=select)(METHOD=basic)(RETRIES=10)(DELAY=1)) <br>    ) <br>  )
 </pre><br>
-<a href="http://bp0.blogger.com/_AZh6c1pzK1A/Rn45pR8_73I/AAAAAAAAAFw/ViXLMlkX6tY/s1600-h/ora-12545-bad.JPG"><img style=
+<a href="/assets/2007-06-24-check-locallistener-if-you-run-rac/ora-12545-bad-1-s1600.jpg"><img style=
 "float:right; margin:0 0 10px 10px;cursor:pointer; cursor:hand;" src=
-"http://bp0.blogger.com/_AZh6c1pzK1A/Rn45pR8_73I/AAAAAAAAAFw/ViXLMlkX6tY/s320/ora-12545-bad.JPG" border="0" alt="" id=
-"BLOGGER_PHOTO_ID_5079560811077169010"></a><br>
+"/assets/2007-06-24-check-locallistener-if-you-run-rac/ora-12545-bad-1-s400.jpg"></a><br>
 The diagram shows how a connection is handled through the listener in the case where the LOCAL_LISTENER is not set
 correctly. The flows go like this:<br>
 <ol>
@@ -91,9 +89,8 @@ correctly. The flows go like this:<br>
 </ol><br>
 <br>
 <a href=
-"http://bp0.blogger.com/_AZh6c1pzK1A/Rn4uLR8_72I/AAAAAAAAAFo/RypOI7v0RGc/s1600-h/ora-12545-good.JPG"><img style="float:right; margin:0 10px 10px 0;cursor:pointer; cursor:hand;"
-src="http://bp0.blogger.com/_AZh6c1pzK1A/Rn4uLR8_72I/AAAAAAAAAFo/RypOI7v0RGc/s320/ora-12545-good.JPG" border="0" alt=""
-id="BLOGGER_PHOTO_ID_5079548201053187938"></a><br>
+"/assets/2007-06-24-check-locallistener-if-you-run-rac/ora-12545-good-s1600.jpg"><img style="float:right; margin:0 10px 10px 0;cursor:pointer; cursor:hand;"
+src="/assets/2007-06-24-check-locallistener-if-you-run-rac/ora-12545-good-s400.jpg"></a><br>
 Now consider what should happen, with a correctly configured LOCAL_LISTENER.<br>
 <ol>
   <li>The client selects a virtual host from the address list and attempts a connection, in this case to the listener
