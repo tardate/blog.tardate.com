@@ -2,7 +2,7 @@
 layout:         post
 title:          "Turning Points - HMS Prince of Wales"
 date:           2025-06-25
-summary:        "summary text"
+summary:        "HMS Prince of Wales (R09) arrived in Singapore on the 23 June 2025, docking at the Marina Bay Cruise Centre. Many remember the last visit by a ship bearing her name, HMS Prince of Wales (53), doomed to be sunk a few days later on 10 Dec 1941 as Force Z was effectively wiped out by Japanese aircraft. In 2025, we are at an equally momentous turning point in military doctrine. Will the the new HMS Prince of Wales weather the storm?"
 hero_image_url: "https://blog.tardate.com/assets/2025-06-25-turning-points-hms-prince-of-wales/hms-pow-r09-2.jpg"
 tags:
 - Politics
