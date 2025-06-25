@@ -17,6 +17,7 @@ Many remember the last visit by a ship bearing her name,
 [HMS Prince of Wales (53)](https://en.wikipedia.org/wiki/HMS_Prince_of_Wales_(53)), doomed to be sunk a few days later on 10 Dec 1941 as
 [Force Z](https://en.wikipedia.org/wiki/Force_Z)
 was effectively wiped out by Japanese aircraft.
+In 2025, we are at an equally momentous turning point in military doctrine. Will the the new HMS Prince of Wales weather the storm?
 ![HMS Prince of Wales (R09) at the Marina Bay Cruise Centre](/assets/2025-06-25-turning-points-hms-prince-of-wales/hms-pow-r09-2.jpg)
 
 The loss of the battleship [HMS Prince of Wales (53)](https://en.wikipedia.org/wiki/HMS_Prince_of_Wales_(53))
