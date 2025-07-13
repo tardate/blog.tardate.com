@@ -1,8 +1,8 @@
 ---
 layout:         post
-title:          "Airline: the DC3 in Post-war History"
+title:          "Airline: the DC-3 in Post-war History"
 date:           2025-07-13
-summary:        "The Douglas DC-2 (and Austin Tilly) have starring roles in this TV series from 1982 that brilliantly captures post-war society and events through the end of British Mandate and Palestine Emergency to the Berlin Airlift. I give you 4 reasons to love the show and 1 reason to loathe it!"
+summary:        "The Douglas DC-3 (and Austin Tilly) have starring roles in this TV series from 1982 that brilliantly captures post-war society and events through the end of British Mandate and Palestine Emergency to the Berlin Airlift. I give you 4 reasons to love the show and 1 reason to loathe it!"
 hero_image_url: "https://blog.tardate.com/assets/2025-07-13-airline-the-dc3-in-post-war-history/poster.jpg"
 tags:
 - History
@@ -13,14 +13,15 @@ tags:
 ---
 
 I recently discovered the British TV Series from 1982 ["Airline"](https://www.imdb.com/title/tt0083378/),
-currently [free to watch on YouTube, thanks to "Forgotten British Television"](https://www.youtube.com/playlist?list=PLcOKn2Ebnf7nwdGdbuqkDWGNJ9ascPkcg). The star of the show is really the DC3. I can give you at least 4 reasons why it is wonderful viewing, and 1 reason why you'll hate it!
+currently [free to watch on YouTube, thanks to "Forgotten British Television"](https://www.youtube.com/playlist?list=PLcOKn2Ebnf7nwdGdbuqkDWGNJ9ascPkcg). The star of the show is really the DC-3 (and an Austin Tilly). I can give you at least 4 reasons why it is wonderful viewing, and 1 reason why you'll hate it!
 
 The good:
 
 * For TV made as late as 1982, it brilliantly captures the immediate post-war period in Britain. From [rationing](https://en.wikipedia.org/wiki/Rationing_in_the_United_Kingdom#Post-Second_World_War_1945%E2%80%931954) and the black market, to social upheaval of returned services and the changing role of women in society, to the expectation of a new social contract reflected by the [Beveridge Report](https://en.wikipedia.org/wiki/Beveridge_Report) and the [Labour victory in 1945](https://en.wikipedia.org/wiki/1945_United_Kingdom_general_election) - all are handled with convincing realism.
-* it features the forgotten history of the end of the [British Mandate and the Palestine Emergency](https://en.wikipedia.org/wiki/Jewish_insurgency_in_Mandatory_Palestine), with the Airline being dupped into smuggling guns for Zionist militias who were fighting the British at the time. The show deftly presents the moral dilemma that continues to dominate western politics to this day: sympathy and a need to atone for the treatment of the Jewish people in Europe up to and including the holocaust; yet discomfort with zionist methods and all that means for others in the middle east, in particular the people of Palestine and Lebanon
-* later episodes depict the [Berlin airlift](https://en.wikipedia.org/wiki/Berlin_Blockade) from a perspective I'd never considered before: the rapid assemblage of motley crews and operators to provide an airlift capability that had been unceremoniously moth-balled at the conclusion of WWII
-* and if you appreciate the [DC3/Dakota](https://en.wikipedia.org/wiki/Douglas_DC-3) - it is really the star of the show. There is lots of footage of it in the air and on the ground, in pieces and various liveries. Incidentally, the show also features the regular use of an [Austin Tilly](https://en.wikipedia.org/wiki/Tilly_(vehicle)).
+* It features the forgotten history of the end of the [British Mandate and the Palestine Emergency](https://en.wikipedia.org/wiki/Jewish_insurgency_in_Mandatory_Palestine), with the Airline being dupped into smuggling guns for Zionist militias who were fighting the British at the time. The show deftly presents the moral dilemma that continues to dominate western politics to this day: sympathy and a need to atone for the treatment of the Jewish people in Europe up to and including the holocaust; yet discomfort with zionist methods and all that means for others in the middle east, in particular the people of Palestine and Lebanon.
+For more on the period, I can highly recommend [The Hundred Years' War on Palestine by Rashid Khalidi](https://amzn.to/40QD3EH).
+* Later episodes depict the [Berlin airlift](https://en.wikipedia.org/wiki/Berlin_Blockade) from a perspective I'd never considered before: the rapid assemblage of motley crews and operators to provide an airlift capability that had been unceremoniously moth-balled at the conclusion of WWII. For more on the history, really enjoyed reading [The Berlin Airlift by by Robert Jackson](https://amzn.to/46qEwFB).
+* Finally, if you appreciate the [DC-3/Dakota](https://en.wikipedia.org/wiki/Douglas_DC-3) - it is really the star of the show. There is lots of footage of it in the air and on the ground, in pieces and various liveries. And as a bonus, the show regularly co-stars a period [Austin Tilly](https://en.wikipedia.org/wiki/Tilly_(vehicle)).
 
 In short, so many aspects of the story and production will have one thinking: "crikey, forgot about that!" Or even, "crikey, never knew that!"
 
