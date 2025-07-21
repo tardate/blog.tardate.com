@@ -25,7 +25,7 @@ I followed the basic recipe, the main variation
 being that I used
 [Knorr Serbuk Pati (Seasoning Powder - Chicken) from NTUC Fairprice](https://www.fairprice.com.sg/product/knorr-stock-powder-%E2%80%93-chicken-120g-308371)
 in place of "chicken bouillon". I'm not sure if these are actually
-similar products, but it worked just fine. The first time I made this, I also left out the cashews  as I didn't have any around - also works, but I can now attestt that it is better with them in.
+similar products, but it worked just fine. The first time I made this, I also left out the cashews  as I didn't have any around - also works, but I can now attest that it is better with them in.
 
 My ingredient list:
 
