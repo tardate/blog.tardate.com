@@ -47,6 +47,8 @@ works if changed to
 
 To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter.
 
+Use `bin/new_post.rb` to generate a new post based on an existing template.
+
 Jekyll also offers powerful support for code snippets:
 
 ```md
