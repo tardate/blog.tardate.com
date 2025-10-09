@@ -1,75 +1,96 @@
-#!/usr/bin/env ruby
-require "pathname"
+#! /usr/bin/env ruby
+# frozen_string_literal: true
 
-def help
-  puts <<-EOS
+require 'optparse'
+require 'optparse/date'
+require 'pathname'
 
-  A simple script to initialise a new post using the standard post template.
+class PostMaker
+  attr_reader :options
 
-  Usage:
+  def initialize(options)
+    @options = options
+  end
 
-  To create a new post for today:
+  def post_title
+    @options[:title]
+  end
 
-  $ ruby bin/new_post.rb "My New Post Title"
+  def template
+    @options[:template]
+  end
 
-  To create a back-dated post, provide a date in YYY-MM-DD format:
+  def date
+    @options[:date]
+  end
 
-  $ ruby bin/new_post.rb "2016-09-08" "My New Post Title"
+  def post_date_time
+    @post_date_time ||= begin
+      actual = (Time.now + (3600 - Time.now.min * 60 - Time.now.sec)).to_s.split
+      actual[0] = date.to_s
+      actual.join(' ')
+    end
+  end
 
+  def post_filename
+    @post_filename ||= begin
+      parts = [date]
+      parts.concat post_title.downcase.split
+      parts.join("-") + ".md"
+    end
+  end
 
-  EOS
-end
+  def root_path
+    @root_path ||= Pathname.new(File.dirname(__FILE__)).join('..')
+  end
 
-def get_post_title
-  ARGV.last || "New Post"
-end
+  def post_full_path
+    @post_full_path ||= root_path.join('_posts', post_filename)
+  end
 
-def get_post_date
-  if ARGV.count > 1
-    ARGV.first
-  else
-    Time.now.strftime("%Y-%m-%d")
+  def template_full_path
+    @template_full_path ||= root_path.join('_drafts', "#{template}.md")
+  end
+
+  def template_text
+    File.open(template_full_path, 'rb') { |f| f.read }
+  end
+
+  def post_text
+    text = template_text.dup
+    text.gsub!(/title:.*$/, %{title:          "#{post_title}"})
+    text.gsub!(/date:.*$/, %{date:           "#{post_date_time}"})
+    text
+  end
+
+  def make
+    puts <<-EOS
+
+    Preparing a new post #{post_filename}
+
+    title:    #{post_title}
+    date:     #{post_date_time}
+    template: #{template_full_path}
+
+    Draft is now available here for editing: #{post_full_path}
+
+    EOS
+
+    File.open(post_full_path, 'w') { |file| file.write(post_text) }
   end
 end
 
-def get_post_date_time
-  actual = Time.now.to_s.split
-  actual[0] = get_post_date
-  actual.join(" ")
+def parse_args
+  options = {}
+  OptionParser.new do |parser|
+    parser.banner = 'Usage: bin/new_post.rb [options]'
+    parser.on '-t', '--title TITLE', 'Post title'
+    parser.on '--template TEMPLATE', 'Post template (default, leap). Default: default'
+    parser.on '-d', '--date=DATE', Date, 'provide a date (in the format YYYY-MM-DD), Default: today'
+  end.parse!(into: options)
+  options[:template] ||= 'default'
+  options[:date] ||=  Date.today
+  options
 end
 
-def get_post_filename
-  parts = [get_post_date]
-  title = get_post_title
-  parts.concat title.downcase.split
-  parts.join("-") + ".md"
-end
-
-def generate_post
-  post_title = get_post_title
-  post_date_time = get_post_date_time
-
-  root_path = Pathname.new(File.dirname(__FILE__)).join('..')
-  template_full_path = root_path.join('_drafts', 'template.md')
-  post_full_path = root_path.join('_posts', get_post_filename)
-
-  puts <<-EOS
-
-  Preparing a new post #{get_post_filename}
-
-  title:    #{post_title}
-  date:     #{post_date_time}
-  template: #{template_full_path}
-
-  Draft is now available here for editing: #{post_full_path}
-
-  EOS
-
-  template_text = File.open(template_full_path, 'rb') { |f| f.read }
-  template_text.gsub!(/title:.*$/, %{title:          "#{post_title}"})
-  template_text.gsub!(/date:.*$/, %{date:           "#{post_date_time}"})
-
-  File.open(post_full_path, 'w') {|f| f.write(template_text) }
-end
-
-ARGV.count > 0 ? generate_post : help
+PostMaker.new(parse_args).make
