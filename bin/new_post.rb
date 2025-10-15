@@ -13,7 +13,7 @@ class PostMaker
   end
 
   def post_title
-    @options[:title]
+    @options[:title] || 'New Post'
   end
 
   def template
@@ -32,12 +32,16 @@ class PostMaker
     end
   end
 
-  def post_filename
-    @post_filename ||= begin
+  def post_basename
+    @post_basename ||= begin
       parts = [date]
       parts.concat post_title.downcase.split
-      parts.join("-") + ".md"
+      parts.join("-")
     end
+  end
+
+  def post_filename
+    @post_filename ||= post_basename + ".md"
   end
 
   def root_path
@@ -46,6 +50,10 @@ class PostMaker
 
   def post_full_path
     @post_full_path ||= root_path.join('_posts', post_filename)
+  end
+
+  def post_asset_folder
+    @post_asset_folder ||= root_path.join('assets', post_basename)
   end
 
   def template_full_path
@@ -73,10 +81,12 @@ class PostMaker
     template: #{template_full_path}
 
     Draft is now available here for editing: #{post_full_path}
+    Folder created for post assets: #{post_asset_folder}
 
     EOS
 
     File.open(post_full_path, 'w') { |file| file.write(post_text) }
+    Dir.mkdir(post_asset_folder) unless Dir.exist?(post_asset_folder)
   end
 end
 
