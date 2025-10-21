@@ -3,7 +3,7 @@ layout:         post
 title:          "After Pivotal Tracker"
 date:           "2025-10-21 11:00:00 +0800"
 summary:        "Reviewing the successors to Pivotal Tracker"
-hero_image_url: "https://blog.tardate.com/assets/xxx"
+hero_image_url: "https://blog.tardate.com/assets/2025-10-21-after-pivotal-tracker/bardtracker-1.png"
 tags:
 - Development
 - Planning
