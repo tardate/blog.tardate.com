@@ -12,7 +12,7 @@ tags:
 When Broadcom/VMware announced it was
 [shutting down Pivotal Tracker effective April 30, 2025](https://web.archive.org/web/20250321135732/https://www.pivotaltracker.com/blog/2024-09-18-end-of-life), it signalled the end of an era. And had me scrambling to find a replacement!
 
-TLDR: I found 2 -
+TLDR: I moved to
 [BardTracker](https://bardtracker.com/) and
 [LiteTracker](https://litetracker.com/).
 
@@ -24,11 +24,11 @@ Pivotal Tracker (PT) was created in 2008 by Pivotal Labs as an internal project 
 * 2023: VMware is acquired by Broadcom.
 * 2025: Tanzu Labs is shut down in January, and Pivotal Tracker is retired in April.
 
-I was first introduced to PT while working along side Pivotal Labs consultants on Rails projects in 2008/2009.
-For me, it represented the same simplicity and effectiveness in planning, that Ruby and Rails brough to development itself.
+I was first introduced to PT while working alongside Pivotal Labs consultants on Rails projects in 2008/2009.
+For me, it represented the same simplicity and effectiveness in planning that Ruby and Rails brought to development itself.
 
 I was converted, and while I've had to use many other systems before and since (Jira, Trello, bugzilla, even FogBugz and others),
-nothing has helped me to just get things done so well without adding undue cost or complexity.
+nothing has helped me to just get things done so well, without adding undue cost or complexity.
 
 So like many others, I was in a desperate search for alternatives in 2024/2025, and even considered writing my own if I couldn't find anything suitable. This was especially true as I'd long since internalised PT and used it for getting things done in all aspects of life.
 
@@ -36,7 +36,7 @@ The good news: I found answers and was able to smoothly migrate all my ongoing P
 
 ## [BardTracker](https://bardtracker.com/)
 
-I've move all of my personal and small project activity to [BardTracker](https://bardtracker.com/).
+I've moved all my personal and small project activity to [BardTracker](https://bardtracker.com/).
 It was specifically developed by Bot and Rose Design (BARD) as a PT replacement for their own consulting work,
 and they now offer it as a service for others.
 
@@ -60,8 +60,8 @@ To consider:
 
 It really is the most complete and "identical" PT replacement that has made it into full operation.
 If you want something exactly like PT, this is the best I've found.
-As it has no free tier, I haven't adopted it for personal projects (using BardTracker instead),
-but the next time I start a new project with a larger team, this would be my first choice.
+As it has no free tier, I haven't adopted it for personal projects,
+but it would be my first choice the next time I start a new project with a larger team.
 
 What I like:
 
@@ -97,10 +97,10 @@ Quick notes on some of the others I considered when looking for a PT replacement
 
 ### Other Planning Solutions
 
-These never aimed to act or replace PT directly, and none offered any migration support from PT.
-For a while I did consider if I really wanted a PT replacement or would prefer to try something different.
+For a while I did consider whether I really wanted a PT replacement, or would be better served by something different.
 
-NB: this is not an exhaustive list of tools by any stretch, and I excluded all the more traditional project management tools.
+These never aimed to replace PT directly, and none offered any migration support from PT.
+It is not an exhaustive list of tools by any stretch, and I excluded all the more traditional project management tools.
 
 * [ClickUp](https://clickup.com/)
     * Didn’t like it.
