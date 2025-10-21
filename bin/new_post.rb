@@ -57,7 +57,7 @@ class PostMaker
   end
 
   def template_full_path
-    @template_full_path ||= root_path.join('_drafts', "#{template}.md")
+    @template_full_path ||= root_path.join('_templates', "#{template}.md")
   end
 
   def template_text
@@ -66,8 +66,9 @@ class PostMaker
 
   def post_text
     text = template_text.dup
-    text.gsub!(/title:.*$/, %{title:          "#{post_title}"})
-    text.gsub!(/date:.*$/, %{date:           "#{post_date_time}"})
+    text.gsub!(/{{title}}/, post_title)
+    text.gsub!(/{{date}}/, post_date_time)
+    text.gsub!(/{{post_basename}}/, post_basename)
     text
   end
 
