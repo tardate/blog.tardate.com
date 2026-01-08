@@ -47,19 +47,18 @@ In reality, I've often had to deal with, let's say "misleading", assessments of 
 * whatever the C-suite says this week is the most urgent and important thing to work on
     * i.e. if you have the authority, you can bypass whatever process is in place for product management
     * This can be tough, because at the end of the day "the boss is always right"!!
-    * I've mainly seen this in places where senior management either don't know about the processes being used to manage product development, or they do not have the trust in the processes to deliver the necessary results
+    * I've mainly seen this in places where senior management either don't understand the processes used to manage product development, or they don't trust it to deliver the necessary results
     * Solutions?
-        * someone needs to be investing time in building the stakeholder relationships and importantly educating them on how development works. Whether that's the product owner, scrum master, Development Manager, or someone else will depend on your organisational structure and nomenclature.
+        * invest time in building the stakeholder relationships and educating them on how development works.
         * nothing beats a good track record to build trust.
-            * if execs only hear about development when things go wrong, then understandably they'll think that's the norm
-            * ideally they should regularly be hearing all the good news about the process working correctly too
-            * someone should be providing this level of regular update as a critical part of sustaining development
+            * if execs only hear about development when things go wrong, they'll think that's the norm
+            * make sure to provide regular updates that include all the good news about the process working correctly
 
 ## Problem 3. We are ignoring the Full Feature Lifecycle
 
-The podcast did touch on the [Three Horizons](https://en.wikipedia.org/wiki/Three_Horizons) model for ensuring there's always an innovation pipeline, but on a smaller scale I've seen insufficient attention paid to appropriately balancing the feature lifecycle.
+The podcast did touch on the [Three Horizons](https://en.wikipedia.org/wiki/Three_Horizons) model for ensuring there's always an innovation pipeline, but on a smaller scale I've seen insufficient attention paid to appropriately balancing effort the full lifecycle of features.
 
-The most common anti-pattern I've seen is all effort consumed on new feature development, only allowing effort to be clawed back to fix bugs.
+The most common anti-pattern I'm sure we've all seen is all effort consumed on new feature development, only allowing for some effort to be clawed back to fix bugs.
 The team ignores the important work of taking features from good to great, and never gets around to retiring features that no longer add value.
 
 I'm my own practice I've found ["4Rs Feature Lifecycle Analysis"](https://fla.evendis.com/) a very useful process diagnostic to combat this. In essence, all stories get classified as belonging to one of the four stages of a feature lifecycle:
