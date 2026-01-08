@@ -54,14 +54,14 @@ In reality, I've often had to deal with, let's say "misleading", assessments of 
             * if execs only hear about development when things go wrong, they'll think that's the norm
             * make sure to provide regular updates that include all the good news about the process working correctly
 
-## Problem 3. We are ignoring the Full Feature Lifecycle
+## Problem 2. We are ignoring the Full Feature Lifecycle
 
-The podcast did touch on the [Three Horizons](https://en.wikipedia.org/wiki/Three_Horizons) model for ensuring there's always an innovation pipeline, but on a smaller scale I've seen insufficient attention paid to appropriately balancing effort the full lifecycle of features.
+The podcast did touch on the [Three Horizons](https://en.wikipedia.org/wiki/Three_Horizons) model for ensuring there's always an innovation pipeline, but on a smaller scale I've seen insufficient attention paid to appropriately balancing effort across the full lifecycle of features.
 
-The most common anti-pattern I'm sure we've all seen is all effort consumed on new feature development, only allowing for some effort to be clawed back to fix bugs.
+The most common anti-pattern I'm sure we've all seen is all effort consumed on new feature development, and only allowing for some effort to be clawed back to fix bugs.
 The team ignores the important work of taking features from good to great, and never gets around to retiring features that no longer add value.
 
-I'm my own practice I've found ["4Rs Feature Lifecycle Analysis"](https://fla.evendis.com/) a very useful process diagnostic to combat this. In essence, all stories get classified as belonging to one of the four stages of a feature lifecycle:
+I'm my own practice I've found ["4Rs Feature Lifecycle Analysis"](https://fla.evendis.com/) a very useful diagnostic to combat this. In essence, all stories get classified as belonging to one of the four stages of a feature lifecycle:
 
 * Stage 1, Reveal: new feature development
 * Stage 2, Refine: improving a feature
@@ -77,13 +77,13 @@ Looking at where effort is bucketed makes it very clear if the product managemen
 * in very mature products, we'd expect to see effort largely shift to rectification and ideally an uptick in retirement effort
 
 If we are using agile software development process, isn't Feature Lifecycle Analysis redundant?
-In an ideal world, a well-balanced and high-performing team should be able to find the optimal balance by trusting the process:
+A well-balanced and high-performing team should be able to find the optimal balance by trusting the process:
 
 * customer/business requirements rule, and are represented in the team through a product owner or even an onsite customer
 * we prioritise work for each iteration as a team, balancing customer/business requirements with other things that the team knows are important in order to meet customer expectations (like performance)
 * we keep our iterations short and continuously deliver working software, so even if we get things wrong we can course-correct in short order
 
-That is of course the ideal. But we operate in the real world, and many things can upset the balance of our projects leading to less-than-ideal outcomes. For example:
+That is of course the ideal. But we operate in the real world, and many things can upset the balance. For example:
 
 * Urgency Trumps Impact
     * It's easy to find a queue of people ready to argue for the latest urgent requirement, but there's no-one around to champion the more impactful stuff that hasn't also been called out as urgent. Result? Six months later, we've delivered all the urgent things, but 90% of the potential impact ("value") is still on the table.
