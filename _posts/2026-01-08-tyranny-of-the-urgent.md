@@ -9,9 +9,15 @@ tags:
 The [Agile Embedded Podcast](https://agileembeddedpodcast.com/)
 is as thought-provoking as ever with their take on the
 [Tyranny of the Urgent](https://agileembeddedpodcast.com/episodes/tyranny-of-the-urgent).
-Their discussion focused very much on how the agile mantra of creating immediate customer value
+The discussion focused very much on how the agile mantra of creating immediate customer value
 can lead a team astray,
 but it made me think of all the other ways I've seen and experienced the "Tyranny of the Urgent" over the years.
+
+Three thoughts came to mind:
+
+* We're Not Being Honest about Impact and Urgency
+* We are ignoring the Full Feature Lifecycle
+* When Things are Always Urgent, it may just be a Capacity Problem
 
 > **Tyranny of the Urgent:**
 > An anti-pattern where short-term urgent demands systematically override long-term important work, causing reactive behavior and worsening future urgency.
@@ -49,49 +55,30 @@ In reality, I've often had to deal with, let's say "misleading", assessments of 
             * ideally they should regularly be hearing all the good news about the process working correctly too
             * someone should be providing this level of regular update as a critical part of sustaining development
 
-## Problem 2. When Things are Always Urgent, it may just be a Capacity Problem
-
-When you have way more work than people to do it, no amount of clever scheduling can "plan your way out of the hole".
-I'm talking about consistently failing to meet expectations for feature delivery, despite everyone doing the best job possible.
-
-In that case there's really only three options:
-
-* change the scope: admit your goals are too ambitious. Find a way to rescale to a more manageable problem
-* increase capacity: admit you are trying to do the work of an 8 person team with a team of 3
-* find a better way to work:
-    * likely the team has already been looking for incremental improvements as a result of a normal retrospective process and found all the low-hanging fruit
-    * but it may be time to take a big step back and ask more fundamental questions e.g.
-        * are we using the most appropriate platform or tools?
-        * if we struggle with C/C++ productivity, should we be using something like MicroPython instead?
-        * or these days: are there opportunities to make better use of AI in our shop?
-
 ## Problem 3. We are ignoring the Full Feature Lifecycle
 
-The podcast did touch on the [Three Horizons](https://en.wikipedia.org/wiki/Three_Horizons) model for ensuring there's always an innovation pipeline for the business, but on a smaller scale I've seen insufficient attention paid to managing the lifecycle of a feature.
+The podcast did touch on the [Three Horizons](https://en.wikipedia.org/wiki/Three_Horizons) model for ensuring there's always an innovation pipeline, but on a smaller scale I've seen insufficient attention paid to appropriately balancing the feature lifecycle.
 
-The most common anti-pattern is seeing all effort consumed on new feature development, only allowing effort to be clawed back to fix bugs.
-The problem with this approach is that it ignores two other stages of the feature lifecycle:
+The most common anti-pattern I've seen is all effort consumed on new feature development, only allowing effort to be clawed back to fix bugs.
+The team ignores the important work of taking features from good to great, and never gets around to retiring features that no longer add value.
 
-* feature refinement: where we take a feature from good to great, and arguably capture the most value
-* feature retirement: saying goodbye to features that no longer make sense
-
-I'm my own practice I used a ["4Rs"](https://fla.evendis.com/) approach. In essence, all stories get classified as belonging to one of the four stages of a feature lifecycle:
+I'm my own practice I've found ["4Rs Feature Lifecycle Analysis"](https://fla.evendis.com/) a very useful process diagnostic to combat this. In essence, all stories get classified as belonging to one of the four stages of a feature lifecycle:
 
 * Stage 1, Reveal: new feature development
 * Stage 2, Refine: improving a feature
 * Stage 3, Rectify: fixing bugs, CVEs, updating dependencies etc
 * Stage 4, Retire: removing the feature when it no longer has sufficient value
 
-I've found that looking at where your effort is going is a useful diagnostic to check if the product management process is delivering a pipeline of work that matches the maturity of the product.
+Looking at where effort is bucketed makes it very clear if the product management process is delivering a pipeline of work that matches the maturity of the product. i.e.:
 
-* during initial product development, one expects the majority of the effort to go to new feature development
+* during initial product development, one expects most effort to go into new feature development
 * after launch
-    * if one is not seeing a shift from reveal to refinement, it can indicate we are stuck in new feature mode and are not taking the time to improve the "v1" features already out there
-    * and if we see rectification starting to swamp feature development, do we have a quality issue?
+    * if one is not seeing a shift towards refinement, it may indicate we are stuck in "new feature mode" and are not taking the time to improve the "v1" features already launched
+    * and if we see rectification starting to swamp feature development, it may indicate systemic quality issues
 * in very mature products, we'd expect to see effort largely shift to rectification and ideally an uptick in retirement effort
 
 If we are using agile software development process, isn't Feature Lifecycle Analysis redundant?
-In an ideal world with a well-balanced and high-performing team, we should be able to find our own optimal balance by trusting the process:
+In an ideal world, a well-balanced and high-performing team should be able to find the optimal balance by trusting the process:
 
 * customer/business requirements rule, and are represented in the team through a product owner or even an onsite customer
 * we prioritise work for each iteration as a team, balancing customer/business requirements with other things that the team knows are important in order to meet customer expectations (like performance)
@@ -118,6 +105,22 @@ That is of course the ideal. But we operate in the real world, and many things c
 
 Feature Lifecycle Analysis is really just a diagnostic that can present in a picture what may otherwise just be a gut-feeling that something is not quite right.
 
-<iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/dfd6f664-49c0-41ff-9f4a-a46180bb084c?dark=false"></iframe>
+## Problem 3. When Things are Always Urgent, it may just be a Capacity Problem
 
-NB: yes, this is an old episode from 2023 but no less relevant for the fact. I'm now just catching up on back episodes.
+We refined our scope to death, optimised all our processes, fine-tuned our tools,
+made all the improvements surfaced by our retrospectives,
+ensured all our people are well trained and working at their best...
+BUT we are still consistently failing to meet expectations for feature delivery.
+
+We may just need to admit we have a fundamental capacity issue, and no amount of clever scheduling can plan our way out of the hole. Are we trying to do the work of an 8 person team with a team of 3?
+
+If that's the case, frankly it's time for leaders to step up and either:
+
+* reset expectations with stakeholders
+* or make the case for investing in greater capacity
+
+## Listen to the Podcast
+
+Yes, it is an old episode from 2023 but no less relevant for the fact. I'm busily catching up on back episodes;-)
+
+<iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/dfd6f664-49c0-41ff-9f4a-a46180bb084c?dark=false"></iframe>
