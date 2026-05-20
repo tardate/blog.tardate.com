@@ -8,7 +8,7 @@ tags:
 - AI
 ---
 
-Large Language Models (LLMs) are statistical inference machines that project from available data and training sets. When they stray beyond the data, they hallucinate. Which may be a good thing, depending upon your intent. But usually not. LLM advances in the past 10 years have largely been constrained by the capital and supply-chain wizardry required to put farms of GPUs on the job of training the latest model. But are we reaching the point where data becomes the strangling bottleneck, not GPUs?
+Large Language Models (LLMs) are statistical inference machines that project from available data and training sets. When they stray beyond the data, they hallucinate. Which may be a good thing, depending upon your intent. But usually not. LLM advances in the past 10 years have largely been constrained by the capital and supply-chain wizardry required to put farms of GPUs on the job of training the latest model. But are we reaching the point where DATA becomes the strangling bottleneck, not GPUs?
 ![hero_image][hero_image]
 
 ## The Bait And Switch
@@ -60,7 +60,7 @@ That may be a low bar, as the roasting that
 [Richard Dawkins got for his Claude Delusion](https://www.youtube.com/watch?v=02pBnDkV0rQ)
 illustrates.
 
-My retrospectively-enlightening-career is festooned with examples of intentions boldly proceeding before an absence of data. To wit...
+My retrospectively-enlightening career is festooned with examples of good intentions boldly proceeding before an absence of data. To wit...
 
 ## Skinny Data
 
