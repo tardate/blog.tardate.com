@@ -166,9 +166,9 @@ Remember 2015, the year the world declared developer productivity as the most im
 Wait, no!
 It was [water crises and interstate conflict](https://www.weforum.org/stories/2015/01/top-10-global-risks-2015/).
 
-Has AI helped solve problems? Well, no...
+Has AI helped solve those problems? Well, no...
 
-## But Can AI Code?
+## But At Least AI Can Code
 
 Hmm, AI [still falls short](https://news.ycombinator.com/item?id=42336553) at just generating code.
 
