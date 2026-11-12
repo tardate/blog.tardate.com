@@ -80,7 +80,7 @@ So if you wanted to build an AI replacement for the support agent with this data
 >
 > Customer: er, ok? So what exactly should I do?
 >
-> AI: You are right, perhaps my instructions were not clear. If you need further help, call our interactive voice-assisted ChatBot at 1-800-FUCK-OFF. I am sure they will be able to resolve your inability to follow our instructions
+> AI: Sorry, you are right, my instructions were not clear. To solve the problem, you just need to fix your Network Configuration.
 
 As the basis for anything remotely useful or intelligent, it turned out that the data was pretty much useless.
 
@@ -109,7 +109,7 @@ or uniform details for specific information, the information may exist somewhere
 
 AI responses on such topics will be lacking in the necessary detail, or worse, fictitious.
 
-If one were to ask, for example,  about the uniforms worn by the Japanese in Peleliu, we get:
+If one were to ask, for example, about the uniforms worn by the Japanese in Peleliu, we get:
 
 * Olive-drab or khaki cotton tunic and trousers
 * Often faded to light brown, tan, or greenish-grey from tropical exposure
@@ -117,11 +117,9 @@ If one were to ask, for example,  about the uniforms worn by the Japanese in Pel
 * Puttees (cloth leg wraps) or canvas gaiters
 * Split-toe tabi shoes or hobnailed ankle boots
 
-i.e the equivalent of
+i.e. generally correct, but specifically imprecise.
 
-> y'sir, he kinda looked japanese
-
-Not useful! There is a great deal of information that is not generally accessible, or yet to be digitized. Rather than deliver glib deceptive answers, it would be far better if the concerned agents were able to promote relevant digitization efforts.
+Not useful! There is a great deal of information that is either not generally accessible, yet to be digitized, or in a language not in the training set.
 
 ## Data Black Hole
 
@@ -166,7 +164,7 @@ Remember 2015, the year the world declared developer productivity as the most im
 Wait, no!
 It was [water crises and interstate conflict](https://www.weforum.org/stories/2015/01/top-10-global-risks-2015/).
 
-Has AI helped solve those problems? Well, no...
+Has AI helped solve those problems? No.
 
 ## But At Least AI Can Code
 
@@ -191,8 +189,7 @@ But all the easily accessible data has already been plundered.
 
 QED: LLMs need a massive data collection exercise, like Meta's [MCI](https://www.reuters.com/sustainability/boards-policy-regulation/meta-start-capturing-employee-mouse-movements-keystrokes-ai-training-data-2026-04-21/).
 
-But surely this as an exponential race to the bottom?  As fast as GPUs can process, we need even more data to ingest.
-I am picturing a lecturer's chart scooting off to the top-right...
+But surely this as an exponential race to the bottom? As fast as GPUs can process, we need even more data to ingest.
 
 ### Unbounded by Data
 
@@ -237,7 +234,7 @@ Typical characteristics of non-decomposable tasks:
 So this is the rational middle-ground: LLMs are not worth the trillion dollar valuations, but they can be useful
 in the routine course of working a task.
 
-I just hope that someone gets stuck with that AI training bill,
+I just don't want to be the person stuck with that AI training bill,
 like the investors who paid for the Global Crossing bankruptcy and unwittingly
 ushered in the era of "effectively free" global communications!
 
